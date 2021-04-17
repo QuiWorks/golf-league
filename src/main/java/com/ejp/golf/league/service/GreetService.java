@@ -1,4 +1,4 @@
-package com.ejp.golf;
+package com.ejp.golf.league.service;
 
 import java.io.Serializable;
 

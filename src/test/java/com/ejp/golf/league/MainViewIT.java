@@ -1,4 +1,4 @@
-package com.ejp.golf;
+package com.ejp.golf.league;
 
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import org.junit.Assert;

@@ -1,7 +1,8 @@
-package com.ejp.golf;
+package com.ejp.golf.league.view;
 
+import com.ejp.golf.league.layout.MainLayout;
+import com.ejp.golf.league.service.GreetService;
 import com.vaadin.flow.component.Key;
-import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;

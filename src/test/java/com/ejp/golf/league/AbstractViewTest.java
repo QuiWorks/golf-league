@@ -1,4 +1,4 @@
-package com.ejp.golf;
+package com.ejp.golf.league;
 
 import com.vaadin.flow.theme.AbstractTheme;
 import com.vaadin.testbench.ScreenshotOnFailureRule;
