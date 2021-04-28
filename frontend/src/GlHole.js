@@ -10,14 +10,21 @@ export class GlHole extends LitElement {
         return css`
         :host {
           font-size: 12pt;
+          max-width: 75px;
+          margin:2px;
         }
         .column {
           display: flex;
           flex-direction: column;
-          margin: 4px;
+          margin: 4px 0 4px 4px;
           max-width: 64px;
           justify-content: space-between;
         }
+        
+        .no-label {
+            align-items: end;
+        }
+        
         .row {
           display:flex;
           margin: 2px;
@@ -29,6 +36,9 @@ export class GlHole extends LitElement {
         }
         .input::part(value) {
             transform: rotate(90deg);
+        }
+        .value {
+            margin-left:2px;
         }
         `;
     }
@@ -70,6 +80,8 @@ export class GlHole extends LitElement {
     showLabel()
     {
         this.label = true;
+        this.style.maxWidth = "100px";
+        this.shadowRoot.querySelector(".no-label").classList.remove("no-label");
     }
 
     getHoleData()
@@ -90,21 +102,22 @@ export class GlHole extends LitElement {
     render() {
         return html`
     <div class="row">
-        <div class="column">
+        <div class="column no-label">
           <div class="row">
-              ${this.label? html`<label>Hole:</label><span>${this.number}</span>`:html`<span>${this.number}</span>`}
+              ${this.firstInFlexRow().map(() => html`<label>hole:</label>`)}
+              <span class="value">${this.number}</span>
           </div>
           <div class="row">
             ${this.firstInFlexRow().map(() => html`<label>yrd:</label>`)}
-            <span>${this.yardage}</span>
+            <span class="value">${this.yardage}</span>
           </div>
           <div class="row">
             ${this.firstInFlexRow().map(() => html`<label>par:</label>`)}
-            <span>${this.par}</span>
+            <span class="value">${this.par}</span>
           </div>
           <div class="row">
             ${this.firstInFlexRow().map(() => html`<label>hdcp:</label>`)}
-            <span>${this.handicap}</span>
+            <span class="value">${this.handicap}</span>
           </div>
         </div>
         <vaadin-integer-field class="input" has-controls @change="${this._scoreChange}" min="1" max="10" placeholder="3" value="${this.score}"></vaadin-integer-field>
