@@ -81,37 +81,26 @@ export class GlCard extends LitElement {
         this.name = "";
         this.sub = false;
         this.comment = "";
-        this.holeOffSets = [];
-    }
-
-
-    setLabel() {
-        return (e) => {
-            if (this.holeOffSets.length < 9) {
-                this.holeOffSets.push(e.detail);
-            } else {
-                this.setLabels();
-            }
-        };
     }
 
     connectedCallback() {
         super.connectedCallback();
-        this.addEventListener("gl-hole-first-update", this.setLabel.bind(this));
+        this.addEventListener("gl-hole-first-update", this.setLabelsOnFirstInRow.bind(this));
     }
 
-    firstUpdated(_changedProperties) {
-        super.firstUpdated(_changedProperties);
-        let slots = [...this.shadowRoot.querySelectorAll("slot")];
-        let holes = slots.map(slot => slot.assignedElements()[0]);
-        let boundingClientRect = this.shadowRoot.querySelector('.hole-container').getBoundingClientRect();
-        let maxHolesPerRow = Math.floor((boundingClientRect.right - boundingClientRect.left) / 104);
-        let y = 9 + maxHolesPerRow;
-        while (y > maxHolesPerRow)
-        {
-            y -= maxHolesPerRow;
-            const firstHoleInRow = holes[9 - y];
-            firstHoleInRow.showLabel();
+    setLabelsOnFirstInRow(e) {
+        if(e.detail.hole === 9){
+            const slots = [...this.shadowRoot.querySelectorAll("slot")];
+            const holes = slots.map(slot => slot.assignedElements()[0]);
+            const holeContainer = this.shadowRoot.querySelector('.hole-container').getBoundingClientRect();
+            const widthOfElement = holes[0].getBoundingClientRect().width;
+            let maxHolesPerRow = Math.floor((holeContainer.right - holeContainer.left) / widthOfElement);
+            let y = 9 + maxHolesPerRow;
+            while (y > maxHolesPerRow) {
+                y -= maxHolesPerRow;
+                const firstHoleInRow = holes[9 - y];
+                firstHoleInRow.showLabel();
+            }
         }
     }
 
