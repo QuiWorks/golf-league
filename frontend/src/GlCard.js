@@ -81,20 +81,17 @@ export class GlCard extends LitElement {
         this.name = "";
         this.sub = false;
         this.comment = "";
-        this.holes = [];
         this.holeOffSets = [];
     }
 
 
     setLabel() {
         return (e) => {
-            console.log(e);
             if (this.holeOffSets.length < 9) {
                 this.holeOffSets.push(e.detail);
             } else {
                 this.setLabels();
             }
-            console.log(this.holeOffSets);
         };
     }
 
@@ -107,101 +104,16 @@ export class GlCard extends LitElement {
         super.firstUpdated(_changedProperties);
         let slots = [...this.shadowRoot.querySelectorAll("slot")];
         let holes = slots.map(slot => slot.assignedElements()[0]);
-
-
-        //TODO REDUCES HOLE ONCE PER ROW NEEDED AND POP OFF MATCHING HOLE ONE WITH LEAST OFFSETLEFT
-        // let firstHole = holes.reduce((h1, h2) => {
-        //     console.log(h1.getBoundingClientRect().left);
-        //     return h1.h1.getBoundingClientRect().left <= h2.h1.getBoundingClientRect().left ? h2 : h1
-        // });
-
-        let firstHole = holes[0];
-
-        // firstHole.showLabel();
-
-        // let boundingClientRect = this.getBoundingClientRect();
-        // let height = boundingClientRect.bottom - boundingClientRect.top;
         let boundingClientRect = this.shadowRoot.querySelector('.hole-container').getBoundingClientRect();
         let maxHolesPerRow = Math.floor((boundingClientRect.right - boundingClientRect.left) / 104);
-        let remainder = Math.floor(9 % maxHolesPerRow);
-        // 1 row = hole 1
-        // 2 row
-
-        //TODO INTERATE A LOOP 9 - maxHolesPerRow until the remainder is less than maxHolesPerRow
-
-        let firstHolesInRow = [];
-        for(let x = 0; x < 9; x++)
-        {
-
-        }
-
         let y = 9 + maxHolesPerRow;
         while (y > maxHolesPerRow)
         {
             y -= maxHolesPerRow;
-            holes[9 - y].showLabel();
+            const firstHoleInRow = holes[9 - y];
+            firstHoleInRow.showLabel();
         }
-
-        for(let x = 9; x > maxHolesPerRow; x = x - maxHolesPerRow)
-        {
-            console.log(x);
-            let element = holes[Math.floor(9 / x)];
-            console.log(element);
-            // element.showLabel();
-        }
-
-        console.log(remainder);
-
-
-        //todo first hole always has label. Then calculate how many rows are needed.
-
-        let holeLabel = Math.floor(((boundingClientRect.right - boundingClientRect.left) / 104));
-
-
-        // holes[holeLabel].showLabel();
-
-        // console.log(boundingClientRect.top, boundingClientRect.bottom);
-
-        // holes.forEach(h => h.showLabel());
-        // this.shadowRoot.querySelectorAll("slot").forEach(slot => {
-        //     this.holes.push(slot.assignedElements());
-        // });
-
-        // const firstHolesInRow = [];
-        // // TODO LOOP FOR AS MANY ROWS NEEDED
-        // console.log(this.holes[0].offsetLeft);
-        // let offSets = this.holes.map(h => h.offsetLeft);
-        // console.log(offSets);
-        // let items = offSets
-        //     .reduce((o1, o2) => {return o1 <= o2 ? o1 : o2});
-        // console.log(items);
-        // firstHolesInRow.push(items);
-        // firstHolesInRow.forEach(hole => console.log(hole));
-        // console.log(firstHolesInRow);
     }
-
-    // _assignHoleOffsets() {
-    //     return (e) => {
-    //         this.holeOffSets.push(e.detail);
-    //         this.setLabels();
-    //     };
-    // }
-
-    // setLabels(e) {
-    //     console.log(e);
-    //     const firstHolesInRow = [];
-    //     console.log("TESTSKDHFSKDHFSHDF");
-    //     // TODO LOOP FOR AS MANY ROWS NEEDED
-    //     console.log(this.holes[0].offsetLeft);
-    //     let offSets = this.holes.map(h => h.offsetLeft);
-    //     console.log(offSets);
-    //     let items = offSets
-    //         .reduce((o1, o2) => {return o1 <= o2 ? o1 : o2});
-    //     console.log(items);
-    //     firstHolesInRow.push(items);
-    //     firstHolesInRow.forEach(hole => console.log(hole));
-    //     console.log(firstHolesInRow);
-    // }
 
     formattedDate() {
         try {
