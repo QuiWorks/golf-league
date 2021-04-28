@@ -18,9 +18,12 @@ package com.ejp.golf.league.component;
 import java.util.Date;
 
 import com.ejp.golf.league.component.GlCard.Model;
+import com.ejp.golf.league.event.GlCardSubmission;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.shared.Registration;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.templatemodel.Encode;
 import com.vaadin.flow.templatemodel.TemplateModel;
@@ -43,20 +46,14 @@ public class GlCard extends PolymerTemplate<Model>
      */
     public interface Model extends TemplateModel
 	{
-        void setTeam(int team);
-        int getTeam();
         void setFlight(int flight);
         int getFlight();
-        void setHandicap(int handicap);
-        int getHandicap();
         void setNine(String nine);
         String getNine();
-        void setName(String name);
-        String getName();
-        void setSub(boolean sub);
-        boolean isSub();
-        void setComment(String comment);
+        void setComment(String nine);
         String getComment();
+        void setNoComment(Boolean noComment);
+        Boolean getNoComment();
 //        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
         //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
 //        void setDate(Date date);
@@ -66,14 +63,9 @@ public class GlCard extends PolymerTemplate<Model>
     public GlCard() {
     }
 
-    public int getTeam()
+    public Registration addCardSubmissionListener(ComponentEventListener<GlCardSubmission> listener)
     {
-        return getModel().getTeam();
-    }
-
-    public void setTeam(int team)
-    {
-        getModel().setTeam(team);
+        return addListener(GlCardSubmission.class, listener);
     }
 
     public int getFlight()
@@ -86,16 +78,6 @@ public class GlCard extends PolymerTemplate<Model>
         getModel().setFlight(flight);
     }
 
-    public int getHandicap()
-    {
-        return getModel().getHandicap();
-    }
-
-    public void setHandicap(int handicap)
-    {
-        getModel().setHandicap(handicap);
-    }
-
     public String getNine()
     {
         return getModel().getNine();
@@ -106,37 +88,27 @@ public class GlCard extends PolymerTemplate<Model>
         getModel().setNine(nine);
     }
 
-    public String getName()
-    {
-        return getModel().getName();
-    }
-
-    public void setName(String name)
-    {
-        getModel().setName(name);
-    }
-
     public String getComment()
     {
-        return getModel().getComment();
+        return getModel().getNine();
     }
 
-    public void setComment(String comment)
+    public void setComment(String nine)
     {
-        getModel().setComment(comment);
+        getModel().setNine(nine);
     }
 
-    public boolean isSub()
-    {
-        return getModel().isSub();
+    private Boolean noComment;
+
+    public Boolean getNoComment() {
+        return getModel().getNoComment();
     }
 
-    public void setSub(boolean sub)
-    {
-        getModel().setSub(sub);
+    public void setNoComment(Boolean noComment) {
+        getModel().setNoComment(noComment);
     }
 
-//    public Date getDate()
+    //    public Date getDate()
 //    {
 //        return getModel().getDate();
 //    }

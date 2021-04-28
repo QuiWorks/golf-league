@@ -5,7 +5,9 @@ import java.util.stream.IntStream;
 import javax.sound.sampled.FloatControl;
 
 import com.ejp.golf.league.component.GlCard;
+import com.ejp.golf.league.component.GlGolfer;
 import com.ejp.golf.league.component.GlHole;
+import com.ejp.golf.league.component.GlRound;
 import com.ejp.golf.league.layout.MainLayout;
 import com.ejp.golf.league.service.GreetService;
 import com.vaadin.flow.component.Key;
@@ -49,15 +51,43 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
         addClassName("centered-content");
+
+        final GlGolfer golfer = new GlGolfer();
+        golfer.setHandicap(2);
+        golfer.setName("Gary Pederson");
+        golfer.setSub(false);
+        golfer.setTeam(3);
+
+        final GlGolfer golfer2 = new GlGolfer();
+        golfer2.setHandicap(6);
+        golfer2.setName("Dave Thompson");
+        golfer2.setSub(false);
+        golfer2.setTeam(3);
+
         final GlCard glCard = new GlCard();
         glCard.setFlight(6);
-        glCard.setHandicap(2);
-        glCard.setName("Gary Pederson");
         glCard.setNine("Back");
-        glCard.setSub(false);
-        glCard.setTeam(3);
+        //TODO handle dates.
 //        glCard.setDate(new Date());
-        IntStream.range(1,10).mapToObj(this::addHole).forEach(hole -> glCard.getElement().appendChild(hole.getElement()));
+
+        final GlRound glRound = new GlRound();
+        final GlRound glRound2 = new GlRound();
+
+
+        IntStream.range(1,10).mapToObj(this::addHole).forEach(hole -> glRound.getElement().appendChild(hole.getElement()));
+        IntStream.range(1,10).mapToObj(this::addHole).forEach(hole -> glRound2.getElement().appendChild(hole.getElement()));
+        golfer.getElement().appendChild(glRound.getElement());
+        golfer2.getElement().appendChild(glRound2.getElement());
+        glCard.getElement().appendChild(golfer.getElement());
+        glCard.getElement().appendChild(golfer2.getElement());
+
+        //TODO handle submission event.
+        glCard.addCardSubmissionListener(event -> {
+            GlCard source = event.getSource();
+            int flight = event.getFlight();
+            System.out.println(flight);
+        });
+
         add(glCard);
     }
 

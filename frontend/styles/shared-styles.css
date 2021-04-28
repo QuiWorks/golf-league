@@ -30,3 +30,14 @@
   margin: 1em;
 }
 
+.title {
+  color:green;
+  font-weight: bold;
+}
+
+:root {
+  --lumo-primary-color:green;
+  --lumo-primary-color-50pct:lightgreen;
+  --lumo-primary-color-100pct: var(--lumo-shade-10pct, lightgray);
+}
+

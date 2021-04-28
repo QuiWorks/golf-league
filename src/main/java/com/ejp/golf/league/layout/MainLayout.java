@@ -3,6 +3,8 @@ package com.ejp.golf.league.layout;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.ejp.golf.league.component.GlCard;
+import com.ejp.golf.league.component.GlGolfer;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;
@@ -42,6 +44,7 @@ public class MainLayout extends AppLayout
 		final Dialog applicationDialog = createApplicationDialog();
 		final Button sideDrawerToggleButton = createSideDrawerToggleButton();
 		final Component title = createTitle(leagueName);
+		title.getElement().getClassList().add("title");
 		final Button applicationMenuButton = createApplicationMenuButton(applicationDialog);
 		final Div container = new Div(sideDrawerToggleButton, title, applicationDialog,
 			applicationMenuButton);
@@ -53,12 +56,40 @@ public class MainLayout extends AppLayout
 	{
 		final Div container = new Div();
 		container.setClassName("column");
-		container.add(new Label("EVENT NAME and DATE"));
-		container.add(
-			IntStream.range(1, 5)
-				.mapToObj(i -> new Button("Player " + i))
-				.collect(Collectors.toList())
-				.toArray(new Button[]{}));
+//		Label title = new Label("EVENT NAME and DATE");
+//		title.setClassName("title");
+//		container.add(title);
+//		container.add(
+//			IntStream.range(1, 5)
+//				.mapToObj(i -> new Button("Player " + i))
+//				.collect(Collectors.toList())
+//				.toArray(new Button[]{}));
+
+
+
+		final GlGolfer golfer = new GlGolfer();
+		golfer.setHandicap(2);
+		golfer.setName("Gary Pederson");
+		golfer.setSub(false);
+		golfer.setTeam(3);
+
+		final GlCard glCard = new GlCard();
+		glCard.setFlight(6);
+		glCard.setNine("Back");
+		glCard.setNoComment(true);
+		//TODO handle dates.
+//        glCard.setDate(new Date());
+
+		glCard.getElement().appendChild(golfer.getElement());
+
+		//TODO handle submission event.
+		glCard.addCardSubmissionListener(event -> {
+			GlCard source = event.getSource();
+			int flight = event.getFlight();
+			System.out.println(flight);
+		});
+
+		container.add(glCard);
 		return new Dialog(container);
 	}
 
