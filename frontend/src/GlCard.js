@@ -168,7 +168,7 @@ export class GlCard extends LitElement {
           <vaadin-text-field name="name" value="${this.name}" ></vaadin-text-field>
         </div>
         <div class="card-info">
-          <label for="sub">sub</label>
+          <label for="sub">Sub?:</label>
           <vaadin-checkbox name="sub" value="${this.sub}" ></vaadin-checkbox>
         </div>
         <div class="card-info">
@@ -180,7 +180,7 @@ export class GlCard extends LitElement {
           <vaadin-number-field name="team" value="${this.team}" ></vaadin-number-field>
         </div>
         <div class="card-info">
-          <label for="handicap">hndcp:</label>
+          <label for="handicap">Hndp:</label>
           <vaadin-number-field name="handicap" value="${this.handicap}" ></vaadin-number-field>
         </div>
       </div>
