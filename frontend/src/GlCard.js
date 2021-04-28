@@ -55,6 +55,10 @@ export class GlCard extends LitElement {
         vaadin-number-field {
           width: 48px;
         }
+        
+        label {
+            margin-right: 4px;
+        }
         `;
     }
 
@@ -153,7 +157,7 @@ export class GlCard extends LitElement {
       <div class="card-info-container">        
         <div class="card-info">
           <label for="nine">Nine:</label>
-          <vaadin-text-field class="small-width" name="nine" value="${this.nine}" ></vaadin-text-field>
+          <vaadin-text-field class="small-width" labe="Nine" name="nine" value="${this.nine}" ></vaadin-text-field>
         </div>
         <div class="card-info">
           <label for="date">Date:</label>
