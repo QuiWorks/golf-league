@@ -42,6 +42,7 @@ public class MainLayout extends AppLayout
 		final Dialog applicationDialog = createApplicationDialog();
 		final Button sideDrawerToggleButton = createSideDrawerToggleButton();
 		final Component title = createTitle(leagueName);
+		title.getElement().getClassList().add("title");
 		final Button applicationMenuButton = createApplicationMenuButton(applicationDialog);
 		final Div container = new Div(sideDrawerToggleButton, title, applicationDialog,
 			applicationMenuButton);
@@ -53,7 +54,9 @@ public class MainLayout extends AppLayout
 	{
 		final Div container = new Div();
 		container.setClassName("column");
-		container.add(new Label("EVENT NAME and DATE"));
+		Label title = new Label("EVENT NAME and DATE");
+		title.setClassName("title");
+		container.add(title);
 		container.add(
 			IntStream.range(1, 5)
 				.mapToObj(i -> new Button("Player " + i))

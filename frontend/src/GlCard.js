@@ -56,6 +56,10 @@ export class GlCard extends LitElement {
           width: 48px;
         }
         
+        .comments {
+            margin:0;
+        }
+        
         label {
             margin-right: 4px;
         }
@@ -195,7 +199,7 @@ export class GlCard extends LitElement {
         <slot name="hole8"></slot>
         <slot name="hole9"></slot>
       </div>
-      <vaadin-text-area label="Comments:" name="comment"></vaadin-text-area>
+      <vaadin-text-area class="comments" label="Comments:" name="comment"></vaadin-text-area>
       <vaadin-button @click="${this.submit}">Update</vaadin-button>
     </div>
     `;
