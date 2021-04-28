@@ -15,29 +15,19 @@ export class GlHole extends LitElement {
           display: flex;
           flex-direction: column;
           margin: 4px;
-          min-width: 48px;
-          max-width: 96px;
+          max-width: 64px;
+          justify-content: space-between;
         }
         .row {
           display:flex;
-          flex-direction:row;
-          justify-content: justify-content: space-between;;
-          align-items: center;
           margin: 2px;
-        }
-        .row .first {
-            justify-content: space-between;
-        }
-        .row span {
-            padding-right: 40px;
-        }
-        .row .input {
-            min-width: 48px;
+          flex-direction:row;
+          justify-content: space-between;
         }
         .input {
             transform: rotate(-90deg);
         }
-        .input['part'] {
+        .input::part(value) {
             transform: rotate(90deg);
         }
         `;
@@ -102,8 +92,7 @@ export class GlHole extends LitElement {
     <div class="row">
         <div class="column">
           <div class="row">
-            ${this.firstInFlexRow().map(() => html`<label>Hole:</label>`)}
-            <span>${this.number}</span>
+              ${this.label? html`<label>Hole:</label><span>${this.number}</span>`:html`<span>${this.number}</span>`}
           </div>
           <div class="row">
             ${this.firstInFlexRow().map(() => html`<label>yrd:</label>`)}
