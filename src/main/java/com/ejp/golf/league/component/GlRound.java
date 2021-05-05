@@ -15,14 +15,11 @@
  */
 package com.ejp.golf.league.component;
 
-import java.util.Date;
-
-import com.ejp.golf.league.component.GlCard.Model;
+import com.ejp.golf.league.component.GlRound.Model;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.spring.annotation.SpringComponent;
-import com.vaadin.flow.templatemodel.Encode;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -31,11 +28,11 @@ import org.springframework.context.annotation.Scope;
 /**
  * Simple template example.
  */
-@Tag("gl-card")
-@JsModule("./src/GlCard.js")
+@Tag("gl-round")
+@JsModule("./src/GlRound.js")
 @SpringComponent
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class GlCard extends PolymerTemplate<Model>
+public class GlRound extends PolymerTemplate<Model>
 {
 
     /**
@@ -43,46 +40,21 @@ public class GlCard extends PolymerTemplate<Model>
      */
     public interface Model extends TemplateModel
 	{
-        void setFlight(int flight);
-        int getFlight();
-        void setNine(String nine);
-        String getNine();
-//        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
-        //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
-//        void setDate(Date date);
-//        Date getDate();
+        void setComment(String comment);
+        String getComment();
     }
 
-    public GlCard() {
+    public GlRound() {
     }
 
-    public int getFlight()
+    public String getComment()
     {
-        return getModel().getFlight();
+        return getModel().getComment();
     }
 
-    public void setFlight(int flight)
+    public void setComment(String team)
     {
-        getModel().setFlight(flight);
+        getModel().setComment(team);
     }
 
-    public String getNine()
-    {
-        return getModel().getNine();
-    }
-
-    public void setNine(String nine)
-    {
-        getModel().setNine(nine);
-    }
-
-//    public Date getDate()
-//    {
-//        return getModel().getDate();
-//    }
-//
-//    public void setDate(Date date)
-//    {
-//        getModel().setDate(date);
-//    }
 }

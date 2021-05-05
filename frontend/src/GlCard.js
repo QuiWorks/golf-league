@@ -13,17 +13,10 @@ export class GlCard extends LitElement {
           font-size: 12pt;
         }
 
-        .hole-container, .card-info-container {
+        .card-info-container {
           display:flex;
           flex-direction: row;
           flex-wrap:wrap;
-        }
-
-        .hole-container {
-          justify-content: start;
-        }
-
-        .card-info-container {
           justify-content: start;
         }
         
@@ -55,14 +48,6 @@ export class GlCard extends LitElement {
         vaadin-number-field {
           width: 48px;
         }
-        
-        .comments {
-            margin:0;
-        }
-        
-        label {
-            margin-right: 4px;
-        }
         `;
     }
 
@@ -81,35 +66,9 @@ export class GlCard extends LitElement {
 
     constructor() {
         super();
-        this.team = 0;
         this.flight = 0;
-        this.handicap = 0;
         this.date = new Date();
         this.nine = "";
-        this.name = "";
-        this.sub = false;
-        this.comment = "";
-    }
-
-    connectedCallback() {
-        super.connectedCallback();
-        this.addEventListener("gl-hole-first-update", this.setLabelsOnFirstInRow.bind(this));
-    }
-
-    setLabelsOnFirstInRow(e) {
-        if(e.detail.hole === 9){
-            const slots = [...this.shadowRoot.querySelectorAll("slot")];
-            const holes = slots.map(slot => slot.assignedElements()[0]);
-            const holeContainer = this.shadowRoot.querySelector('.hole-container').getBoundingClientRect();
-            const widthOfElement = holes[0].getBoundingClientRect().width;
-            let maxHolesPerRow = Math.floor((holeContainer.right - holeContainer.left) / widthOfElement);
-            let y = 9 + maxHolesPerRow;
-            while (y > maxHolesPerRow) {
-                y -= maxHolesPerRow;
-                const firstHoleInRow = holes[9 - y];
-                firstHoleInRow.showLabel();
-            }
-        }
     }
 
     formattedDate() {
@@ -118,37 +77,6 @@ export class GlCard extends LitElement {
         } catch (e) {
             return this.date;
         }
-    }
-
-    submit() {
-
-        // Collect hole data.
-        const holeData = []
-        this.shadowRoot.querySelectorAll("slot").forEach(slot => {
-            holeData.push(slot.assignedElements()[0].getHoleData());
-        });
-
-        // Dispatch an application event.
-        this.dispatchEvent(new CustomEvent("gl-hole-card-submission", {
-            detail: {
-                flight: this.flight,
-                date: this.date,
-                nine: this.nine,
-                team: this.team,
-                name: this.name,
-                sub: this.sub,
-                handicap: this.handicap,
-                hole1: holeData[0],
-                hole2: holeData[1],
-                hole3: holeData[2],
-                hole4: holeData[3],
-                hole5: holeData[4],
-                hole6: holeData[5],
-                hole7: holeData[6],
-                hole8: holeData[7],
-                hole9: holeData[8],
-            }, bubbles: true, composed: true
-        }));
     }
 
     _updateDate() {
@@ -160,47 +88,16 @@ export class GlCard extends LitElement {
     <div class="card-container">
       <div class="card-info-container">        
         <div class="card-info">
-          <label for="nine">Nine:</label>
-          <vaadin-text-field class="small-width" labe="Nine" name="nine" value="${this.nine}" ></vaadin-text-field>
+            <vaadin-number-field name="flight" label="flight" value="${this.flight}" ></vaadin-number-field>
         </div>
         <div class="card-info">
-          <label for="date">Date:</label>
-          <vaadin-date-picker class="small-width" name="date" @change="${this._updateDate}" value="${this.formattedDate()}" ></vaadin-date-picker>
+          <vaadin-date-picker class="small-width" label="date" name="date" @change="${this._updateDate}" value="${this.formattedDate()}" ></vaadin-date-picker>
         </div>
         <div class="card-info">
-          <label for="name">Name:</label>
-          <vaadin-text-field name="name" value="${this.name}" ></vaadin-text-field>
-        </div>
-        <div class="card-info">
-          <label for="sub">Sub?:</label>
-          <vaadin-checkbox name="sub" value="${this.sub}" ></vaadin-checkbox>
-        </div>
-        <div class="card-info">
-          <label for="flight">Flight:</label>
-          <vaadin-number-field name="flight" value="${this.flight}" ></vaadin-number-field>
-        </div>
-        <div class="card-info">
-          <label for="team">Team #:</label>
-          <vaadin-number-field name="team" value="${this.team}" ></vaadin-number-field>
-        </div>
-        <div class="card-info">
-          <label for="handicap">Hndp:</label>
-          <vaadin-number-field name="handicap" value="${this.handicap}" ></vaadin-number-field>
+           <vaadin-text-field class="small-width" label="nine" name="nine" value="${this.nine}" ></vaadin-text-field>
         </div>
       </div>
-      <div class="hole-container">
-        <slot name="hole1"></slot>
-        <slot name="hole2"></slot>
-        <slot name="hole3"></slot>
-        <slot name="hole4"></slot>
-        <slot name="hole5"></slot>
-        <slot name="hole6"></slot>
-        <slot name="hole7"></slot>
-        <slot name="hole8"></slot>
-        <slot name="hole9"></slot>
-      </div>
-      <vaadin-text-area class="comments" label="Comments:" name="comment"></vaadin-text-area>
-      <vaadin-button @click="${this.submit}">Update</vaadin-button>
+      <slot></slot>  
     </div>
     `;
     }

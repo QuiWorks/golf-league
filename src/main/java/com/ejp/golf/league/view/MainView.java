@@ -5,7 +5,9 @@ import java.util.stream.IntStream;
 import javax.sound.sampled.FloatControl;
 
 import com.ejp.golf.league.component.GlCard;
+import com.ejp.golf.league.component.GlGolfer;
 import com.ejp.golf.league.component.GlHole;
+import com.ejp.golf.league.component.GlRound;
 import com.ejp.golf.league.layout.MainLayout;
 import com.ejp.golf.league.service.GreetService;
 import com.vaadin.flow.component.Key;
@@ -49,16 +51,26 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
         addClassName("centered-content");
+
+        final GlGolfer golfer = new GlGolfer();
+        golfer.setHandicap(2);
+        golfer.setName("Gary Pederson");
+        golfer.setSub(false);
+        golfer.setTeam(3);
+
         final GlCard glCard = new GlCard();
         glCard.setFlight(6);
-        glCard.setHandicap(2);
-        glCard.setName("Gary Pederson");
         glCard.setNine("Back");
-        glCard.setSub(false);
-        glCard.setTeam(3);
 //        glCard.setDate(new Date());
-        IntStream.range(1,10).mapToObj(this::addHole).forEach(hole -> glCard.getElement().appendChild(hole.getElement()));
-        add(glCard);
+
+        final GlRound glRound = new GlRound();
+
+
+        IntStream.range(1,10).mapToObj(this::addHole).forEach(hole -> glRound.getElement().appendChild(hole.getElement()));
+        glCard.getElement().appendChild(glRound.getElement());
+        golfer.getElement().appendChild(glCard.getElement());
+
+        add(golfer);
     }
 
     private GlHole addHole(int num)

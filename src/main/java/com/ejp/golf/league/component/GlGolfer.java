@@ -15,14 +15,11 @@
  */
 package com.ejp.golf.league.component;
 
-import java.util.Date;
-
-import com.ejp.golf.league.component.GlCard.Model;
+import com.ejp.golf.league.component.GlGolfer.Model;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.spring.annotation.SpringComponent;
-import com.vaadin.flow.templatemodel.Encode;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -31,58 +28,64 @@ import org.springframework.context.annotation.Scope;
 /**
  * Simple template example.
  */
-@Tag("gl-card")
-@JsModule("./src/GlCard.js")
+@Tag("gl-golfer")
+@JsModule("./src/GlGolfer.js")
 @SpringComponent
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class GlCard extends PolymerTemplate<Model>
+public class GlGolfer extends PolymerTemplate<Model>
 {
-
-    /**
-     * Template model which defines the single "name" property.
-     */
     public interface Model extends TemplateModel
 	{
-        void setFlight(int flight);
-        int getFlight();
-        void setNine(String nine);
-        String getNine();
-//        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
-        //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
-//        void setDate(Date date);
-//        Date getDate();
+        void setTeam(int team);
+        int getTeam();
+        void setHandicap(int handicap);
+        int getHandicap();
+        void setName(String name);
+        String getName();
+        void setSub(boolean sub);
+        boolean isSub();
     }
 
-    public GlCard() {
+    public GlGolfer() {
     }
 
-    public int getFlight()
+    public int getTeam()
     {
-        return getModel().getFlight();
+        return getModel().getTeam();
     }
 
-    public void setFlight(int flight)
+    public void setTeam(int team)
     {
-        getModel().setFlight(flight);
+        getModel().setTeam(team);
     }
 
-    public String getNine()
+    public int getHandicap()
     {
-        return getModel().getNine();
+        return getModel().getHandicap();
     }
 
-    public void setNine(String nine)
+    public void setHandicap(int handicap)
     {
-        getModel().setNine(nine);
+        getModel().setHandicap(handicap);
     }
 
-//    public Date getDate()
-//    {
-//        return getModel().getDate();
-//    }
-//
-//    public void setDate(Date date)
-//    {
-//        getModel().setDate(date);
-//    }
+    public String getName()
+    {
+        return getModel().getName();
+    }
+
+    public void setName(String name)
+    {
+        getModel().setName(name);
+    }
+
+    public boolean isSub()
+    {
+        return getModel().isSub();
+    }
+
+    public void setSub(boolean sub)
+    {
+        getModel().setSub(sub);
+    }
 }
