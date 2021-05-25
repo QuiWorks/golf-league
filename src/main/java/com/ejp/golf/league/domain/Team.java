@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "team")
 public class Team {
     private int id;
     private int leagueId;

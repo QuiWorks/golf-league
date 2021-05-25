@@ -4,15 +4,15 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Time;
+import java.util.Date;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "flight")
 public class Flight {
     private int id;
     private int leagueId;
-    private Time start;
-    private Time end;
+    private Date start;
+    private Date end;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -36,21 +36,21 @@ public class Flight {
 
     @Basic
     @Column(name = "start", nullable = false)
-    public Time getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(Time start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
     @Basic
     @Column(name = "end", nullable = false)
-    public Time getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public void setEnd(Time end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
 

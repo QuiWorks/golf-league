@@ -4,10 +4,10 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "golfer")
 public class Golfer {
     private int id;
     private String firstName;
@@ -20,8 +20,8 @@ public class Golfer {
     private String homePhone;
     private String workPhone;
     private String notes;
-    private Byte active;
-    private Timestamp dateAdded;
+    private Boolean active;
+    private LocalDateTime dateAdded;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -135,21 +135,21 @@ public class Golfer {
 
     @Basic
     @Column(name = "active", nullable = true)
-    public Byte getActive() {
+    public Boolean getActive() {
         return active;
     }
 
-    public void setActive(Byte active) {
+    public void setActive(Boolean active) {
         this.active = active;
     }
 
     @Basic
     @Column(name = "date_added", nullable = false)
-    public Timestamp getDateAdded() {
+    public LocalDateTime getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(Timestamp dateAdded) {
+    public void setDateAdded(LocalDateTime dateAdded) {
         this.dateAdded = dateAdded;
     }
 

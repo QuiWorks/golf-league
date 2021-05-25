@@ -1,22 +1,22 @@
 package com.ejp.golf.league.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "event")
 public class Event {
     private int id;
     private int seasonId;
-    private Date day;
+    private int week;
+    private LocalDate day;
     private String eventType;
     private String notes;
 
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -36,12 +36,22 @@ public class Event {
     }
 
     @Basic
+    @Column(name = "week", nullable = false)
+    public int getWeek() {
+        return week;
+    }
+
+    public void setWeek(int week) {
+        this.week = week;
+    }
+
+    @Basic
     @Column(name = "day", nullable = false)
-    public Date getDay() {
+    public LocalDate getDay() {
         return day;
     }
 
-    public void setDay(Date day) {
+    public void setDay(LocalDate day) {
         this.day = day;
     }
 

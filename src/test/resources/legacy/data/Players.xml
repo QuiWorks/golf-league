@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Players.xsd"
-          generated="2021-04-16T09:46:09">
+<PlayersList xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="Players.xsd" generated="2021-06-08T17:53:10">
     <Players>
         <Golfer>1</Golfer>
         <FullName>Gary Pederson</FullName>
@@ -13,14 +13,14 @@
         <ZipCode>56301</ZipCode>
         <HomePhone>320-249-6951</HomePhone>
         <WorkPhone></WorkPhone>
-        <Flight>2</Flight>
-        <Team>3</Team>
+        <Flight>1</Flight>
+        <Team>9</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
         <CurrentHdcp>3</CurrentHdcp>
-        <PrvHdcp>4</PrvHdcp>
+        <PrvHdcp>3</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -44,8 +44,8 @@
         <ZipCode>56304</ZipCode>
         <HomePhone>761-3751</HomePhone>
         <WorkPhone></WorkPhone>
-        <Flight>2</Flight>
-        <Team>3</Team>
+        <Flight>1</Flight>
+        <Team>9</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -77,7 +77,7 @@
         <WorkPhone></WorkPhone>
         <Flight>3</Flight>
         <Team>9</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>7</BegHdcp>
@@ -106,13 +106,13 @@
         <ZipCode>56303</ZipCode>
         <HomePhone>320-249-6458</HomePhone>
         <WorkPhone>320-255-1128</WorkPhone>
-        <Flight>2</Flight>
-        <Team>3</Team>
+        <Flight>1</Flight>
+        <Team>9</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>13</BegHdcp>
-        <CurrentHdcp>14</CurrentHdcp>
+        <CurrentHdcp>15</CurrentHdcp>
         <PrvHdcp>14</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -143,8 +143,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>5</CurrentHdcp>
-        <PrvHdcp>5</PrvHdcp>
+        <CurrentHdcp>4</CurrentHdcp>
+        <PrvHdcp>4</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -169,7 +169,7 @@
         <HomePhone>320-290-6207</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>6</Team>
+        <Team>5</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -205,7 +205,7 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>8</BegHdcp>
-        <CurrentHdcp>5</CurrentHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
         <PrvHdcp>5</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -267,8 +267,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>17</BegHdcp>
-        <CurrentHdcp>15</CurrentHdcp>
-        <PrvHdcp>15</PrvHdcp>
+        <CurrentHdcp>16</CurrentHdcp>
+        <PrvHdcp>16</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -355,12 +355,12 @@
         <HomePhone>612-366-6590</HomePhone>
         <WorkPhone>763-757-8000</WorkPhone>
         <Flight>2</Flight>
-        <Team>2</Team>
+        <Team>3</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>7</CurrentHdcp>
+        <CurrentHdcp>8</CurrentHdcp>
         <PrvHdcp>7</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -386,7 +386,7 @@
         <HomePhone>230-2376</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>2</Team>
+        <Team>3</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -449,7 +449,7 @@
         <WorkPhone>320-253-5078</WorkPhone>
         <Flight>1</Flight>
         <Team>9</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>13</BegHdcp>
@@ -510,13 +510,13 @@
         <HomePhone>557-6060</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>3</Flight>
-        <Team>1</Team>
-        <Substitute>1</Substitute>
+        <Team>3</Team>
+        <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
         <CurrentHdcp>6</CurrentHdcp>
-        <PrvHdcp>7</PrvHdcp>
+        <PrvHdcp>6</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -608,8 +608,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>15</BegHdcp>
-        <CurrentHdcp>12</CurrentHdcp>
-        <PrvHdcp>11</PrvHdcp>
+        <CurrentHdcp>15</CurrentHdcp>
+        <PrvHdcp>14</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -665,12 +665,12 @@
         <HomePhone>320-250-3754</HomePhone>
         <WorkPhone>320-251-0002</WorkPhone>
         <Flight>2</Flight>
-        <Team>6</Team>
+        <Team>5</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>13</BegHdcp>
-        <CurrentHdcp>6</CurrentHdcp>
+        <CurrentHdcp>7</CurrentHdcp>
         <PrvHdcp>6</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -758,12 +758,12 @@
         <HomePhone>320 980-5294</HomePhone>
         <WorkPhone>320-251-8640</WorkPhone>
         <Flight>1</Flight>
-        <Team>2</Team>
+        <Team>3</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>11</BegHdcp>
-        <CurrentHdcp>6</CurrentHdcp>
+        <CurrentHdcp>7</CurrentHdcp>
         <PrvHdcp>7</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -789,7 +789,7 @@
         <HomePhone>320-253-5271</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
-        <Team>2</Team>
+        <Team>3</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -856,8 +856,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>6</CurrentHdcp>
-        <PrvHdcp>6</PrvHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
+        <PrvHdcp>5</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -882,7 +882,7 @@
         <HomePhone>249-9713</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
-        <Team>5</Team>
+        <Team>7</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -914,7 +914,7 @@
         <WorkPhone>259-1226</WorkPhone>
         <Flight>1</Flight>
         <Team>5</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>10</BegHdcp>
@@ -941,16 +941,16 @@
         <City></City>
         <State></State>
         <ZipCode></ZipCode>
-        <HomePhone></HomePhone>
+        <HomePhone>320-241-6577</HomePhone>
         <WorkPhone></WorkPhone>
-        <Flight>4</Flight>
-        <Team>1</Team>
-        <Substitute>1</Substitute>
+        <Flight>1</Flight>
+        <Team>7</Team>
+        <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>9</CurrentHdcp>
-        <PrvHdcp>9</PrvHdcp>
+        <CurrentHdcp>7</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1007,11 +1007,11 @@
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
         <Team>3</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>7</BegHdcp>
-        <CurrentHdcp>5</CurrentHdcp>
+        <CurrentHdcp>4</CurrentHdcp>
         <PrvHdcp>5</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -1038,7 +1038,7 @@
         <WorkPhone></WorkPhone>
         <Flight>3</Flight>
         <Team>3</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>14</BegHdcp>
@@ -1073,8 +1073,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>5</CurrentHdcp>
-        <PrvHdcp>5</PrvHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1166,8 +1166,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>7</BegHdcp>
-        <CurrentHdcp>9</CurrentHdcp>
-        <PrvHdcp>9</PrvHdcp>
+        <CurrentHdcp>10</CurrentHdcp>
+        <PrvHdcp>10</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1198,7 +1198,7 @@
         <Paid>0</Paid>
         <BegHdcp>3</BegHdcp>
         <CurrentHdcp>1</CurrentHdcp>
-        <PrvHdcp>1</PrvHdcp>
+        <PrvHdcp>2</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1290,8 +1290,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
-        <CurrentHdcp>6</CurrentHdcp>
-        <PrvHdcp>6</PrvHdcp>
+        <CurrentHdcp>7</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1347,13 +1347,13 @@
         <HomePhone>320-493-8215</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
-        <Team>4</Team>
+        <Team>5</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
         <CurrentHdcp>5</CurrentHdcp>
-        <PrvHdcp>6</PrvHdcp>
+        <PrvHdcp>5</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1379,7 +1379,7 @@
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
         <Team>9</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
@@ -1471,7 +1471,7 @@
         <HomePhone>248-7594</HomePhone>
         <WorkPhone>743-2792</WorkPhone>
         <Flight>3</Flight>
-        <Team>8</Team>
+        <Team>7</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -1502,7 +1502,7 @@
         <HomePhone>255-1578</HomePhone>
         <WorkPhone>529-4752</WorkPhone>
         <Flight>3</Flight>
-        <Team>8</Team>
+        <Team>7</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -1750,13 +1750,13 @@
         <HomePhone>320 266-5247</HomePhone>
         <WorkPhone>320 363-2620</WorkPhone>
         <Flight>3</Flight>
-        <Team>7</Team>
+        <Team>6</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>12</BegHdcp>
         <CurrentHdcp>11</CurrentHdcp>
-        <PrvHdcp>10</PrvHdcp>
+        <PrvHdcp>11</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1781,7 +1781,7 @@
         <HomePhone>320.251.5636</HomePhone>
         <WorkPhone>320 248-3136</WorkPhone>
         <Flight>3</Flight>
-        <Team>7</Team>
+        <Team>6</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -1848,8 +1848,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>7</BegHdcp>
-        <CurrentHdcp>3</CurrentHdcp>
-        <PrvHdcp>3</PrvHdcp>
+        <CurrentHdcp>2</CurrentHdcp>
+        <PrvHdcp>2</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1905,7 +1905,7 @@
         <HomePhone>320-224-5814</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
-        <Team>4</Team>
+        <Team>5</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -1920,7 +1920,7 @@
         <DateAdded>2016-05-01T00:00:00</DateAdded>
         <HdcpGroup>1</HdcpGroup>
         <crtHTML>0</crtHTML>
-        <Email></Email>
+        <Email>skolevikes2@gmail.com</Email>
         <BegHdcpType>3</BegHdcpType>
     </Players>
     <Players>
@@ -1941,8 +1941,8 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>14</BegHdcp>
-        <CurrentHdcp>5</CurrentHdcp>
-        <PrvHdcp>5</PrvHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -1967,7 +1967,7 @@
         <HomePhone>507-351-8482</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>3</Flight>
-        <Team>10</Team>
+        <Team>8</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -1998,7 +1998,7 @@
         <HomePhone>320-291-6459</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>3</Flight>
-        <Team>10</Team>
+        <Team>8</Team>
         <Substitute>0</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
@@ -2092,7 +2092,7 @@
         <WorkPhone></WorkPhone>
         <Flight>3</Flight>
         <Team>9</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
@@ -2119,16 +2119,16 @@
         <City></City>
         <State></State>
         <ZipCode></ZipCode>
-        <HomePhone>320-217-5882</HomePhone>
-        <WorkPhone></WorkPhone>
-        <Flight>1</Flight>
-        <Team>8</Team>
+        <HomePhone>320-492-3078</HomePhone>
+        <WorkPhone>320-227-8876</WorkPhone>
+        <Flight>4</Flight>
+        <Team>11</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>9</CurrentHdcp>
-        <PrvHdcp>9</PrvHdcp>
+        <CurrentHdcp>8</CurrentHdcp>
+        <PrvHdcp>8</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -2189,7 +2189,7 @@
         <Status>1</Status>
         <Paid>0</Paid>
         <BegHdcp>13</BegHdcp>
-        <CurrentHdcp>10</CurrentHdcp>
+        <CurrentHdcp>11</CurrentHdcp>
         <PrvHdcp>11</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -2220,8 +2220,8 @@
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>11</BegHdcp>
-        <CurrentHdcp>12</CurrentHdcp>
-        <PrvHdcp>11</PrvHdcp>
+        <CurrentHdcp>13</CurrentHdcp>
+        <PrvHdcp>12</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -2371,7 +2371,7 @@
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
         <Team>8</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>8</BegHdcp>
@@ -2494,13 +2494,13 @@
         <HomePhone></HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>4</Flight>
-        <Team>8</Team>
+        <Team>10</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>8</BegHdcp>
-        <CurrentHdcp>5</CurrentHdcp>
-        <PrvHdcp>4</PrvHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>5</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -2619,7 +2619,7 @@
         <WorkPhone></WorkPhone>
         <Flight>3</Flight>
         <Team>6</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>14</BegHdcp>
@@ -2650,7 +2650,7 @@
         <WorkPhone>952-250-3859</WorkPhone>
         <Flight>3</Flight>
         <Team>6</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>14</BegHdcp>
@@ -2680,13 +2680,13 @@
         <HomePhone>320-309-3505</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>4</Flight>
-        <Team>7</Team>
+        <Team>8</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
-        <CurrentHdcp>11</CurrentHdcp>
-        <PrvHdcp>11</PrvHdcp>
+        <CurrentHdcp>10</CurrentHdcp>
+        <PrvHdcp>10</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -2711,13 +2711,13 @@
         <HomePhone>320-333-8549</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>4</Flight>
-        <Team>7</Team>
+        <Team>8</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
-        <CurrentHdcp>17</CurrentHdcp>
-        <PrvHdcp>17</PrvHdcp>
+        <CurrentHdcp>18</CurrentHdcp>
+        <PrvHdcp>18</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -2974,7 +2974,7 @@
         <DateAdded>2019-04-29T00:00:00</DateAdded>
         <HdcpGroup>2</HdcpGroup>
         <crtHTML>0</crtHTML>
-        <Email></Email>
+        <Email>joshua.d.williams1977@gmail.com</Email>
         <BegHdcpType>1</BegHdcpType>
     </Players>
     <Players>
@@ -2991,7 +2991,7 @@
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
         <Team>3</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>2</BegHdcp>
@@ -3021,7 +3021,7 @@
         <HomePhone>320-469-4770</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>8</Team>
+        <Team>12</Team>
         <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -3052,7 +3052,7 @@
         <HomePhone>320-493-5648</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>8</Team>
+        <Team>12</Team>
         <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -3206,7 +3206,7 @@
         <ZipCode></ZipCode>
         <HomePhone>763-203-2966</HomePhone>
         <WorkPhone></WorkPhone>
-        <Flight>2</Flight>
+        <Flight>4</Flight>
         <Team>12</Team>
         <Substitute>1</Substitute>
         <Status>0</Status>
@@ -3237,7 +3237,7 @@
         <ZipCode></ZipCode>
         <HomePhone>320-339-1481</HomePhone>
         <WorkPhone></WorkPhone>
-        <Flight>2</Flight>
+        <Flight>4</Flight>
         <Team>12</Team>
         <Substitute>1</Substitute>
         <Status>0</Status>
@@ -3275,7 +3275,7 @@
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
         <CurrentHdcp>8</CurrentHdcp>
-        <PrvHdcp>8</PrvHdcp>
+        <PrvHdcp>7</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -3305,7 +3305,7 @@
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>6</CurrentHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
         <PrvHdcp>6</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -3331,7 +3331,7 @@
         <HomePhone>320-493-5395</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>4</Flight>
-        <Team>8</Team>
+        <Team>10</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -3398,8 +3398,8 @@
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
-        <CurrentHdcp>9</CurrentHdcp>
-        <PrvHdcp>9</PrvHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -3517,7 +3517,7 @@
         <HomePhone>320-260-8287</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>10</Team>
+        <Team>11</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -3532,7 +3532,7 @@
         <DateAdded>2019-05-17T00:00:00</DateAdded>
         <HdcpGroup>1</HdcpGroup>
         <crtHTML>0</crtHTML>
-        <Email>greg@gkconsult.net</Email>
+        <Email>greg@thekremers.com</Email>
         <BegHdcpType>3</BegHdcpType>
     </Players>
     <Players>
@@ -3548,7 +3548,7 @@
         <HomePhone>320-423-3272</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>10</Team>
+        <Team>11</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -3610,12 +3610,12 @@
         <HomePhone></HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>4</Flight>
-        <Team>1</Team>
-        <Substitute>1</Substitute>
+        <Team>11</Team>
+        <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>8</BegHdcp>
-        <CurrentHdcp>10</CurrentHdcp>
+        <CurrentHdcp>9</CurrentHdcp>
         <PrvHdcp>10</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -3824,16 +3824,16 @@
         <City></City>
         <State></State>
         <ZipCode></ZipCode>
-        <HomePhone></HomePhone>
+        <HomePhone>320-250-3665</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
-        <Team>6</Team>
+        <Team>8</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>7</BegHdcp>
         <CurrentHdcp>10</CurrentHdcp>
-        <PrvHdcp>10</PrvHdcp>
+        <PrvHdcp>9</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -3842,7 +3842,7 @@
         <DateAdded>2020-05-09T00:00:00</DateAdded>
         <HdcpGroup>3</HdcpGroup>
         <crtHTML>0</crtHTML>
-        <Email></Email>
+        <Email>remoob02@yahoo.com</Email>
         <BegHdcpType>2</BegHdcpType>
     </Players>
     <Players>
@@ -3855,15 +3855,15 @@
         <City></City>
         <State></State>
         <ZipCode></ZipCode>
-        <HomePhone></HomePhone>
+        <HomePhone>320-290-9501</HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
-        <Team>6</Team>
+        <Team>8</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>7</BegHdcp>
-        <CurrentHdcp>7</CurrentHdcp>
+        <CurrentHdcp>8</CurrentHdcp>
         <PrvHdcp>8</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -3873,7 +3873,7 @@
         <DateAdded>2020-05-09T00:00:00</DateAdded>
         <HdcpGroup>2</HdcpGroup>
         <crtHTML>0</crtHTML>
-        <Email></Email>
+        <Email>mlmarko1087@midco.net</Email>
         <BegHdcpType>3</BegHdcpType>
     </Players>
     <Players>
@@ -3890,7 +3890,7 @@
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
         <Team>7</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>9</BegHdcp>
@@ -3921,7 +3921,7 @@
         <WorkPhone></WorkPhone>
         <Flight>1</Flight>
         <Team>7</Team>
-        <Substitute>0</Substitute>
+        <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>8</BegHdcp>
@@ -4018,8 +4018,8 @@
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>5</BegHdcp>
-        <CurrentHdcp>6</CurrentHdcp>
-        <PrvHdcp>7</PrvHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -4044,7 +4044,7 @@
         <HomePhone></HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>4</Team>
+        <Team>12</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -4075,7 +4075,7 @@
         <HomePhone></HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>4</Team>
+        <Team>12</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -4111,7 +4111,7 @@
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>7</BegHdcp>
-        <CurrentHdcp>10</CurrentHdcp>
+        <CurrentHdcp>11</CurrentHdcp>
         <PrvHdcp>10</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
@@ -4178,7 +4178,7 @@
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
-        <Active>1</Active>
+        <Active>0</Active>
         <SuperSub>0</SuperSub>
         <DateAdded>2020-05-12T00:00:00</DateAdded>
         <HdcpGroup>2</HdcpGroup>
@@ -4198,8 +4198,8 @@
         <ZipCode></ZipCode>
         <HomePhone>320-267-9701</HomePhone>
         <WorkPhone></WorkPhone>
-        <Flight>2</Flight>
-        <Team>5</Team>
+        <Flight>4</Flight>
+        <Team>12</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -4229,14 +4229,14 @@
         <ZipCode></ZipCode>
         <HomePhone>320-266-8045</HomePhone>
         <WorkPhone></WorkPhone>
-        <Flight>2</Flight>
-        <Team>5</Team>
+        <Flight>4</Flight>
+        <Team>12</Team>
         <Substitute>0</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
         <BegHdcp>3</BegHdcp>
         <CurrentHdcp>4</CurrentHdcp>
-        <PrvHdcp>3</PrvHdcp>
+        <PrvHdcp>4</PrvHdcp>
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
@@ -4478,7 +4478,7 @@
         <HomePhone></HomePhone>
         <WorkPhone></WorkPhone>
         <Flight>2</Flight>
-        <Team>4</Team>
+        <Team>12</Team>
         <Substitute>1</Substitute>
         <Status>0</Status>
         <Paid>0</Paid>
@@ -4488,7 +4488,7 @@
         <Label>0</Label>
         <Notes></Notes>
         <New>0</New>
-        <Active>1</Active>
+        <Active>0</Active>
         <SuperSub>0</SuperSub>
         <DateAdded>2004-05-13T09:15:00</DateAdded>
         <HdcpGroup>0</HdcpGroup>
@@ -4899,4 +4899,810 @@
         <Email></Email>
         <BegHdcpType>3</BegHdcpType>
     </Players>
-</dataroot>
+    <Players>
+        <Golfer>1359</Golfer>
+        <FullName>Alex Dinnebier</FullName>
+        <FirstName>Alex</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Dinnebier</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-420-6259</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>1</Flight>
+        <Team>2</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>7</BegHdcp>
+        <CurrentHdcp>7</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>ajdinnebier@gmail.com</Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1360</Golfer>
+        <FullName>Tyler Peterson</FullName>
+        <FirstName>Tyler</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Peterson</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-443-4258</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>1</Flight>
+        <Team>2</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>12</BegHdcp>
+        <CurrentHdcp>13</CurrentHdcp>
+        <PrvHdcp>12</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>tylerpeterson@gmail.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1361</Golfer>
+        <FullName>Chase Christensen</FullName>
+        <FirstName>Chase</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Christensen</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-743-7100</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>1</Flight>
+        <Team>4</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>chasechristensen21@gmail.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1362</Golfer>
+        <FullName>Jamie Lucas</FullName>
+        <FirstName>Jamie</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Lucas</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-282-1243</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>1</Flight>
+        <Team>4</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>jamielucas11@gmail.com</Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1363</Golfer>
+        <FullName>Brian Fussy</FullName>
+        <FirstName>Brian</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Fussy</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>651-363-0431</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>1</Flight>
+        <Team>6</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>6</BegHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>birdiehunter22@gmail.com</Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1364</Golfer>
+        <FullName>Andy Vandriel</FullName>
+        <FirstName>Andy</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Vandriel</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>612-799-7615</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>1</Flight>
+        <Team>6</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>6</BegHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
+        <PrvHdcp>5</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1365</Golfer>
+        <FullName>Scott Michaelis</FullName>
+        <FirstName>Scott</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Michaelis</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>763-898-7990</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>2</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>4</CurrentHdcp>
+        <PrvHdcp>4</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>scott.michaelis@am.jll.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1366</Golfer>
+        <FullName>Ed Becker</FullName>
+        <FirstName>Ed</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Becker</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-292-1793</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>2</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
+        <PrvHdcp>5</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>ekbecker@charter.net</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1367</Golfer>
+        <FullName>Justin Ekstrom</FullName>
+        <FirstName>Justin</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Ekstrom</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-291-6155</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>4</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>15</BegHdcp>
+        <CurrentHdcp>14</CurrentHdcp>
+        <PrvHdcp>13</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>jekstrom@leightonbroadcasting.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1368</Golfer>
+        <FullName>Jesse Voigt</FullName>
+        <FirstName>Jesse</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Voigt</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-333-0224</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>4</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>10</BegHdcp>
+        <CurrentHdcp>8</CurrentHdcp>
+        <PrvHdcp>9</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>cantplaypoker9@gmail.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1369</Golfer>
+        <FullName>Dominic Caldarello</FullName>
+        <FirstName>Dominic</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Caldarello</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>816-519-2144</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>6</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>3</CurrentHdcp>
+        <PrvHdcp>3</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>dominiccaldarello@yahoo.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1370</Golfer>
+        <FullName>Doug Erickson</FullName>
+        <FirstName>Doug</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Erickson</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>6</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
+        <PrvHdcp>5</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1371</Golfer>
+        <FullName>Jamey Cumming</FullName>
+        <FirstName>Jamey</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Cumming</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>612-840-5415</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>4</Flight>
+        <Team>7</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>jamey.cumming@chrobinson.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1372</Golfer>
+        <FullName>Chuck Reichensperg</FullName>
+        <FirstName>Chuck</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Reichensperg</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-260-4973</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>4</Flight>
+        <Team>7</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>6</BegHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>chuckie@cloudnet.com</Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1373</Golfer>
+        <FullName>Bill Hirschi</FullName>
+        <FirstName>Bill</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Hirschi</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>763-412-5197</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>4</Flight>
+        <Team>9</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>4</BegHdcp>
+        <CurrentHdcp>4</CurrentHdcp>
+        <PrvHdcp>3</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>bhirschi21@yahoo.com</Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1374</Golfer>
+        <FullName>Mike Latta</FullName>
+        <FirstName>Mike</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Latta</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>763-438-1185</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>4</Flight>
+        <Team>9</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>8</BegHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>lami1302@gmail.com</Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1375</Golfer>
+        <FullName>Justin Gertken</FullName>
+        <FirstName>Justin</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Gertken</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-247-3229</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>10</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>9</BegHdcp>
+        <CurrentHdcp>9</CurrentHdcp>
+        <PrvHdcp>9</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>jgertken@versatiletransport.com</Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1376</Golfer>
+        <FullName>Caleb Johnson</FullName>
+        <FirstName>Caleb</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Johnson</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone>320-310-2434</HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>10</Team>
+        <Substitute>0</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>9</BegHdcp>
+        <CurrentHdcp>11</CurrentHdcp>
+        <PrvHdcp>9</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-05T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email>calebjj7@gmail.com</Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1377</Golfer>
+        <FullName>Randy Zeilenga</FullName>
+        <FirstName>Randy</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Zeilenga</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>3</Flight>
+        <Team>3</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>7</BegHdcp>
+        <CurrentHdcp>9</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-14T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>1</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1378</Golfer>
+        <FullName>Andy Becker</FullName>
+        <FirstName>Andy</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Becker</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>2</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>5</BegHdcp>
+        <CurrentHdcp>7</CurrentHdcp>
+        <PrvHdcp>5</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-21T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>2</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1379</Golfer>
+        <FullName>Will Somebody</FullName>
+        <FirstName>Will</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Somebody</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>4</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>16</BegHdcp>
+        <CurrentHdcp>18</CurrentHdcp>
+        <PrvHdcp>16</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-21T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1380</Golfer>
+        <FullName>Justin Popp</FullName>
+        <FirstName>Justin</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Popp</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>11</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>4</BegHdcp>
+        <CurrentHdcp>4</CurrentHdcp>
+        <PrvHdcp>4</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-21T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1381</Golfer>
+        <FullName>Scott Gangl</FullName>
+        <FirstName>Scott</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Gangl</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>1</Flight>
+        <Team>2</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>7</BegHdcp>
+        <CurrentHdcp>6</CurrentHdcp>
+        <PrvHdcp>7</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-29T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1382</Golfer>
+        <FullName>Turner Wagie</FullName>
+        <FirstName>Turner</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Wagie</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>4</Flight>
+        <Team>1</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>10</BegHdcp>
+        <CurrentHdcp>10</CurrentHdcp>
+        <PrvHdcp>8</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-29T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1383</Golfer>
+        <FullName>Ryan Dale</FullName>
+        <FirstName>Ryan</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Dale</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>11</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>10</BegHdcp>
+        <CurrentHdcp>9</CurrentHdcp>
+        <PrvHdcp>10</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-05-29T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+    <Players>
+        <Golfer>1384</Golfer>
+        <FullName>Steve Lunde</FullName>
+        <FirstName>Steve</FirstName>
+        <MiddleInt></MiddleInt>
+        <LastName>Lunde</LastName>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <ZipCode></ZipCode>
+        <HomePhone></HomePhone>
+        <WorkPhone></WorkPhone>
+        <Flight>2</Flight>
+        <Team>7</Team>
+        <Substitute>1</Substitute>
+        <Status>0</Status>
+        <Paid>0</Paid>
+        <BegHdcp>6</BegHdcp>
+        <CurrentHdcp>5</CurrentHdcp>
+        <PrvHdcp>6</PrvHdcp>
+        <Label>0</Label>
+        <Notes></Notes>
+        <New>1</New>
+        <Active>1</Active>
+        <SuperSub>0</SuperSub>
+        <DateAdded>2021-06-04T00:00:00</DateAdded>
+        <HdcpGroup>0</HdcpGroup>
+        <crtHTML>0</crtHTML>
+        <Email></Email>
+        <BegHdcpType>3</BegHdcpType>
+    </Players>
+</PlayersList>

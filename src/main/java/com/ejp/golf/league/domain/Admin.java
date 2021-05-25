@@ -7,11 +7,12 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity
-public class User {
+@Entity(name = "admin")
+public class Admin {
     private String username;
     private String password;
     private int golferId;
+    private int leagueId;
     private Timestamp dateAdded;
 
     @Id
@@ -45,6 +46,16 @@ public class User {
     }
 
     @Basic
+    @Column(name = "league_id", nullable = false)
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
+    }
+
+    @Basic
     @Column(name = "date_added", nullable = false)
     public Timestamp getDateAdded() {
         return dateAdded;
@@ -58,12 +69,12 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return golferId == user.golferId && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(dateAdded, user.dateAdded);
+        Admin admin = (Admin) o;
+        return golferId == admin.golferId && leagueId == admin.leagueId && Objects.equals(username, admin.username) && Objects.equals(password, admin.password) && Objects.equals(dateAdded, admin.dateAdded);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, password, golferId, dateAdded);
+        return Objects.hash(username, password, golferId, leagueId, dateAdded);
     }
 }
