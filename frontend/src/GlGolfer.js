@@ -31,8 +31,10 @@ export class GlGolfer extends LitElement {
           align-items: center;
         }
         
-        .padding-top-large {
-            padding-top:37px;
+        .check-box {
+            padding-top:14px;
+            display:flex;
+            flex-direction:column;
         }
 
         .small-width{
@@ -106,7 +108,7 @@ export class GlGolfer extends LitElement {
         <div class="golfer-info">
             <vaadin-number-field name="handicap" label="hdcp" value="${this.handicap}" ></vaadin-number-field>
         </div>
-        <div class="golfer-info padding-top-large">
+        <div class="golfer-info check-box">
             <label for="sub">Sub?</label>
             <vaadin-checkbox name="sub" value="${this.sub}" ></vaadin-checkbox>
         </div>

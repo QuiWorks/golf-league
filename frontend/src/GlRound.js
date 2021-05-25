@@ -12,17 +12,12 @@ export class GlRound extends LitElement {
         :host {
           font-size: 12pt;
         }
-
-        .hole-container {
-          display:flex;
-          flex-direction: row;
-          justify-content: start;
-        }
         
         .round-container {
           display:flex;
-          flex-direction: column;
+          flex-direction: row;
           align-content:center;
+          flex-wrap: wrap;
         }
 
         .comments {
@@ -46,11 +41,13 @@ export class GlRound extends LitElement {
 
     setLabelsOnFirstInRow(e) {
         if(e.detail.hole === 9){
+            // Calculate which holes are first in the row then call show label on those holes.
             const slots = [...this.shadowRoot.querySelectorAll("slot")];
             const holes = slots.map(slot => slot.assignedElements()[0]);
-            const holeContainer = this.shadowRoot.querySelector('.hole-container').getBoundingClientRect();
+            const holeContainer = this.shadowRoot.querySelector('.round-container').getBoundingClientRect();
             const widthOfElement = holes[0].getBoundingClientRect().width;
-            let maxHolesPerRow = Math.floor((holeContainer.right - holeContainer.left) / widthOfElement);
+            const maxWidthOfLabeledHole = 100;
+            const maxHolesPerRow = Math.floor(((holeContainer.right - holeContainer.left) - (maxWidthOfLabeledHole - widthOfElement)) / widthOfElement);
             let y = 9 + maxHolesPerRow;
             while (y > maxHolesPerRow) {
                 y -= maxHolesPerRow;
@@ -70,17 +67,15 @@ export class GlRound extends LitElement {
     render() {
         return html`
             <div class="round-container">
-                <div class="hole-container">
-                    <slot name="hole1"></slot>
-                    <slot name="hole2"></slot>
-                    <slot name="hole3"></slot>
-                    <slot name="hole4"></slot>
-                    <slot name="hole5"></slot>
-                    <slot name="hole6"></slot>
-                    <slot name="hole7"></slot>
-                    <slot name="hole8"></slot>
-                    <slot name="hole9"></slot>
-                </div>
+                <slot name="hole1"></slot>
+                <slot name="hole2"></slot>
+                <slot name="hole3"></slot>
+                <slot name="hole4"></slot>
+                <slot name="hole5"></slot>
+                <slot name="hole6"></slot>
+                <slot name="hole7"></slot>
+                <slot name="hole8"></slot>
+                <slot name="hole9"></slot>
             </div>
         `;
     }

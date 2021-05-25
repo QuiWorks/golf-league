@@ -11,7 +11,6 @@ export class GlHole extends LitElement {
         :host {
           font-size: 12pt;
           max-width: 75px;
-          margin:2px;
         }
         .column {
           display: flex;
