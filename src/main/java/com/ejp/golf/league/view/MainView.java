@@ -58,19 +58,29 @@ public class MainView extends VerticalLayout {
         golfer.setSub(false);
         golfer.setTeam(3);
 
+        final GlGolfer golfer2 = new GlGolfer();
+        golfer2.setHandicap(6);
+        golfer2.setName("Dave Thompson");
+        golfer2.setSub(false);
+        golfer2.setTeam(3);
+
         final GlCard glCard = new GlCard();
         glCard.setFlight(6);
         glCard.setNine("Back");
 //        glCard.setDate(new Date());
 
         final GlRound glRound = new GlRound();
+        final GlRound glRound2 = new GlRound();
 
 
         IntStream.range(1,10).mapToObj(this::addHole).forEach(hole -> glRound.getElement().appendChild(hole.getElement()));
-        glCard.getElement().appendChild(glRound.getElement());
-        golfer.getElement().appendChild(glCard.getElement());
+        IntStream.range(1,10).mapToObj(this::addHole).forEach(hole -> glRound2.getElement().appendChild(hole.getElement()));
+        golfer.getElement().appendChild(glRound.getElement());
+        golfer2.getElement().appendChild(glRound2.getElement());
+        glCard.getElement().appendChild(golfer.getElement());
+        glCard.getElement().appendChild(golfer2.getElement());
 
-        add(golfer);
+        add(glCard);
     }
 
     private GlHole addHole(int num)

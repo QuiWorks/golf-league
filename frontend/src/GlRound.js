@@ -33,22 +33,15 @@ export class GlRound extends LitElement {
         `;
     }
 
-    static get properties() {
-        return {
-            comment: {type: String},
-            score: {type: Array}
-        };
-    }
-
     constructor() {
         super();
-        this.comment = "";
-        this.score = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        this.round = [{},{},{},{},{},{},{},{},{}];
     }
 
     connectedCallback() {
         super.connectedCallback();
         this.addEventListener("gl-hole-first-update", this.setLabelsOnFirstInRow.bind(this));
+        this.addEventListener("gl-hole-score-change", this._onHoleScoreChange.bind(this));
     }
 
     setLabelsOnFirstInRow(e) {
@@ -67,30 +60,10 @@ export class GlRound extends LitElement {
         }
     }
 
-    _getHoles() {
-        const holeData = [];
-        this.shadowRoot.querySelectorAll("slot").forEach(slot => {
-            holeData.push(slot.assignedElements()[0].getHoleData());
-        });
-        return holeData;
-    }
-
-    submit() {
-        const holeData = this._getHoles();
-        // Dispatch an application event.
-        this.dispatchEvent(new CustomEvent("gl-hole-card-submission", {
-            detail: {
-                comment: this.comment,
-                hole1: holeData[0],
-                hole2: holeData[1],
-                hole3: holeData[2],
-                hole4: holeData[3],
-                hole5: holeData[4],
-                hole6: holeData[5],
-                hole7: holeData[6],
-                hole8: holeData[7],
-                hole9: holeData[8],
-            }, bubbles: true, composed: true
+    _onHoleScoreChange(e) {
+        this.round[e.detail.hole - 1] = e.detail;
+        this.dispatchEvent(new CustomEvent("gl-round-score-change", {
+            detail: {round:this.round}, bubbles: true, composed: true
         }));
     }
 
@@ -108,8 +81,6 @@ export class GlRound extends LitElement {
                     <slot name="hole8"></slot>
                     <slot name="hole9"></slot>
                 </div>
-                <vaadin-text-area class="comments" label="Comments:" name="comment"></vaadin-text-area>
-                <vaadin-button @click="${this.submit}">Update</vaadin-button>
             </div>
         `;
     }

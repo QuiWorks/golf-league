@@ -73,6 +73,27 @@ export class GlGolfer extends LitElement {
         this.sub = false;
     }
 
+    connectedCallback() {
+        super.connectedCallback();
+        this.addEventListener("gl-round-score-change", this._onRoundScoreChange.bind(this));
+    }
+
+    _onRoundScoreChange(e) {
+        this.dispatchEvent(new CustomEvent("gl-golfer-score-change", {
+            detail: {golfer: this._getGolferData(), round: e.detail.round},
+            bubbles: true, composed: true
+        }));
+    }
+
+    _getGolferData() {
+        return {
+          team: this.team,
+          name: this.name,
+          handicap: this.handicap,
+          sub: this.sub
+        };
+    }
+
     render() {
         return html`
     <div class="golfer-container">
