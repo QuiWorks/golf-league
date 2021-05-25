@@ -80,6 +80,12 @@ public class MainView extends VerticalLayout {
         glCard.getElement().appendChild(golfer.getElement());
         glCard.getElement().appendChild(golfer2.getElement());
 
+        glCard.addCardSubmissionListener(event -> {
+            GlCard source = event.getSource();
+            int flight = event.getFlight();
+            System.out.println(flight);
+        });
+
         add(glCard);
     }
 

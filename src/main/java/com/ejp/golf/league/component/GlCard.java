@@ -18,9 +18,12 @@ package com.ejp.golf.league.component;
 import java.util.Date;
 
 import com.ejp.golf.league.component.GlCard.Model;
+import com.ejp.golf.league.event.GlCardSubmission;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.shared.Registration;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.templatemodel.Encode;
 import com.vaadin.flow.templatemodel.TemplateModel;
@@ -47,6 +50,8 @@ public class GlCard extends PolymerTemplate<Model>
         int getFlight();
         void setNine(String nine);
         String getNine();
+        void setComment(String nine);
+        String getComment();
 //        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
         //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
 //        void setDate(Date date);
@@ -54,6 +59,11 @@ public class GlCard extends PolymerTemplate<Model>
     }
 
     public GlCard() {
+    }
+
+    public Registration addCardSubmissionListener(ComponentEventListener<GlCardSubmission> listener)
+    {
+        return addListener(GlCardSubmission.class, listener);
     }
 
     public int getFlight()
@@ -72,6 +82,16 @@ public class GlCard extends PolymerTemplate<Model>
     }
 
     public void setNine(String nine)
+    {
+        getModel().setNine(nine);
+    }
+
+    public String getComment()
+    {
+        return getModel().getNine();
+    }
+
+    public void setComment(String nine)
     {
         getModel().setNine(nine);
     }
