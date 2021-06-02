@@ -36,6 +36,9 @@ export class GlHole extends LitElement {
         .input::part(value) {
             transform: rotate(90deg);
         }
+        .input::part(decrease-button) {
+            transform: rotate(90deg);
+        }
         .value {
             margin-left:2px;
         }
