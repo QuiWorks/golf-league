@@ -27,7 +27,7 @@ export class GlGolfer extends LitElement {
 
         .golfer-info {
           display:flex;
-          margin: 5px;
+          margin: 2px;
           align-items: center;
         }
         

@@ -28,7 +28,7 @@ export class GlCard extends LitElement {
 
         .card-info {
           display:flex;
-          margin: 5px;
+          margin: 2px;
           align-items: center;
         }
 
@@ -45,14 +45,19 @@ export class GlCard extends LitElement {
             max-width: 96px;
         }
 
-        vaadin-number-field {
-          width: 48px;
+        .flight-info {
+          width: 64px;
         }
         
         .comments {
             margin:0;
             width:90%;
             margin:5%;
+        }
+        .submit {
+            width:80%;
+            margin-right:10%;
+            margin-left:10%;
         }
         
         .column {
@@ -67,7 +72,8 @@ export class GlCard extends LitElement {
             nine: {type: String},
             flight: {type: Number},
             date: {type: Date},
-            comment: {type: String}
+            comment: {type: String},
+            noComment: {type: Boolean}
         };
     }
 
@@ -78,6 +84,7 @@ export class GlCard extends LitElement {
         this.nine = "";
         this.comment = "";
         this.golferScores = [];
+        this.noComment = false;
     }
 
     connectedCallback() {
@@ -131,7 +138,7 @@ export class GlCard extends LitElement {
             <div class="card-container">
                 <div class="card-info-container">
                     <div class="card-info">
-                        <vaadin-number-field name="flight" label="flight" value="${this.flight}"></vaadin-number-field>
+                        <vaadin-number-field name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
                     </div>
                     <div class="card-info">
                         <vaadin-date-picker class="small-width" label="date" name="date" @change="${this._updateDate}"
@@ -144,10 +151,19 @@ export class GlCard extends LitElement {
                 </div>
                 <slot></slot>
             </div>
-            <div class="column">
-                <vaadin-text-area class="comments" label="Comments:" name="comment"></vaadin-text-area>
-                <vaadin-button @click="${this.submit}">Update</vaadin-button>
-            </div>
+            ${this.noComment ? html`
+                <div>
+                    <vaadin-button class="submit">submit</vaadin-button>
+                </div>
+            ` : html`
+                <div class="column">
+                    <div class="card-info">
+                        <vaadin-text-area class="comments" label="Comments:" name="comment"></vaadin-text-area>
+                    </div>
+                    <div class="card-info">
+                        <vaadin-button @click="${this.submit}" class="submit">Update</vaadin-button>
+                    </div>
+                </div>`}
         `;
     }
 

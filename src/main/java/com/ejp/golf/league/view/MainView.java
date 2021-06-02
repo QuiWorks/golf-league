@@ -67,6 +67,7 @@ public class MainView extends VerticalLayout {
         final GlCard glCard = new GlCard();
         glCard.setFlight(6);
         glCard.setNine("Back");
+        //TODO handle dates.
 //        glCard.setDate(new Date());
 
         final GlRound glRound = new GlRound();
@@ -80,6 +81,7 @@ public class MainView extends VerticalLayout {
         glCard.getElement().appendChild(golfer.getElement());
         glCard.getElement().appendChild(golfer2.getElement());
 
+        //TODO handle submission event.
         glCard.addCardSubmissionListener(event -> {
             GlCard source = event.getSource();
             int flight = event.getFlight();

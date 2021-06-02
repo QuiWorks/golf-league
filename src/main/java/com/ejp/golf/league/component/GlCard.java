@@ -52,6 +52,8 @@ public class GlCard extends PolymerTemplate<Model>
         String getNine();
         void setComment(String nine);
         String getComment();
+        void setNoComment(Boolean noComment);
+        Boolean getNoComment();
 //        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
         //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
 //        void setDate(Date date);
@@ -96,7 +98,17 @@ public class GlCard extends PolymerTemplate<Model>
         getModel().setNine(nine);
     }
 
-//    public Date getDate()
+    private Boolean noComment;
+
+    public Boolean getNoComment() {
+        return getModel().getNoComment();
+    }
+
+    public void setNoComment(Boolean noComment) {
+        getModel().setNoComment(noComment);
+    }
+
+    //    public Date getDate()
 //    {
 //        return getModel().getDate();
 //    }
