@@ -3,7 +3,7 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name ="score")
 @IdClass(ScorePK.class)
 public class Score {
     private int roundId;

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Time;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "flight")
 public class Flight {
     private int id;
     private int leagueId;

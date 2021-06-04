@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Date;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "event")
 public class Event {
     private int id;
     private int seasonId;

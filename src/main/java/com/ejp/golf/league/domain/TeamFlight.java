@@ -3,8 +3,7 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "team_flight", schema = "golf_league")
+@Entity(name = "team_flight")
 @IdClass(TeamFlightPK.class)
 public class TeamFlight {
     private int teamId;

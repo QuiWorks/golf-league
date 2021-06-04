@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "season")
 public class Season {
     private int id;
     private int year;
