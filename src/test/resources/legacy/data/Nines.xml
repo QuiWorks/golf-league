@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NinesList xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="Nines.xsd" generated="2021-06-05T13:50:28">
+<Nines>
+<CourseId>1</CourseId>
+<NineName>Back</NineName>
+</Nines>
+<Nines>
+<CourseId>1</CourseId>
+<NineName>Front</NineName>
+</Nines>
+<Nines>
+<CourseId>2</CourseId>
+<NineName>Back</NineName>
+</Nines>
+<Nines>
+<CourseId>2</CourseId>
+<NineName>Front</NineName>
+</Nines>
+</NinesList>

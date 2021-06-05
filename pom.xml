@@ -195,30 +195,41 @@
                 </executions>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.mojo</groupId>-->
-<!--                <artifactId>jaxb2-maven-plugin</artifactId>-->
-<!--                <version>2.5.0</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>xjc</id>-->
-<!--                        <goals>-->
-<!--                            <goal>xjc</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <sources>-->
-<!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Flights.xsd</source>-->
-<!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Players.xsd</source>-->
-<!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/PlayerTran.xsd</source>-->
-<!--                    </sources>-->
-<!--                    <outputDirectory>${project.basedir}/src/test/java</outputDirectory>-->
-<!--                    <clearOutputDir>false</clearOutputDir>-->
-<!--                    <packageName>com.ejp.golf.league.legacy.domain</packageName>-->
-<!--                    <generateEpisode>false</generateEpisode>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>2.5.0</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Courses.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Flights.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Holes.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Nines.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Players.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/PlayerSum.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/PlayerTran.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Schedule.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/ScheduleMaster.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/ScoreCard.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/TeamSum.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Tees.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/TeeTime.xsd</source>
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/WeekDates.xsd</source>
+                    </sources>
+                    <outputDirectory>${project.basedir}/src/test/java</outputDirectory>
+                    <clearOutputDir>false</clearOutputDir>
+                    <packageName>com.ejp.golf.league.legacy.domain</packageName>
+                    <generateEpisode>false</generateEpisode>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

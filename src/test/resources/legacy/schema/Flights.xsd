@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:od="urn:schemas-microsoft-com:officedata">
-<xsd:element name="FlightsRoot">
+<xsd:element name="FlightsList">
 <xsd:complexType>
 <xsd:sequence>
 <xsd:element ref="Flights" minOccurs="0" maxOccurs="unbounded"/>
@@ -30,7 +30,7 @@
 <xsd:annotation>
 <xsd:appinfo>
 <od:fieldProperty name="ColumnWidth" type="3" value="-1"/>
-<od:fieldProperty name="ColumnOrder" type="3" value="0"/>
+<od:fieldProperty name="ColumnOrder" type="3" value="1"/>
 <od:fieldProperty name="ColumnHidden" type="1" value="0"/>
 <od:fieldProperty name="DecimalPlaces" type="2" value="255"/>
 <od:fieldProperty name="Required" type="1" value="0"/>
@@ -105,25 +105,7 @@
 <od:fieldProperty name="ColumnOrder" type="3" value="0"/>
 <od:fieldProperty name="ColumnHidden" type="1" value="0"/>
 <od:fieldProperty name="DecimalPlaces" type="2" value="255"/>
-<od:fieldProperty name="Caption" type="12" value="Side Group Number"/>
-<od:fieldProperty name="DefaultValue" type="12" value="1"/>
-<od:fieldProperty name="Required" type="1" value="0"/>
-<od:fieldProperty name="DisplayControl" type="3" value="109"/>
-<od:fieldProperty name="TextAlign" type="2" value="0"/>
-<od:fieldProperty name="AggregateType" type="4" value="-1"/>
-<od:fieldProperty name="Description" type="10" value="Grouping by side; Front Or Back"/>
-</xsd:appinfo>
-</xsd:annotation>
-</xsd:element>
-<xsd:element name="Group2" minOccurs="0" od:jetType="integer" od:sqlSType="smallint" type="xsd:short">
-<xsd:annotation>
-<xsd:appinfo>
-<od:fieldProperty name="ColumnWidth" type="3" value="-1"/>
-<od:fieldProperty name="ColumnOrder" type="3" value="0"/>
-<od:fieldProperty name="ColumnHidden" type="1" value="0"/>
-<od:fieldProperty name="Description" type="10" value="Grouping by time; Late or early"/>
-<od:fieldProperty name="DecimalPlaces" type="2" value="255"/>
-<od:fieldProperty name="Caption" type="12" value="Time Group Number"/>
+<od:fieldProperty name="Caption" type="12" value="Group Number"/>
 <od:fieldProperty name="DefaultValue" type="12" value="1"/>
 <od:fieldProperty name="Required" type="1" value="0"/>
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>

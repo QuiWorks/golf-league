@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CoursesList xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="Courses.xsd" generated="2021-06-05T13:48:15">
+<Courses>
+<CourseId>1</CourseId>
+<CourseName>The  Fairways</CourseName>
+</Courses>
+<Courses>
+<CourseId>2</CourseId>
+<CourseName>Territory Golf</CourseName>
+</Courses>
+</CoursesList>
