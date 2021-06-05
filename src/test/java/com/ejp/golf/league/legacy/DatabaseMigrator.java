@@ -1,13 +1,7 @@
 package com.ejp.golf.league.legacy;
 
-import com.ejp.golf.league.domain.Course;
-import com.ejp.golf.league.domain.Golfer;
-import com.ejp.golf.league.domain.PlayerHandicap;
-import com.ejp.golf.league.domain.TeamMember;
-import com.ejp.golf.league.legacy.domain.Courses;
-import com.ejp.golf.league.legacy.domain.CoursesList;
-import com.ejp.golf.league.legacy.domain.Players;
-import com.ejp.golf.league.legacy.domain.PlayersList;
+import com.ejp.golf.league.domain.*;
+import com.ejp.golf.league.legacy.domain.*;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
@@ -24,7 +18,11 @@ import java.util.Arrays;
 
 public class DatabaseMigrator {
 
+    private final EntityManagerFactory entityManagerFactory;
 
+    public DatabaseMigrator() {
+        entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
+    }
 
     @Test
     void deleteme() {
@@ -52,14 +50,17 @@ public class DatabaseMigrator {
 
     public void migrateData(LegacyData data)
     {
+        final EntityManager entityManager = entityManagerFactory.createEntityManager();
         boolean shouldBreak = !LegacyData.ALL.equals(data);
         switch (data){
             case ALL:
             case COURSES:
-                CoursesList legacyList = getLegacyList(LegacyData.COURSES.getUrl(), CoursesList.class);
-                legacyList.getCourses().forEach(this::migrateCourseToNewDomain);
+                CoursesList coursesList = getLegacyList(LegacyData.COURSES.getUrl(), CoursesList.class);
+                coursesList.getCourses().forEach(course -> migrateToNewDomain(course, entityManager));
                 if(shouldBreak) break;
             case FLIGHTS:
+                FlightsList flightsList = getLegacyList(LegacyData.FLIGHTS.getUrl(), FlightsList.class);
+                flightsList.getFlights().forEach(flight -> migrateToNewDomain(flight, entityManager));
                 if(shouldBreak) break;
             case HOLES:
 
@@ -89,6 +90,7 @@ public class DatabaseMigrator {
 
                 if(shouldBreak) break;
         }
+        entityManager.close();
     }
 
     private <LEGACY_LIST> LEGACY_LIST getLegacyList(String url, Class<LEGACY_LIST> legacyListClass)
@@ -102,16 +104,22 @@ public class DatabaseMigrator {
         }
     }
 
-    private void migrateCourseToNewDomain(Courses legacyCourse) {
+    private void migrateToNewDomain(Courses legacyCourse, EntityManager entityManager) {
         Course course = new Course();
         course.setId(legacyCourse.getCourseId());
         course.setName(legacyCourse.getCourseName());
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(course);
         entityManager.getTransaction().commit();
-        entityManager.close();
+    }
+
+    private void migrateToNewDomain(Flights legacyFlight, EntityManager entityManager) {
+//        Flight flight = new Flight();
+//        flight.setId(legacyFlight.getFlight());
+////        flight.setStart(legacyFlight.);
+//        entityManager.getTransaction().begin();
+//        entityManager.persist(flight);
+//        entityManager.getTransaction().commit();
     }
 
     private void migratePlayerData() {
