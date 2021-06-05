@@ -107,10 +107,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
+        <!-- CONFLICT with ELUtil class related to JAXB -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-validation</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -193,6 +194,31 @@
                     </execution>
                 </executions>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jaxb2-maven-plugin</artifactId>-->
+<!--                <version>2.5.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>xjc</id>-->
+<!--                        <goals>-->
+<!--                            <goal>xjc</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <sources>-->
+<!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Flights.xsd</source>-->
+<!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Players.xsd</source>-->
+<!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/PlayerTran.xsd</source>-->
+<!--                    </sources>-->
+<!--                    <outputDirectory>${project.basedir}/src/test/java</outputDirectory>-->
+<!--                    <clearOutputDir>false</clearOutputDir>-->
+<!--                    <packageName>com.ejp.golf.league.legacy.domain</packageName>-->
+<!--                    <generateEpisode>false</generateEpisode>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
