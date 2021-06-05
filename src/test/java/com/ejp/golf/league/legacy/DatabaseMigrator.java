@@ -102,18 +102,6 @@ public class DatabaseMigrator {
         }
     }
 
-    private void migrateCourseData()
-    {
-        try {
-            JAXBContext context = JAXBContext.newInstance(CoursesList.class);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            CoursesList playersList = (CoursesList) unmarshaller.unmarshal(new File("src/test/resources/legacy/data/Courses.xml"));
-            playersList.getCourses().forEach(this::migrateCourseToNewDomain);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void migrateCourseToNewDomain(Courses legacyCourse) {
         Course course = new Course();
         course.setId(legacyCourse.getCourseId());
