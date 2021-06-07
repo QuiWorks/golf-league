@@ -8,6 +8,8 @@ import java.util.Objects;
 public class TeamEvent {
     private int eventId;
     private int teamId;
+    private int flightId;
+    private int slot;
 
     @Id
     @Column(name = "event_id", nullable = false)
@@ -29,16 +31,36 @@ public class TeamEvent {
         this.teamId = teamId;
     }
 
+    @Id
+    @Column(name = "flight_id", nullable = false)
+    public int getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
+    }
+
+    @Id
+    @Column(name = "slot", nullable = false)
+    public int getSlot() {
+        return slot;
+    }
+
+    public void setSlot(int slot) {
+        this.slot = slot;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TeamEvent teamEvent = (TeamEvent) o;
-        return eventId == teamEvent.eventId && teamId == teamEvent.teamId;
+        return eventId == teamEvent.eventId && teamId == teamEvent.teamId && flightId == teamEvent.flightId && slot == teamEvent.slot;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, teamId);
+        return Objects.hash(eventId, teamId, flightId, slot);
     }
 }

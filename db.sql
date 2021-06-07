@@ -177,20 +177,42 @@ CREATE TABLE event
     FOREIGN KEY (event_type) REFERENCES event_type (name)
 );
 
+CREATE TABLE tee
+(
+    id  VARCHAR(128)  not null,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE tee_time
 (
     flight_id  int          not null,
     slot        int         not null,
     time timestamp not null,
-    PRIMARY KEY (flight_id, slot),
-)
+    PRIMARY KEY (flight_id, slot)
+);
+
+CREATE TABLE event_match
+(
+    id int not null auto_increment,
+    event_id int not null,
+    course_id int not null,
+    nine varchar(256) not null,
+    flight_id int not null,
+    slot int not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (event_id) REFERENCES event (id),
+    FOREIGN KEY (course_id, nine) REFERENCES nine (course_id, name),
+    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot)
+);
 
 CREATE TABLE team_event
 (
-    event_id int not null auto_increment,
+    match_id int not null,
     team_id  int not null,
-    PRIMARY KEY (event_id, team_id),
-    FOREIGN KEY (event_id) REFERENCES event (id),
+    hdcp  int,
+    home bit not null DEFAULT 0,
+    PRIMARY KEY (match_id, team_id),
+    FOREIGN KEY (match_id) REFERENCES event_match (id),
     FOREIGN KEY (team_id) REFERENCES team (id)
 );
 

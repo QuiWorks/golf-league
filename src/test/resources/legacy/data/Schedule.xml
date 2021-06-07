@@ -1,3171 +1,3172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScheduleList xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="Schedule.xsd" generated="2021-06-05T13:51:57">
-<Schedule>
-<Ctr>9343</Ctr>
-<Week>2</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>8</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9476</Ctr>
-<Week>2</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9474</Ctr>
-<Week>2</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9347</Ctr>
-<Week>2</Week>
-<Flight>2</Flight>
-<Team1>6</Team1>
-<Flight2>2</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9346</Ctr>
-<Week>2</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9345</Ctr>
-<Week>2</Week>
-<Flight>2</Flight>
-<Team1>5</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9477</Ctr>
-<Week>2</Week>
-<Flight>4</Flight>
-<Team1>5</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9342</Ctr>
-<Week>2</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9475</Ctr>
-<Week>2</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>8</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9408</Ctr>
-<Week>2</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9409</Ctr>
-<Week>2</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9410</Ctr>
-<Week>2</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>8</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9411</Ctr>
-<Week>2</Week>
-<Flight>3</Flight>
-<Team1>5</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9412</Ctr>
-<Week>2</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9413</Ctr>
-<Week>2</Week>
-<Flight>3</Flight>
-<Team1>6</Team1>
-<Flight2>3</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9344</Ctr>
-<Week>2</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9479</Ctr>
-<Week>2</Week>
-<Flight>4</Flight>
-<Team1>6</Team1>
-<Flight2>4</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9277</Ctr>
-<Week>2</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>8</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9278</Ctr>
-<Week>2</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9279</Ctr>
-<Week>2</Week>
-<Flight>1</Flight>
-<Team1>5</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9280</Ctr>
-<Week>2</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9281</Ctr>
-<Week>2</Week>
-<Flight>1</Flight>
-<Team1>6</Team1>
-<Flight2>1</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9276</Ctr>
-<Week>2</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9478</Ctr>
-<Week>2</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9485</Ctr>
-<Week>3</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9417</Ctr>
-<Week>3</Week>
-<Flight>3</Flight>
-<Team1>5</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9353</Ctr>
-<Week>3</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9352</Ctr>
-<Week>3</Week>
-<Flight>2</Flight>
-<Team1>8</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9351</Ctr>
-<Week>3</Week>
-<Flight>2</Flight>
-<Team1>6</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9419</Ctr>
-<Week>3</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9484</Ctr>
-<Week>3</Week>
-<Flight>4</Flight>
-<Team1>8</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9483</Ctr>
-<Week>3</Week>
-<Flight>4</Flight>
-<Team1>6</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9482</Ctr>
-<Week>3</Week>
-<Flight>4</Flight>
-<Team1>5</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9348</Ctr>
-<Week>3</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>3</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9349</Ctr>
-<Week>3</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9416</Ctr>
-<Week>3</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>7</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9481</Ctr>
-<Week>3</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9350</Ctr>
-<Week>3</Week>
-<Flight>2</Flight>
-<Team1>5</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9480</Ctr>
-<Week>3</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>3</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9418</Ctr>
-<Week>3</Week>
-<Flight>3</Flight>
-<Team1>6</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9287</Ctr>
-<Week>3</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9282</Ctr>
-<Week>3</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>3</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9283</Ctr>
-<Week>3</Week>
-<Flight>1</Flight>
-<Team1>6</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9284</Ctr>
-<Week>3</Week>
-<Flight>1</Flight>
-<Team1>5</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9285</Ctr>
-<Week>3</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9286</Ctr>
-<Week>3</Week>
-<Flight>1</Flight>
-<Team1>8</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9415</Ctr>
-<Week>3</Week>
-<Flight>3</Flight>
-<Team1>8</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9414</Ctr>
-<Week>3</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>3</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9489</Ctr>
-<Week>4</Week>
-<Flight>4</Flight>
-<Team1>7</Team1>
-<Flight2>4</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9291</Ctr>
-<Week>4</Week>
-<Flight>1</Flight>
-<Team1>7</Team1>
-<Flight2>1</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9290</Ctr>
-<Week>4</Week>
-<Flight>1</Flight>
-<Team1>5</Team1>
-<Flight2>1</Flight2>
-<Team2>6</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9289</Ctr>
-<Week>4</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>4</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9422</Ctr>
-<Week>4</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>2</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9421</Ctr>
-<Week>4</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>4</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9424</Ctr>
-<Week>4</Week>
-<Flight>3</Flight>
-<Team1>9</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9423</Ctr>
-<Week>4</Week>
-<Flight>3</Flight>
-<Team1>7</Team1>
-<Flight2>3</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9486</Ctr>
-<Week>4</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>2</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9292</Ctr>
-<Week>4</Week>
-<Flight>1</Flight>
-<Team1>9</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9488</Ctr>
-<Week>4</Week>
-<Flight>4</Flight>
-<Team1>5</Team1>
-<Flight2>4</Flight2>
-<Team2>6</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9420</Ctr>
-<Week>4</Week>
-<Flight>3</Flight>
-<Team1>11</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9490</Ctr>
-<Week>4</Week>
-<Flight>4</Flight>
-<Team1>9</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9491</Ctr>
-<Week>4</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>4</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9354</Ctr>
-<Week>4</Week>
-<Flight>2</Flight>
-<Team1>9</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9355</Ctr>
-<Week>4</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>4</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9356</Ctr>
-<Week>4</Week>
-<Flight>2</Flight>
-<Team1>5</Team1>
-<Flight2>2</Flight2>
-<Team2>6</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9357</Ctr>
-<Week>4</Week>
-<Flight>2</Flight>
-<Team1>7</Team1>
-<Flight2>2</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9358</Ctr>
-<Week>4</Week>
-<Flight>2</Flight>
-<Team1>11</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9359</Ctr>
-<Week>4</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>2</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9288</Ctr>
-<Week>4</Week>
-<Flight>1</Flight>
-<Team1>11</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9487</Ctr>
-<Week>4</Week>
-<Flight>4</Flight>
-<Team1>11</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9293</Ctr>
-<Week>4</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>2</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9425</Ctr>
-<Week>4</Week>
-<Flight>3</Flight>
-<Team1>5</Team1>
-<Flight2>3</Flight2>
-<Team2>6</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9496</Ctr>
-<Week>6</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9361</Ctr>
-<Week>6</Week>
-<Flight>2</Flight>
-<Team1>9</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9362</Ctr>
-<Week>6</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>8</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9363</Ctr>
-<Week>6</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9364</Ctr>
-<Week>6</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9365</Ctr>
-<Week>6</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>7</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9299</Ctr>
-<Week>6</Week>
-<Flight>1</Flight>
-<Team1>5</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9298</Ctr>
-<Week>6</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9497</Ctr>
-<Week>6</Week>
-<Flight>4</Flight>
-<Team1>5</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9495</Ctr>
-<Week>6</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9494</Ctr>
-<Week>6</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>7</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9493</Ctr>
-<Week>6</Week>
-<Flight>4</Flight>
-<Team1>9</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9294</Ctr>
-<Week>6</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>7</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9431</Ctr>
-<Week>6</Week>
-<Flight>3</Flight>
-<Team1>5</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9492</Ctr>
-<Week>6</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>8</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9295</Ctr>
-<Week>6</Week>
-<Flight>1</Flight>
-<Team1>9</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9430</Ctr>
-<Week>6</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9429</Ctr>
-<Week>6</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9428</Ctr>
-<Week>6</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>8</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9427</Ctr>
-<Week>6</Week>
-<Flight>3</Flight>
-<Team1>9</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9426</Ctr>
-<Week>6</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>7</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9360</Ctr>
-<Week>6</Week>
-<Flight>2</Flight>
-<Team1>5</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9297</Ctr>
-<Week>6</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9296</Ctr>
-<Week>6</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>8</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9301</Ctr>
-<Week>7</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9433</Ctr>
-<Week>7</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>8</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9432</Ctr>
-<Week>7</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9303</Ctr>
-<Week>7</Week>
-<Flight>1</Flight>
-<Team1>6</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9302</Ctr>
-<Week>7</Week>
-<Flight>1</Flight>
-<Team1>7</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9300</Ctr>
-<Week>7</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>5</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9498</Ctr>
-<Week>7</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9305</Ctr>
-<Week>7</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>8</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9502</Ctr>
-<Week>7</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>5</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9304</Ctr>
-<Week>7</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9501</Ctr>
-<Week>7</Week>
-<Flight>4</Flight>
-<Team1>6</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9500</Ctr>
-<Week>7</Week>
-<Flight>4</Flight>
-<Team1>7</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9499</Ctr>
-<Week>7</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9503</Ctr>
-<Week>7</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>8</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9436</Ctr>
-<Week>7</Week>
-<Flight>3</Flight>
-<Team1>6</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9366</Ctr>
-<Week>7</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>5</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9437</Ctr>
-<Week>7</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9435</Ctr>
-<Week>7</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>5</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9434</Ctr>
-<Week>7</Week>
-<Flight>3</Flight>
-<Team1>7</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9367</Ctr>
-<Week>7</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9370</Ctr>
-<Week>7</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9369</Ctr>
-<Week>7</Week>
-<Flight>2</Flight>
-<Team1>6</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9368</Ctr>
-<Week>7</Week>
-<Flight>2</Flight>
-<Team1>7</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9371</Ctr>
-<Week>7</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>8</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9377</Ctr>
-<Week>8</Week>
-<Flight>2</Flight>
-<Team1>5</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9440</Ctr>
-<Week>8</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9438</Ctr>
-<Week>8</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>8</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9376</Ctr>
-<Week>8</Week>
-<Flight>2</Flight>
-<Team1>6</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9443</Ctr>
-<Week>8</Week>
-<Flight>3</Flight>
-<Team1>6</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9439</Ctr>
-<Week>8</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>7</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9504</Ctr>
-<Week>8</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9311</Ctr>
-<Week>8</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9310</Ctr>
-<Week>8</Week>
-<Flight>1</Flight>
-<Team1>6</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9309</Ctr>
-<Week>8</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9308</Ctr>
-<Week>8</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9307</Ctr>
-<Week>8</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>7</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9306</Ctr>
-<Week>8</Week>
-<Flight>1</Flight>
-<Team1>5</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9442</Ctr>
-<Week>8</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9509</Ctr>
-<Week>8</Week>
-<Flight>4</Flight>
-<Team1>5</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9441</Ctr>
-<Week>8</Week>
-<Flight>3</Flight>
-<Team1>5</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9373</Ctr>
-<Week>8</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>7</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9372</Ctr>
-<Week>8</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9505</Ctr>
-<Week>8</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>7</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9506</Ctr>
-<Week>8</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9508</Ctr>
-<Week>8</Week>
-<Flight>4</Flight>
-<Team1>6</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9375</Ctr>
-<Week>8</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9374</Ctr>
-<Week>8</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9507</Ctr>
-<Week>8</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9444</Ctr>
-<Week>10</Week>
-<Flight>3</Flight>
-<Team1>7</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9511</Ctr>
-<Week>10</Week>
-<Flight>4</Flight>
-<Team1>10</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9510</Ctr>
-<Week>10</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>4</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9313</Ctr>
-<Week>10</Week>
-<Flight>1</Flight>
-<Team1>10</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9445</Ctr>
-<Week>10</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>4</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9314</Ctr>
-<Week>10</Week>
-<Flight>1</Flight>
-<Team1>8</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9513</Ctr>
-<Week>10</Week>
-<Flight>4</Flight>
-<Team1>7</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9446</Ctr>
-<Week>10</Week>
-<Flight>3</Flight>
-<Team1>8</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9447</Ctr>
-<Week>10</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>5</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9512</Ctr>
-<Week>10</Week>
-<Flight>4</Flight>
-<Team1>8</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9317</Ctr>
-<Week>10</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>5</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9316</Ctr>
-<Week>10</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9382</Ctr>
-<Week>10</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9315</Ctr>
-<Week>10</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>4</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9312</Ctr>
-<Week>10</Week>
-<Flight>1</Flight>
-<Team1>7</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9448</Ctr>
-<Week>10</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9383</Ctr>
-<Week>10</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>5</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9449</Ctr>
-<Week>10</Week>
-<Flight>3</Flight>
-<Team1>10</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9381</Ctr>
-<Week>10</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>4</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9380</Ctr>
-<Week>10</Week>
-<Flight>2</Flight>
-<Team1>8</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9379</Ctr>
-<Week>10</Week>
-<Flight>2</Flight>
-<Team1>10</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9515</Ctr>
-<Week>10</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>5</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9514</Ctr>
-<Week>10</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>6</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9378</Ctr>
-<Week>10</Week>
-<Flight>2</Flight>
-<Team1>7</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9452</Ctr>
-<Week>11</Week>
-<Flight>3</Flight>
-<Team1>7</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9454</Ctr>
-<Week>11</Week>
-<Flight>3</Flight>
-<Team1>8</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9453</Ctr>
-<Week>11</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>5</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9455</Ctr>
-<Week>11</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>6</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9451</Ctr>
-<Week>11</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9323</Ctr>
-<Week>11</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9322</Ctr>
-<Week>11</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>5</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9321</Ctr>
-<Week>11</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>6</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9320</Ctr>
-<Week>11</Week>
-<Flight>1</Flight>
-<Team1>7</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9319</Ctr>
-<Week>11</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9318</Ctr>
-<Week>11</Week>
-<Flight>1</Flight>
-<Team1>8</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9517</Ctr>
-<Week>11</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9516</Ctr>
-<Week>11</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>5</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9520</Ctr>
-<Week>11</Week>
-<Flight>4</Flight>
-<Team1>8</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9450</Ctr>
-<Week>11</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9387</Ctr>
-<Week>11</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>6</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9518</Ctr>
-<Week>11</Week>
-<Flight>4</Flight>
-<Team1>7</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9521</Ctr>
-<Week>11</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9388</Ctr>
-<Week>11</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>5</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9386</Ctr>
-<Week>11</Week>
-<Flight>2</Flight>
-<Team1>7</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9385</Ctr>
-<Week>11</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9384</Ctr>
-<Week>11</Week>
-<Flight>2</Flight>
-<Team1>8</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9519</Ctr>
-<Week>11</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>6</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9389</Ctr>
-<Week>11</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9456</Ctr>
-<Week>12</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9457</Ctr>
-<Week>12</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9526</Ctr>
-<Week>12</Week>
-<Flight>4</Flight>
-<Team1>7</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9527</Ctr>
-<Week>12</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9390</Ctr>
-<Week>12</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9391</Ctr>
-<Week>12</Week>
-<Flight>2</Flight>
-<Team1>7</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9392</Ctr>
-<Week>12</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>6</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9393</Ctr>
-<Week>12</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9394</Ctr>
-<Week>12</Week>
-<Flight>2</Flight>
-<Team1>5</Team1>
-<Flight2>2</Flight2>
-<Team2>8</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9458</Ctr>
-<Week>12</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9395</Ctr>
-<Week>12</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9459</Ctr>
-<Week>12</Week>
-<Flight>3</Flight>
-<Team1>5</Team1>
-<Flight2>3</Flight2>
-<Team2>8</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9324</Ctr>
-<Week>12</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9460</Ctr>
-<Week>12</Week>
-<Flight>3</Flight>
-<Team1>7</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9461</Ctr>
-<Week>12</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>6</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9329</Ctr>
-<Week>12</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9328</Ctr>
-<Week>12</Week>
-<Flight>1</Flight>
-<Team1>7</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9327</Ctr>
-<Week>12</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9325</Ctr>
-<Week>12</Week>
-<Flight>1</Flight>
-<Team1>5</Team1>
-<Flight2>1</Flight2>
-<Team2>8</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9525</Ctr>
-<Week>12</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9523</Ctr>
-<Week>12</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>6</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9326</Ctr>
-<Week>12</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>6</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9524</Ctr>
-<Week>12</Week>
-<Flight>4</Flight>
-<Team1>5</Team1>
-<Flight2>4</Flight2>
-<Team2>8</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9522</Ctr>
-<Week>12</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9531</Ctr>
-<Week>13</Week>
-<Flight>4</Flight>
-<Team1>5</Team1>
-<Flight2>4</Flight2>
-<Team2>7</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9528</Ctr>
-<Week>13</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>3</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9530</Ctr>
-<Week>13</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>4</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9532</Ctr>
-<Week>13</Week>
-<Flight>4</Flight>
-<Team1>9</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9335</Ctr>
-<Week>13</Week>
-<Flight>1</Flight>
-<Team1>10</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9533</Ctr>
-<Week>13</Week>
-<Flight>4</Flight>
-<Team1>10</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9462</Ctr>
-<Week>13</Week>
-<Flight>3</Flight>
-<Team1>9</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9463</Ctr>
-<Week>13</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>3</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9467</Ctr>
-<Week>13</Week>
-<Flight>3</Flight>
-<Team1>10</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9464</Ctr>
-<Week>13</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>4</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9465</Ctr>
-<Week>13</Week>
-<Flight>3</Flight>
-<Team1>5</Team1>
-<Flight2>3</Flight2>
-<Team2>7</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9466</Ctr>
-<Week>13</Week>
-<Flight>3</Flight>
-<Team1>6</Team1>
-<Flight2>3</Flight2>
-<Team2>8</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9529</Ctr>
-<Week>13</Week>
-<Flight>4</Flight>
-<Team1>6</Team1>
-<Flight2>4</Flight2>
-<Team2>8</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9396</Ctr>
-<Week>13</Week>
-<Flight>2</Flight>
-<Team1>9</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9333</Ctr>
-<Week>13</Week>
-<Flight>1</Flight>
-<Team1>5</Team1>
-<Flight2>1</Flight2>
-<Team2>7</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9330</Ctr>
-<Week>13</Week>
-<Flight>1</Flight>
-<Team1>9</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9401</Ctr>
-<Week>13</Week>
-<Flight>2</Flight>
-<Team1>6</Team1>
-<Flight2>2</Flight2>
-<Team2>8</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9400</Ctr>
-<Week>13</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>3</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9399</Ctr>
-<Week>13</Week>
-<Flight>2</Flight>
-<Team1>5</Team1>
-<Flight2>2</Flight2>
-<Team2>7</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9398</Ctr>
-<Week>13</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>4</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9397</Ctr>
-<Week>13</Week>
-<Flight>2</Flight>
-<Team1>10</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9334</Ctr>
-<Week>13</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>3</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9332</Ctr>
-<Week>13</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>4</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9331</Ctr>
-<Week>13</Week>
-<Flight>1</Flight>
-<Team1>6</Team1>
-<Flight2>1</Flight2>
-<Team2>8</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9534</Ctr>
-<Week>15</Week>
-<Flight>4</Flight>
-<Team1>1</Team1>
-<Flight2>4</Flight2>
-<Team2>11</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>11</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9407</Ctr>
-<Week>15</Week>
-<Flight>2</Flight>
-<Team1>8</Team1>
-<Flight2>2</Flight2>
-<Team2>9</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9535</Ctr>
-<Week>15</Week>
-<Flight>4</Flight>
-<Team1>2</Team1>
-<Flight2>4</Flight2>
-<Team2>5</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>13</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9403</Ctr>
-<Week>15</Week>
-<Flight>2</Flight>
-<Team1>2</Team1>
-<Flight2>2</Flight2>
-<Team2>5</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>4A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9536</Ctr>
-<Week>15</Week>
-<Flight>4</Flight>
-<Team1>6</Team1>
-<Flight2>4</Flight2>
-<Team2>10</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>15</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9537</Ctr>
-<Week>15</Week>
-<Flight>4</Flight>
-<Team1>4</Team1>
-<Flight2>4</Flight2>
-<Team2>12</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>17</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9538</Ctr>
-<Week>15</Week>
-<Flight>4</Flight>
-<Team1>3</Team1>
-<Flight2>4</Flight2>
-<Team2>7</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9402</Ctr>
-<Week>15</Week>
-<Flight>2</Flight>
-<Team1>6</Team1>
-<Flight2>2</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9539</Ctr>
-<Week>15</Week>
-<Flight>4</Flight>
-<Team1>8</Team1>
-<Flight2>4</Flight2>
-<Team2>9</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9404</Ctr>
-<Week>15</Week>
-<Flight>2</Flight>
-<Team1>1</Team1>
-<Flight2>2</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>5</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9406</Ctr>
-<Week>15</Week>
-<Flight>2</Flight>
-<Team1>3</Team1>
-<Flight2>2</Flight2>
-<Team2>7</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9341</Ctr>
-<Week>15</Week>
-<Flight>1</Flight>
-<Team1>8</Team1>
-<Flight2>1</Flight2>
-<Team2>9</Team2>
-<Slot>6</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>2B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9340</Ctr>
-<Week>15</Week>
-<Flight>1</Flight>
-<Team1>3</Team1>
-<Flight2>1</Flight2>
-<Team2>7</Team2>
-<Slot>5</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>9</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9339</Ctr>
-<Week>15</Week>
-<Flight>1</Flight>
-<Team1>4</Team1>
-<Flight2>1</Flight2>
-<Team2>12</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>7</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9473</Ctr>
-<Week>15</Week>
-<Flight>3</Flight>
-<Team1>6</Team1>
-<Flight2>3</Flight2>
-<Team2>10</Team2>
-<Slot>6</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18B</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9472</Ctr>
-<Week>15</Week>
-<Flight>3</Flight>
-<Team1>3</Team1>
-<Flight2>3</Flight2>
-<Team2>7</Team2>
-<Slot>5</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>18A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9471</Ctr>
-<Week>15</Week>
-<Flight>3</Flight>
-<Team1>2</Team1>
-<Flight2>3</Flight2>
-<Team2>5</Team2>
-<Slot>4</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>16A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9470</Ctr>
-<Week>15</Week>
-<Flight>3</Flight>
-<Team1>1</Team1>
-<Flight2>3</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>14</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9469</Ctr>
-<Week>15</Week>
-<Flight>3</Flight>
-<Team1>4</Team1>
-<Flight2>3</Flight2>
-<Team2>12</Team2>
-<Slot>2</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>12</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9468</Ctr>
-<Week>15</Week>
-<Flight>3</Flight>
-<Team1>8</Team1>
-<Flight2>3</Flight2>
-<Team2>9</Team2>
-<Slot>1</Slot>
-<Back9>1</Back9>
-<Status>0</Status>
-<Hole>10A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9338</Ctr>
-<Week>15</Week>
-<Flight>1</Flight>
-<Team1>1</Team1>
-<Flight2>1</Flight2>
-<Team2>11</Team2>
-<Slot>3</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>6</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9337</Ctr>
-<Week>15</Week>
-<Flight>1</Flight>
-<Team1>2</Team1>
-<Flight2>1</Flight2>
-<Team2>5</Team2>
-<Slot>2</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>3</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9336</Ctr>
-<Week>15</Week>
-<Flight>1</Flight>
-<Team1>6</Team1>
-<Flight2>1</Flight2>
-<Team2>10</Team2>
-<Slot>1</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>1A</Hole>
-</Schedule>
-<Schedule>
-<Ctr>9405</Ctr>
-<Week>15</Week>
-<Flight>2</Flight>
-<Team1>4</Team1>
-<Flight2>2</Flight2>
-<Team2>12</Team2>
-<Slot>4</Slot>
-<Back9>0</Back9>
-<Status>0</Status>
-<Hole>8</Hole>
-</Schedule>
+<ScheduleList xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="Schedule.xsd" generated="2021-06-05T13:51:57">
+    <Schedule>
+        <Ctr>9343</Ctr>
+        <Week>2</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>8</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9476</Ctr>
+        <Week>2</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9474</Ctr>
+        <Week>2</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9347</Ctr>
+        <Week>2</Week>
+        <Flight>2</Flight>
+        <Team1>6</Team1>
+        <Flight2>2</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9346</Ctr>
+        <Week>2</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9345</Ctr>
+        <Week>2</Week>
+        <Flight>2</Flight>
+        <Team1>5</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9477</Ctr>
+        <Week>2</Week>
+        <Flight>4</Flight>
+        <Team1>5</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9342</Ctr>
+        <Week>2</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9475</Ctr>
+        <Week>2</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>8</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9408</Ctr>
+        <Week>2</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9409</Ctr>
+        <Week>2</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9410</Ctr>
+        <Week>2</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>8</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9411</Ctr>
+        <Week>2</Week>
+        <Flight>3</Flight>
+        <Team1>5</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9412</Ctr>
+        <Week>2</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9413</Ctr>
+        <Week>2</Week>
+        <Flight>3</Flight>
+        <Team1>6</Team1>
+        <Flight2>3</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9344</Ctr>
+        <Week>2</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9479</Ctr>
+        <Week>2</Week>
+        <Flight>4</Flight>
+        <Team1>6</Team1>
+        <Flight2>4</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9277</Ctr>
+        <Week>2</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>8</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9278</Ctr>
+        <Week>2</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9279</Ctr>
+        <Week>2</Week>
+        <Flight>1</Flight>
+        <Team1>5</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9280</Ctr>
+        <Week>2</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9281</Ctr>
+        <Week>2</Week>
+        <Flight>1</Flight>
+        <Team1>6</Team1>
+        <Flight2>1</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9276</Ctr>
+        <Week>2</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9478</Ctr>
+        <Week>2</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9485</Ctr>
+        <Week>3</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9417</Ctr>
+        <Week>3</Week>
+        <Flight>3</Flight>
+        <Team1>5</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9353</Ctr>
+        <Week>3</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9352</Ctr>
+        <Week>3</Week>
+        <Flight>2</Flight>
+        <Team1>8</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9351</Ctr>
+        <Week>3</Week>
+        <Flight>2</Flight>
+        <Team1>6</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9419</Ctr>
+        <Week>3</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9484</Ctr>
+        <Week>3</Week>
+        <Flight>4</Flight>
+        <Team1>8</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9483</Ctr>
+        <Week>3</Week>
+        <Flight>4</Flight>
+        <Team1>6</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9482</Ctr>
+        <Week>3</Week>
+        <Flight>4</Flight>
+        <Team1>5</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9348</Ctr>
+        <Week>3</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>3</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9349</Ctr>
+        <Week>3</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9416</Ctr>
+        <Week>3</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>7</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9481</Ctr>
+        <Week>3</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9350</Ctr>
+        <Week>3</Week>
+        <Flight>2</Flight>
+        <Team1>5</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9480</Ctr>
+        <Week>3</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>3</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9418</Ctr>
+        <Week>3</Week>
+        <Flight>3</Flight>
+        <Team1>6</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9287</Ctr>
+        <Week>3</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9282</Ctr>
+        <Week>3</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>3</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9283</Ctr>
+        <Week>3</Week>
+        <Flight>1</Flight>
+        <Team1>6</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9284</Ctr>
+        <Week>3</Week>
+        <Flight>1</Flight>
+        <Team1>5</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9285</Ctr>
+        <Week>3</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9286</Ctr>
+        <Week>3</Week>
+        <Flight>1</Flight>
+        <Team1>8</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9415</Ctr>
+        <Week>3</Week>
+        <Flight>3</Flight>
+        <Team1>8</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9414</Ctr>
+        <Week>3</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>3</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9489</Ctr>
+        <Week>4</Week>
+        <Flight>4</Flight>
+        <Team1>7</Team1>
+        <Flight2>4</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9291</Ctr>
+        <Week>4</Week>
+        <Flight>1</Flight>
+        <Team1>7</Team1>
+        <Flight2>1</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9290</Ctr>
+        <Week>4</Week>
+        <Flight>1</Flight>
+        <Team1>5</Team1>
+        <Flight2>1</Flight2>
+        <Team2>6</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9289</Ctr>
+        <Week>4</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>4</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9422</Ctr>
+        <Week>4</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>2</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9421</Ctr>
+        <Week>4</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>4</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9424</Ctr>
+        <Week>4</Week>
+        <Flight>3</Flight>
+        <Team1>9</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9423</Ctr>
+        <Week>4</Week>
+        <Flight>3</Flight>
+        <Team1>7</Team1>
+        <Flight2>3</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9486</Ctr>
+        <Week>4</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>2</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9292</Ctr>
+        <Week>4</Week>
+        <Flight>1</Flight>
+        <Team1>9</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9488</Ctr>
+        <Week>4</Week>
+        <Flight>4</Flight>
+        <Team1>5</Team1>
+        <Flight2>4</Flight2>
+        <Team2>6</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9420</Ctr>
+        <Week>4</Week>
+        <Flight>3</Flight>
+        <Team1>11</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9490</Ctr>
+        <Week>4</Week>
+        <Flight>4</Flight>
+        <Team1>9</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9491</Ctr>
+        <Week>4</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>4</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9354</Ctr>
+        <Week>4</Week>
+        <Flight>2</Flight>
+        <Team1>9</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9355</Ctr>
+        <Week>4</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>4</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9356</Ctr>
+        <Week>4</Week>
+        <Flight>2</Flight>
+        <Team1>5</Team1>
+        <Flight2>2</Flight2>
+        <Team2>6</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9357</Ctr>
+        <Week>4</Week>
+        <Flight>2</Flight>
+        <Team1>7</Team1>
+        <Flight2>2</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9358</Ctr>
+        <Week>4</Week>
+        <Flight>2</Flight>
+        <Team1>11</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9359</Ctr>
+        <Week>4</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>2</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9288</Ctr>
+        <Week>4</Week>
+        <Flight>1</Flight>
+        <Team1>11</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9487</Ctr>
+        <Week>4</Week>
+        <Flight>4</Flight>
+        <Team1>11</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9293</Ctr>
+        <Week>4</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>2</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9425</Ctr>
+        <Week>4</Week>
+        <Flight>3</Flight>
+        <Team1>5</Team1>
+        <Flight2>3</Flight2>
+        <Team2>6</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9496</Ctr>
+        <Week>6</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9361</Ctr>
+        <Week>6</Week>
+        <Flight>2</Flight>
+        <Team1>9</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9362</Ctr>
+        <Week>6</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>8</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9363</Ctr>
+        <Week>6</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9364</Ctr>
+        <Week>6</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9365</Ctr>
+        <Week>6</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>7</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9299</Ctr>
+        <Week>6</Week>
+        <Flight>1</Flight>
+        <Team1>5</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9298</Ctr>
+        <Week>6</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9497</Ctr>
+        <Week>6</Week>
+        <Flight>4</Flight>
+        <Team1>5</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9495</Ctr>
+        <Week>6</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9494</Ctr>
+        <Week>6</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>7</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9493</Ctr>
+        <Week>6</Week>
+        <Flight>4</Flight>
+        <Team1>9</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9294</Ctr>
+        <Week>6</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>7</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9431</Ctr>
+        <Week>6</Week>
+        <Flight>3</Flight>
+        <Team1>5</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9492</Ctr>
+        <Week>6</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>8</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9295</Ctr>
+        <Week>6</Week>
+        <Flight>1</Flight>
+        <Team1>9</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9430</Ctr>
+        <Week>6</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9429</Ctr>
+        <Week>6</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9428</Ctr>
+        <Week>6</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>8</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9427</Ctr>
+        <Week>6</Week>
+        <Flight>3</Flight>
+        <Team1>9</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9426</Ctr>
+        <Week>6</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>7</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9360</Ctr>
+        <Week>6</Week>
+        <Flight>2</Flight>
+        <Team1>5</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9297</Ctr>
+        <Week>6</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9296</Ctr>
+        <Week>6</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>8</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9301</Ctr>
+        <Week>7</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9433</Ctr>
+        <Week>7</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>8</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9432</Ctr>
+        <Week>7</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9303</Ctr>
+        <Week>7</Week>
+        <Flight>1</Flight>
+        <Team1>6</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9302</Ctr>
+        <Week>7</Week>
+        <Flight>1</Flight>
+        <Team1>7</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9300</Ctr>
+        <Week>7</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>5</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9498</Ctr>
+        <Week>7</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9305</Ctr>
+        <Week>7</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>8</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9502</Ctr>
+        <Week>7</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>5</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9304</Ctr>
+        <Week>7</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9501</Ctr>
+        <Week>7</Week>
+        <Flight>4</Flight>
+        <Team1>6</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9500</Ctr>
+        <Week>7</Week>
+        <Flight>4</Flight>
+        <Team1>7</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9499</Ctr>
+        <Week>7</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9503</Ctr>
+        <Week>7</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>8</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9436</Ctr>
+        <Week>7</Week>
+        <Flight>3</Flight>
+        <Team1>6</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9366</Ctr>
+        <Week>7</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>5</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9437</Ctr>
+        <Week>7</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9435</Ctr>
+        <Week>7</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>5</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9434</Ctr>
+        <Week>7</Week>
+        <Flight>3</Flight>
+        <Team1>7</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9367</Ctr>
+        <Week>7</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9370</Ctr>
+        <Week>7</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9369</Ctr>
+        <Week>7</Week>
+        <Flight>2</Flight>
+        <Team1>6</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9368</Ctr>
+        <Week>7</Week>
+        <Flight>2</Flight>
+        <Team1>7</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9371</Ctr>
+        <Week>7</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>8</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9377</Ctr>
+        <Week>8</Week>
+        <Flight>2</Flight>
+        <Team1>5</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9440</Ctr>
+        <Week>8</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9438</Ctr>
+        <Week>8</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>8</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9376</Ctr>
+        <Week>8</Week>
+        <Flight>2</Flight>
+        <Team1>6</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9443</Ctr>
+        <Week>8</Week>
+        <Flight>3</Flight>
+        <Team1>6</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9439</Ctr>
+        <Week>8</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>7</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9504</Ctr>
+        <Week>8</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9311</Ctr>
+        <Week>8</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9310</Ctr>
+        <Week>8</Week>
+        <Flight>1</Flight>
+        <Team1>6</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9309</Ctr>
+        <Week>8</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9308</Ctr>
+        <Week>8</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9307</Ctr>
+        <Week>8</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>7</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9306</Ctr>
+        <Week>8</Week>
+        <Flight>1</Flight>
+        <Team1>5</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9442</Ctr>
+        <Week>8</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9509</Ctr>
+        <Week>8</Week>
+        <Flight>4</Flight>
+        <Team1>5</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9441</Ctr>
+        <Week>8</Week>
+        <Flight>3</Flight>
+        <Team1>5</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9373</Ctr>
+        <Week>8</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>7</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9372</Ctr>
+        <Week>8</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9505</Ctr>
+        <Week>8</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>7</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9506</Ctr>
+        <Week>8</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9508</Ctr>
+        <Week>8</Week>
+        <Flight>4</Flight>
+        <Team1>6</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9375</Ctr>
+        <Week>8</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9374</Ctr>
+        <Week>8</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9507</Ctr>
+        <Week>8</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9444</Ctr>
+        <Week>10</Week>
+        <Flight>3</Flight>
+        <Team1>7</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9511</Ctr>
+        <Week>10</Week>
+        <Flight>4</Flight>
+        <Team1>10</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9510</Ctr>
+        <Week>10</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>4</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9313</Ctr>
+        <Week>10</Week>
+        <Flight>1</Flight>
+        <Team1>10</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9445</Ctr>
+        <Week>10</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>4</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9314</Ctr>
+        <Week>10</Week>
+        <Flight>1</Flight>
+        <Team1>8</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9513</Ctr>
+        <Week>10</Week>
+        <Flight>4</Flight>
+        <Team1>7</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9446</Ctr>
+        <Week>10</Week>
+        <Flight>3</Flight>
+        <Team1>8</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9447</Ctr>
+        <Week>10</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>5</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9512</Ctr>
+        <Week>10</Week>
+        <Flight>4</Flight>
+        <Team1>8</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9317</Ctr>
+        <Week>10</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>5</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9316</Ctr>
+        <Week>10</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9382</Ctr>
+        <Week>10</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9315</Ctr>
+        <Week>10</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>4</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9312</Ctr>
+        <Week>10</Week>
+        <Flight>1</Flight>
+        <Team1>7</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9448</Ctr>
+        <Week>10</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9383</Ctr>
+        <Week>10</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>5</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9449</Ctr>
+        <Week>10</Week>
+        <Flight>3</Flight>
+        <Team1>10</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9381</Ctr>
+        <Week>10</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>4</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9380</Ctr>
+        <Week>10</Week>
+        <Flight>2</Flight>
+        <Team1>8</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9379</Ctr>
+        <Week>10</Week>
+        <Flight>2</Flight>
+        <Team1>10</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9515</Ctr>
+        <Week>10</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>5</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9514</Ctr>
+        <Week>10</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>6</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9378</Ctr>
+        <Week>10</Week>
+        <Flight>2</Flight>
+        <Team1>7</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9452</Ctr>
+        <Week>11</Week>
+        <Flight>3</Flight>
+        <Team1>7</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9454</Ctr>
+        <Week>11</Week>
+        <Flight>3</Flight>
+        <Team1>8</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9453</Ctr>
+        <Week>11</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>5</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9455</Ctr>
+        <Week>11</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>6</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9451</Ctr>
+        <Week>11</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9323</Ctr>
+        <Week>11</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9322</Ctr>
+        <Week>11</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>5</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9321</Ctr>
+        <Week>11</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>6</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9320</Ctr>
+        <Week>11</Week>
+        <Flight>1</Flight>
+        <Team1>7</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9319</Ctr>
+        <Week>11</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9318</Ctr>
+        <Week>11</Week>
+        <Flight>1</Flight>
+        <Team1>8</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9517</Ctr>
+        <Week>11</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9516</Ctr>
+        <Week>11</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>5</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9520</Ctr>
+        <Week>11</Week>
+        <Flight>4</Flight>
+        <Team1>8</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9450</Ctr>
+        <Week>11</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9387</Ctr>
+        <Week>11</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>6</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9518</Ctr>
+        <Week>11</Week>
+        <Flight>4</Flight>
+        <Team1>7</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9521</Ctr>
+        <Week>11</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9388</Ctr>
+        <Week>11</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>5</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9386</Ctr>
+        <Week>11</Week>
+        <Flight>2</Flight>
+        <Team1>7</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9385</Ctr>
+        <Week>11</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9384</Ctr>
+        <Week>11</Week>
+        <Flight>2</Flight>
+        <Team1>8</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9519</Ctr>
+        <Week>11</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>6</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9389</Ctr>
+        <Week>11</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9456</Ctr>
+        <Week>12</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9457</Ctr>
+        <Week>12</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9526</Ctr>
+        <Week>12</Week>
+        <Flight>4</Flight>
+        <Team1>7</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9527</Ctr>
+        <Week>12</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9390</Ctr>
+        <Week>12</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9391</Ctr>
+        <Week>12</Week>
+        <Flight>2</Flight>
+        <Team1>7</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9392</Ctr>
+        <Week>12</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>6</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9393</Ctr>
+        <Week>12</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9394</Ctr>
+        <Week>12</Week>
+        <Flight>2</Flight>
+        <Team1>5</Team1>
+        <Flight2>2</Flight2>
+        <Team2>8</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9458</Ctr>
+        <Week>12</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9395</Ctr>
+        <Week>12</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9459</Ctr>
+        <Week>12</Week>
+        <Flight>3</Flight>
+        <Team1>5</Team1>
+        <Flight2>3</Flight2>
+        <Team2>8</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9324</Ctr>
+        <Week>12</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9460</Ctr>
+        <Week>12</Week>
+        <Flight>3</Flight>
+        <Team1>7</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9461</Ctr>
+        <Week>12</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>6</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9329</Ctr>
+        <Week>12</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9328</Ctr>
+        <Week>12</Week>
+        <Flight>1</Flight>
+        <Team1>7</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9327</Ctr>
+        <Week>12</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9325</Ctr>
+        <Week>12</Week>
+        <Flight>1</Flight>
+        <Team1>5</Team1>
+        <Flight2>1</Flight2>
+        <Team2>8</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9525</Ctr>
+        <Week>12</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9523</Ctr>
+        <Week>12</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>6</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9326</Ctr>
+        <Week>12</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>6</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9524</Ctr>
+        <Week>12</Week>
+        <Flight>4</Flight>
+        <Team1>5</Team1>
+        <Flight2>4</Flight2>
+        <Team2>8</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9522</Ctr>
+        <Week>12</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9531</Ctr>
+        <Week>13</Week>
+        <Flight>4</Flight>
+        <Team1>5</Team1>
+        <Flight2>4</Flight2>
+        <Team2>7</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9528</Ctr>
+        <Week>13</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>3</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9530</Ctr>
+        <Week>13</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>4</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9532</Ctr>
+        <Week>13</Week>
+        <Flight>4</Flight>
+        <Team1>9</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9335</Ctr>
+        <Week>13</Week>
+        <Flight>1</Flight>
+        <Team1>10</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9533</Ctr>
+        <Week>13</Week>
+        <Flight>4</Flight>
+        <Team1>10</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9462</Ctr>
+        <Week>13</Week>
+        <Flight>3</Flight>
+        <Team1>9</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9463</Ctr>
+        <Week>13</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>3</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9467</Ctr>
+        <Week>13</Week>
+        <Flight>3</Flight>
+        <Team1>10</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9464</Ctr>
+        <Week>13</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>4</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9465</Ctr>
+        <Week>13</Week>
+        <Flight>3</Flight>
+        <Team1>5</Team1>
+        <Flight2>3</Flight2>
+        <Team2>7</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9466</Ctr>
+        <Week>13</Week>
+        <Flight>3</Flight>
+        <Team1>6</Team1>
+        <Flight2>3</Flight2>
+        <Team2>8</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9529</Ctr>
+        <Week>13</Week>
+        <Flight>4</Flight>
+        <Team1>6</Team1>
+        <Flight2>4</Flight2>
+        <Team2>8</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9396</Ctr>
+        <Week>13</Week>
+        <Flight>2</Flight>
+        <Team1>9</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9333</Ctr>
+        <Week>13</Week>
+        <Flight>1</Flight>
+        <Team1>5</Team1>
+        <Flight2>1</Flight2>
+        <Team2>7</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9330</Ctr>
+        <Week>13</Week>
+        <Flight>1</Flight>
+        <Team1>9</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9401</Ctr>
+        <Week>13</Week>
+        <Flight>2</Flight>
+        <Team1>6</Team1>
+        <Flight2>2</Flight2>
+        <Team2>8</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9400</Ctr>
+        <Week>13</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>3</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9399</Ctr>
+        <Week>13</Week>
+        <Flight>2</Flight>
+        <Team1>5</Team1>
+        <Flight2>2</Flight2>
+        <Team2>7</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9398</Ctr>
+        <Week>13</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>4</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9397</Ctr>
+        <Week>13</Week>
+        <Flight>2</Flight>
+        <Team1>10</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9334</Ctr>
+        <Week>13</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>3</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9332</Ctr>
+        <Week>13</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>4</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9331</Ctr>
+        <Week>13</Week>
+        <Flight>1</Flight>
+        <Team1>6</Team1>
+        <Flight2>1</Flight2>
+        <Team2>8</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9534</Ctr>
+        <Week>15</Week>
+        <Flight>4</Flight>
+        <Team1>1</Team1>
+        <Flight2>4</Flight2>
+        <Team2>11</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>11</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9407</Ctr>
+        <Week>15</Week>
+        <Flight>2</Flight>
+        <Team1>8</Team1>
+        <Flight2>2</Flight2>
+        <Team2>9</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9535</Ctr>
+        <Week>15</Week>
+        <Flight>4</Flight>
+        <Team1>2</Team1>
+        <Flight2>4</Flight2>
+        <Team2>5</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>13</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9403</Ctr>
+        <Week>15</Week>
+        <Flight>2</Flight>
+        <Team1>2</Team1>
+        <Flight2>2</Flight2>
+        <Team2>5</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>4A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9536</Ctr>
+        <Week>15</Week>
+        <Flight>4</Flight>
+        <Team1>6</Team1>
+        <Flight2>4</Flight2>
+        <Team2>10</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>15</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9537</Ctr>
+        <Week>15</Week>
+        <Flight>4</Flight>
+        <Team1>4</Team1>
+        <Flight2>4</Flight2>
+        <Team2>12</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>17</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9538</Ctr>
+        <Week>15</Week>
+        <Flight>4</Flight>
+        <Team1>3</Team1>
+        <Flight2>4</Flight2>
+        <Team2>7</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9402</Ctr>
+        <Week>15</Week>
+        <Flight>2</Flight>
+        <Team1>6</Team1>
+        <Flight2>2</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9539</Ctr>
+        <Week>15</Week>
+        <Flight>4</Flight>
+        <Team1>8</Team1>
+        <Flight2>4</Flight2>
+        <Team2>9</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9404</Ctr>
+        <Week>15</Week>
+        <Flight>2</Flight>
+        <Team1>1</Team1>
+        <Flight2>2</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>5</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9406</Ctr>
+        <Week>15</Week>
+        <Flight>2</Flight>
+        <Team1>3</Team1>
+        <Flight2>2</Flight2>
+        <Team2>7</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9341</Ctr>
+        <Week>15</Week>
+        <Flight>1</Flight>
+        <Team1>8</Team1>
+        <Flight2>1</Flight2>
+        <Team2>9</Team2>
+        <Slot>6</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>2B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9340</Ctr>
+        <Week>15</Week>
+        <Flight>1</Flight>
+        <Team1>3</Team1>
+        <Flight2>1</Flight2>
+        <Team2>7</Team2>
+        <Slot>5</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>9</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9339</Ctr>
+        <Week>15</Week>
+        <Flight>1</Flight>
+        <Team1>4</Team1>
+        <Flight2>1</Flight2>
+        <Team2>12</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>7</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9473</Ctr>
+        <Week>15</Week>
+        <Flight>3</Flight>
+        <Team1>6</Team1>
+        <Flight2>3</Flight2>
+        <Team2>10</Team2>
+        <Slot>6</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18B</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9472</Ctr>
+        <Week>15</Week>
+        <Flight>3</Flight>
+        <Team1>3</Team1>
+        <Flight2>3</Flight2>
+        <Team2>7</Team2>
+        <Slot>5</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>18A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9471</Ctr>
+        <Week>15</Week>
+        <Flight>3</Flight>
+        <Team1>2</Team1>
+        <Flight2>3</Flight2>
+        <Team2>5</Team2>
+        <Slot>4</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>16A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9470</Ctr>
+        <Week>15</Week>
+        <Flight>3</Flight>
+        <Team1>1</Team1>
+        <Flight2>3</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>14</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9469</Ctr>
+        <Week>15</Week>
+        <Flight>3</Flight>
+        <Team1>4</Team1>
+        <Flight2>3</Flight2>
+        <Team2>12</Team2>
+        <Slot>2</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>12</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9468</Ctr>
+        <Week>15</Week>
+        <Flight>3</Flight>
+        <Team1>8</Team1>
+        <Flight2>3</Flight2>
+        <Team2>9</Team2>
+        <Slot>1</Slot>
+        <Back9>1</Back9>
+        <Status>0</Status>
+        <Hole>10A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9338</Ctr>
+        <Week>15</Week>
+        <Flight>1</Flight>
+        <Team1>1</Team1>
+        <Flight2>1</Flight2>
+        <Team2>11</Team2>
+        <Slot>3</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>6</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9337</Ctr>
+        <Week>15</Week>
+        <Flight>1</Flight>
+        <Team1>2</Team1>
+        <Flight2>1</Flight2>
+        <Team2>5</Team2>
+        <Slot>2</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>3</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9336</Ctr>
+        <Week>15</Week>
+        <Flight>1</Flight>
+        <Team1>6</Team1>
+        <Flight2>1</Flight2>
+        <Team2>10</Team2>
+        <Slot>1</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>1A</Hole>
+    </Schedule>
+    <Schedule>
+        <Ctr>9405</Ctr>
+        <Week>15</Week>
+        <Flight>2</Flight>
+        <Team1>4</Team1>
+        <Flight2>2</Flight2>
+        <Team2>12</Team2>
+        <Slot>4</Slot>
+        <Back9>0</Back9>
+        <Status>0</Status>
+        <Hole>8</Hole>
+    </Schedule>
 </ScheduleList>

@@ -89,23 +89,29 @@ public class DatabaseMigrator {
                 PlayersList playersList = getLegacyList(LegacyData.PLAYERS.getUrl(), PlayersList.class);
                 playersList.getPlayers().forEach(nine -> migrateToNewDomain(nine, entityManager));
                 if (shouldBreak) break;
-            case SCHEDULE:
-
-                if (shouldBreak) break;
-            case SCHEDULE_MASTER:
-
-                if (shouldBreak) break;
-            case SCORE_CARD:
-
-                if (shouldBreak) break;
             case TEES:
-
+                TeesList teesList = getLegacyList(LegacyData.TEES.getUrl(), TeesList.class);
+                teesList.getTees().forEach(tee -> migrateToNewDomain(tee, entityManager));
                 if (shouldBreak) break;
             case TEE_TIMES:
-
+//                TeeTimesList teeTimesList = getLegacyList(LegacyData.TeeTimes.getUrl(), TeeTimesList.class);
+//                teeTimesList.getTeeTimes().forEach(nine -> migrateToNewDomain(nine, entityManager));
                 if (shouldBreak) break;
             case WEEK_DATES:
-
+                WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);
+                weekDatesList.getWeekDates().forEach(dates -> migrateToNewDomain(dates, entityManager));
+//                if (shouldBreak) break;
+            case SCHEDULE:
+                ScheduleList scheduleList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScheduleList.class);
+                scheduleList.getSchedule().forEach(nine -> migrateToNewDomain(nine, entityManager));
+//                if (shouldBreak) break;
+            case SCHEDULE_MASTER:
+                ScheduleMasterList scheduleMasterList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScheduleMasterList.class);
+                scheduleMasterList.getScheduleMaster().forEach(scheduleMaster -> migrateToNewDomain(scheduleMaster, entityManager));
+                if (shouldBreak) break;
+            case SCORE_CARD:
+                ScoreCardList scoreCardList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScoreCardList.class);
+                scoreCardList.getScoreCard().forEach(scoreCard -> migrateToNewDomain(scoreCard, entityManager));
                 if (shouldBreak) break;
         }
         entityManager.close();
@@ -225,44 +231,30 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
     }
 
-    private void migratePlayerData() {
-        try {
-            JAXBContext context = JAXBContext.newInstance(PlayersList.class);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            PlayersList playersList = (PlayersList) unmarshaller.unmarshal(new File("src/test/resources/legacy/data/Players.xml"));
-            playersList.getPlayers().forEach(this::migratePlayerToNewDomain);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-
+    private void migrateToNewDomain(Tees legacyObj, EntityManager entityManager) {
+        Tee tee = new Tee();
+        tee.setId(legacyObj.getTees());
+        entityManager.getTransaction().begin();
+        entityManager.persist(tee);
+        entityManager.getTransaction().commit();
     }
 
-    private void migratePlayerToNewDomain(Players legacyPlayer) {
-        Golfer golfer = new Golfer();
-        PlayerHandicap playerHandicap = new PlayerHandicap();
-        TeamMember teamMember = new TeamMember();
 
-        golfer.setId(legacyPlayer.getGolfer());
-        golfer.setFirstName(legacyPlayer.getFirstName());
-        golfer.setMiddleName(legacyPlayer.getMiddleInt());
-        golfer.setLastName(legacyPlayer.getLastName());
-        golfer.setEmail(legacyPlayer.getEmail());
-        golfer.setCity(legacyPlayer.getCity());
-        golfer.setState(legacyPlayer.getState());
-        golfer.setZip(legacyPlayer.getZipCode());
-        golfer.setHomePhone(legacyPlayer.getHomePhone());
-        golfer.setWorkPhone(legacyPlayer.getWorkPhone());
-        golfer.setNotes(legacyPlayer.getNotes());
-        golfer.setActive(legacyPlayer.isActive());
-        golfer.setDateAdded(convertLegacyDate(legacyPlayer.getDateAdded()));
+    private void migrateToNewDomain(WeekDates legacyObj, EntityManager entityManager) {}
 
-        playerHandicap.setGolferId(legacyPlayer.getGolfer());
-        playerHandicap.setHandicap(legacyPlayer.getCurrentHdcp());
+    private void migrateToNewDomain(Schedule legacyObj, EntityManager entityManager) {}
 
-        //  TODO need to insert team first
-        teamMember.setGolferId(legacyPlayer.getGolfer());
-        teamMember.setTeamId(legacyPlayer.getTeam());
+    private void migrateToNewDomain(ScheduleMaster legacyObj, EntityManager entityManager) {}
 
+    private void migrateToNewDomain(ScoreCard legacyObj, EntityManager entityManager) {
+
+//        TeamEvent teamEvent = new TeamEvent();
+//        teamEvent.setEventId();
+//
+//
+//        entityManager.getTransaction().begin();
+//        entityManager.persist(nine);
+//        entityManager.getTransaction().commit();
     }
 
     private LocalDateTime convertLegacyDate(XMLGregorianCalendar date) {

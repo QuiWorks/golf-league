@@ -11,11 +11,11 @@ public class ScorePK implements Serializable {
 
     @Column(name = "round_id", nullable = false)
     @Id
-    public int getRoundId() {
+    public int getId() {
         return roundId;
     }
 
-    public void setRoundId(int roundId) {
+    public void setId(int roundId) {
         this.roundId = roundId;
     }
 
