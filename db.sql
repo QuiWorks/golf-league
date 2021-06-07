@@ -177,6 +177,14 @@ CREATE TABLE event
     FOREIGN KEY (event_type) REFERENCES event_type (name)
 );
 
+CREATE TABLE tee_time
+(
+    flight_id  int          not null,
+    slot        int         not null,
+    time timestamp not null,
+    PRIMARY KEY (flight_id, slot),
+)
+
 CREATE TABLE team_event
 (
     event_id int not null auto_increment,

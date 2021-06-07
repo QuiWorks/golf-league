@@ -65,6 +65,8 @@ public class Holes {
     protected Short hdcp;
     @XmlElement(name = "Par")
     protected Short par;
+    @XmlElement(name = "Yardage")
+    protected Integer yardage;
 
     /**
      * Gets the value of the courseId property.
@@ -186,4 +188,11 @@ public class Holes {
         this.par = value;
     }
 
+    public Integer getYardage() {
+        return yardage;
+    }
+
+    public void setYardage(Integer yardage) {
+        this.yardage = yardage;
+    }
 }
