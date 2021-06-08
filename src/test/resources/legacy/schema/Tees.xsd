@@ -11,9 +11,17 @@
 <xsd:element name="Tees">
 <xsd:annotation>
 <xsd:appinfo>
-<od:index index-name="PrimaryKey" index-key="Tees " primary="yes" unique="yes" clustered="no" order="asc"/>
+<od:index index-name="PrimaryKey" index-key="Tees Back9 " primary="yes" unique="yes" clustered="no" order="asc asc"/>
 <od:tableProperty name="Orientation" type="2" value="0"/>
 <od:tableProperty name="OrderByOn" type="1" value="0"/>
+<od:tableProperty name="DefaultView" type="2" value="2"/>
+<od:tableProperty name="GUID" type="9" value="4Q6N/8duZUOWIhB079+QMg==
+"/>
+<od:tableProperty name="DisplayViewsOnSharePointSite" type="2" value="1"/>
+<od:tableProperty name="TotalsRow" type="1" value="0"/>
+<od:tableProperty name="FilterOnLoad" type="1" value="0"/>
+<od:tableProperty name="OrderByOnLoad" type="1" value="1"/>
+<od:tableProperty name="HideNewField" type="1" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 <xsd:complexType>
@@ -28,6 +36,10 @@
 <od:fieldProperty name="AllowZeroLength" type="1" value="0"/>
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="UnicodeCompression" type="1" value="0"/>
+<od:fieldProperty name="IMEMode" type="2" value="0"/>
+<od:fieldProperty name="IMESentenceMode" type="2" value="3"/>
+<od:fieldProperty name="TextAlign" type="2" value="0"/>
+<od:fieldProperty name="AggregateType" type="4" value="-1"/>
 </xsd:appinfo>
 </xsd:annotation>
 <xsd:simpleType>
@@ -35,6 +47,50 @@
 <xsd:maxLength value="50"/>
 </xsd:restriction>
 </xsd:simpleType>
+</xsd:element>
+<xsd:element name="CourseRating" minOccurs="0" od:jetType="single" od:sqlSType="real" type="xsd:float">
+<xsd:annotation>
+<xsd:appinfo>
+<od:fieldProperty name="ColumnWidth" type="3" value="1695"/>
+<od:fieldProperty name="ColumnOrder" type="3" value="0"/>
+<od:fieldProperty name="ColumnHidden" type="1" value="0"/>
+<od:fieldProperty name="DecimalPlaces" type="2" value="2"/>
+<od:fieldProperty name="Caption" type="12" value="Course Rating"/>
+<od:fieldProperty name="DefaultValue" type="12" value="0"/>
+<od:fieldProperty name="Required" type="1" value="0"/>
+<od:fieldProperty name="DisplayControl" type="3" value="109"/>
+<od:fieldProperty name="TextAlign" type="2" value="0"/>
+<od:fieldProperty name="AggregateType" type="4" value="-1"/>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="Slope" minOccurs="0" od:jetType="single" od:sqlSType="real" type="xsd:float">
+<xsd:annotation>
+<xsd:appinfo>
+<od:fieldProperty name="ColumnWidth" type="3" value="-1"/>
+<od:fieldProperty name="ColumnOrder" type="3" value="0"/>
+<od:fieldProperty name="ColumnHidden" type="1" value="0"/>
+<od:fieldProperty name="DecimalPlaces" type="2" value="2"/>
+<od:fieldProperty name="Caption" type="12" value="Slope"/>
+<od:fieldProperty name="DefaultValue" type="12" value="0"/>
+<od:fieldProperty name="Required" type="1" value="0"/>
+<od:fieldProperty name="DisplayControl" type="3" value="109"/>
+<od:fieldProperty name="TextAlign" type="2" value="0"/>
+<od:fieldProperty name="AggregateType" type="4" value="-1"/>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="Back9" minOccurs="1" od:jetType="yesno" od:sqlSType="bit" od:nonNullable="yes" type="xsd:boolean">
+<xsd:annotation>
+<xsd:appinfo>
+<od:fieldProperty name="ColumnWidth" type="3" value="-1"/>
+<od:fieldProperty name="ColumnOrder" type="3" value="0"/>
+<od:fieldProperty name="ColumnHidden" type="1" value="0"/>
+<od:fieldProperty name="DisplayControl" type="3" value="109"/>
+<od:fieldProperty name="TextAlign" type="2" value="0"/>
+<od:fieldProperty name="AggregateType" type="4" value="-1"/>
+</xsd:appinfo>
+</xsd:annotation>
 </xsd:element>
 </xsd:sequence>
 </xsd:complexType>

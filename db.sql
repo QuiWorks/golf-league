@@ -1,6 +1,8 @@
 CREATE DATABASE golf_league;
 use golf_league;
 
+-- TODO create tables: handicap_filter, player_preferences,
+
 CREATE TABLE golfer
 (
     id          int auto_increment not null,

@@ -14,7 +14,7 @@
 <od:index index-name="PrimaryKey" index-key="Counter " primary="yes" unique="yes" clustered="no" order="asc"/>
 <od:index index-name="WeekBucket" index-key="WeekBucket " primary="no" unique="no" clustered="no" order="asc"/>
 <od:tableProperty name="Orientation" type="2" value="0"/>
-<od:tableProperty name="OrderByOn" type="1" value="0"/>
+<od:tableProperty name="OrderByOn" type="1" value="1"/>
 <od:tableProperty name="DefaultView" type="2" value="2"/>
 <od:tableProperty name="GUID" type="9" value="YKeqh8T9P02AZI+yPvVBzw==
 "/>
@@ -23,6 +23,15 @@
 <od:tableProperty name="FilterOnLoad" type="1" value="0"/>
 <od:tableProperty name="OrderByOnLoad" type="1" value="1"/>
 <od:tableProperty name="HideNewField" type="1" value="0"/>
+<od:tableProperty name="BackTint" type="6" value="100"/>
+<od:tableProperty name="BackShade" type="6" value="100"/>
+<od:tableProperty name="ThemeFontIndex" type="4" value="-1"/>
+<od:tableProperty name="AlternateBackThemeColorIndex" type="4" value="-1"/>
+<od:tableProperty name="AlternateBackTint" type="6" value="100"/>
+<od:tableProperty name="AlternateBackShade" type="6" value="100"/>
+<od:tableProperty name="DatasheetGridlinesThemeColorIndex" type="4" value="-1"/>
+<od:tableProperty name="DatasheetForeThemeColorIndex" type="4" value="-1"/>
+<od:tableProperty name="OrderBy" type="12" value="[ScoreCard].[Counter]"/>
 </xsd:appinfo>
 </xsd:annotation>
 <xsd:complexType>
@@ -35,6 +44,7 @@
 <od:fieldProperty name="ColumnHidden" type="1" value="0"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -50,6 +60,7 @@
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
 <od:fieldProperty name="ShowDatePicker" type="3" value="1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -64,6 +75,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -78,6 +90,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -92,6 +105,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -106,6 +120,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -120,6 +135,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -134,6 +150,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -148,6 +165,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -162,6 +180,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -176,6 +195,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -190,6 +210,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -204,6 +225,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -218,6 +240,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -232,6 +255,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -246,6 +270,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -260,6 +285,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -274,6 +300,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -288,6 +315,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -302,6 +330,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -316,6 +345,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -330,6 +360,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -344,6 +375,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -358,6 +390,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -372,13 +405,14 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
 <xsd:element name="Hdcp3" minOccurs="0" od:jetType="longinteger" od:sqlSType="int" type="xsd:int">
 <xsd:annotation>
 <xsd:appinfo>
-<od:fieldProperty name="ColumnWidth" type="3" value="-1"/>
+<od:fieldProperty name="ColumnWidth" type="3" value="990"/>
 <od:fieldProperty name="ColumnOrder" type="3" value="0"/>
 <od:fieldProperty name="ColumnHidden" type="1" value="0"/>
 <od:fieldProperty name="DecimalPlaces" type="2" value="255"/>
@@ -386,13 +420,14 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
 <xsd:element name="c1" minOccurs="0" od:jetType="byte" od:sqlSType="tinyint" type="xsd:unsignedByte">
 <xsd:annotation>
 <xsd:appinfo>
-<od:fieldProperty name="ColumnWidth" type="3" value="-1"/>
+<od:fieldProperty name="ColumnWidth" type="3" value="615"/>
 <od:fieldProperty name="ColumnOrder" type="3" value="0"/>
 <od:fieldProperty name="ColumnHidden" type="1" value="0"/>
 <od:fieldProperty name="DecimalPlaces" type="2" value="255"/>
@@ -400,6 +435,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -414,6 +450,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -428,6 +465,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -442,6 +480,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -456,6 +495,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -470,6 +510,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -484,6 +525,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -498,6 +540,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -512,6 +555,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -526,6 +570,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -540,6 +585,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -554,6 +600,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -568,6 +615,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -582,6 +630,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -596,6 +645,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -610,6 +660,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -624,6 +675,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -638,6 +690,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -652,6 +705,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -666,6 +720,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -679,6 +734,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -693,6 +749,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -707,6 +764,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -721,6 +779,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -735,6 +794,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -749,6 +809,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -762,6 +823,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -776,6 +838,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -793,6 +856,7 @@
 <od:fieldProperty name="IMESentenceMode" type="2" value="3"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 <xsd:simpleType>
@@ -813,6 +877,7 @@
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
 <od:fieldProperty name="ShowDatePicker" type="3" value="1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
@@ -827,6 +892,7 @@
 <od:fieldProperty name="DisplayControl" type="3" value="109"/>
 <od:fieldProperty name="TextAlign" type="2" value="0"/>
 <od:fieldProperty name="AggregateType" type="4" value="-1"/>
+<od:fieldProperty name="CurrencyLCID" type="4" value="0"/>
 </xsd:appinfo>
 </xsd:annotation>
 </xsd:element>
