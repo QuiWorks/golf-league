@@ -169,6 +169,7 @@ CREATE TABLE event
 (
     id         int          not null auto_increment,
     season_id  int          not null,
+    week       int          not null,
     day        DATE         not null,
     event_type VARCHAR(128) not null,
     notes      VARCHAR(256),
@@ -211,6 +212,7 @@ CREATE TABLE team_event
     team_id  int not null,
     hdcp  int,
     home bit not null DEFAULT 0,
+    date_played DATETIME not null DEFAULT NOW(),
     PRIMARY KEY (match_id, team_id),
     FOREIGN KEY (match_id) REFERENCES event_match (id),
     FOREIGN KEY (team_id) REFERENCES team (id)

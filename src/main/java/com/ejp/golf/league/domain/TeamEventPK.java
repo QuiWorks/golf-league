@@ -11,11 +11,11 @@ public class TeamEventPK implements Serializable {
 
     @Column(name = "event_id", nullable = false)
     @Id
-    public int getEventId() {
+    public int getMatchId() {
         return eventId;
     }
 
-    public void setEventId(int eventId) {
+    public void setMatchId(int eventId) {
         this.eventId = eventId;
     }
 

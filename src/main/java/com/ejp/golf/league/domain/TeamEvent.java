@@ -6,19 +6,19 @@ import java.util.Objects;
 @Entity(name = "team_event")
 @IdClass(TeamEventPK.class)
 public class TeamEvent {
-    private int eventId;
+    private int matchId;
     private int teamId;
-    private int flightId;
-    private int slot;
+    private int handicap;
+    private boolean home;
 
     @Id
-    @Column(name = "event_id", nullable = false)
-    public int getEventId() {
-        return eventId;
+    @Column(name = "match_id", nullable = false)
+    public int getMatchId() {
+        return matchId;
     }
 
-    public void setEventId(int eventId) {
-        this.eventId = eventId;
+    public void setMatchId(int eventId) {
+        this.matchId = eventId;
     }
 
     @Id
@@ -31,36 +31,21 @@ public class TeamEvent {
         this.teamId = teamId;
     }
 
-    @Id
-    @Column(name = "flight_id", nullable = false)
-    public int getFlightId() {
-        return flightId;
+    @Column(name = "hdcp", nullable = false)
+    public int getHandicap() {
+        return handicap;
     }
 
-    public void setFlightId(int flightId) {
-        this.flightId = flightId;
+    public void setHandicap(int flightId) {
+        this.handicap = flightId;
     }
 
-    @Id
-    @Column(name = "slot", nullable = false)
-    public int getSlot() {
-        return slot;
+    @Column(name = "home", nullable = false)
+    public boolean isHome() {
+        return home;
     }
 
-    public void setSlot(int slot) {
-        this.slot = slot;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TeamEvent teamEvent = (TeamEvent) o;
-        return eventId == teamEvent.eventId && teamId == teamEvent.teamId && flightId == teamEvent.flightId && slot == teamEvent.slot;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(eventId, teamId, flightId, slot);
+    public void setHome(boolean home) {
+        this.home = home;
     }
 }

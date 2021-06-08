@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -15,36 +16,37 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.File;
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class DatabaseMigrator {
 
     private final EntityManagerFactory entityManagerFactory;
     private final League league;
+    private final EventType eventType;
 
     public DatabaseMigrator() {
         entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
         League league = new League();
         league.setId(1);
         league.setName("Territory Wednesday Mens League");
+        eventType = new EventType();
+        eventType.setName("league");
+        eventType.setDescription("league play");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(league);
+        entityManager.persist(eventType);
         entityManager.getTransaction().commit();
         entityManager.close();
         this.league = league;
-    }
-
-    @Test
-    void deleteme() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
-        Course course = new Course();
-        course.setName("DELETEME");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(course);
-        entityManager.getTransaction().commit();
-        entityManager.close();
     }
 
     /**
@@ -93,25 +95,19 @@ public class DatabaseMigrator {
                 TeesList teesList = getLegacyList(LegacyData.TEES.getUrl(), TeesList.class);
                 teesList.getTees().forEach(tee -> migrateToNewDomain(tee, entityManager));
                 if (shouldBreak) break;
-            case TEE_TIMES:
-//                TeeTimesList teeTimesList = getLegacyList(LegacyData.TeeTimes.getUrl(), TeeTimesList.class);
-//                teeTimesList.getTeeTimes().forEach(nine -> migrateToNewDomain(nine, entityManager));
-                if (shouldBreak) break;
             case WEEK_DATES:
-                WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);
-                weekDatesList.getWeekDates().forEach(dates -> migrateToNewDomain(dates, entityManager));
-//                if (shouldBreak) break;
             case SCHEDULE:
-                ScheduleList scheduleList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScheduleList.class);
-                scheduleList.getSchedule().forEach(nine -> migrateToNewDomain(nine, entityManager));
-//                if (shouldBreak) break;
             case SCHEDULE_MASTER:
+                WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);
+                ScheduleList scheduleList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScheduleList.class);
                 ScheduleMasterList scheduleMasterList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScheduleMasterList.class);
-                scheduleMasterList.getScheduleMaster().forEach(scheduleMaster -> migrateToNewDomain(scheduleMaster, entityManager));
+                migrateToNewDomain(weekDatesList, scheduleList, scheduleMasterList, entityManager);
+
+
                 if (shouldBreak) break;
             case SCORE_CARD:
-                ScoreCardList scoreCardList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScoreCardList.class);
-                scoreCardList.getScoreCard().forEach(scoreCard -> migrateToNewDomain(scoreCard, entityManager));
+//                ScoreCardList scoreCardList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScoreCardList.class);
+//                scoreCardList.getScoreCard().forEach(scoreCard -> migrateToNewDomain(scoreCard, entityManager));
                 if (shouldBreak) break;
         }
         entityManager.close();
@@ -142,10 +138,19 @@ public class DatabaseMigrator {
         flight.setLeagueId(league.getId());
         // Legacy flight info needs to be parsed from a string. ex: Flight 1 - 4:30 - 5:07
         String[] split = legacyFlight.getFDesc().split(" - ");
-        flight.setStart(Time.valueOf(split[1]));
-        flight.setEnd(Time.valueOf(split[2]));
+        LocalTime start = LocalTime.of(Integer.parseInt(split[1].split(":")[0]), Integer.parseInt(split[1].split(":")[1]));
+        LocalTime end = LocalTime.of(Integer.parseInt(split[2].split(":")[0]), Integer.parseInt(split[2].split(":")[1]));
+        flight.setStart(start);
+        flight.setEnd(end);
         entityManager.getTransaction().begin();
         entityManager.persist(flight);
+        IntStream.range(1,7).forEach(slot -> {
+            TeeTime teeTime = new TeeTime();
+            teeTime.setFlightId(legacyFlight.getFlight());
+            teeTime.setSlot(slot);
+            teeTime.setTime(start.plus(8L * slot, ChronoUnit.MINUTES));
+            entityManager.persist(teeTime);
+        });
         entityManager.getTransaction().commit();
     }
 
@@ -240,21 +245,53 @@ public class DatabaseMigrator {
     }
 
 
-    private void migrateToNewDomain(WeekDates legacyObj, EntityManager entityManager) {}
+    private void migrateToNewDomain(WeekDatesList weekDatesList, ScheduleList scheduleList, ScheduleMasterList scheduleMasterList, EntityManager entityManager) {
+        EventMatch eventMatch = new EventMatch();
+        TeamEvent teamEvent = new TeamEvent();
+
+        List<Season> seasons = IntStream.range(2002, 2022).mapToObj(year -> {
+            Season season = new Season();
+            season.setCourseId(2);
+            season.setLeagueId(league.getId());
+            season.setYear(year);
+            return season;
+        }).collect(Collectors.toList());
+        entityManager.getTransaction().begin();
+        seasons.forEach(entityManager::persist);
+        entityManager.getTransaction().commit();
+        entityManager.flush();
+
+//        seasons.forEach(season -> {
+//            IntStream.range(1, 17).mapToObj(week -> {
+//                Event event = new Event();
+//                event.setWeek(week);
+//
+//            });
+//        });
+
+
+//        List<Event> events = weekDatesList.getWeekDates().stream()
+//                .filter(weekDate -> weekDate.getEventType() == 1)
+//                .sorted(Comparator.comparing(WeekDates::getWeek))
+//                .map(weekDate -> {
+//                    Event event = new Event();
+//                    event.setEventType(eventType.getName());
+//                    event.setDay(convertLegacyDate(weekDate.getWeekDate()).toLocalDate());
+//                    event.setWeek(weekDate.getWeek());
+//                    return event;})
+//                .collect(Collectors.toList());
+
+
+
+//        event.setEventType();
+//        event.setDay(legacyObj.getWeekDate());
+    }
 
     private void migrateToNewDomain(Schedule legacyObj, EntityManager entityManager) {}
 
     private void migrateToNewDomain(ScheduleMaster legacyObj, EntityManager entityManager) {}
 
     private void migrateToNewDomain(ScoreCard legacyObj, EntityManager entityManager) {
-
-//        TeamEvent teamEvent = new TeamEvent();
-//        teamEvent.setEventId();
-//
-//
-//        entityManager.getTransaction().begin();
-//        entityManager.persist(nine);
-//        entityManager.getTransaction().commit();
     }
 
     private LocalDateTime convertLegacyDate(XMLGregorianCalendar date) {
