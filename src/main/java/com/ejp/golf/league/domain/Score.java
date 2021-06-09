@@ -1,16 +1,29 @@
 package com.ejp.golf.league.domain;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity(name ="score")
-@IdClass(ScorePK.class)
 public class Score {
+    private int id;
     private int roundId;
     private int holeId;
     private int score;
 
     @Id
+    @Column(name = "id", nullable = false)
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Basic
     @Column(name = "round_id", nullable = false)
     public int getRoundId() {
         return roundId;
@@ -20,7 +33,7 @@ public class Score {
         this.roundId = roundId;
     }
 
-    @Id
+    @Basic
     @Column(name = "hole_id", nullable = false)
     public int getHoleId() {
         return holeId;
@@ -45,11 +58,11 @@ public class Score {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Score score1 = (Score) o;
-        return roundId == score1.roundId && holeId == score1.holeId && score == score1.score;
+        return id == score1.id && roundId == score1.roundId && holeId == score1.holeId && score == score1.score;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(roundId, holeId, score);
+        return Objects.hash(id, roundId, holeId, score);
     }
 }

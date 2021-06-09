@@ -1,7 +1,7 @@
 package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.sql.Time;
 import java.util.Objects;
 
 @Entity(name ="tee_time")
@@ -9,7 +9,7 @@ import java.util.Objects;
 public class TeeTime {
     private int flightId;
     private int slot;
-    private LocalTime time;
+    private Time time;
 
     @Id
     @Column(name = "flight_id", nullable = false)
@@ -33,11 +33,11 @@ public class TeeTime {
 
     @Basic
     @Column(name = "time", nullable = false)
-    public LocalTime getTime() {
+    public Time getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 

@@ -11,6 +11,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.File;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -34,11 +35,11 @@ public class DatabaseMigrator {
         eventType.setName("league");
         eventType.setDescription("league play");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(league);
-        entityManager.persist(eventType);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+//        entityManager.getTransaction().begin();
+//        entityManager.persist(league);
+//        entityManager.persist(eventType);
+//        entityManager.getTransaction().commit();
+//        entityManager.close();
         this.league = league;
     }
 
@@ -48,6 +49,14 @@ public class DatabaseMigrator {
      * @param args NONE
      */
     public static void main(String[] args) {
+//        try {
+//            JAXBContext context = JAXBContext.newInstance(FlightsList.class);
+//            Unmarshaller unmarshaller = context.createUnmarshaller();
+//            FlightsList cast = FlightsList.class.cast(unmarshaller.unmarshal(new File("src/test/resources/legacy/data/Flights.xml")));
+//            System.out.println(cast);
+//        } catch (JAXBException e) {
+//            throw new RuntimeException("Could not read legacy data: " + FlightsList.class + " from file: " + "src/test/resources/legacy/data/Flights.xml", e);
+//        }
         DatabaseMigrator databaseMigrator = new DatabaseMigrator();
         if (args.length == 0) args = new String[]{"ALL"};
         Arrays.stream(args)
@@ -86,7 +95,6 @@ public class DatabaseMigrator {
                 if (shouldBreak) break;
             case SCORE_CARD:
                 ScoreCardList scoreCardList = getLegacyList(LegacyData.SCORE_CARD.getUrl(), ScoreCardList.class);
-//                scoreCardList.getScoreCard().forEach(scoreCard -> migrateToNewDomain(scoreCard, entityManager));
                 migrateToNewDomain(scoreCardList, entityManager);
                 if (shouldBreak) break;
         }
@@ -95,7 +103,7 @@ public class DatabaseMigrator {
 
     private <LEGACY_LIST> LEGACY_LIST getLegacyList(String url, Class<LEGACY_LIST> legacyListClass) {
         try {
-            JAXBContext context = JAXBContext.newInstance(CoursesList.class);
+            JAXBContext context = JAXBContext.newInstance(legacyListClass);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             return legacyListClass.cast(unmarshaller.unmarshal(new File(url)));
         } catch (JAXBException e) {
@@ -115,11 +123,11 @@ public class DatabaseMigrator {
     private void migrateToNewDomain(Flights legacyFlight, EntityManager entityManager) {
         Flight flight = new Flight();
         flight.setId(legacyFlight.getFlight());
-        flight.setLeagueId(league.getId());
+        flight.setLeagueId(1);
         // Legacy flight info needs to be parsed from a string. ex: Flight 1 - 4:30 - 5:07
         String[] split = legacyFlight.getFDesc().split(" - ");
-        LocalTime start = LocalTime.of(Integer.parseInt(split[1].split(":")[0]), Integer.parseInt(split[1].split(":")[1]));
-        LocalTime end = LocalTime.of(Integer.parseInt(split[2].split(":")[0]), Integer.parseInt(split[2].split(":")[1]));
+        LocalTime start = LocalTime.of(Integer.parseInt(split[1].split(":")[0]), Integer.parseInt(split[1].split(":")[1]), 0);
+        LocalTime end = LocalTime.of(Integer.parseInt(split[2].split(":")[0]), Integer.parseInt(split[2].split(":")[1]), 0);
         flight.setStart(start);
         flight.setEnd(end);
         entityManager.getTransaction().begin();
@@ -128,7 +136,7 @@ public class DatabaseMigrator {
             TeeTime teeTime = new TeeTime();
             teeTime.setFlightId(legacyFlight.getFlight());
             teeTime.setSlot(slot);
-            teeTime.setTime(start.plus(8L * slot, ChronoUnit.MINUTES));
+            teeTime.setTime(Time.valueOf(start.plus(8L * slot, ChronoUnit.MINUTES)));
             entityManager.persist(teeTime);
         });
         entityManager.getTransaction().commit();

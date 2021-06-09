@@ -243,10 +243,12 @@ CREATE TABLE round
 
 CREATE TABLE score
 (
+    id        int not null auto_increment,
     round_id int not null,
     hole_id  int not null,
     score    int not null,
-    PRIMARY KEY (round_id, hole_id),
+    PRIMARY KEY (id),
+    UNIQUE (round_id, hole_id),
     FOREIGN KEY (round_id) REFERENCES round (id),
     FOREIGN KEY (hole_id) REFERENCES hole (id)
 );
