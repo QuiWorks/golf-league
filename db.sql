@@ -154,12 +154,6 @@ CREATE TABLE event
     FOREIGN KEY (event_type) REFERENCES event_type (name)
 );
 
-CREATE TABLE tee
-(
-    id  VARCHAR(128)  not null,
-    PRIMARY KEY (id)
-);
-
 CREATE TABLE tee_time
 (
     flight_id  int          not null,

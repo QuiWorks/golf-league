@@ -9,7 +9,7 @@ public class TeamEventPK implements Serializable {
     private int eventId;
     private int teamId;
 
-    @Column(name = "event_id", nullable = false)
+    @Column(name = "match_id", nullable = false)
     @Id
     public int getMatchId() {
         return eventId;

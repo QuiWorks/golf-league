@@ -39,11 +39,29 @@ public class DatabaseMigrator {
         eventType.setName("league");
         eventType.setDescription("league play");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        //TODO ADD TO DB SCRIPT TODO ADD COURSE TO THIS LIST
 //        entityManager.getTransaction().begin();
 //        entityManager.persist(league);
 //        entityManager.persist(eventType);
 //        entityManager.getTransaction().commit();
 //        entityManager.close();
+
+//        IntStream.range(2002, 2022)
+//                .mapToObj(year -> {
+//                    Season season = new Season();
+//                    season.setId(year);
+//                    season.setYear(year);
+//                    season.setLeagueId(1);
+//                    season.setCourseId(2);
+//                    return season;
+//                }).forEach(season -> {
+//                    entityManager.getTransaction().begin();
+//                    entityManager.persist(season);
+//                    entityManager.getTransaction().commit();
+//                });
+
+
         this.league = league;
     }
 
@@ -73,10 +91,10 @@ public class DatabaseMigrator {
         boolean shouldBreak = !LegacyData.ALL.equals(data);
         switch (data) {
             case ALL:
-            case COURSES:
-                CoursesList coursesList = getLegacyList(LegacyData.COURSES.getUrl(), CoursesList.class);
-                coursesList.getCourses().forEach(course -> migrateToNewDomain(course, entityManager));
-                if (shouldBreak) break;
+//            case COURSES:
+//                CoursesList coursesList = getLegacyList(LegacyData.COURSES.getUrl(), CoursesList.class);
+//                coursesList.getCourses().forEach(course -> migrateToNewDomain(course, entityManager));
+//                if (shouldBreak) break;
             case FLIGHTS:
                 FlightsList flightsList = getLegacyList(LegacyData.FLIGHTS.getUrl(), FlightsList.class);
                 flightsList.getFlights().forEach(flight -> migrateToNewDomain(flight, entityManager));
@@ -250,8 +268,8 @@ public class DatabaseMigrator {
                 }).peek(event -> {
                     entityManager.getTransaction().begin();
                     entityManager.persist(event);
-                    entityManager.getTransaction().commit();
                     entityManager.flush();
+                    entityManager.getTransaction().commit();
                 }).collect(Collectors.toList());
 
         List<EventMatch> matches = scoreCardList.getScoreCard().stream()
@@ -267,14 +285,15 @@ public class DatabaseMigrator {
                 .peek(eventMatch -> {
                     entityManager.getTransaction().begin();
                     entityManager.persist(eventMatch);
+//                    entityManager.flush();
                     entityManager.getTransaction().commit();
-                    entityManager.flush();
                 })
                 .collect(Collectors.toList());
 
         scoreCardList.getScoreCard()
                 .forEach(scoreCard -> {
                     int matchId = getMatchId(matches, scoreCard);
+                    System.out.println("MATCH ID: " + matchId);
                     TeamEvent teamEvent = new TeamEvent();
                     teamEvent.setTeamId(scoreCard.getTeam1());
                     teamEvent.setMatchId(matchId);
@@ -295,8 +314,8 @@ public class DatabaseMigrator {
 
             entityManager.getTransaction().begin();
             entityManager.persist(roundA);
-            entityManager.getTransaction().commit();
             entityManager.flush();
+            entityManager.getTransaction().commit();
 
             Score scoreA1 = new Score();
             scoreA1.setRoundId(roundA.getId());
@@ -352,8 +371,8 @@ public class DatabaseMigrator {
 
             entityManager.getTransaction().begin();
             entityManager.persist(roundB);
-            entityManager.getTransaction().commit();
             entityManager.flush();
+            entityManager.getTransaction().commit();
 
             Score scoreB1 = new Score();
             scoreB1.setRoundId(roundB.getId());
@@ -410,8 +429,8 @@ public class DatabaseMigrator {
 
             entityManager.getTransaction().begin();
             entityManager.persist(roundC);
-            entityManager.getTransaction().commit();
             entityManager.flush();
+            entityManager.getTransaction().commit();
 
             entityManager.getTransaction().begin();
             Score scoreC1 = new Score();
@@ -468,8 +487,8 @@ public class DatabaseMigrator {
 
             entityManager.getTransaction().begin();
             entityManager.persist(roundD);
-            entityManager.getTransaction().commit();
             entityManager.flush();
+            entityManager.getTransaction().commit();
 
             Score scoreD1 = new Score();
             scoreD1.setRoundId(roundD.getId());

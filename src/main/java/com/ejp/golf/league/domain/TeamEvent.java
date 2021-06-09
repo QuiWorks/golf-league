@@ -17,8 +17,8 @@ public class TeamEvent {
         return matchId;
     }
 
-    public void setMatchId(int eventId) {
-        this.matchId = eventId;
+    public void setMatchId(int matchId) {
+        this.matchId = matchId;
     }
 
     @Id
