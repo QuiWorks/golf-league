@@ -78,11 +78,10 @@ CREATE TABLE flight
 (
     id        int  not null auto_increment,
     league_id int  not null,
-    start     TIME not null,
-    end       TIME not null,
+    start     timestamp not null,
+    end       timestamp not null,
     primary key (id),
     FOREIGN KEY (league_id) references league (id),
-    UNIQUE (league_id, start, end)
 );
 
 CREATE TABLE team_flight
@@ -115,37 +114,12 @@ CREATE TABLE hole
     course_id   int          not null,
     nine_name   varchar(256) not null,
     hole_number int          not null,
+    handicap int      not null,
+    par     int      not null,
+    yardage int not null,
     created     DATETIME     not null DEFAULT NOW(),
     primary key (id),
-    FOREIGN KEY (course_id, nine_name) REFERENCES nine (course_id, name),
-    UNIQUE (course_id, nine_name, hole_number, created)
-);
-
-CREATE TABLE hole_handicap
-(
-    hole_id  int      not null,
-    created  DATETIME not null DEFAULT NOW(),
-    handicap int      not null,
-    PRIMARY KEY (hole_id, created),
-    FOREIGN KEY (hole_id) REFERENCES hole (id)
-);
-
-CREATE TABLE hole_par
-(
-    hole_id int      not null,
-    created DATETIME not null DEFAULT NOW(),
-    par     int      not null,
-    PRIMARY KEY (hole_id, created),
-    FOREIGN KEY (hole_id) REFERENCES hole (id)
-);
-
-CREATE TABLE hole_yardage
-(
-    hole_id int      not null,
-    created DATETIME not null DEFAULT NOW(),
-    yardage int not null,
-    PRIMARY KEY (hole_id, created),
-    FOREIGN KEY (hole_id) REFERENCES hole (id)
+    FOREIGN KEY (course_id, nine_name) REFERENCES nine (course_id, name)
 );
 
 CREATE TABLE season

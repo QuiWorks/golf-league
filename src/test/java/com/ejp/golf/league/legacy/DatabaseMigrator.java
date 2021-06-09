@@ -12,6 +12,9 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.File;
 import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -22,6 +25,7 @@ import java.util.stream.IntStream;
 
 public class DatabaseMigrator {
 
+    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private final EntityManagerFactory entityManagerFactory;
     private final League league;
     private final EventType eventType;
@@ -89,10 +93,10 @@ public class DatabaseMigrator {
                 PlayersList playersList = getLegacyList(LegacyData.PLAYERS.getUrl(), PlayersList.class);
                 playersList.getPlayers().forEach(nine -> migrateToNewDomain(nine, entityManager));
                 if (shouldBreak) break;
-            case TEES:
-                TeesList teesList = getLegacyList(LegacyData.TEES.getUrl(), TeesList.class);
-                teesList.getTees().forEach(tee -> migrateToNewDomain(tee, entityManager));
-                if (shouldBreak) break;
+//            case TEES:
+//                TeesList teesList = getLegacyList(LegacyData.TEES.getUrl(), TeesList.class);
+//                teesList.getTees().forEach(tee -> migrateToNewDomain(tee, entityManager));
+//                if (shouldBreak) break;
             case SCORE_CARD:
                 ScoreCardList scoreCardList = getLegacyList(LegacyData.SCORE_CARD.getUrl(), ScoreCardList.class);
                 migrateToNewDomain(scoreCardList, entityManager);
@@ -126,20 +130,28 @@ public class DatabaseMigrator {
         flight.setLeagueId(1);
         // Legacy flight info needs to be parsed from a string. ex: Flight 1 - 4:30 - 5:07
         String[] split = legacyFlight.getFDesc().split(" - ");
-        LocalTime start = LocalTime.of(Integer.parseInt(split[1].split(":")[0]), Integer.parseInt(split[1].split(":")[1]), 0);
-        LocalTime end = LocalTime.of(Integer.parseInt(split[2].split(":")[0]), Integer.parseInt(split[2].split(":")[1]), 0);
-        flight.setStart(start);
-        flight.setEnd(end);
+        LocalDateTime start = LocalTime.of(Integer.parseInt(split[1].split(":")[0]), Integer.parseInt(split[1].split(":")[1]), 0).atDate(LocalDate.now());
+        LocalDateTime end = LocalTime.of(Integer.parseInt(split[2].split(":")[0]), Integer.parseInt(split[2].split(":")[1]), 0).atDate(LocalDate.now());
+        flight.setStart(parseDate(start));
+        flight.setEnd(parseDate(end));
         entityManager.getTransaction().begin();
         entityManager.persist(flight);
         IntStream.range(1, 7).forEach(slot -> {
             TeeTime teeTime = new TeeTime();
             teeTime.setFlightId(legacyFlight.getFlight());
             teeTime.setSlot(slot);
-            teeTime.setTime(Time.valueOf(start.plus(8L * slot, ChronoUnit.MINUTES)));
+            teeTime.setTime(parseDate(start.plus(8L * slot, ChronoUnit.MINUTES)));
             entityManager.persist(teeTime);
         });
         entityManager.getTransaction().commit();
+    }
+
+    private Date parseDate(LocalDateTime time) {
+        try {
+            return simpleDateFormat.parse(time.getYear() + "-" + time.getMonthValue() + "-" + time.getDayOfMonth() + " " + time.getHour() + ":" + time.getMinute() + ":" + time.getSecond());
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void migrateToNewDomain(Nines legacyNine, EntityManager entityManager) {
@@ -156,29 +168,15 @@ public class DatabaseMigrator {
         hole.setHoleNumber(legacyHole.getHoleNo());
         hole.setCourseId(legacyHole.getCourseId());
         hole.setNineName(legacyHole.getNineName());
+        hole.setHandicap(legacyHole.getHdcp());
+        hole.setPar(legacyHole.getPar());
+        hole.setYardage(legacyHole.getYardage());
+        Timestamp created = Timestamp.valueOf(LocalDateTime.now());
+        hole.setCreated(created);
 
         // Save hole first to generate ID.
         entityManager.getTransaction().begin();
         entityManager.persist(hole);
-        entityManager.getTransaction().commit();
-        entityManager.flush();
-
-        HoleHandicap holeHandicap = new HoleHandicap();
-        holeHandicap.setHoleId(hole.getId());
-        holeHandicap.setHandicap(legacyHole.getHdcp());
-
-        HolePar holePar = new HolePar();
-        holePar.setHoleId(hole.getId());
-        holePar.setPar(legacyHole.getPar());
-
-        HoleYardage holeYardage = new HoleYardage();
-        holeYardage.setHoleId(hole.getId());
-        holeYardage.setYardage(legacyHole.getYardage());
-
-        entityManager.getTransaction().begin();
-        entityManager.persist(holeHandicap);
-        entityManager.persist(holePar);
-        entityManager.persist(holeYardage);
         entityManager.getTransaction().commit();
     }
 
@@ -186,6 +184,8 @@ public class DatabaseMigrator {
         Golfer golfer = new Golfer();
         PlayerHandicap playerHandicap = new PlayerHandicap();
         TeamMember teamMember = new TeamMember();
+
+        entityManager.getTransaction().begin();
 
         golfer.setId(legacyPlayer.getGolfer());
         golfer.setFirstName(legacyPlayer.getFirstName());
@@ -201,14 +201,28 @@ public class DatabaseMigrator {
         golfer.setActive(legacyPlayer.isActive());
         golfer.setDateAdded(convertLegacyDate(legacyPlayer.getDateAdded()));
 
+        Timestamp created = Timestamp.valueOf(LocalDateTime.now());
         playerHandicap.setGolferId(legacyPlayer.getGolfer());
         playerHandicap.setHandicap(legacyPlayer.getCurrentHdcp());
+        playerHandicap.setCreated(created);
+
+
+        Team team = entityManager.find(Team.class, (int) legacyPlayer.getTeam());
+        if(team == null)
+        {
+            team = new Team();
+            team.setId(legacyPlayer.getTeam());
+            team.setLeagueId(league.getId());
+            entityManager.persist(team);
+        }
 
         teamMember.setGolferId(legacyPlayer.getGolfer());
         teamMember.setTeamId(legacyPlayer.getTeam());
 
-        entityManager.getTransaction().begin();
+
         entityManager.persist(golfer);
+        entityManager.getTransaction().commit();
+        entityManager.getTransaction().begin();
         entityManager.persist(playerHandicap);
         entityManager.persist(teamMember);
         entityManager.getTransaction().commit();

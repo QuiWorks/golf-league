@@ -1,9 +1,6 @@
 package com.ejp.golf.league.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -13,10 +10,14 @@ public class Hole {
     private int courseId;
     private String nineName;
     private int holeNumber;
+    private int handicap;
+    private int par;
+    private int yardage;
     private Timestamp created;
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -54,9 +55,36 @@ public class Hole {
     public void setHoleNumber(int holeNumber) {
         this.holeNumber = holeNumber;
     }
+    @Basic
+    @Column(name = "handicap", nullable = false)
+    public int getHandicap() {
+        return handicap;
+    }
+
+    public void setHandicap(int handicap) {
+        this.handicap = handicap;
+    }
+    @Basic
+    @Column(name = "par", nullable = false)
+    public int getPar() {
+        return par;
+    }
+
+    public void setPar(int par) {
+        this.par = par;
+    }
+    @Basic
+    @Column(name = "yardage", nullable = false)
+    public int getYardage() {
+        return yardage;
+    }
+
+    public void setYardage(int yardage) {
+        this.yardage = yardage;
+    }
 
     @Basic
-    @Column(name = "created", nullable = false)
+    @Column(name = "created")
     public Timestamp getCreated() {
         return created;
     }

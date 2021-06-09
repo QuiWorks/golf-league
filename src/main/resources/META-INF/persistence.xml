@@ -11,9 +11,6 @@
         <class>com.ejp.golf.league.domain.Golfer</class>
         <class>com.ejp.golf.league.domain.GolferStatus</class>
         <class>com.ejp.golf.league.domain.Hole</class>
-        <class>com.ejp.golf.league.domain.HoleHandicap</class>
-        <class>com.ejp.golf.league.domain.HolePar</class>
-        <class>com.ejp.golf.league.domain.HoleYardage</class>
         <class>com.ejp.golf.league.domain.League</class>
         <class>com.ejp.golf.league.domain.Nine</class>
         <class>com.ejp.golf.league.domain.PlayerHandicap</class>
