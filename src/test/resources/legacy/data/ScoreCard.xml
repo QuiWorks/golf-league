@@ -3,7 +3,6 @@
                xsi:noNamespaceSchemaLocation="ScoreCard.xsd" generated="2021-06-08T17:53:36">
     <ScoreCard>
         <Counter>2345</Counter>
-
         <GameDate>2021-05-12T00:00:00</GameDate>
         <Golfer1>1</Golfer1>
         <Hdcp1>3</Hdcp1>
@@ -16,7 +15,6 @@
         <a7>3</a7>
         <a8>3</a8>
         <a9>6</a9>
-
         <Golfer2>2</Golfer2>
         <Hdcp2>11</Hdcp2>
         <b1>4</b1>

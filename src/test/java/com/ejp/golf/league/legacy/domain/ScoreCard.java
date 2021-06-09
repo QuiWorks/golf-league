@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Objects;
 
 
 /**
@@ -1621,4 +1622,16 @@ public class ScoreCard {
         this.weekBucket = value;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ScoreCard scoreCard = (ScoreCard) o;
+        return back9 == scoreCard.back9 && gameDate.equals(scoreCard.gameDate) && golfer1.equals(scoreCard.golfer1) && golfer2.equals(scoreCard.golfer2) && golfer3.equals(scoreCard.golfer3) && golfer4.equals(scoreCard.golfer4) && week.equals(scoreCard.week) && flight.equals(scoreCard.flight) && team1.equals(scoreCard.team1) && flight2.equals(scoreCard.flight2) && team2.equals(scoreCard.team2) && slot.equals(scoreCard.slot);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gameDate, golfer1, golfer2, golfer3, golfer4, week, flight, team1, flight2, team2, back9, slot, tees);
+    }
 }
