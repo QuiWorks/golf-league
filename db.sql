@@ -59,10 +59,12 @@ CREATE TABLE team
 (
     id          int auto_increment not null,
     league_id   int not null,
+    flight_id   int not null DEFAULT 1,
     name        varchar(128),
     description varchar(128),
     primary key (id),
-    FOREIGN KEY (league_id) REFERENCES league (id)
+    FOREIGN KEY (league_id) REFERENCES league (id),
+    FOREIGN KEY (flight_id) REFERENCES flight (id)
 );
 
 CREATE TABLE team_member

@@ -9,6 +9,14 @@ public class TeamEventPK implements Serializable {
     private int eventId;
     private int teamId;
 
+    public TeamEventPK() {
+    }
+
+    public TeamEventPK(int eventId, int teamId) {
+        this.eventId = eventId;
+        this.teamId = teamId;
+    }
+
     @Column(name = "match_id", nullable = false)
     @Id
     public int getMatchId() {

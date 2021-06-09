@@ -9,6 +9,14 @@ public class TeeTimePK implements Serializable {
     private int flightId;
     private int slot;
 
+    public TeeTimePK() {
+    }
+
+    public TeeTimePK(int flightId, int slot) {
+        this.flightId = flightId;
+        this.slot = slot;
+    }
+
     @Column(name = "flight_id", nullable = false)
     @Id
     public int getFlightId() {
