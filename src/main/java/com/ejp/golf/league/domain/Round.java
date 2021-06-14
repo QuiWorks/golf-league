@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity(name = "round")
 public class Round {
     private int id;
-    private int eventId;
+    private int matchId;
     private int golferId;
 
     @Id
@@ -21,13 +21,13 @@ public class Round {
     }
 
     @Basic
-    @Column(name = "event_id", nullable = false)
-    public int getEventId() {
-        return eventId;
+    @Column(name = "match_id", nullable = false)
+    public int getMatchId() {
+        return matchId;
     }
 
-    public void setEventId(int eventId) {
-        this.eventId = eventId;
+    public void setMatchId(int eventId) {
+        this.matchId = eventId;
     }
 
     @Basic
@@ -45,11 +45,11 @@ public class Round {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Round round = (Round) o;
-        return id == round.id && eventId == round.eventId && golferId == round.golferId;
+        return id == round.id && matchId == round.matchId && golferId == round.golferId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, eventId, golferId);
+        return Objects.hash(id, matchId, golferId);
     }
 }

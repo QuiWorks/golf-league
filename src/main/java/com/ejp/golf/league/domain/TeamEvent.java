@@ -8,7 +8,6 @@ import java.util.Objects;
 public class TeamEvent {
     private int matchId;
     private int teamId;
-    private int handicap;
     private boolean home;
 
     @Id
@@ -31,15 +30,6 @@ public class TeamEvent {
         this.teamId = teamId;
     }
 
-    @Column(name = "hdcp", nullable = false)
-    public int getHandicap() {
-        return handicap;
-    }
-
-    public void setHandicap(int flightId) {
-        this.handicap = flightId;
-    }
-
     @Column(name = "home", nullable = false)
     public boolean isHome() {
         return home;
@@ -48,4 +38,6 @@ public class TeamEvent {
     public void setHome(boolean home) {
         this.home = home;
     }
+
+
 }

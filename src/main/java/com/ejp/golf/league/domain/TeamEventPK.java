@@ -6,17 +6,25 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class TeamEventPK implements Serializable {
-    private int eventId;
+    private int matchId;
     private int teamId;
+
+    public TeamEventPK() {
+    }
+
+    public TeamEventPK(int matchId, int teamId) {
+        this.matchId = matchId;
+        this.teamId = teamId;
+    }
 
     @Column(name = "match_id", nullable = false)
     @Id
     public int getMatchId() {
-        return eventId;
+        return matchId;
     }
 
     public void setMatchId(int eventId) {
-        this.eventId = eventId;
+        this.matchId = eventId;
     }
 
     @Column(name = "team_id", nullable = false)
@@ -34,11 +42,11 @@ public class TeamEventPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TeamEventPK that = (TeamEventPK) o;
-        return eventId == that.eventId && teamId == that.teamId;
+        return matchId == that.matchId && teamId == that.teamId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, teamId);
+        return Objects.hash(matchId, teamId);
     }
 }
