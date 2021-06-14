@@ -19,7 +19,7 @@ CREATE TABLE golfer
     primary key (id)
 );
 
-CREATE TABLE user
+CREATE TABLE admin
 (
     username VARCHAR(128) not null,
     password VARCHAR(1024) not null,
@@ -148,7 +148,7 @@ CREATE TABLE event_match
     FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot)
 );
 
-CREATE TABLE team_event
+CREATE TABLE team_match
 (
     match_id int not null,
     team_id  int not null,

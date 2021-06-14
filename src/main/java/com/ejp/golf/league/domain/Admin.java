@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity(name = "user")
-public class User {
+@Entity(name = "admin")
+public class Admin {
     private String username;
     private String password;
     private int golferId;
@@ -58,7 +58,7 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        Admin user = (Admin) o;
         return golferId == user.golferId && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(dateAdded, user.dateAdded);
     }
 

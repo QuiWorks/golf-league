@@ -5,14 +5,14 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class TeamEventPK implements Serializable {
+public class TeamMatchPK implements Serializable {
     private int matchId;
     private int teamId;
 
-    public TeamEventPK() {
+    public TeamMatchPK() {
     }
 
-    public TeamEventPK(int matchId, int teamId) {
+    public TeamMatchPK(int matchId, int teamId) {
         this.matchId = matchId;
         this.teamId = teamId;
     }
@@ -41,7 +41,7 @@ public class TeamEventPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TeamEventPK that = (TeamEventPK) o;
+        TeamMatchPK that = (TeamMatchPK) o;
         return matchId == that.matchId && teamId == that.teamId;
     }
 

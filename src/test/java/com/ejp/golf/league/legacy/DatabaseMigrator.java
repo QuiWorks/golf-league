@@ -69,7 +69,7 @@ public class DatabaseMigrator {
         List.of(
                 "score",
                 "round",
-                "team_event",
+                "team_match",
                 "event_match",
                 "tee_time",
                 "flight",
@@ -83,7 +83,7 @@ public class DatabaseMigrator {
                 "team_member",
                 "team",
                 "league",
-                "user",
+                "admin",
                 "golfer"
         ).forEach(table -> {
             Query deleteQuery = entityManager.createQuery("DELETE FROM " + table);
@@ -141,7 +141,7 @@ public class DatabaseMigrator {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
-        User user = new User();
+        Admin user = new Admin();
         user.setGolferId(1);
         user.setUsername("gary");
         user.setPassword("password");
@@ -302,10 +302,10 @@ public class DatabaseMigrator {
                 })
                 .collect(Collectors.toList());
 
-        List<TeamEvent> teamEvents = scoreCardList.getScoreCard().stream()
+        List<TeamMatch> teamEvents = scoreCardList.getScoreCard().stream()
                 .map(scoreCard -> {
                     int matchId = getMatchId(matches, scoreCard);
-                    TeamEvent teamEvent = new TeamEvent();
+                    TeamMatch teamEvent = new TeamMatch();
                     teamEvent.setTeamId(scoreCard.getTeam1());
                     teamEvent.setMatchId(matchId);
                     teamEvent.setHome(true);
@@ -315,7 +315,7 @@ public class DatabaseMigrator {
         teamEvents.addAll(scoreCardList.getScoreCard().stream()
                 .map(scoreCard -> {
                     int matchId = getMatchId(matches, scoreCard);
-                    TeamEvent teamEvent = new TeamEvent();
+                    TeamMatch teamEvent = new TeamMatch();
                     teamEvent.setTeamId(scoreCard.getTeam2());
                     teamEvent.setMatchId(matchId);
                     teamEvent.setHome(false);
@@ -325,7 +325,7 @@ public class DatabaseMigrator {
 
         entityManager.getTransaction().begin();
         teamEvents.stream()
-                .filter(teamEvent -> entityManager.find(TeamEvent.class, new TeamEventPK(teamEvent.getMatchId(), teamEvent.getTeamId())) == null)
+                .filter(teamEvent -> entityManager.find(TeamMatch.class, new TeamMatchPK(teamEvent.getMatchId(), teamEvent.getTeamId())) == null)
                 .forEach(entityManager::persist);
         entityManager.getTransaction().commit();
 

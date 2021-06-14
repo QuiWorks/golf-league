@@ -1,11 +1,10 @@
 package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
-import java.util.Objects;
 
-@Entity(name = "team_event")
-@IdClass(TeamEventPK.class)
-public class TeamEvent {
+@Entity(name = "team_match")
+@IdClass(TeamMatchPK.class)
+public class TeamMatch {
     private int matchId;
     private int teamId;
     private boolean home;
