@@ -9,7 +9,6 @@
         <class>com.ejp.golf.league.domain.EventType</class>
         <class>com.ejp.golf.league.domain.Flight</class>
         <class>com.ejp.golf.league.domain.Golfer</class>
-        <class>com.ejp.golf.league.domain.GolferStatus</class>
         <class>com.ejp.golf.league.domain.Hole</class>
         <class>com.ejp.golf.league.domain.League</class>
         <class>com.ejp.golf.league.domain.Nine</class>
@@ -17,10 +16,8 @@
         <class>com.ejp.golf.league.domain.Round</class>
         <class>com.ejp.golf.league.domain.Score</class>
         <class>com.ejp.golf.league.domain.Season</class>
-        <class>com.ejp.golf.league.domain.Status</class>
         <class>com.ejp.golf.league.domain.Team</class>
         <class>com.ejp.golf.league.domain.TeamEvent</class>
-        <class>com.ejp.golf.league.domain.TeamFlight</class>
         <class>com.ejp.golf.league.domain.TeamMember</class>
         <class>com.ejp.golf.league.domain.User</class>
         <properties>
