@@ -161,6 +161,16 @@ CREATE TABLE team_match
     FOREIGN KEY (team_id) REFERENCES team (id)
 );
 
+CREATE TABLE golfer_match
+(
+    match_id int not null,
+    golfer_id  int not null,
+    handicap  int not null,
+    PRIMARY KEY (match_id, golfer_id),
+    FOREIGN KEY (match_id) REFERENCES event_match (id),
+    FOREIGN KEY (golfer_id) REFERENCES golfer (id)
+);
+
 CREATE TABLE player_handicap
 (
     id        INT auto_increment not null,

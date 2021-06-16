@@ -67,6 +67,7 @@ public class DatabaseMigrator {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         List.of(
+                "admin",
                 "score",
                 "round",
                 "team_match",
@@ -83,7 +84,6 @@ public class DatabaseMigrator {
                 "team_member",
                 "team",
                 "league",
-                "admin",
                 "golfer"
         ).forEach(table -> {
             Query deleteQuery = entityManager.createQuery("DELETE FROM " + table);
@@ -303,7 +303,7 @@ public class DatabaseMigrator {
                 })
                 .collect(Collectors.toList());
 
-        List<TeamMatch> teamEvents = scoreCardList.getScoreCard().stream()
+        List<TeamMatch> teamMatches = scoreCardList.getScoreCard().stream()
                 .map(scoreCard -> {
                     int matchId = getMatchId(matches, scoreCard);
                     TeamMatch teamEvent = new TeamMatch();
@@ -313,7 +313,7 @@ public class DatabaseMigrator {
                     return teamEvent;
                 })
                 .collect(Collectors.toList());
-        teamEvents.addAll(scoreCardList.getScoreCard().stream()
+        teamMatches.addAll(scoreCardList.getScoreCard().stream()
                 .map(scoreCard -> {
                     int matchId = getMatchId(matches, scoreCard);
                     TeamMatch teamEvent = new TeamMatch();
@@ -324,9 +324,35 @@ public class DatabaseMigrator {
                 })
                 .collect(Collectors.toList()));
 
+        List<GolferMatch> golferMatches = scoreCardList.getScoreCard().stream()
+                .map(scoreCard -> {
+                    int matchId = getMatchId(matches, scoreCard);
+                    GolferMatch gm1 = new GolferMatch();
+                    gm1.setGolferId(scoreCard.getGolfer1());
+                    gm1.setMatchId(matchId);
+                    gm1.setHandicap(scoreCard.getHdcp1());
+                    GolferMatch gm2 = new GolferMatch();
+                    gm2.setGolferId(scoreCard.getGolfer2());
+                    gm2.setMatchId(matchId);
+                    gm2.setHandicap(scoreCard.getHdcp2());
+                    GolferMatch gm3 = new GolferMatch();
+                    gm3.setGolferId(scoreCard.getGolfer3());
+                    gm3.setMatchId(matchId);
+                    gm3.setHandicap(scoreCard.getHdcp3());
+                    GolferMatch gm4 = new GolferMatch();
+                    gm4.setGolferId(scoreCard.getGolfer4());
+                    gm4.setMatchId(matchId);
+                    gm4.setHandicap(scoreCard.getHdcp4());
+                    return List.of(gm1, gm2, gm3, gm4);
+                })
+                .flatMap(Collection::stream).collect(Collectors.toList());
+
         entityManager.getTransaction().begin();
-        teamEvents.stream()
-                .filter(teamEvent -> entityManager.find(TeamMatch.class, new TeamMatchPK(teamEvent.getMatchId(), teamEvent.getTeamId())) == null)
+        teamMatches.stream()
+                .filter(teamMatch -> entityManager.find(TeamMatch.class, new TeamMatchPK(teamMatch.getMatchId(), teamMatch.getTeamId())) == null)
+                .forEach(entityManager::persist);
+        golferMatches.stream()
+                .filter(golferMatch -> entityManager.find(GolferMatch.class, new GolferMatchPK(golferMatch.getMatchId(), golferMatch.getGolferId())) == null)
                 .forEach(entityManager::persist);
         entityManager.getTransaction().commit();
 
