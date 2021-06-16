@@ -70,6 +70,7 @@ public class DatabaseMigrator {
                 "admin",
                 "score",
                 "round",
+                "golfer_match",
                 "team_match",
                 "event_match",
                 "tee_time",

@@ -1,9 +1,6 @@
 package com.ejp.golf.league.service;
 
-import com.ejp.golf.league.domain.Flight;
-import com.ejp.golf.league.domain.League;
-import com.ejp.golf.league.domain.Score;
-import com.ejp.golf.league.domain.Team;
+import com.ejp.golf.league.domain.*;
 import com.ejp.golf.league.model.RoundSummary;
 import com.ejp.golf.league.model.ScoreCardSummary;
 import org.springframework.stereotype.Service;
@@ -48,31 +45,36 @@ public class ScoreCardService implements Serializable {
     public List<ScoreCardSummary> getScoreCardSummary(Date matchDate, int flight) {
         //TODO need repo classes
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Team> homeTeams = entityManager.createQuery(
-                        "SELECT t FROM team t " +
-                                "JOIN team_match tm ON tm.teamId = t.id " +
-                                "JOIN event_match em ON tm.matchId = em.id " +
+        List<GolferMatch> golferMatches = entityManager.createQuery(
+                        "SELECT gm FROM golfer_match gm " +
+                                "JOIN event_match em ON gm.matchId = em.id " +
                                 "JOIN event e ON em.eventId = e.id " +
-                                "WHERE t.leagueId = " + league.getId() +
+                                "JOIN season s ON e.seasonId = s.id " +
+                                "WHERE s.leagueId = " + league.getId() +
                                 " AND em.flightId = " + flight +
-                                " AND tm.home = true" +
                                 " AND e.day = " + matchDate,
-                        Team.class)
+                        GolferMatch.class)
                 .getResultList();
         entityManager.close();
-        return homeTeams.stream()
-                .map(team -> getScoreCardSummary(matchDate, flight, team.getId()))
+        List<RoundSummary> roundSummaries = golferMatches.stream()
+                .map(golferMatch -> getRoundSummary(matchDate, flight, golferMatch.getGolferId()))
+                .collect(Collectors.toList());
+
+        return roundSummaries.stream()
+                .collect(Collectors.groupingBy(RoundSummary::getMatchId))
+                .values().stream()
+                .map(rounds -> new ScoreCardSummary(rounds))
                 .collect(Collectors.toList());
     }
 
-    public ScoreCardSummary getScoreCardSummary(Date matchDate, int flight, int homeTeamNumber) {
-        //TODO need repo classes
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        // get each of each golfer in the match.
-
+//    public ScoreCardSummary getScoreCardSummary(Date matchDate, int flight, int homeTeamNumber) {
+//        //TODO need repo classes
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        // get each of each golfer in the match.
+//
 //        List<Score> homeTeams = entityManager.createQuery(
-//                        "SELECT s FROM score s " +
-//                                "JOIN round r ON r.id = s.roundId " +
+//                        "SELECT g FROM golfer g " +
+//                                "JOIN team t ON t.id = t.roundId " +
 //                                "JOIN event_match em ON r.matchId = em.id " +
 //                                "JOIN team_match tm ON tm.matchId = em.id " +
 //                                "JOIN event e ON em.eventId = e.id " +
@@ -82,9 +84,9 @@ public class ScoreCardService implements Serializable {
 //                                " AND e.day = " + matchDate,
 //                        Score.class)
 //                .getResultList();
-        entityManager.close();
-        return null;
-    }
+//        entityManager.close();
+//        return null;
+//    }
 
     private RoundSummary getRoundSummary(Date matchDate, int flight, int golferId) {
         return null;
