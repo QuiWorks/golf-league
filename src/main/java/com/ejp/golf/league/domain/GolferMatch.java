@@ -1,35 +1,35 @@
 package com.ejp.golf.league.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 
 @Entity(name = "golfer_match")
-@IdClass(GolferMatchPK.class)
 public class GolferMatch {
-    private int matchId;
-    private int golferId;
+    private GolferMatchPK pk;
     private int handicap;
 
-    @Id
-    @Column(name = "match_id", nullable = false)
+    @EmbeddedId
+    public GolferMatchPK getPk() {
+        return pk;
+    }
+
+    public void setPk(GolferMatchPK pk) {
+        this.pk = pk;
+    }
+
     public int getMatchId() {
-        return matchId;
+        return pk.getMatchId();
     }
 
     public void setMatchId(int matchId) {
-        this.matchId = matchId;
+        pk.setMatchId(matchId);
     }
 
-    @Id
-    @Column(name = "golfer_id", nullable = false)
     public int getGolferId() {
-        return golferId;
+        return pk.getGolferId();
     }
 
-    public void setGolferId(int teamId) {
-        this.golferId = teamId;
+    public void setGolferId(int golferId) {
+        pk.setGolferId(golferId);
     }
 
     @Column(name = "handicap", nullable = false)

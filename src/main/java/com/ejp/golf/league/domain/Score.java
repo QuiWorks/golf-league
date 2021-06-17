@@ -8,7 +8,9 @@ public class Score {
     private int id;
     private int roundId;
     private int holeId;
+    private Hole hole;
     private int score;
+    private boolean win;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -41,6 +43,16 @@ public class Score {
         this.holeId = holeId;
     }
 
+    @ManyToOne(targetEntity = Hole.class)
+    public Hole getHole(){
+        return hole;
+    }
+
+    public void setHole(Hole hole)
+    {
+        this.hole = hole;
+    }
+
     @Basic
     @Column(name = "score", nullable = false)
     public int getScore() {
@@ -49,6 +61,14 @@ public class Score {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+
+    public void setWin(boolean win) {
+        this.win = win;
     }
 
     @Override

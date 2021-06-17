@@ -63,30 +63,10 @@ public class ScoreCardService implements Serializable {
         return roundSummaries.stream()
                 .collect(Collectors.groupingBy(RoundSummary::getMatchId))
                 .values().stream()
-                .map(rounds -> new ScoreCardSummary(rounds))
+                .map(ScoreCardSummary::new)
                 .collect(Collectors.toList());
     }
 
-//    public ScoreCardSummary getScoreCardSummary(Date matchDate, int flight, int homeTeamNumber) {
-//        //TODO need repo classes
-//        EntityManager entityManager = entityManagerFactory.createEntityManager();
-//        // get each of each golfer in the match.
-//
-//        List<Score> homeTeams = entityManager.createQuery(
-//                        "SELECT g FROM golfer g " +
-//                                "JOIN team t ON t.id = t.roundId " +
-//                                "JOIN event_match em ON r.matchId = em.id " +
-//                                "JOIN team_match tm ON tm.matchId = em.id " +
-//                                "JOIN event e ON em.eventId = e.id " +
-//                                "WHERE t.leagueId = " + league.getId() +
-//                                " AND em.flightId = " + flight +
-//                                " AND tm.home = true" +
-//                                " AND e.day = " + matchDate,
-//                        Score.class)
-//                .getResultList();
-//        entityManager.close();
-//        return null;
-//    }
 
     private RoundSummary getRoundSummary(Date matchDate, int flight, int golferId) {
         return null;

@@ -1,104 +1,82 @@
 package com.ejp.golf.league.model;
 
+import com.ejp.golf.league.domain.Golfer;
+import com.ejp.golf.league.domain.Round;
+import com.ejp.golf.league.domain.Score;
+import com.ejp.golf.league.domain.TeamMatch;
+
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+
 public class RoundSummary {
     //Known data.
-    private int matchId;
-    private boolean homeTeam;
-    private int teamNumber;
-    private String name;
-    private int[] grossHoleScores;
-    private int grossMatchScore;
-    private int handicap;
-    private int newMatchScore;
-    private int[] netHoleScores;
+    private final TeamMatch match;
+    private final Round round;
 
     // Calculated data.
+    private List<Score> netHoleScores;
     private int netPoints;
     private int matchPoints;
     private float teamNet;
 
-    public RoundSummary(int matchId, boolean homeTeam, int teamNumber, String name, int[] grossHoleScores, int grossMatchScore, int handicap, int newMatchScore, int[] netHoleScores) {
-        this.matchId = matchId;
-        this.homeTeam = homeTeam;
-        this.teamNumber = teamNumber;
-        this.name = name;
-        this.grossHoleScores = grossHoleScores;
-        this.grossMatchScore = grossMatchScore;
-        this.handicap = handicap;
-        this.newMatchScore = newMatchScore;
-        this.netHoleScores = netHoleScores;
+    public RoundSummary(TeamMatch match, Round round) {
+        this.match = match;
+        this.round = round;
+        netPoints = 0;
+        matchPoints = 0;
+        teamNet = 0f;
+    }
+
+    public TeamMatch getMatch() {
+        return match;
     }
 
     public int getMatchId() {
-        return matchId;
-    }
-
-    public void setMatchId(int matchId) {
-        this.matchId = matchId;
+        return match.getMatchId();
     }
 
     public boolean isHomeTeam() {
-        return homeTeam;
-    }
-
-    public void setHomeTeam(boolean homeTeam) {
-        this.homeTeam = homeTeam;
+        return match.isHome();
     }
 
     public int getTeamNumber() {
-        return teamNumber;
+        return match.getTeamId();
     }
 
-    public void setTeamNumber(int teamNumber) {
-        this.teamNumber = teamNumber;
+    public Golfer getGolfer() {
+        return round.getGolfer();
     }
 
-    public String getName() {
-        return name;
+    public List<Score> getGrossScores() {
+        return round.getGrossScores();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int[] getGrossHoleScores() {
-        return grossHoleScores;
-    }
-
-    public void setGrossHoleScores(int[] grossHoleScores) {
-        this.grossHoleScores = grossHoleScores;
-    }
-
-    public int getGrossMatchScore() {
-        return grossMatchScore;
-    }
-
-    public void setGrossMatchScore(int grossMatchScore) {
-        this.grossMatchScore = grossMatchScore;
+    public int getGrossScore() {
+        return getGrossScores().stream()
+                .map(Score::getScore)
+                .reduce(Integer::sum)
+                .orElseThrow(() ->  new RuntimeException("No gross score"));
     }
 
     public int getHandicap() {
-        return handicap;
+        return round.getGolferMatch().getHandicap();
     }
 
-    public void setHandicap(int handicap) {
-        this.handicap = handicap;
-    }
-
-    public int getNewMatchScore() {
-        return newMatchScore;
-    }
-
-    public void setNewMatchScore(int newMatchScore) {
-        this.newMatchScore = newMatchScore;
-    }
-
-    public int[] getNetHoleScores() {
+    public List<Score> getNetScores() {
         return netHoleScores;
     }
 
-    public void setNetHoleScores(int[] netHoleScores) {
-        this.netHoleScores = netHoleScores;
+    public void setNetScores(List<Score> netScores) {
+        this.netHoleScores = netScores;
+    }
+
+    public int getNetScore() {
+        return getNetScores().stream()
+                .sorted(Comparator.comparing(score -> score.getHole().getHoleNumber()))
+                .map(Score::getScore)
+                .reduce(Integer::sum)
+                .orElseThrow(() ->  new RuntimeException("No gross score"));
     }
 
     public int getNetPoints() {
