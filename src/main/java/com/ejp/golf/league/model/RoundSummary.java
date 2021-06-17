@@ -1,17 +1,14 @@
 package com.ejp.golf.league.model;
 
-import com.ejp.golf.league.domain.Golfer;
 import com.ejp.golf.league.domain.Round;
 import com.ejp.golf.league.domain.Score;
-import com.ejp.golf.league.domain.TeamMatch;
 
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
 public class RoundSummary {
     //Known data.
-    private final TeamMatch match;
+//    private final TeamMatch match;
     private final Round round;
 
     // Calculated data.
@@ -20,32 +17,19 @@ public class RoundSummary {
     private int matchPoints;
     private float teamNet;
 
-    public RoundSummary(TeamMatch match, Round round) {
-        this.match = match;
+    public RoundSummary(Round round) {
         this.round = round;
         netPoints = 0;
         matchPoints = 0;
         teamNet = 0f;
     }
 
-    public TeamMatch getMatch() {
-        return match;
-    }
-
     public int getMatchId() {
-        return match.getMatchId();
+        return round.getMatchId();
     }
 
     public boolean isHomeTeam() {
-        return match.isHome();
-    }
-
-    public int getTeamNumber() {
-        return match.getTeamId();
-    }
-
-    public Golfer getGolfer() {
-        return round.getGolfer();
+        return round.isHome();
     }
 
     public List<Score> getGrossScores() {
@@ -60,7 +44,7 @@ public class RoundSummary {
     }
 
     public int getHandicap() {
-        return round.getGolferMatch().getHandicap();
+        return round.getHandicap();
     }
 
     public List<Score> getNetScores() {

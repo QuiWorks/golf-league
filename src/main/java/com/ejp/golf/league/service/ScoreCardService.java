@@ -45,30 +45,33 @@ public class ScoreCardService implements Serializable {
     public List<ScoreCardSummary> getScoreCardSummary(Date matchDate, int flight) {
         //TODO need repo classes
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<GolferMatch> golferMatches = entityManager.createQuery(
-                        "SELECT gm FROM golfer_match gm " +
-                                "JOIN event_match em ON gm.matchId = em.id " +
-                                "JOIN event e ON em.eventId = e.id " +
-                                "JOIN season s ON e.seasonId = s.id " +
-                                "WHERE s.leagueId = " + league.getId() +
-                                " AND em.flightId = " + flight +
-                                " AND e.day = " + matchDate,
-                        GolferMatch.class)
-                .getResultList();
+//        List<GolferMatch> golferMatches = entityManager.createQuery(
+//                        "SELECT gm FROM golfer_match gm " +
+//                                "JOIN event_match em ON gm.matchId = em.id " +
+//                                "JOIN event e ON em.eventId = e.id " +
+//                                "JOIN season s ON e.seasonId = s.id " +
+//                                "WHERE s.leagueId = " + league.getId() +
+//                                " AND em.flightId = " + flight +
+//                                " AND e.day = " + matchDate,
+//                        GolferMatch.class)
+//                .getResultList();
         entityManager.close();
-        List<RoundSummary> roundSummaries = golferMatches.stream()
-                .map(golferMatch -> getRoundSummary(matchDate, flight, golferMatch.getGolferId()))
-                .collect(Collectors.toList());
 
-        return roundSummaries.stream()
-                .collect(Collectors.groupingBy(RoundSummary::getMatchId))
-                .values().stream()
-                .map(ScoreCardSummary::new)
-                .collect(Collectors.toList());
+//        List<RoundSummary> roundSummaries = golferMatches.stream()
+//                .map(golferMatch -> getRoundSummary(golferMatch.getMatchId(), flight, golferMatch.getGolferId()))
+//                .collect(Collectors.toList());
+
+//        return roundSummaries.stream()
+//                .collect(Collectors.groupingBy(RoundSummary::getMatchId))
+//                .values().stream()
+//                .map(ScoreCardSummary::new)
+//                .collect(Collectors.toList());
+        return null;
     }
 
-
-    private RoundSummary getRoundSummary(Date matchDate, int flight, int golferId) {
+    private RoundSummary getRoundSummary(int matchId, int flight, int golferId) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        entityManager.find(TeamMatch, new TeamMatchPK(matchId, ))
         return null;
     }
 
