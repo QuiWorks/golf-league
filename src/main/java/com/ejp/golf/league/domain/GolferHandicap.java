@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity(name = "player_handicap")
-public class PlayerHandicap {
+@Entity(name = "golfer_handicap")
+public class GolferHandicap {
     private int id;
     private int golferId;
     private Timestamp created;
@@ -56,7 +56,7 @@ public class PlayerHandicap {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PlayerHandicap that = (PlayerHandicap) o;
+        GolferHandicap that = (GolferHandicap) o;
         return id == that.id && golferId == that.golferId && handicap == that.handicap && Objects.equals(created, that.created);
     }
 

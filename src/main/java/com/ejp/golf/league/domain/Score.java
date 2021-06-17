@@ -6,9 +6,8 @@ import java.util.Objects;
 @Entity(name ="score")
 public class Score {
     private int id;
-    private int roundId;
-    private int holeId;
-    private Hole hole;
+    private Round round = new Round();
+    private Hole hole = new Hole();
     private int score;
     private boolean win;
 
@@ -23,27 +22,20 @@ public class Score {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "round_id", nullable = false)
-    public int getRoundId() {
-        return roundId;
+
+    @ManyToOne(targetEntity = Round.class)
+    @JoinColumn(name = "round_id", referencedColumnName = "id", nullable = false)
+    public Round getRound(){
+        return round;
     }
 
-    public void setRoundId(int roundId) {
-        this.roundId = roundId;
+    public void setRound(Round round)
+    {
+        this.round = round;
     }
 
-    @Basic
-    @Column(name = "hole_id", nullable = false)
-    public int getHoleId() {
-        return holeId;
-    }
-
-    public void setHoleId(int holeId) {
-        this.holeId = holeId;
-    }
-
-    @ManyToOne(targetEntity = Hole.class)
+    @ManyToOne
+    @JoinColumn(name = "hole_id", referencedColumnName = "id", nullable = false)
     public Hole getHole(){
         return hole;
     }
@@ -63,6 +55,7 @@ public class Score {
         this.score = score;
     }
 
+    @Transient
     public boolean isWin() {
         return win;
     }
@@ -76,11 +69,11 @@ public class Score {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Score score1 = (Score) o;
-        return id == score1.id && roundId == score1.roundId && holeId == score1.holeId && score == score1.score;
+        return id == score1.id && round.getId() == score1.round.getId() && hole.getId() == score1.getHole().getId() && score == score1.score;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roundId, holeId, score);
+        return Objects.hash(id, round.getId(), hole.getId(), score);
     }
 }

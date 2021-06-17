@@ -1,20 +1,20 @@
 package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity(name = "round")
 public class Round {
     private int id;
     private int matchId;
-    private int golferId;
-    private Golfer golfer;
-    private GolferMatch golferMatch;
-    private List<Score> grossScores;
+    private int handicap;
+    private boolean home;
+    private Date date;
+    private Golfer golfer = new Golfer();
+    private List<Score> grossScores = new ArrayList<>();
 
-    @OneToOne(targetEntity = Golfer.class, mappedBy = "id")
+    @ManyToOne
+    @JoinColumn(name = "golfer_id", referencedColumnName = "id", nullable = false)
     public Golfer getGolfer() {
         return golfer;
     }
@@ -23,17 +23,7 @@ public class Round {
         this.golfer = golfer;
     }
 
-
-    @OneToOne(targetEntity = GolferMatch.class, mappedBy = "pk")
-    public GolferMatch getGolferMatch() {
-        return golferMatch;
-    }
-
-    public void setGolferMatch(GolferMatch golferMatch) {
-        this.golferMatch = golferMatch;
-    }
-
-    @OneToMany(targetEntity = Score.class, mappedBy = "roundId")
+    @OneToMany(mappedBy = "score")
     public List<Score> getGrossScores() {
         return grossScores;
     }
@@ -64,13 +54,33 @@ public class Round {
     }
 
     @Basic
-    @Column(name = "golfer_id", nullable = false)
-    public int getGolferId() {
-        return golferId;
+    @Column(name = "handicap", nullable = false)
+    public int getHandicap() {
+        return handicap;
     }
 
-    public void setGolferId(int golferId) {
-        this.golferId = golferId;
+    public void setHandicap(int handicap) {
+        this.handicap = handicap;
+    }
+
+    @Basic
+    @Column(name = "home", nullable = false)
+    public boolean isHome() {
+        return home;
+    }
+
+    public void setHome(boolean home) {
+        this.home = home;
+    }
+
+    @Basic
+    @Column(name = "date_played", nullable = false)
+    public Date getDatePlayed() {
+        return date;
+    }
+
+    public void setDatePlayed(Date date) {
+        this.date = date;
     }
 
     @Override
@@ -78,11 +88,11 @@ public class Round {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Round round = (Round) o;
-        return id == round.id && matchId == round.matchId && golferId == round.golferId;
+        return id == round.id && matchId == round.matchId && golfer.getId() == round.getGolfer().getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, matchId, golferId);
+        return Objects.hash(id, matchId, golfer.getId());
     }
 }

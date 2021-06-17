@@ -70,14 +70,12 @@ public class DatabaseMigrator {
                 "admin",
                 "score",
                 "round",
-                "golfer_match",
-                "team_match",
                 "event_match",
                 "tee_time",
                 "flight",
                 "hole",
                 "nine",
-                "player_handicap",
+                "golfer_handicap",
                 "event",
                 "season",
                 "course",
@@ -224,7 +222,7 @@ public class DatabaseMigrator {
 
     private void migrateToNewDomain(Players legacyPlayer, EntityManager entityManager) {
         Golfer golfer = new Golfer();
-        PlayerHandicap playerHandicap = new PlayerHandicap();
+        GolferHandicap golferHandicap = new GolferHandicap();
         TeamMember teamMember = new TeamMember();
 
         entityManager.getTransaction().begin();
@@ -244,9 +242,9 @@ public class DatabaseMigrator {
         golfer.setDateAdded(convertLegacyDate(legacyPlayer.getDateAdded()));
 
         Timestamp created = Timestamp.valueOf(LocalDateTime.now());
-        playerHandicap.setGolferId(legacyPlayer.getGolfer());
-        playerHandicap.setHandicap(legacyPlayer.getCurrentHdcp());
-        playerHandicap.setCreated(created);
+        golferHandicap.setGolferId(legacyPlayer.getGolfer());
+        golferHandicap.setHandicap(legacyPlayer.getCurrentHdcp());
+        golferHandicap.setCreated(created);
 
 
         Team team = entityManager.find(Team.class, (int) legacyPlayer.getTeam());
@@ -264,7 +262,7 @@ public class DatabaseMigrator {
         entityManager.persist(golfer);
         entityManager.getTransaction().commit();
         entityManager.getTransaction().begin();
-        entityManager.persist(playerHandicap);
+        entityManager.persist(golferHandicap);
         entityManager.persist(teamMember);
         entityManager.getTransaction().commit();
     }
@@ -304,66 +302,77 @@ public class DatabaseMigrator {
                 })
                 .collect(Collectors.toList());
 
-        List<TeamMatch> teamMatches = scoreCardList.getScoreCard().stream()
-                .map(scoreCard -> {
-                    int matchId = getMatchId(matches, scoreCard);
-                    TeamMatch teamEvent = new TeamMatch();
-                    teamEvent.setTeamId(scoreCard.getTeam1());
-                    teamEvent.setMatchId(matchId);
-                    teamEvent.setHome(true);
-                    return teamEvent;
-                })
-                .collect(Collectors.toList());
-        teamMatches.addAll(scoreCardList.getScoreCard().stream()
-                .map(scoreCard -> {
-                    int matchId = getMatchId(matches, scoreCard);
-                    TeamMatch teamEvent = new TeamMatch();
-                    teamEvent.setTeamId(scoreCard.getTeam2());
-                    teamEvent.setMatchId(matchId);
-                    teamEvent.setHome(false);
-                    return teamEvent;
-                })
-                .collect(Collectors.toList()));
+//        List<TeamMatch> teamMatches = scoreCardList.getScoreCard().stream()
+//                .map(scoreCard -> {
+//                    int matchId = getMatchId(matches, scoreCard);
+//                    TeamMatch teamMatch = new TeamMatch();
+//                    teamMatch.setTeamId(scoreCard.getTeam1());
+//                    teamMatch.setMatchId(matchId);
+//                    teamMatch.setHome(true);
+//                    return teamMatch;
+//                })
+//                .collect(Collectors.toList());
+//        teamMatches.addAll(scoreCardList.getScoreCard().stream()
+//                .map(scoreCard -> {
+//                    int matchId = getMatchId(matches, scoreCard);
+//                    TeamMatch teamMatch = new TeamMatch();
+//                    teamMatch.setTeamId(scoreCard.getTeam2());
+//                    teamMatch.setMatchId(matchId);
+//                    teamMatch.setHome(false);
+//                    return teamMatch;
+//                })
+//                .collect(Collectors.toList()));
 
-        List<GolferMatch> golferMatches = scoreCardList.getScoreCard().stream()
-                .map(scoreCard -> {
-                    int matchId = getMatchId(matches, scoreCard);
-                    GolferMatch gm1 = new GolferMatch();
-                    gm1.setGolferId(scoreCard.getGolfer1());
-                    gm1.setMatchId(matchId);
-                    gm1.setHandicap(scoreCard.getHdcp1());
-                    GolferMatch gm2 = new GolferMatch();
-                    gm2.setGolferId(scoreCard.getGolfer2());
-                    gm2.setMatchId(matchId);
-                    gm2.setHandicap(scoreCard.getHdcp2());
-                    GolferMatch gm3 = new GolferMatch();
-                    gm3.setGolferId(scoreCard.getGolfer3());
-                    gm3.setMatchId(matchId);
-                    gm3.setHandicap(scoreCard.getHdcp3());
-                    GolferMatch gm4 = new GolferMatch();
-                    gm4.setGolferId(scoreCard.getGolfer4());
-                    gm4.setMatchId(matchId);
-                    gm4.setHandicap(scoreCard.getHdcp4());
-                    return List.of(gm1, gm2, gm3, gm4);
-                })
-                .flatMap(Collection::stream).collect(Collectors.toList());
+//        List<GolferMatch> golferMatches = scoreCardList.getScoreCard().stream()
+//                .map(scoreCard -> {
+//                    int matchId = getMatchId(matches, scoreCard);
+//                    GolferMatch gm1 = new GolferMatch();
+//                    gm1.setGolferId(scoreCard.getGolfer1());
+//                    gm1.setMatchId(matchId);
+//                    gm1.setHandicap(scoreCard.getHdcp1());
+//                    gm1.setHome(true);
+//                    GolferMatch gm2 = new GolferMatch();
+//                    gm2.setGolferId(scoreCard.getGolfer2());
+//                    gm2.setMatchId(matchId);
+//                    gm2.setHandicap(scoreCard.getHdcp2());
+//                    gm2.setHome(false);
+//                    GolferMatch gm3 = new GolferMatch();
+//                    gm3.setGolferId(scoreCard.getGolfer3());
+//                    gm3.setMatchId(matchId);
+//                    gm3.setHandicap(scoreCard.getHdcp3());
+//                    gm3.setHome(true);
+//                    GolferMatch gm4 = new GolferMatch();
+//                    gm4.setGolferId(scoreCard.getGolfer4());
+//                    gm4.setMatchId(matchId);
+//                    gm4.setHandicap(scoreCard.getHdcp4());
+//                    gm4.setHome(false);
+//                    return List.of(gm1, gm2, gm3, gm4);
+//                })
+//                .flatMap(Collection::stream).collect(Collectors.toList());
 
-        entityManager.getTransaction().begin();
-        teamMatches.stream()
-                .filter(teamMatch -> entityManager.find(TeamMatch.class, new TeamMatchPK(teamMatch.getMatchId(), teamMatch.getTeamId())) == null)
-                .forEach(entityManager::persist);
-        golferMatches.stream()
-                .filter(golferMatch -> entityManager.find(GolferMatch.class, new GolferMatchPK(golferMatch.getMatchId(), golferMatch.getGolferId())) == null)
-                .forEach(entityManager::persist);
-        entityManager.getTransaction().commit();
+//        entityManager.getTransaction().begin();
+////        teamMatches.stream()
+////                .filter(teamMatch -> entityManager.find(TeamMatch.class, new TeamMatchPK(teamMatch.getMatchId(), teamMatch.getTeamId())) == null)
+////                .forEach(entityManager::persist);
+//        golferMatches.stream()
+//                .filter(golferMatch -> entityManager.find(GolferMatch.class, new GolferMatchPK(golferMatch.getMatchId(), golferMatch.getGolferId())) == null)
+//                .forEach(entityManager::persist);
+//        entityManager.getTransaction().commit();
 
         scoreCardList.getScoreCard().stream()
                 .filter(scoreCard -> scoreCard.getA1() != null)
                 .forEach(scoreCard -> {
 
+                    int matchId = getMatchId(matches, scoreCard);
+
                     Round roundA = new Round();
-                    roundA.setMatchId(getMatchId(matches, scoreCard));
-                    roundA.setGolferId(scoreCard.getGolfer1());
+                    roundA.setMatchId(matchId);
+                    Golfer golfer1 = new Golfer();
+                    golfer1.setId(scoreCard.getGolfer1());
+                    roundA.setGolfer(golfer1);
+                    roundA.setHandicap(scoreCard.getHdcp1());
+                    roundA.setHome(true);
+                    roundA.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
                     entityManager.getTransaction().begin();
                     entityManager.persist(roundA);
@@ -371,40 +380,40 @@ public class DatabaseMigrator {
                     entityManager.getTransaction().commit();
 
                     Score scoreA1 = new Score();
-                    scoreA1.setRoundId(roundA.getId());
-                    scoreA1.setHoleId(scoreCard.isBack9() ? 10 : 1);
+                    scoreA1.getRound().setId(roundA.getId());
+                    scoreA1.getHole().setId(scoreCard.isBack9() ? 10 : 1);
                     scoreA1.setScore(scoreCard.getA1());
                     Score scoreA2 = new Score();
-                    scoreA2.setRoundId(roundA.getId());
-                    scoreA2.setHoleId(scoreCard.isBack9() ? 11 : 2);
+                    scoreA2.getRound().setId(roundA.getId());
+                    scoreA2.getHole().setId(scoreCard.isBack9() ? 11 : 2);
                     scoreA2.setScore(scoreCard.getA2());
                     Score scoreA3 = new Score();
-                    scoreA3.setRoundId(roundA.getId());
-                    scoreA3.setHoleId(scoreCard.isBack9() ? 12 : 3);
+                    scoreA3.getRound().setId(roundA.getId());
+                    scoreA3.getHole().setId(scoreCard.isBack9() ? 12 : 3);
                     scoreA3.setScore(scoreCard.getA3());
                     Score scoreA4 = new Score();
-                    scoreA4.setRoundId(roundA.getId());
-                    scoreA4.setHoleId(scoreCard.isBack9() ? 13 : 4);
+                    scoreA4.getRound().setId(roundA.getId());
+                    scoreA4.getHole().setId(scoreCard.isBack9() ? 13 : 4);
                     scoreA4.setScore(scoreCard.getA4());
                     Score scoreA5 = new Score();
-                    scoreA5.setRoundId(roundA.getId());
-                    scoreA5.setHoleId(scoreCard.isBack9() ? 14 : 5);
+                    scoreA5.getRound().setId(roundA.getId());
+                    scoreA5.getHole().setId(scoreCard.isBack9() ? 14 : 5);
                     scoreA5.setScore(scoreCard.getA5());
                     Score scoreA6 = new Score();
-                    scoreA6.setRoundId(roundA.getId());
-                    scoreA6.setHoleId(scoreCard.isBack9() ? 15 : 6);
+                    scoreA6.getRound().setId(roundA.getId());
+                    scoreA6.getHole().setId(scoreCard.isBack9() ? 15 : 6);
                     scoreA6.setScore(scoreCard.getA6());
                     Score scoreA7 = new Score();
-                    scoreA7.setRoundId(roundA.getId());
-                    scoreA7.setHoleId(scoreCard.isBack9() ? 16 : 7);
+                    scoreA7.getRound().setId(roundA.getId());
+                    scoreA7.getHole().setId(scoreCard.isBack9() ? 16 : 7);
                     scoreA7.setScore(scoreCard.getA7());
                     Score scoreA8 = new Score();
-                    scoreA8.setRoundId(roundA.getId());
-                    scoreA8.setHoleId(scoreCard.isBack9() ? 17 : 8);
+                    scoreA8.getRound().setId(roundA.getId());
+                    scoreA8.getHole().setId(scoreCard.isBack9() ? 17 : 8);
                     scoreA8.setScore(scoreCard.getA8());
                     Score scoreA9 = new Score();
-                    scoreA9.setRoundId(roundA.getId());
-                    scoreA9.setHoleId(scoreCard.isBack9() ? 18 : 9);
+                    scoreA9.getRound().setId(roundA.getId());
+                    scoreA9.getHole().setId(scoreCard.isBack9() ? 18 : 9);
                     scoreA9.setScore(scoreCard.getA9());
 
                     entityManager.getTransaction().begin();
@@ -420,8 +429,13 @@ public class DatabaseMigrator {
                     entityManager.getTransaction().commit();
 
                     Round roundB = new Round();
-                    roundB.setMatchId(getMatchId(matches, scoreCard));
-                    roundB.setGolferId(scoreCard.getGolfer1());
+                    roundB.setMatchId(matchId);
+                    Golfer golfer2 = new Golfer();
+                    golfer2.setId(scoreCard.getGolfer2());
+                    roundB.setGolfer(golfer2);
+                    roundB.setHandicap(scoreCard.getHdcp2());
+                    roundB.setHome(false);
+                    roundB.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
                     entityManager.getTransaction().begin();
                     entityManager.persist(roundB);
@@ -429,40 +443,40 @@ public class DatabaseMigrator {
                     entityManager.getTransaction().commit();
 
                     Score scoreB1 = new Score();
-                    scoreB1.setRoundId(roundB.getId());
-                    scoreB1.setHoleId(scoreCard.isBack9() ? 10 : 1);
+                    scoreB1.getRound().setId(roundB.getId());
+                    scoreB1.getHole().setId(scoreCard.isBack9() ? 10 : 1);
                     scoreB1.setScore(scoreCard.getB1());
                     Score scoreB2 = new Score();
-                    scoreB2.setRoundId(roundB.getId());
-                    scoreB2.setHoleId(scoreCard.isBack9() ? 11 : 2);
+                    scoreB2.getRound().setId(roundB.getId());
+                    scoreB2.getHole().setId(scoreCard.isBack9() ? 11 : 2);
                     scoreB2.setScore(scoreCard.getB2());
                     Score scoreB3 = new Score();
-                    scoreB3.setRoundId(roundB.getId());
-                    scoreB3.setHoleId(scoreCard.isBack9() ? 12 : 3);
+                    scoreB3.getRound().setId(roundB.getId());
+                    scoreB3.getHole().setId(scoreCard.isBack9() ? 12 : 3);
                     scoreB3.setScore(scoreCard.getB3());
                     Score scoreB4 = new Score();
-                    scoreB4.setRoundId(roundB.getId());
-                    scoreB4.setHoleId(scoreCard.isBack9() ? 13 : 4);
+                    scoreB4.getRound().setId(roundB.getId());
+                    scoreB4.getHole().setId(scoreCard.isBack9() ? 13 : 4);
                     scoreB4.setScore(scoreCard.getB4());
                     Score scoreB5 = new Score();
-                    scoreB5.setRoundId(roundB.getId());
-                    scoreB5.setHoleId(scoreCard.isBack9() ? 14 : 5);
+                    scoreB5.getRound().setId(roundB.getId());
+                    scoreB5.getHole().setId(scoreCard.isBack9() ? 14 : 5);
                     scoreB5.setScore(scoreCard.getB5());
                     Score scoreB6 = new Score();
-                    scoreB6.setRoundId(roundB.getId());
-                    scoreB6.setHoleId(scoreCard.isBack9() ? 15 : 6);
+                    scoreB6.getRound().setId(roundB.getId());
+                    scoreB6.getHole().setId(scoreCard.isBack9() ? 15 : 6);
                     scoreB6.setScore(scoreCard.getB6());
                     Score scoreB7 = new Score();
-                    scoreB7.setRoundId(roundB.getId());
-                    scoreB7.setHoleId(scoreCard.isBack9() ? 16 : 7);
+                    scoreB7.getRound().setId(roundB.getId());
+                    scoreB7.getHole().setId(scoreCard.isBack9() ? 16 : 7);
                     scoreB7.setScore(scoreCard.getB7());
                     Score scoreB8 = new Score();
-                    scoreB8.setRoundId(roundB.getId());
-                    scoreB8.setHoleId(scoreCard.isBack9() ? 17 : 8);
+                    scoreB8.getRound().setId(roundB.getId());
+                    scoreB8.getHole().setId(scoreCard.isBack9() ? 17 : 8);
                     scoreB8.setScore(scoreCard.getB8());
                     Score scoreB9 = new Score();
-                    scoreB9.setRoundId(roundB.getId());
-                    scoreB9.setHoleId(scoreCard.isBack9() ? 18 : 9);
+                    scoreB9.getRound().setId(roundB.getId());
+                    scoreB9.getHole().setId(scoreCard.isBack9() ? 18 : 9);
                     scoreB9.setScore(scoreCard.getB9());
 
                     entityManager.getTransaction().begin();
@@ -479,8 +493,13 @@ public class DatabaseMigrator {
 
 
                     Round roundC = new Round();
-                    roundC.setMatchId(getMatchId(matches, scoreCard));
-                    roundC.setGolferId(scoreCard.getGolfer1());
+                    roundC.setMatchId(matchId);
+                    Golfer golfer3 = new Golfer();
+                    golfer3.setId(scoreCard.getGolfer3());
+                    roundC.setGolfer(golfer3);
+                    roundC.setHandicap(scoreCard.getHdcp3());
+                    roundC.setHome(false);
+                    roundC.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
                     entityManager.getTransaction().begin();
                     entityManager.persist(roundC);
@@ -488,40 +507,40 @@ public class DatabaseMigrator {
                     entityManager.getTransaction().commit();
 
                     Score scoreC1 = new Score();
-                    scoreC1.setRoundId(roundC.getId());
-                    scoreC1.setHoleId(scoreCard.isBack9() ? 10 : 1);
+                    scoreC1.getRound().setId(roundC.getId());
+                    scoreC1.getHole().setId(scoreCard.isBack9() ? 10 : 1);
                     scoreC1.setScore(scoreCard.getC1());
                     Score scoreC2 = new Score();
-                    scoreC2.setRoundId(roundC.getId());
-                    scoreC2.setHoleId(scoreCard.isBack9() ? 11 : 2);
+                    scoreC2.getRound().setId(roundC.getId());
+                    scoreC2.getHole().setId(scoreCard.isBack9() ? 11 : 2);
                     scoreC2.setScore(scoreCard.getC2());
                     Score scoreC3 = new Score();
-                    scoreC3.setRoundId(roundC.getId());
-                    scoreC3.setHoleId(scoreCard.isBack9() ? 12 : 3);
+                    scoreC3.getRound().setId(roundC.getId());
+                    scoreC3.getHole().setId(scoreCard.isBack9() ? 12 : 3);
                     scoreC3.setScore(scoreCard.getC3());
                     Score scoreC4 = new Score();
-                    scoreC4.setRoundId(roundC.getId());
-                    scoreC4.setHoleId(scoreCard.isBack9() ? 13 : 4);
+                    scoreC4.getRound().setId(roundC.getId());
+                    scoreC4.getHole().setId(scoreCard.isBack9() ? 13 : 4);
                     scoreC4.setScore(scoreCard.getC4());
                     Score scoreC5 = new Score();
-                    scoreC5.setRoundId(roundC.getId());
-                    scoreC5.setHoleId(scoreCard.isBack9() ? 14 : 5);
+                    scoreC5.getRound().setId(roundC.getId());
+                    scoreC5.getHole().setId(scoreCard.isBack9() ? 14 : 5);
                     scoreC5.setScore(scoreCard.getC5());
                     Score scoreC6 = new Score();
-                    scoreC6.setRoundId(roundC.getId());
-                    scoreC6.setHoleId(scoreCard.isBack9() ? 15 : 6);
+                    scoreC6.getRound().setId(roundC.getId());
+                    scoreC6.getHole().setId(scoreCard.isBack9() ? 15 : 6);
                     scoreC6.setScore(scoreCard.getC6());
                     Score scoreC7 = new Score();
-                    scoreC7.setRoundId(roundC.getId());
-                    scoreC7.setHoleId(scoreCard.isBack9() ? 16 : 7);
+                    scoreC7.getRound().setId(roundC.getId());
+                    scoreC7.getHole().setId(scoreCard.isBack9() ? 16 : 7);
                     scoreC7.setScore(scoreCard.getC7());
                     Score scoreC8 = new Score();
-                    scoreC8.setRoundId(roundC.getId());
-                    scoreC8.setHoleId(scoreCard.isBack9() ? 17 : 8);
+                    scoreC8.getRound().setId(roundC.getId());
+                    scoreC8.getHole().setId(scoreCard.isBack9() ? 17 : 8);
                     scoreC8.setScore(scoreCard.getC8());
                     Score scoreC9 = new Score();
-                    scoreC9.setRoundId(roundC.getId());
-                    scoreC9.setHoleId(scoreCard.isBack9() ? 18 : 9);
+                    scoreC9.getRound().setId(roundC.getId());
+                    scoreC9.getHole().setId(scoreCard.isBack9() ? 18 : 9);
                     scoreC9.setScore(scoreCard.getC9());
 
                     entityManager.getTransaction().begin();
@@ -537,8 +556,13 @@ public class DatabaseMigrator {
                     entityManager.getTransaction().commit();
 
                     Round roundD = new Round();
-                    roundD.setMatchId(getMatchId(matches, scoreCard));
-                    roundD.setGolferId(scoreCard.getGolfer1());
+                    roundD.setMatchId(matchId);
+                    Golfer golfer4 = new Golfer();
+                    golfer4.setId(scoreCard.getGolfer4());
+                    roundD.setGolfer(golfer4);
+                    roundD.setHandicap(scoreCard.getHdcp4());
+                    roundD.setHome(false);
+                    roundD.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
                     entityManager.getTransaction().begin();
                     entityManager.persist(roundD);
@@ -546,40 +570,40 @@ public class DatabaseMigrator {
                     entityManager.getTransaction().commit();
 
                     Score scoreD1 = new Score();
-                    scoreD1.setRoundId(roundD.getId());
-                    scoreD1.setHoleId(scoreCard.isBack9() ? 10 : 1);
+                    scoreD1.getRound().setId(roundD.getId());
+                    scoreD1.getHole().setId(scoreCard.isBack9() ? 10 : 1);
                     scoreD1.setScore(scoreCard.getD1());
                     Score scoreD2 = new Score();
-                    scoreD2.setRoundId(roundD.getId());
-                    scoreD2.setHoleId(scoreCard.isBack9() ? 11 : 2);
+                    scoreD2.getRound().setId(roundD.getId());
+                    scoreD2.getHole().setId(scoreCard.isBack9() ? 11 : 2);
                     scoreD2.setScore(scoreCard.getD2());
                     Score scoreD3 = new Score();
-                    scoreD3.setRoundId(roundD.getId());
-                    scoreD3.setHoleId(scoreCard.isBack9() ? 12 : 3);
+                    scoreD3.getRound().setId(roundD.getId());
+                    scoreD3.getHole().setId(scoreCard.isBack9() ? 12 : 3);
                     scoreD3.setScore(scoreCard.getD3());
                     Score scoreD4 = new Score();
-                    scoreD4.setRoundId(roundD.getId());
-                    scoreD4.setHoleId(scoreCard.isBack9() ? 13 : 4);
+                    scoreD4.getRound().setId(roundD.getId());
+                    scoreD4.getHole().setId(scoreCard.isBack9() ? 13 : 4);
                     scoreD4.setScore(scoreCard.getD4());
                     Score scoreD5 = new Score();
-                    scoreD5.setRoundId(roundD.getId());
-                    scoreD5.setHoleId(scoreCard.isBack9() ? 14 : 5);
+                    scoreD5.getRound().setId(roundD.getId());
+                    scoreD5.getHole().setId(scoreCard.isBack9() ? 14 : 5);
                     scoreD5.setScore(scoreCard.getD5());
                     Score scoreD6 = new Score();
-                    scoreD6.setRoundId(roundD.getId());
-                    scoreD6.setHoleId(scoreCard.isBack9() ? 15 : 6);
+                    scoreD6.getRound().setId(roundD.getId());
+                    scoreD6.getHole().setId(scoreCard.isBack9() ? 15 : 6);
                     scoreD6.setScore(scoreCard.getD6());
                     Score scoreD7 = new Score();
-                    scoreD7.setRoundId(roundD.getId());
-                    scoreD7.setHoleId(scoreCard.isBack9() ? 16 : 7);
+                    scoreD7.getRound().setId(roundD.getId());
+                    scoreD7.getHole().setId(scoreCard.isBack9() ? 16 : 7);
                     scoreD7.setScore(scoreCard.getD7());
                     Score scoreD8 = new Score();
-                    scoreD8.setRoundId(roundD.getId());
-                    scoreD8.setHoleId(scoreCard.isBack9() ? 17 : 8);
+                    scoreD8.getRound().setId(roundD.getId());
+                    scoreD8.getHole().setId(scoreCard.isBack9() ? 17 : 8);
                     scoreD8.setScore(scoreCard.getD8());
                     Score scoreD9 = new Score();
-                    scoreD9.setRoundId(roundD.getId());
-                    scoreD9.setHoleId(scoreCard.isBack9() ? 18 : 9);
+                    scoreD9.getRound().setId(roundD.getId());
+                    scoreD9.getHole().setId(scoreCard.isBack9() ? 18 : 9);
                     scoreD9.setScore(scoreCard.getD9());
 
                     entityManager.getTransaction().begin();

@@ -12,12 +12,12 @@
         <class>com.ejp.golf.league.domain.Hole</class>
         <class>com.ejp.golf.league.domain.League</class>
         <class>com.ejp.golf.league.domain.Nine</class>
-        <class>com.ejp.golf.league.domain.PlayerHandicap</class>
+        <class>com.ejp.golf.league.domain.GolferHandicap</class>
         <class>com.ejp.golf.league.domain.Round</class>
         <class>com.ejp.golf.league.domain.Score</class>
         <class>com.ejp.golf.league.domain.Season</class>
         <class>com.ejp.golf.league.domain.Team</class>
-        <class>com.ejp.golf.league.domain.TeamMatch</class>
+<!--        <class>com.ejp.golf.league.domain.TeamMatch</class>-->
         <class>com.ejp.golf.league.domain.TeamMember</class>
         <class>com.ejp.golf.league.domain.Admin</class>
         <properties>

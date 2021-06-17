@@ -2,6 +2,7 @@ package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "hole")
