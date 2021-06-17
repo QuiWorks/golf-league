@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +21,7 @@ import java.util.stream.Collectors;
 @Service
 public class ScoreCardService implements Serializable {
 
+    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     private final EntityManagerFactory entityManagerFactory;
     private final League league;
 
@@ -45,34 +50,26 @@ public class ScoreCardService implements Serializable {
     public List<ScoreCardSummary> getScoreCardSummary(Date matchDate, int flight) {
         //TODO need repo classes
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-//        List<GolferMatch> golferMatches = entityManager.createQuery(
-//                        "SELECT gm FROM golfer_match gm " +
-//                                "JOIN event_match em ON gm.matchId = em.id " +
-//                                "JOIN event e ON em.eventId = e.id " +
-//                                "JOIN season s ON e.seasonId = s.id " +
-//                                "WHERE s.leagueId = " + league.getId() +
-//                                " AND em.flightId = " + flight +
-//                                " AND e.day = " + matchDate,
-//                        GolferMatch.class)
-//                .getResultList();
+        TypedQuery<Round> query = entityManager.createQuery(
+                "SELECT r FROM round r " +
+                        "JOIN event_match em ON r.matchId = em.id " +
+                        "JOIN event e ON em.eventId = e.id " +
+                        "JOIN season s ON e.seasonId = s.id " +
+                        "WHERE s.leagueId = :leagueId" +
+                        " AND em.flightId = :flightId" +
+                        " AND e.day = :matchDate",
+                Round.class);
+        query.setParameter("leagueId", league.getId());
+        query.setParameter("flightId", flight);
+        query.setParameter("matchDate", matchDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        List<Round> rounds = query.getResultList();
         entityManager.close();
 
-//        List<RoundSummary> roundSummaries = golferMatches.stream()
-//                .map(golferMatch -> getRoundSummary(golferMatch.getMatchId(), flight, golferMatch.getGolferId()))
-//                .collect(Collectors.toList());
-
-//        return roundSummaries.stream()
-//                .collect(Collectors.groupingBy(RoundSummary::getMatchId))
-//                .values().stream()
-//                .map(ScoreCardSummary::new)
-//                .collect(Collectors.toList());
-        return null;
+        return rounds.stream()
+                .map(RoundSummary::new)
+                .collect(Collectors.groupingBy(RoundSummary::getMatchId))
+                .values().stream()
+                .map(ScoreCardSummary::new)
+                .collect(Collectors.toList());
     }
-
-    private RoundSummary getRoundSummary(int matchId, int flight, int golferId) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-//        entityManager.find(TeamMatch, new TeamMatchPK(matchId, ))
-        return null;
-    }
-
 }

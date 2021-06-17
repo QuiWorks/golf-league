@@ -47,7 +47,7 @@ public class ScoreCardSummary {
         RoundSummary lowerHandicapGolfer = getLowerHandicapGolfer(homeTeamGolfer, awayTeamGolfer);
 
         // Set net scores
-        higherHandicapGolfer.setNetScores(higherHandicapGolfer.getGrossScores().stream()
+        higherHandicapGolfer.setNetScores(new ArrayList<>(higherHandicapGolfer.getGrossScores()).stream()
                 .peek(score -> {
                     int grossScore = score.getScore();
                     int golferHandicap = higherHandicapGolfer.getHandicap();

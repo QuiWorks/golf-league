@@ -60,7 +60,7 @@ public class RoundSummary {
                 .sorted(Comparator.comparing(score -> score.getHole().getHoleNumber()))
                 .map(Score::getScore)
                 .reduce(Integer::sum)
-                .orElseThrow(() ->  new RuntimeException("No gross score"));
+                .orElseThrow(() ->  new RuntimeException("No net score"));
     }
 
     public int getNetPoints() {

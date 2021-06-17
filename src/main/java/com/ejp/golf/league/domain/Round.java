@@ -23,7 +23,7 @@ public class Round {
         this.golfer = golfer;
     }
 
-    @OneToMany(mappedBy = "score")
+    @OneToMany(mappedBy = "score", fetch = FetchType.EAGER)
     public List<Score> getGrossScores() {
         return grossScores;
     }
