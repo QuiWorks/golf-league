@@ -453,7 +453,7 @@ public class DatabaseMigrator {
                     golfer3.setId(scoreCard.getGolfer3());
                     roundC.setGolfer(golfer3);
                     roundC.setHandicap(scoreCard.getHdcp3());
-                    roundC.setHome(false);
+                    roundC.setHome(true);
                     roundC.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
                     entityManager.getTransaction().begin();

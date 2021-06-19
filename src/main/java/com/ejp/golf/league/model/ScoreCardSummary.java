@@ -10,16 +10,37 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ScoreCardSummary {
-    private final List<RoundSummary> roundSummaries;
+    private final RoundSummary lowHomeGolfer;
+    private final RoundSummary highHomeGolfer;
+    private final RoundSummary lowAwayGolfer;
+    private final RoundSummary highAwayGolfer;
 
     public ScoreCardSummary(List<RoundSummary> roundSummaries) {
-        this.roundSummaries = roundSummaries;
-        setNetScores(getHomeTeamHighHandicapGolfer(), getAwayTeamHighHandicapGolfer());
-        setNetScores(getHomeTeamLowHandicapGolfer(), getAwayTeamLowHandicapGolfer());
-        setNetPoints(getHomeTeamHighHandicapGolfer(), getAwayTeamHighHandicapGolfer());
-        setNetPoints(getHomeTeamLowHandicapGolfer(), getAwayTeamLowHandicapGolfer());
-        setMatchPoints(getHomeTeamHighHandicapGolfer(), getAwayTeamHighHandicapGolfer());
-        setMatchPoints(getHomeTeamLowHandicapGolfer(), getAwayTeamLowHandicapGolfer());
+        if(roundSummaries.size() != 4)
+        {
+            throw new RuntimeException("Incorrect number of rounds on score card: " + roundSummaries.size());
+        }
+
+        List<RoundSummary> homeTeam = roundSummaries.stream()
+                .filter(RoundSummary::isHomeTeam)
+                .sorted(Comparator.comparing(RoundSummary::getHandicap))
+                .collect(Collectors.toList());
+        lowHomeGolfer = homeTeam.get(0);
+        highHomeGolfer = homeTeam.get(1);
+
+        List<RoundSummary> awayTeam = roundSummaries.stream()
+                .filter(Predicate.not(RoundSummary::isHomeTeam))
+                .sorted(Comparator.comparing(RoundSummary::getHandicap))
+                .collect(Collectors.toList());
+        lowAwayGolfer = awayTeam.get(0);
+        highAwayGolfer = awayTeam.get(1);
+
+        setNetScores(lowHomeGolfer, lowAwayGolfer);
+        setNetScores(highHomeGolfer, highAwayGolfer);
+        setNetPoints(lowHomeGolfer, lowAwayGolfer);
+        setNetPoints(highHomeGolfer, highAwayGolfer);
+        setMatchPoints(lowHomeGolfer, lowAwayGolfer);
+        setMatchPoints(highHomeGolfer, highAwayGolfer);
         setTeamNetPoints();
     }
 
@@ -35,7 +56,7 @@ public class ScoreCardSummary {
         if(homeTeamNetScore < awayTeamNetScore) {
             getHomeTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
         } else if(homeTeamNetScore.equals(awayTeamNetScore)){
-            roundSummaries.forEach(roundSummary -> roundSummary.setTeamNet(0f));
+            getAll().forEach(roundSummary -> roundSummary.setTeamNet(0f));
         }else{
             getAwayTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
         }
@@ -43,8 +64,9 @@ public class ScoreCardSummary {
 
     private void setNetScores(RoundSummary homeTeamGolfer, RoundSummary awayTeamGolfer) {
         // Identify low and high handicap.
-        RoundSummary higherHandicapGolfer = getHigherHandicapGolfer(homeTeamGolfer, awayTeamGolfer);
-        RoundSummary lowerHandicapGolfer = getLowerHandicapGolfer(homeTeamGolfer, awayTeamGolfer);
+        List<RoundSummary> sortedPair = Stream.of(homeTeamGolfer, awayTeamGolfer).sorted(Comparator.comparing(RoundSummary::getHandicap)).collect(Collectors.toList());
+        RoundSummary lowerHandicapGolfer = sortedPair.get(0);
+        RoundSummary higherHandicapGolfer = sortedPair.get(1);
 
         // Set net scores
         higherHandicapGolfer.setNetScores(new ArrayList<>(higherHandicapGolfer.getGrossScores()).stream()
@@ -74,8 +96,11 @@ public class ScoreCardSummary {
 
     private void setNetPoints(RoundSummary homeTeamGolfer, RoundSummary awayTeamGolfer) {
         // Identify low and high handicap.
-        RoundSummary higherHandicapGolfer = getHigherHandicapGolfer(homeTeamGolfer, awayTeamGolfer);
-        RoundSummary lowerHandicapGolfer = getLowerHandicapGolfer(homeTeamGolfer, awayTeamGolfer);
+        List<RoundSummary> sortedPair = Stream.of(homeTeamGolfer, awayTeamGolfer)
+                .sorted(Comparator.comparing(RoundSummary::getHandicap))
+                .collect(Collectors.toList());
+        RoundSummary lowerHandicapGolfer = sortedPair.get(0);
+        RoundSummary higherHandicapGolfer = sortedPair.get(1);
 
         // Set net points
         if (lowerHandicapGolfer.getNetScore() < higherHandicapGolfer.getNetScore()) {
@@ -92,8 +117,9 @@ public class ScoreCardSummary {
 
     private void setMatchPoints(RoundSummary homeTeamGolfer, RoundSummary awayTeamGolfer) {
         // Identify low and high handicap.
-        RoundSummary higherHandicapGolfer = getHigherHandicapGolfer(homeTeamGolfer, awayTeamGolfer);
-        RoundSummary lowerHandicapGolfer = getLowerHandicapGolfer(homeTeamGolfer, awayTeamGolfer);
+        List<RoundSummary> sortedPair = Stream.of(homeTeamGolfer, awayTeamGolfer).sorted(Comparator.comparing(RoundSummary::getHandicap)).collect(Collectors.toList());
+        RoundSummary lowerHandicapGolfer = sortedPair.get(0);
+        RoundSummary higherHandicapGolfer = sortedPair.get(1);
 
         // Set match points
         long lowerHandicapGolferHoleWins = lowerHandicapGolfer.getNetScores().stream()
@@ -113,59 +139,16 @@ public class ScoreCardSummary {
         }
     }
 
-    private RoundSummary getLowerHandicapGolfer(RoundSummary homeTeamGolfer, RoundSummary awayTeamGolfer) {
-        return Stream.of(homeTeamGolfer, awayTeamGolfer)
-                .min(Comparator.comparing(RoundSummary::getHandicap))
-                .orElseThrow(() -> new RuntimeException("error"));
-    }
-
-    private RoundSummary getHigherHandicapGolfer(RoundSummary homeTeamGolfer, RoundSummary awayTeamGolfer) {
-        return Stream.of(homeTeamGolfer, awayTeamGolfer)
-                .max(Comparator.comparing(RoundSummary::getHandicap))
-                .orElseThrow(() -> new RuntimeException("error"));
-    }
-
-    public List<RoundSummary> getRoundSummaries() {
-        return roundSummaries;
-    }
-
     public List<RoundSummary> getHomeTeam() {
-        return roundSummaries.stream()
-                .filter(RoundSummary::isHomeTeam)
-                .collect(Collectors.toList());
+        return List.of(lowHomeGolfer, highHomeGolfer);
     }
 
     public List<RoundSummary> getAwayTeam() {
-        return roundSummaries.stream()
-                .filter(Predicate.not(RoundSummary::isHomeTeam))
-                .collect(Collectors.toList());
+        return List.of(lowAwayGolfer, highAwayGolfer);
     }
 
-    public RoundSummary getHomeTeamHighHandicapGolfer() {
-        return roundSummaries.stream()
-                .filter(RoundSummary::isHomeTeam)
-                .max(Comparator.comparing(RoundSummary::getHandicap))
-                .orElseThrow(() -> new RuntimeException("Unable to find home team high handicap player."));
-    }
-
-    public RoundSummary getHomeTeamLowHandicapGolfer() {
-        return roundSummaries.stream()
-                .filter(RoundSummary::isHomeTeam)
-                .min(Comparator.comparing(RoundSummary::getHandicap))
-                .orElseThrow(() -> new RuntimeException("Unable to find home team low handicap player."));
-    }
-
-    public RoundSummary getAwayTeamHighHandicapGolfer() {
-        return roundSummaries.stream()
-                .filter(Predicate.not(RoundSummary::isHomeTeam))
-                .max(Comparator.comparing(RoundSummary::getHandicap))
-                .orElseThrow(() -> new RuntimeException("Unable to find away team high handicap player."));
-    }
-
-    public RoundSummary getAwayTeamLowHandicapGolfer() {
-        return roundSummaries.stream()
-                .filter(Predicate.not(RoundSummary::isHomeTeam))
-                .min(Comparator.comparing(RoundSummary::getHandicap))
-                .orElseThrow(() -> new RuntimeException("Unable to find away team low handicap player."));
+    public List<RoundSummary> getAll()
+    {
+        return List.of(lowHomeGolfer, lowAwayGolfer, highHomeGolfer, highAwayGolfer);
     }
 }
