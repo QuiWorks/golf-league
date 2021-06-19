@@ -167,6 +167,7 @@ CREATE TABLE round
     match_id  int not null,
     flight_id  int not null,
     slot int not null,
+    nine int not null,
     golfer_id int not null,
     handicap  int not null,
     home BOOLEAN not null DEFAULT 0,

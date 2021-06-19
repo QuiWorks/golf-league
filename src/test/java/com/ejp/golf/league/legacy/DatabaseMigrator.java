@@ -309,12 +309,13 @@ public class DatabaseMigrator {
                 .filter(scoreCard -> scoreCard.getA1() != null)
                 .forEach(scoreCard -> {
 
-                    int matchId = getMatchId(matches, scoreCard);
+                    int matchId = getMatchId(matches, events, scoreCard);
 
                     Round roundA = new Round();
                     roundA.setMatchId(matchId);
                     roundA.setFlightId(scoreCard.getFlight());
                     roundA.setSlot(scoreCard.getSlot());
+                    roundA.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer1 = new Golfer();
                     golfer1.setId(scoreCard.getGolfer1());
                     roundA.setGolfer(golfer1);
@@ -380,6 +381,7 @@ public class DatabaseMigrator {
                     roundB.setMatchId(matchId);
                     roundB.setFlightId(scoreCard.getFlight());
                     roundB.setSlot(scoreCard.getSlot());
+                    roundB.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer2 = new Golfer();
                     golfer2.setId(scoreCard.getGolfer2());
                     roundB.setGolfer(golfer2);
@@ -446,6 +448,7 @@ public class DatabaseMigrator {
                     roundC.setMatchId(matchId);
                     roundC.setFlightId(scoreCard.getFlight());
                     roundC.setSlot(scoreCard.getSlot());
+                    roundC.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer3 = new Golfer();
                     golfer3.setId(scoreCard.getGolfer3());
                     roundC.setGolfer(golfer3);
@@ -511,6 +514,7 @@ public class DatabaseMigrator {
                     roundD.setMatchId(matchId);
                     roundD.setFlightId(scoreCard.getFlight());
                     roundD.setSlot(scoreCard.getSlot());
+                    roundD.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer4 = new Golfer();
                     golfer4.setId(scoreCard.getGolfer4());
                     roundD.setGolfer(golfer4);
@@ -574,9 +578,10 @@ public class DatabaseMigrator {
                 });
     }
 
-    private Integer getMatchId(List<EventMatch> matches, ScoreCard scoreCard) {
+    private Integer getMatchId(List<EventMatch> matches, List<Event> events, ScoreCard scoreCard) {
         return matches.stream()
                 .filter(match -> match.getFlightId() == scoreCard.getFlight() &&
+                        match.getEventId() == getEventId(events, scoreCard) &&
                         match.getNine().equals(scoreCard.isBack9() ? "back" : "front") &&
                         match.getSlot() == scoreCard.getSlot())
                 .map(EventMatch::getId)
@@ -609,7 +614,7 @@ public class DatabaseMigrator {
         return LocalDateTime.of(date.getYear(), date.getMonth(), date.getDay(), date.getHour(), date.getMinute(), date.getSecond());
     }
 
-    private enum LegacyData {
+    public enum LegacyData {
         ALL("src/test/resources/legacy/data/*.xml"),
         COURSES("src/test/resources/legacy/data/Courses.xml"),
         FLIGHTS("src/test/resources/legacy/data/Flights.xml"),

@@ -8,7 +8,6 @@ import java.util.List;
 
 public class RoundSummary {
     //Known data.
-//    private final TeamMatch match;
     private final Round round;
 
     // Calculated data.

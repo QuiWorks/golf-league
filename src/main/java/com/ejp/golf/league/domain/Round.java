@@ -9,6 +9,7 @@ public class Round {
     private int matchId;
     private int flightId;
     private int slot;
+    private String nine;
     private int handicap;
     private boolean home;
     private Date date;
@@ -74,6 +75,16 @@ public class Round {
 
     public void setSlot(int slot) {
         this.slot = slot;
+    }
+
+    @Basic
+    @Column(name = "nine", nullable = false)
+    public String getNine() {
+        return nine;
+    }
+
+    public void setNine(String nine) {
+        this.nine = nine;
     }
 
     @Basic

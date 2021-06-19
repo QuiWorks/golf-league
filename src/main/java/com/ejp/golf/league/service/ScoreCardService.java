@@ -63,7 +63,23 @@ public class ScoreCardService implements Serializable {
         query.setParameter("flightId", flight);
         query.setParameter("matchDate", matchDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         List<Round> rounds = query.getResultList();
+
+//        TypedQuery<EventMatch> query = entityManager.createQuery(
+//                "SELECT em FROM event_match em " +
+//                        "JOIN event e ON em.eventId = e.id " +
+//                        "JOIN season s ON e.seasonId = s.id " +
+//                        "WHERE s.leagueId = :leagueId" +
+//                        " AND em.flightId = :flightId" +
+//                        " AND e.day = :matchDate",
+//                EventMatch.class);
+//        query.setParameter("leagueId", league.getId());
+//        query.setParameter("flightId", flight);
+//        query.setParameter("matchDate", matchDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+//        List<EventMatch> resultList = query.getResultList();
+
+
         entityManager.close();
+
 
         return rounds.stream()
                 .map(RoundSummary::new)
@@ -71,5 +87,10 @@ public class ScoreCardService implements Serializable {
                 .values().stream()
                 .map(ScoreCardSummary::new)
                 .collect(Collectors.toList());
+    }
+
+    public ScoreCardSummary getScoreCardSummary(Date matchDate, int flight, int slot)
+    {
+        return null;
     }
 }
