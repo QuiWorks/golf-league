@@ -23,7 +23,8 @@ class ScoreCardServiceTest {
     @Test
     void name() throws ParseException {
         ScoreCardService scoreCardService = new ScoreCardService();
-        List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary(sdf.parse("2021-05-12"));
+//        List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary(sdf.parse("2021-05-12"));
+        List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary();
 
         System.out.println(scoreCardSummary);
     }

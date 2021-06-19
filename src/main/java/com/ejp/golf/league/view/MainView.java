@@ -47,9 +47,8 @@ public class MainView extends VerticalLayout {
      * <p>
      * Build the initial UI state for the user accessing the application.
      *
-     * @param service The message service. Automatically injected Spring managed bean.
      */
-    public MainView(@Autowired GreetService service) {
+    public MainView() {
         addClassName("centered-content");
 
         final GlGolfer golfer = new GlGolfer();

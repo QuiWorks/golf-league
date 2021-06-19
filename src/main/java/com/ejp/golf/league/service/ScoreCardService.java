@@ -33,6 +33,24 @@ public class ScoreCardService implements Serializable {
         entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
     }
 
+    public List<ScoreCardSummary> getScoreCardSummary() {
+        //TODO need repo classes
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        TypedQuery<Event> eventsQuery = entityManager.createQuery(
+                "SELECT e FROM event e " +
+                        " JOIN season s on s.id = e.seasonId" +
+                        " WHERE s.leagueId = :leagueId",
+                Event.class);
+        eventsQuery.setParameter("leagueId", league.getId());
+        List<Event> events = eventsQuery.getResultList();
+        entityManager.close();
+        return events.stream()
+                .map(event -> Date.from(event.getDay().atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .map(this::getScoreCardSummary)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+    }
+
     public List<ScoreCardSummary> getScoreCardSummary(Date matchDate) {
         //TODO need repo classes
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -63,34 +81,12 @@ public class ScoreCardService implements Serializable {
         query.setParameter("flightId", flight);
         query.setParameter("matchDate", matchDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         List<Round> rounds = query.getResultList();
-
-//        TypedQuery<EventMatch> query = entityManager.createQuery(
-//                "SELECT em FROM event_match em " +
-//                        "JOIN event e ON em.eventId = e.id " +
-//                        "JOIN season s ON e.seasonId = s.id " +
-//                        "WHERE s.leagueId = :leagueId" +
-//                        " AND em.flightId = :flightId" +
-//                        " AND e.day = :matchDate",
-//                EventMatch.class);
-//        query.setParameter("leagueId", league.getId());
-//        query.setParameter("flightId", flight);
-//        query.setParameter("matchDate", matchDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-//        List<EventMatch> resultList = query.getResultList();
-
-
         entityManager.close();
-
-
         return rounds.stream()
                 .map(RoundSummary::new)
                 .collect(Collectors.groupingBy(RoundSummary::getMatchId))
                 .values().stream()
                 .map(ScoreCardSummary::new)
                 .collect(Collectors.toList());
-    }
-
-    public ScoreCardSummary getScoreCardSummary(Date matchDate, int flight, int slot)
-    {
-        return null;
     }
 }
