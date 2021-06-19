@@ -80,7 +80,7 @@ public class Event {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return id == event.id && seasonId == event.seasonId && Objects.equals(day, event.day) && Objects.equals(eventType, event.eventType) && Objects.equals(notes, event.notes);
+        return id == event.id && seasonId == event.seasonId && Objects.equals(day, event.day) && Objects.equals(eventType, event.eventType);
     }
 
     @Override

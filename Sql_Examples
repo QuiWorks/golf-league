@@ -1,0 +1,75 @@
+Weekly Gross:
+
+SELECT * FROM vwPlayerTran
+ WHERE GameDate = #6/9/2021#
+ ORDER BY GrossScore, Hdcp DESC
+
+vwPlayerTran:
+SELECT Players.FullName, Players.FirstName, Players.LastName, Players.Substitute, Players.CurrentHdcp, 
+Players.Active, PlayerTran.GameDate, PlayerTran.GrossScore, PlayerTran.Hdcp, PlayerTran.H1, PlayerTran.H2, 
+PlayerTran.H3, PlayerTran.H4, PlayerTran.H5, PlayerTran.H6, PlayerTran.H7, PlayerTran.H8, PlayerTran.H9, 
+PlayerTran.Back9, PlayerTran.NetScore, PlayerTran.Tees, PlayerTran.N1, PlayerTran.N2, PlayerTran.N3,
+PlayerTran.N4, PlayerTran.N5, PlayerTran.N6, PlayerTran.N7, PlayerTran.N8, PlayerTran.N9, PlayerTran.CardNumber, 
+PlayerTran.Week
+FROM Players INNER JOIN PlayerTran ON Players.Golfer = PlayerTran.Golfer
+WHERE (((Players.Golfer)<9000))
+
+Weekly Net:
+SELECT * FROM vwPlayerTran
+ WHERE GameDate =#6/9/2021#
+ ORDER BY NetScore, Hdcp
+
+Weekly Results:
+SELECT WeekDates.Week, TeamSumTran.GameDate, TeamSumTran.Cardnumber, 
+TeamSum.TeamName, TeamSumTran.Totalpoints1, 
+TeamSum_1.TeamName As Teamname2 , TeamSumTran.Totalpoints2, 
+TeamSumTran.Flight, TeamSumTran.Flight2,TeamSumTran.Back9 as BackNine, TeamSumTran.Slot 
+FROM WeekDates 
+INNER JOIN ((TeamSumTran INNER JOIN TeamSum ON (TeamSumTran.Team1 = TeamSum.Team) AND (TeamSumTran.Flight = TeamSum.Flight)) 
+INNER JOIN TeamSum AS TeamSum_1 ON (TeamSumTran.Team2 = TeamSum_1.Team) AND (TeamSumTran.Flight2 = TeamSum_1.Flight)) 
+ON WeekDates.WeekDate = TeamSumTran.GameDate 
+Where WeekDates.Week = 5 
+Order By TeamSumTran.Flight, Slot
+
+Birdie Watch: Front 9
+SELECT Week, GameDate, Players.FullName, Back9 as BackNine, 
+GrossScore, Hdcp as THdcp, H1, H2, H3, H4, 
+H5, H6, H7, H8, H9, NetScore 
+FROM Players INNER JOIN PlayerTran ON Players.Golfer = PlayerTran.Golfer
+Where 
+GameDate = #6/9/2021# And Back9 = 0 And 
+(H1 <= 3 Or
+ H2 <= 4 Or
+ H3 <= 3 Or
+ H4 <= 3 Or
+ H5 <= 3 Or
+ H6 <= 2 Or
+ H7 <= 3 Or
+ H8 <= 2 Or
+ H9 <= 4) 
+ORDER BY Week DESC , GrossScore, Hdcp
+
+Birdie Watch: Back 9
+SELECT Week, GameDate, Players.FullName, Back9 as BackNine, 
+GrossScore, Hdcp as THdcp, H1, H2, H3, H4, 
+H5, H6, H7, H8, H9, NetScore 
+FROM Players 
+INNER JOIN PlayerTran ON Players.Golfer = PlayerTran.Golfer
+Where 
+GameDate = #6/9/2021# And Back9 = -1 And 
+(H1 <= 4 Or
+ H2 <= 2 Or
+ H3 <= 3 Or
+ H4 <= 3 Or
+ H5 <= 3 Or
+ H6 <= 3 Or
+ H7 <= 3 Or
+ H8 <= 2 Or
+ H9 <= 4) 
+ORDER BY Week DESC , GrossScore, Hdcp
+
+Team Standings: (Performed for flights 1 thru 4) 
+
+Select * From TeamSum Where Flight = 1
+ And Teamname <> 'Bye'
+ Order by TotalPoints Desc, Wins Desc, Losses, Seed, Team

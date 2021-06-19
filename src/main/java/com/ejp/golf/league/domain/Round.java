@@ -7,6 +7,8 @@ import java.util.*;
 public class Round {
     private int id;
     private int matchId;
+    private int flightId;
+    private int slot;
     private int handicap;
     private boolean home;
     private Date date;
@@ -23,7 +25,8 @@ public class Round {
         this.golfer = golfer;
     }
 
-    @OneToMany(mappedBy = "score", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "round_id")
     public List<Score> getGrossScores() {
         return grossScores;
     }
@@ -51,6 +54,26 @@ public class Round {
 
     public void setMatchId(int eventId) {
         this.matchId = eventId;
+    }
+
+    @Basic
+    @Column(name = "flight_id", nullable = false)
+    public int getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(int eventId) {
+        this.flightId = eventId;
+    }
+
+    @Basic
+    @Column(name = "slot", nullable = false)
+    public int getSlot() {
+        return slot;
+    }
+
+    public void setSlot(int slot) {
+        this.slot = slot;
     }
 
     @Basic

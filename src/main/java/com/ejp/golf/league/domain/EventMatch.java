@@ -79,7 +79,7 @@ public class EventMatch {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EventMatch that = (EventMatch) o;
-        return id == that.id && eventId == that.eventId && courseId == that.courseId && flightId == that.flightId && slot == that.slot && Objects.equals(nine, that.nine);
+        return eventId == that.eventId && flightId == that.flightId && slot == that.slot && Objects.equals(nine, that.nine);
     }
 
     @Override

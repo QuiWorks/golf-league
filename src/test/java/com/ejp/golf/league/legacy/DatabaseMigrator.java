@@ -269,7 +269,6 @@ public class DatabaseMigrator {
 
     private void migrateToNewDomain(ScoreCardList scoreCardList, EntityManager entityManager) {
         List<Event> events = scoreCardList.getScoreCard().stream()
-                .distinct()
                 .map(scoreCard -> {
                     Event event = new Event();
                     event.setWeek(scoreCard.getWeek());
@@ -278,12 +277,15 @@ public class DatabaseMigrator {
                     event.setDay(day);
                     event.setSeasonId(day.getYear());
                     return event;
-                }).peek(event -> {
+                })
+                .distinct() // using equals method to map unique constraint
+                .peek(event -> {
                     entityManager.getTransaction().begin();
                     entityManager.persist(event);
                     entityManager.flush();
                     entityManager.getTransaction().commit();
                 }).collect(Collectors.toList());
+
 
         List<EventMatch> matches = scoreCardList.getScoreCard().stream()
                 .map(scoreCard -> {
@@ -295,69 +297,13 @@ public class DatabaseMigrator {
                     eventMatch.setCourseId(2); //hard coded.
                     return eventMatch;
                 })
+                .distinct() // using equals method to map unique constraint
                 .peek(eventMatch -> {
                     entityManager.getTransaction().begin();
                     entityManager.persist(eventMatch);
                     entityManager.getTransaction().commit();
                 })
                 .collect(Collectors.toList());
-
-//        List<TeamMatch> teamMatches = scoreCardList.getScoreCard().stream()
-//                .map(scoreCard -> {
-//                    int matchId = getMatchId(matches, scoreCard);
-//                    TeamMatch teamMatch = new TeamMatch();
-//                    teamMatch.setTeamId(scoreCard.getTeam1());
-//                    teamMatch.setMatchId(matchId);
-//                    teamMatch.setHome(true);
-//                    return teamMatch;
-//                })
-//                .collect(Collectors.toList());
-//        teamMatches.addAll(scoreCardList.getScoreCard().stream()
-//                .map(scoreCard -> {
-//                    int matchId = getMatchId(matches, scoreCard);
-//                    TeamMatch teamMatch = new TeamMatch();
-//                    teamMatch.setTeamId(scoreCard.getTeam2());
-//                    teamMatch.setMatchId(matchId);
-//                    teamMatch.setHome(false);
-//                    return teamMatch;
-//                })
-//                .collect(Collectors.toList()));
-
-//        List<GolferMatch> golferMatches = scoreCardList.getScoreCard().stream()
-//                .map(scoreCard -> {
-//                    int matchId = getMatchId(matches, scoreCard);
-//                    GolferMatch gm1 = new GolferMatch();
-//                    gm1.setGolferId(scoreCard.getGolfer1());
-//                    gm1.setMatchId(matchId);
-//                    gm1.setHandicap(scoreCard.getHdcp1());
-//                    gm1.setHome(true);
-//                    GolferMatch gm2 = new GolferMatch();
-//                    gm2.setGolferId(scoreCard.getGolfer2());
-//                    gm2.setMatchId(matchId);
-//                    gm2.setHandicap(scoreCard.getHdcp2());
-//                    gm2.setHome(false);
-//                    GolferMatch gm3 = new GolferMatch();
-//                    gm3.setGolferId(scoreCard.getGolfer3());
-//                    gm3.setMatchId(matchId);
-//                    gm3.setHandicap(scoreCard.getHdcp3());
-//                    gm3.setHome(true);
-//                    GolferMatch gm4 = new GolferMatch();
-//                    gm4.setGolferId(scoreCard.getGolfer4());
-//                    gm4.setMatchId(matchId);
-//                    gm4.setHandicap(scoreCard.getHdcp4());
-//                    gm4.setHome(false);
-//                    return List.of(gm1, gm2, gm3, gm4);
-//                })
-//                .flatMap(Collection::stream).collect(Collectors.toList());
-
-//        entityManager.getTransaction().begin();
-////        teamMatches.stream()
-////                .filter(teamMatch -> entityManager.find(TeamMatch.class, new TeamMatchPK(teamMatch.getMatchId(), teamMatch.getTeamId())) == null)
-////                .forEach(entityManager::persist);
-//        golferMatches.stream()
-//                .filter(golferMatch -> entityManager.find(GolferMatch.class, new GolferMatchPK(golferMatch.getMatchId(), golferMatch.getGolferId())) == null)
-//                .forEach(entityManager::persist);
-//        entityManager.getTransaction().commit();
 
         scoreCardList.getScoreCard().stream()
                 .filter(scoreCard -> scoreCard.getA1() != null)
@@ -367,6 +313,8 @@ public class DatabaseMigrator {
 
                     Round roundA = new Round();
                     roundA.setMatchId(matchId);
+                    roundA.setFlightId(scoreCard.getFlight());
+                    roundA.setSlot(scoreCard.getSlot());
                     Golfer golfer1 = new Golfer();
                     golfer1.setId(scoreCard.getGolfer1());
                     roundA.setGolfer(golfer1);
@@ -430,6 +378,8 @@ public class DatabaseMigrator {
 
                     Round roundB = new Round();
                     roundB.setMatchId(matchId);
+                    roundB.setFlightId(scoreCard.getFlight());
+                    roundB.setSlot(scoreCard.getSlot());
                     Golfer golfer2 = new Golfer();
                     golfer2.setId(scoreCard.getGolfer2());
                     roundB.setGolfer(golfer2);
@@ -494,6 +444,8 @@ public class DatabaseMigrator {
 
                     Round roundC = new Round();
                     roundC.setMatchId(matchId);
+                    roundC.setFlightId(scoreCard.getFlight());
+                    roundC.setSlot(scoreCard.getSlot());
                     Golfer golfer3 = new Golfer();
                     golfer3.setId(scoreCard.getGolfer3());
                     roundC.setGolfer(golfer3);
@@ -557,6 +509,8 @@ public class DatabaseMigrator {
 
                     Round roundD = new Round();
                     roundD.setMatchId(matchId);
+                    roundD.setFlightId(scoreCard.getFlight());
+                    roundD.setSlot(scoreCard.getSlot());
                     Golfer golfer4 = new Golfer();
                     golfer4.setId(scoreCard.getGolfer4());
                     roundD.setGolfer(golfer4);

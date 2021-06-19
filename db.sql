@@ -147,7 +147,8 @@ CREATE TABLE event_match
     PRIMARY KEY (id),
     FOREIGN KEY (event_id) REFERENCES event (id),
     FOREIGN KEY (course_id, nine) REFERENCES nine (course_id, name),
-    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot)
+    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot),
+    UNIQUE (event_id, nine, flight_id, slot)
 );
 
 CREATE TABLE golfer_handicap
@@ -164,12 +165,15 @@ CREATE TABLE round
 (
     id        int not null auto_increment,
     match_id  int not null,
+    flight_id  int not null,
+    slot int not null,
     golfer_id int not null,
     handicap  int not null,
     home BOOLEAN not null DEFAULT 0,
     date_played DATETIME not null DEFAULT NOW(),
     primary key (id),
     FOREIGN KEY (match_id) references event_match (id),
+    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot)
     FOREIGN KEY (golfer_id) REFERENCES golfer (id),
     UNIQUE (match_id, golfer_id)
 );

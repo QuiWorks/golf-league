@@ -23,7 +23,7 @@ public class Score {
     }
 
 
-    @ManyToOne(targetEntity = Round.class)
+    @ManyToOne
     @JoinColumn(name = "round_id", referencedColumnName = "id", nullable = false)
     public Round getRound(){
         return round;
