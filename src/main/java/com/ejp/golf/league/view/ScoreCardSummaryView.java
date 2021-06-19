@@ -44,7 +44,8 @@ public class ScoreCardSummaryView extends VerticalLayout {
     public ScoreCardSummaryView() {
         addClassName("centered-content");
 
-        List<ScoreCardSummary> scoreCardSummary = new ScoreCardService().getScoreCardSummary();
+        ScoreCardService scoreCardService = new ScoreCardService();
+        List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary();
         add(new Label("test"));
     }
 }

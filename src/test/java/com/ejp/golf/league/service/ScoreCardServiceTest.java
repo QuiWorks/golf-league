@@ -12,6 +12,9 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +30,13 @@ class ScoreCardServiceTest {
         List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary();
 
         System.out.println(scoreCardSummary);
+    }
+
+    @Test
+    void name3() {
+        LocalDate now = LocalDate.now();
+        java.util.Date from = Date.from(now.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        System.out.println(from);
     }
 
     @Test

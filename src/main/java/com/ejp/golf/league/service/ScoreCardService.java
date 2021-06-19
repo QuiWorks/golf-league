@@ -44,11 +44,13 @@ public class ScoreCardService implements Serializable {
         eventsQuery.setParameter("leagueId", league.getId());
         List<Event> events = eventsQuery.getResultList();
         entityManager.close();
-        return events.stream()
-                .map(event -> Date.from(event.getDay().atStartOfDay(ZoneId.systemDefault()).toInstant()))
+        List<ScoreCardSummary> collect = events.stream()
+                .map(Event::getDay)
+                .map(day -> Date.from(day.atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .map(this::getScoreCardSummary)
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
+        return collect;
     }
 
     public List<ScoreCardSummary> getScoreCardSummary(Date matchDate) {
