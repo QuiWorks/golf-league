@@ -48,6 +48,7 @@ public class ScoreCardSummaryView extends VerticalLayout {
         final GlCard glCard = new GlCard();
         glCard.setFlight(6);
         glCard.setNine("Back");
+        glCard.setNoComment(true);
         //TODO handle dates.
 //        glCard.setDate(new Date());
 
@@ -59,15 +60,22 @@ public class ScoreCardSummaryView extends VerticalLayout {
             golfer3.setSub(false);
             golfer3.setTeam(3);
 
-            GlRound glRound1 = new GlRound();
+            GlRound glRound = new GlRound();
+            glRound.setGrossScore(roundSummary.getGrossScore());
+            glRound.setNetScore(roundSummary.getNetScore());
+            glRound.setHandicap(roundSummary.getHandicap());
+            glRound.setNetPoints(roundSummary.getNetPoints());
+            glRound.setMatchPoints(roundSummary.getMatchPoints());
+            glRound.setTeamNet((int)roundSummary.getTeamNet());
+
             roundSummary.getGrossScores().stream()
                     .map(grossScore -> toComponent(grossScore, "grossScore"))
-                    .forEach(score -> glRound1.getElement().appendChild(score.getElement()));
+                    .forEach(score -> glRound.getElement().appendChild(score.getElement()));
             roundSummary.getNetScores().stream()
                     .map(netScore -> toComponent(netScore, "netScore"))
-                    .forEach(score -> glRound1.getElement().appendChild(score.getElement()));
+                    .forEach(score -> glRound.getElement().appendChild(score.getElement()));
 
-            golfer3.getElement().appendChild(glRound1.getElement());
+            golfer3.getElement().appendChild(glRound.getElement());
             glCard.getElement().appendChild(golfer3.getElement());
         });
 
@@ -77,13 +85,13 @@ public class ScoreCardSummaryView extends VerticalLayout {
     private GlScore toComponent(Score score, String slot)
     {
         int num = score.getHole().getHoleNumber() > 9 ? 18 - score.getHole().getHoleNumber() : score.getHole().getHoleNumber();
-        final GlScore glHole = new GlScore();
-        glHole.setNumber(score.getHole().getHoleNumber());
-        glHole.setPar(score.getHole().getPar());
-        glHole.setHandicap(score.getRound().getHandicap());
-        glHole.setScore(score.getScore());
-        glHole.getElement().setAttribute("slot",slot+num);
-        return glHole;
+        final GlScore glScore = new GlScore();
+        glScore.setNumber(score.getHole().getHoleNumber());
+        glScore.setPar(score.getHole().getPar());
+        glScore.setHandicap(score.getRound().getHandicap());
+        glScore.setScore(score.getScore());
+        glScore.getElement().setAttribute("slot",slot+num);
+        return glScore;
     }
 
 }

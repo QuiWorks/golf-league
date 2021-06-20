@@ -11,6 +11,11 @@ export class GlRound extends LitElement {
         return css`
         :host {
           font-size: 12pt;
+          --lumo-disabled-text-color: var(--lumo-contrast-70pct);
+        }
+        
+        .display-field::part(input-field) {
+            background-color: var(--lumo-primary-color-10pct);
         }
         
         .round-container {
@@ -28,7 +33,7 @@ export class GlRound extends LitElement {
         }
         
         .display-field {
-            width: 40px;
+            width: 50px;
             margin-left: 2px;
             margin-right:2px;
         }
@@ -38,17 +43,23 @@ export class GlRound extends LitElement {
             width:90%;
             margin:5%;
         }
+        
+        .row {
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+        }
         `;
     }
 
     static get properties() {
         return {
             handicap: {type: Number},
-            grossScore: {type: Number},
-            netScore: {type: Number},
-            netPoints: {type: Number},
-            matchPoints: {type: Number},
-            teamNet: {type: Number}
+            grossScore: {type: Number, attribute: "gross-score"},
+            netScore: {type: Number, attribute: "net-score"},
+            netPoints: {type: Number, attribute: "net-points"},
+            matchPoints: {type: Number, attribute: "match-points"},
+            teamNet: {type: Number, attribute: "team-net"}
         };
     }
 
@@ -88,45 +99,46 @@ export class GlRound extends LitElement {
 
     render() {
         return html`
-            <div class="round-container">
-                <slot name="hole1"></slot>
-                <slot name="hole2"></slot>
-                <slot name="hole3"></slot>
-                <slot name="hole4"></slot>
-                <slot name="hole5"></slot>
-                <slot name="hole6"></slot>
-                <slot name="hole7"></slot>
-                <slot name="hole8"></slot>
-                <slot name="hole9"></slot>
-            </div>
-
-            <div class="report-container">
-                <slot name="grossScore1"></slot>
-                <slot name="grossScore2"></slot>
-                <slot name="grossScore3"></slot>
-                <slot name="grossScore4"></slot>
-                <slot name="grossScore5"></slot>
-                <slot name="grossScore6"></slot>
-                <slot name="grossScore7"></slot>
-                <slot name="grossScore8"></slot>
-                <slot name="grossScore9"></slot>
-                ${[this.grossScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Gross" value="${score}" disabled></vaadin-number-field>`)}
-                ${[this.handicap].map(score => html`<vaadin-number-field class="display-field" name="score" label="Hdcp" value="${score}" disabled></vaadin-number-field>`)}
-                ${[this.netScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${score}" disabled></vaadin-number-field>`)}
-            </div>
-            <div class="report-container">
-                <slot name="netScore1"></slot>
-                <slot name="netScore2"></slot>
-                <slot name="netScore3"></slot>
-                <slot name="netScore4"></slot>
-                <slot name="netScore5"></slot>
-                <slot name="netScore6"></slot>
-                <slot name="netScore7"></slot>
-                <slot name="netScore8"></slot>
-                <slot name="netScore9"></slot>
-                ${[this.netPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${points}" disabled></vaadin-number-field>`)}
-                ${[this.matchPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Match" value="${points}" disabled></vaadin-number-field>`)}
-                ${[this.teamNet].map(points => html`<vaadin-number-field class="display-field" name="score" label="Team" value="${points}" disabled></vaadin-number-field>`)}
+            <div class="row">
+                <div class="round-container">
+                    <slot name="hole1"></slot>
+                    <slot name="hole2"></slot>
+                    <slot name="hole3"></slot>
+                    <slot name="hole4"></slot>
+                    <slot name="hole5"></slot>
+                    <slot name="hole6"></slot>
+                    <slot name="hole7"></slot>
+                    <slot name="hole8"></slot>
+                    <slot name="hole9"></slot>
+                </div>
+                <div class="report-container">
+                    <slot name="grossScore1"></slot>
+                    <slot name="grossScore2"></slot>
+                    <slot name="grossScore3"></slot>
+                    <slot name="grossScore4"></slot>
+                    <slot name="grossScore5"></slot>
+                    <slot name="grossScore6"></slot>
+                    <slot name="grossScore7"></slot>
+                    <slot name="grossScore8"></slot>
+                    <slot name="grossScore9"></slot>
+                    ${this.grossScore !== null ? [this.grossScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Gross" value="${score}" disabled></vaadin-number-field>`):``}
+                    ${this.handicap !== null ? [this.handicap].map(score => html`<vaadin-number-field class="display-field" name="score" label="Hdcp" value="${score}" disabled></vaadin-number-field>`):``}
+                    ${this.netScore !== null ? [this.netScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${score}" disabled></vaadin-number-field>`):``}
+                </div>
+                <div class="report-container">
+                    <slot name="netScore1"></slot>
+                    <slot name="netScore2"></slot>
+                    <slot name="netScore3"></slot>
+                    <slot name="netScore4"></slot>
+                    <slot name="netScore5"></slot>
+                    <slot name="netScore6"></slot>
+                    <slot name="netScore7"></slot>
+                    <slot name="netScore8"></slot>
+                    <slot name="netScore9"></slot>
+                    ${this.netPoints !== null ? [this.netPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${points}" disabled></vaadin-number-field>`):``}
+                    ${this.matchPoints !== null ? [this.matchPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Match" value="${points}" disabled></vaadin-number-field>`):``}
+                    ${this.teamNet !== null ? [this.teamNet].map(points => html`<vaadin-number-field class="display-field" name="score" label="Team" value="${points}" disabled></vaadin-number-field>`):``}
+                </div>
             </div>
         `;
     }

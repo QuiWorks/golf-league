@@ -16,8 +16,7 @@ public class ScoreCardSummary {
     private final RoundSummary highAwayGolfer;
 
     public ScoreCardSummary(List<RoundSummary> roundSummaries) {
-        if(roundSummaries.size() != 4)
-        {
+        if (roundSummaries.size() != 4) {
             throw new RuntimeException("Incorrect number of rounds on score card: " + roundSummaries.size());
         }
 
@@ -53,11 +52,11 @@ public class ScoreCardSummary {
                 .map(RoundSummary::getNetScore)
                 .reduce(Integer::sum)
                 .orElse(Integer.MAX_VALUE);
-        if(homeTeamNetScore < awayTeamNetScore) {
+        if (homeTeamNetScore < awayTeamNetScore) {
             getHomeTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
-        } else if(homeTeamNetScore.equals(awayTeamNetScore)){
+        } else if (homeTeamNetScore.equals(awayTeamNetScore)) {
             getAll().forEach(roundSummary -> roundSummary.setTeamNet(0f));
-        }else{
+        } else {
             getAwayTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
         }
     }
@@ -69,7 +68,8 @@ public class ScoreCardSummary {
         RoundSummary higherHandicapGolfer = sortedPair.get(1);
 
         // Set net scores
-        higherHandicapGolfer.setNetScores(new ArrayList<>(higherHandicapGolfer.getGrossScores()).stream()
+        higherHandicapGolfer.setNetScores(higherHandicapGolfer.getGrossScores().stream()
+                .map(Score::clone)
                 .peek(score -> {
                     int grossScore = score.getScore();
                     int golferHandicap = higherHandicapGolfer.getHandicap();
@@ -84,7 +84,8 @@ public class ScoreCardSummary {
                 })
                 .collect(Collectors.toList()));
 
-        lowerHandicapGolfer.setNetScores(new ArrayList<>(lowerHandicapGolfer.getGrossScores()).stream()
+        lowerHandicapGolfer.setNetScores(lowerHandicapGolfer.getGrossScores().stream()
+                .map(Score::clone)
                 .peek(score -> score.setWin(score.getScore() < higherHandicapGolfer.getNetScores().stream()
                         .filter(higherScore -> higherScore.getHole().getId() == score.getHole().getId())
                         .map(Score::getScore)
@@ -146,8 +147,7 @@ public class ScoreCardSummary {
         return List.of(lowAwayGolfer, highAwayGolfer);
     }
 
-    public List<RoundSummary> getAll()
-    {
+    public List<RoundSummary> getAll() {
         return List.of(lowHomeGolfer, lowAwayGolfer, highHomeGolfer, highAwayGolfer);
     }
 

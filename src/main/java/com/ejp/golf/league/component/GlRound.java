@@ -32,29 +32,97 @@ import org.springframework.context.annotation.Scope;
 @JsModule("./src/GlRound.js")
 @SpringComponent
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class GlRound extends PolymerTemplate<Model>
-{
+public class GlRound extends PolymerTemplate<Model> {
 
     /**
      * Template model which defines the single "name" property.
      */
-    public interface Model extends TemplateModel
-	{
+    public interface Model extends TemplateModel {
         void setComment(String comment);
+
         String getComment();
+
+        void setHandicap(int handicap);
+
+        int getHandicap();
+
+        void setGrossScore(int score);
+
+        int getGrossScore();
+
+        void setNetScore(int score);
+
+        int getNetScore();
+
+        void setNetPoints(int score);
+
+        int getNetPoints();
+
+        void setMatchPoints(int score);
+
+        int getMatchPoints();
+
+        void setTeamNet(int score);
+
+        int getTeamNet();
     }
 
     public GlRound() {
     }
 
-    public String getComment()
-    {
+    public String getComment() {
         return getModel().getComment();
     }
 
-    public void setComment(String team)
-    {
+    public void setComment(String team) {
         getModel().setComment(team);
     }
 
+    public int getHandicap() {
+        return getModel().getHandicap();
+    }
+
+    public void setHandicap(int handicap) {
+        getModel().setHandicap(handicap);
+    }
+
+    public int getGrossScore() {
+        return getModel().getGrossScore();
+    }
+
+    public void setGrossScore(int score) {
+        this.getModel().setGrossScore(score);
+    }
+
+    public int getNetScore() {
+        return getModel().getNetScore();
+    }
+
+    public void setNetScore(int score) {
+        this.getModel().setNetScore(score);
+    }
+
+    public int getNetPoints() {
+        return getModel().getNetPoints();
+    }
+
+    public void setNetPoints(int points) {
+        getModel().setNetPoints(points);
+    }
+
+    public int getMatchPoints() {
+        return getModel().getMatchPoints();
+    }
+
+    public void setMatchPoints(int points) {
+        getModel().setMatchPoints(points);
+    }
+
+    public int getTeamNet() {
+        return getModel().getNetPoints();
+    }
+
+    public void setTeamNet(int points) {
+        getModel().setTeamNet(points);
+    }
 }

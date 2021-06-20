@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity(name ="score")
-public class Score {
+public class Score implements Cloneable{
     private int id;
     private Round round = new Round();
     private Hole hole = new Hole();
@@ -72,8 +72,25 @@ public class Score {
         return id == score1.id && round.getId() == score1.round.getId() && hole.getId() == score1.getHole().getId() && score == score1.score;
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hash(id, round.getId(), hole.getId(), score);
+    }
+
+    @Override
+    public Score clone() {
+        try {
+            Score clone = (Score) super.clone();
+            clone.setId(getId());
+            clone.setHole(getHole());
+            clone.setScore(getScore());
+            clone.setRound(getRound());
+            clone.setWin(isWin());
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

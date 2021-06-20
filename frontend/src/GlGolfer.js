@@ -23,6 +23,7 @@ export class GlGolfer extends LitElement {
           flex-direction: row;
           align-content:center;
           justify-content: start;
+          flex-wrap:wrap;
         }
 
         .golfer-info {
@@ -108,13 +109,7 @@ export class GlGolfer extends LitElement {
         <div class="golfer-info">
             <vaadin-number-field name="handicap" label="hdcp" value="${this.handicap}" ></vaadin-number-field>
         </div>
-        <div class="golfer-info check-box">
-            <label for="sub">Sub?</label>
-            <vaadin-checkbox name="sub" value="${this.sub}" ></vaadin-checkbox>
-        </div>
-    </div>
-    <div class="column">
-        <slot></slot>   
+        <slot></slot>
     </div>
         `;
     }

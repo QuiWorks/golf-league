@@ -7,7 +7,6 @@ export class GlScore extends LitElement {
         return css`
         :host {
             --lumo-disabled-text-color: var(--lumo-contrast-70pct);
-            --gl-score-background-color: var(--lumo-error-color-10pct);
         }
         .display-field::part(input-field) {
             background-color: var(--gl-score-background-color);
@@ -49,14 +48,13 @@ export class GlScore extends LitElement {
     render() {
         return html`
             <div class="score-container">
-                <vaadin-number-field class="display-field" name="score" label="H${this.number}" value="4"
+                <vaadin-number-field class="display-field" name="score" label="H${this.number}" value="${this.score}"
                                      disabled></vaadin-number-field>
             </div>
         `;
     }
 
     setBackgroundColor(score, par) {
-        console.log(score + "  " + par);
         const displayField = this.shadowRoot.querySelector(".display-field");
         if (score === par - 2) {
             displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-50pct)");
@@ -66,7 +64,7 @@ export class GlScore extends LitElement {
             displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-10pct)");
         } else if (score === par + 1) {
             displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-30pct)");
-        } else if (score === par + 2) {
+        } else {
             displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-50pct)");
         }
     }
