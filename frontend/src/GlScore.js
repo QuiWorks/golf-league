@@ -25,19 +25,10 @@ export class GlScore extends LitElement {
         this.score = 0;
     }
 
-    getHoleData() {
-        return {
-            score: this.score,
-            hole: this.number,
-            par: this.par,
-            handicap: this.handicap
-        }
-    }
-
     render() {
         return html`
             <div>
-                gl-score place holder
+                69
             </div>
         `;
     }

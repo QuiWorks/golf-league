@@ -31,7 +31,7 @@ public class ScoreCardSummaryView extends VerticalLayout {
 
     /**
      * Construct a new Vaadin view.
-     * <p>
+     *
      * Build the initial UI state for the user accessing the application.
      *
      */
@@ -45,4 +45,5 @@ public class ScoreCardSummaryView extends VerticalLayout {
 //        scoreCardSummary.forEach(summary -> add(new Label(summary.toString())));
         add(new Label("testy"));
     }
+
 }
