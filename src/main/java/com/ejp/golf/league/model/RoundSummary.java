@@ -1,5 +1,6 @@
 package com.ejp.golf.league.model;
 
+import com.ejp.golf.league.domain.Golfer;
 import com.ejp.golf.league.domain.Round;
 import com.ejp.golf.league.domain.Score;
 
@@ -21,6 +22,11 @@ public class RoundSummary {
         netPoints = 0;
         matchPoints = 0;
         teamNet = 0f;
+    }
+
+    public Golfer getGolfer()
+    {
+        return round.getGolfer();
     }
 
     public int getMatchId() {
