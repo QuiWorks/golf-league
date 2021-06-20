@@ -1,25 +1,16 @@
 package com.ejp.golf.league.view;
 
-import java.util.Date;
-import java.util.stream.IntStream;
-import javax.sound.sampled.FloatControl;
-
 import com.ejp.golf.league.component.GlCard;
 import com.ejp.golf.league.component.GlGolfer;
 import com.ejp.golf.league.component.GlHole;
 import com.ejp.golf.league.component.GlRound;
 import com.ejp.golf.league.layout.MainLayout;
-import com.ejp.golf.league.service.GreetService;
-import com.vaadin.flow.component.Key;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.stream.IntStream;
 
 /**
  * A sample Vaadin view class.

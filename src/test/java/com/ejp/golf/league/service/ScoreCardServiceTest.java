@@ -4,6 +4,7 @@ import com.ejp.golf.league.legacy.DatabaseMigrator;
 import com.ejp.golf.league.legacy.domain.ScoreCard;
 import com.ejp.golf.league.legacy.domain.ScoreCardList;
 import com.ejp.golf.league.model.ScoreCardSummary;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.xml.bind.JAXBContext;
@@ -18,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@Disabled
 class ScoreCardServiceTest {
 
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

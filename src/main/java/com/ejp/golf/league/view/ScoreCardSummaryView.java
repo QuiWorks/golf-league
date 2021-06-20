@@ -1,22 +1,16 @@
 package com.ejp.golf.league.view;
 
-import com.ejp.golf.league.component.GlCard;
-import com.ejp.golf.league.component.GlGolfer;
-import com.ejp.golf.league.component.GlHole;
-import com.ejp.golf.league.component.GlRound;
+import com.ejp.golf.league.domain.Round;
 import com.ejp.golf.league.layout.MainLayout;
+import com.ejp.golf.league.model.RoundSummary;
 import com.ejp.golf.league.model.ScoreCardSummary;
-import com.ejp.golf.league.service.GreetService;
 import com.ejp.golf.league.service.ScoreCardService;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * A sample Vaadin view class.
@@ -46,6 +40,9 @@ public class ScoreCardSummaryView extends VerticalLayout {
 
         ScoreCardService scoreCardService = new ScoreCardService();
         List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary();
-        add(new Label("test"));
+        Round round = new Round();
+        RoundSummary roundSummary = new RoundSummary(round);
+//        scoreCardSummary.forEach(summary -> add(new Label(summary.toString())));
+        add(new Label("testy"));
     }
 }

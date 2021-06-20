@@ -85,4 +85,15 @@ public class RoundSummary {
     public void setTeamNet(float teamNet) {
         this.teamNet = teamNet;
     }
+
+    @Override
+    public String toString() {
+        return "RoundSummary{" +
+                "round=" + round +
+                ", netHoleScores=" + netHoleScores +
+                ", netPoints=" + netPoints +
+                ", matchPoints=" + matchPoints +
+                ", teamNet=" + teamNet +
+                '}';
+    }
 }

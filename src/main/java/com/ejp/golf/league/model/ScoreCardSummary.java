@@ -151,4 +151,14 @@ public class ScoreCardSummary {
     {
         return List.of(lowHomeGolfer, lowAwayGolfer, highHomeGolfer, highAwayGolfer);
     }
+
+    @Override
+    public String toString() {
+        return "ScoreCardSummary{" +
+                "lowHomeGolfer=" + lowHomeGolfer +
+                ", highHomeGolfer=" + highHomeGolfer +
+                ", lowAwayGolfer=" + lowAwayGolfer +
+                ", highAwayGolfer=" + highAwayGolfer +
+                '}';
+    }
 }

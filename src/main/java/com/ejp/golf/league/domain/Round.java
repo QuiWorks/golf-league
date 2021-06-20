@@ -129,4 +129,20 @@ public class Round {
     public int hashCode() {
         return Objects.hash(id, matchId, golfer.getId());
     }
+
+    @Override
+    public String toString() {
+        return "Round{" +
+                "id=" + id +
+                ", matchId=" + matchId +
+                ", flightId=" + flightId +
+                ", slot=" + slot +
+                ", nine='" + nine + '\'' +
+                ", handicap=" + handicap +
+                ", home=" + home +
+                ", date=" + date +
+                ", golfer=" + golfer +
+                ", grossScores=" + grossScores +
+                '}';
+    }
 }

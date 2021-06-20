@@ -56,12 +56,12 @@ public class ScoreCardService implements Serializable {
     public List<ScoreCardSummary> getScoreCardSummary(Date matchDate) {
         //TODO need repo classes
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Flight> leagues = entityManager.createQuery(
+        List<Flight> flights = entityManager.createQuery(
                         "SELECT f FROM flight f WHERE f.leagueId = " + league.getId(),
                         Flight.class)
                 .getResultList();
         entityManager.close();
-        return leagues.stream()
+        return flights.stream()
                 .map(flight -> getScoreCardSummary(matchDate, flight.getId()))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
