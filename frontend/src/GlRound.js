@@ -26,6 +26,12 @@ export class GlRound extends LitElement {
           align-content:center;
           flex-wrap: wrap;
         }
+        
+        .display-field {
+            width: 40px;
+            margin-left: 2px;
+            margin-right:2px;
+        }
 
         .comments {
             margin:0;
@@ -104,9 +110,11 @@ export class GlRound extends LitElement {
                 <slot name="grossScore7"></slot>
                 <slot name="grossScore8"></slot>
                 <slot name="grossScore9"></slot>
-                ${[this.grossScore].map(score => html`<span>${score}</span>`)}
-                ${[this.grossScore].map(score => html`<span>${score}</span>`)}
-                ${[this.netScore].map(score => html`<span>${score}</span>`)}
+                ${[this.grossScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Gross" value="${score}" disabled></vaadin-number-field>`)}
+                ${[this.handicap].map(score => html`<vaadin-number-field class="display-field" name="score" label="Hdcp" value="${score}" disabled></vaadin-number-field>`)}
+                ${[this.netScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${score}" disabled></vaadin-number-field>`)}
+            </div>
+            <div class="report-container">
                 <slot name="netScore1"></slot>
                 <slot name="netScore2"></slot>
                 <slot name="netScore3"></slot>
@@ -116,9 +124,9 @@ export class GlRound extends LitElement {
                 <slot name="netScore7"></slot>
                 <slot name="netScore8"></slot>
                 <slot name="netScore9"></slot>
-                ${[this.netPoints].map(points => html`<span>${points}</span>`)}
-                ${[this.matchPoints].map(points => html`<span>${points}</span>`)}
-                ${[this.teamNet].map(points => html`<span>${points}</span>`)}
+                ${[this.netPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${points}" disabled></vaadin-number-field>`)}
+                ${[this.matchPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Match" value="${points}" disabled></vaadin-number-field>`)}
+                ${[this.teamNet].map(points => html`<vaadin-number-field class="display-field" name="score" label="Team" value="${points}" disabled></vaadin-number-field>`)}
             </div>
         `;
     }
