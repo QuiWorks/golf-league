@@ -74,8 +74,7 @@ public class ScoreCardSummary {
                     int grossScore = score.getScore();
                     int golferHandicap = higherHandicapGolfer.getHandicap();
                     int opponentHandicap = lowerHandicapGolfer.getHandicap();
-                    int holeHandicap = score.getHole().getHandicap();
-                    int netScore = grossScore - (golferHandicap - opponentHandicap) - holeHandicap;
+                    int netScore = grossScore - (golferHandicap - opponentHandicap);
                     boolean win = netScore < lowerHandicapGolfer.getGrossScores().stream()
                             .filter(lowerScore -> lowerScore.getHole().getId() == score.getHole().getId())
                             .map(Score::getScore)
