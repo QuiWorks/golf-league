@@ -5,7 +5,7 @@ import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
 import "@vaadin/vaadin-text-field/vaadin-text-area.js";
 import "@vaadin/vaadin-checkbox/vaadin-checkbox.js";
 
-export class GlCard extends LitElement {
+export class GlReport extends LitElement {
 
     static get styles() {
         return css`
@@ -44,20 +44,14 @@ export class GlCard extends LitElement {
         .card-info vaadin-text-field[name='nine'] {
             max-width: 96px;
         }
+        
+        .search {
+            margin-top:10px;
+            margin-top: 35px;
+        }
 
         .flight-info {
           width: 64px;
-        }
-        
-        .comments {
-            margin:0;
-            width:90%;
-            margin:5%;
-        }
-        .submit {
-            width:80%;
-            margin-right:10%;
-            margin-left:10%;
         }
         
         .column {
@@ -72,9 +66,7 @@ export class GlCard extends LitElement {
             nine: {type: String},
             flight: {type: Number},
             slot: {type: Number},
-            date: {type: Date},
-            comment: {type: String},
-            noComment: {type: Boolean}
+            date: {type: Date}
         };
     }
 
@@ -84,9 +76,7 @@ export class GlCard extends LitElement {
         this.slot = 0;
         this.date = new Date();
         this.nine = "";
-        this.comment = "";
         this.golferScores = [];
-        this.noComment = false;
     }
 
     connectedCallback() {
@@ -121,7 +111,6 @@ export class GlCard extends LitElement {
     _getCardData() {
         return {
             flight: this.flight,
-            slot: this.slot,
             nine: this.nine,
             date: this.date,
             comment: this.comment,
@@ -154,25 +143,14 @@ export class GlCard extends LitElement {
                         <vaadin-text-field class="small-width" label="nine" name="nine"
                                            value="${this.nine}"></vaadin-text-field>
                     </div>
+                    <div class="card-info search">
+                        <vaadin-button>search</vaadin-button>
+                    </div>
                 </div>
                 <slot></slot>
-            </div>
-            ${this.noComment ? html`
-                <div>
-                    <vaadin-button class="submit">submit</vaadin-button>
-                </div>
-            ` : html`
-                <div class="column">
-                    <div class="card-info">
-                        <vaadin-text-area class="comments" label="Comments:" name="comment"></vaadin-text-area>
-                    </div>
-                    <div class="card-info">
-                        <vaadin-button @click="${this.submit}" class="submit">Update</vaadin-button>
-                    </div>
-                </div>`}
-        `;
+            </div>`;
     }
 
 }
 
-window.customElements.define("gl-card", GlCard)
+window.customElements.define("gl-report", GlReport)

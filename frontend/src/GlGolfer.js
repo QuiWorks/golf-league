@@ -18,6 +18,12 @@ export class GlGolfer extends LitElement {
             flex-direction:column;
         }
         
+        .row {
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+        }
+        
         .golfer-container {
           display:flex;
           flex-direction: row;
@@ -65,6 +71,7 @@ export class GlGolfer extends LitElement {
             handicap: {type: Number},
             name: {type: String},
             sub: {type: Boolean},
+            inline: {type: Boolean}
         };
     }
 
@@ -74,11 +81,25 @@ export class GlGolfer extends LitElement {
         this.handicap = 0;
         this.name = "";
         this.sub = false;
+        this.inline = false;
     }
 
     connectedCallback() {
         super.connectedCallback();
         this.addEventListener("gl-round-score-change", this._onRoundScoreChange.bind(this));
+    }
+
+
+    firstUpdated(_changedProperties) {
+        super.firstUpdated(_changedProperties);
+        if(this.inline) {
+            let parent = this.shadowRoot.querySelector("div");
+            parent.classList.remove("column");
+            parent.classList.add("row");
+        }else{
+            parent.classList.remove("row");
+            parent.classList.add("column");
+        }
     }
 
     _onRoundScoreChange(e) {
@@ -90,27 +111,31 @@ export class GlGolfer extends LitElement {
 
     _getGolferData() {
         return {
-          team: this.team,
-          name: this.name,
-          handicap: this.handicap,
-          sub: this.sub
+            team: this.team,
+            name: this.name,
+            handicap: this.handicap,
+            sub: this.sub
         };
     }
 
     render() {
         return html`
-    <div class="golfer-container">
-        <div class="golfer-info">
-            <vaadin-number-field name="team" label="team #" value="${this.team}" ></vaadin-number-field>
-        </div>
-        <div class="golfer-info">
-            <vaadin-text-field name="name" label="name" value="${this.name}" ></vaadin-text-field>
-        </div>
-        <div class="golfer-info">
-            <vaadin-number-field name="handicap" label="hdcp" value="${this.handicap}" ></vaadin-number-field>
-        </div>
-        <slot></slot>
-    </div>
+            <div>
+                <div class="golfer-container">
+                    <div class="golfer-info">
+                        <vaadin-number-field name="team" label="team #" value="${this.team}"></vaadin-number-field>
+                    </div>
+                    <div class="golfer-info">
+                        <vaadin-text-field name="name" label="name" value="${this.name}"></vaadin-text-field>
+                    </div>
+                    <div class="golfer-info">
+                        <vaadin-number-field name="handicap" label="hdcp" value="${this.handicap}"></vaadin-number-field>
+                    </div>
+                </div>
+                <div class="column">
+                    <slot></slot>
+                </div>
+            </div>
         `;
     }
 

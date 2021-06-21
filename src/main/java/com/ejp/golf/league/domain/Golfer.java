@@ -165,4 +165,8 @@ public class Golfer {
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, middleName, email, city, state, zip, homePhone, workPhone, notes, active, dateAdded);
     }
+
+    public String fullName() {
+        return getFirstName() + " " + getLastName();
+    }
 }

@@ -44,6 +44,8 @@ public class GlGolfer extends PolymerTemplate<Model>
         String getName();
         void setSub(boolean sub);
         boolean isSub();
+        void setInline(boolean inline);
+        boolean isInline();
     }
 
     public GlGolfer() {
@@ -87,5 +89,15 @@ public class GlGolfer extends PolymerTemplate<Model>
     public void setSub(boolean sub)
     {
         getModel().setSub(sub);
+    }
+
+    public boolean isInline()
+    {
+        return getModel().isInline();
+    }
+
+    public void setInline(boolean inline)
+    {
+        getModel().setInline(inline);
     }
 }

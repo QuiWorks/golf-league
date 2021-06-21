@@ -45,10 +45,9 @@ public class ScoreCardSummaryView extends VerticalLayout {
 
         List<ScoreCardSummary> scoreCardSummary = new ScoreCardService().getScoreCardSummary(sdf.parse("2021-05-12"), 1);
 
-        final GlCard glCard = new GlCard();
-        glCard.setFlight(6);
-        glCard.setNine("Back");
-        glCard.setNoComment(true);
+        final GlReport glReport = new GlReport();
+        glReport.setFlight(6);
+        glReport.setNine("Back");
         //TODO handle dates.
 //        glCard.setDate(new Date());
 
@@ -56,9 +55,10 @@ public class ScoreCardSummaryView extends VerticalLayout {
         scoreCardSummary1.getAll().forEach(roundSummary -> {
             GlGolfer golfer3 = new GlGolfer();
             golfer3.setHandicap(roundSummary.getHandicap());
-            golfer3.setName(roundSummary.getGolfer().getFirstName() + roundSummary.getGolfer().getLastName());
+            golfer3.setName(roundSummary.getGolfer().fullName());
             golfer3.setSub(false);
             golfer3.setTeam(3);
+            golfer3.setInline(true);
 
             GlRound glRound = new GlRound();
             glRound.setGrossScore(roundSummary.getGrossScore());
@@ -76,10 +76,10 @@ public class ScoreCardSummaryView extends VerticalLayout {
                     .forEach(score -> glRound.getElement().appendChild(score.getElement()));
 
             golfer3.getElement().appendChild(glRound.getElement());
-            glCard.getElement().appendChild(golfer3.getElement());
+            glReport.getElement().appendChild(golfer3.getElement());
         });
 
-        add(glCard);
+        add(glReport);
     }
 
     private GlScore toComponent(Score score, String slot)
