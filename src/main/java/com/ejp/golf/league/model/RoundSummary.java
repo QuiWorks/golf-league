@@ -24,6 +24,10 @@ public class RoundSummary {
         teamNet = 0f;
     }
 
+    public Round getRound() {
+        return round;
+    }
+
     public Golfer getGolfer()
     {
         return round.getGolfer();

@@ -42,10 +42,10 @@ public class ScoreCardSummary {
         setNetPoints(highHomeGolfer, highAwayGolfer);
         setMatchPoints(lowHomeGolfer, lowAwayGolfer);
         setMatchPoints(highHomeGolfer, highAwayGolfer);
-        setTeamNetPoints();
+        setTeamNetPoints(lowHomeGolfer, lowAwayGolfer, highHomeGolfer, highAwayGolfer);
     }
 
-    private void setTeamNetPoints() {
+    private void setTeamNetPoints(RoundSummary lowHomeGolfer, RoundSummary lowAwayGolfer, RoundSummary highHomeGolfer, RoundSummary highAwayGolfer) {
         Integer homeTeamNetScore = getHomeTeam().stream()
                 .map(RoundSummary::getNetScore)
                 .reduce(Integer::sum)
@@ -55,11 +55,38 @@ public class ScoreCardSummary {
                 .reduce(Integer::sum)
                 .orElse(Integer.MAX_VALUE);
         if (homeTeamNetScore < awayTeamNetScore) {
-            getHomeTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
+            lowHomeGolfer.setTeamNet(1f);
+            highHomeGolfer.setTeamNet(1f);
+//            getHomeTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
         } else if (homeTeamNetScore.equals(awayTeamNetScore)) {
-            getAll().forEach(roundSummary -> roundSummary.setTeamNet(0f));
+            lowHomeGolfer.setTeamNet(.5f);
+            highHomeGolfer.setTeamNet(.5f);
+            lowAwayGolfer.setTeamNet(.5f);
+            highAwayGolfer.setTeamNet(.5f);
+//            getAll().forEach(roundSummary -> roundSummary.setTeamNet(0f));
         } else {
-            getAwayTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
+//            getAwayTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
+            lowAwayGolfer.setTeamNet(1f);
+            highAwayGolfer.setTeamNet(1f);
+        }
+
+        dummyCheck(lowHomeGolfer, lowAwayGolfer);
+
+        dummyCheck(highHomeGolfer, highAwayGolfer);
+    }
+
+    private void dummyCheck(RoundSummary golfer1, RoundSummary golfer2) {
+        if(golfer2.getGrossScore() == 0)
+        {
+            golfer1.setTeamNet(1);
+            golfer2.setTeamNet(0);
+        }else if(golfer1.getGrossScore() == 0)
+        {
+            golfer1.setTeamNet(0);
+            golfer2.setTeamNet(1);
+        }else{
+            golfer1.setTeamNet(0);
+            golfer2.setTeamNet(0);
         }
     }
 
@@ -71,6 +98,12 @@ public class ScoreCardSummary {
     private RoundSummary getLowerHandicap(RoundSummary rs1, RoundSummary rs2) {
         List<RoundSummary> sortedPair = Stream.of(rs1, rs2).sorted(Comparator.comparing(RoundSummary::getHandicap)).collect(Collectors.toList());
         return sortedPair.get(0);
+//        return exists(sortedPair.get(0)) ? sortedPair.get(0) : new DummyRoundSummary(sortedPair.get(1));
+    }
+
+    private boolean exists(RoundSummary roundSummary) {
+        return roundSummary.getGrossScores().stream()
+                .noneMatch(score -> score.getScore() == 0);
     }
 
     private void setNetScores(RoundSummary homeTeamGolfer, RoundSummary awayTeamGolfer) {
@@ -91,23 +124,6 @@ public class ScoreCardSummary {
                         .filter(s -> s.getHole().equals(holesByHandicap.get(i > 8 ? i - 9 : i)))
                         .findAny()
                         .ifPresent(score -> score.setScore(score.getScore() - 1)));
-
-//        // Set net scores
-//        higherHandicapGolfer.setNetScores(higherHandicapGolfer.getGrossScores().stream()
-//                .map(Score::clone)
-//                .peek(score -> {
-//                    int grossScore = score.getScore();
-//                    int golferHandicap = higherHandicapGolfer.getHandicap();
-//                    int opponentHandicap = lowerHandicapGolfer.getHandicap();
-//                    int netScore = grossScore - (golferHandicap - opponentHandicap);
-//                    boolean win = netScore < lowerHandicapGolfer.getGrossScores().stream()
-//                            .filter(lowerScore -> lowerScore.getHole().getId() == score.getHole().getId())
-//                            .map(Score::getScore)
-//                            .findAny().orElseThrow(() -> new RuntimeException("err"));
-//                    score.setWin(win);
-//                    score.setScore(netScore);
-//                })
-//                .collect(Collectors.toList()));
 
         lowerHandicapGolfer.setNetScores(lowerHandicapGolfer.getGrossScores().stream()
                 .map(Score::clone)
@@ -137,7 +153,7 @@ public class ScoreCardSummary {
         RoundSummary higherHandicapGolfer = getHigherHandicap(homeTeamGolfer, awayTeamGolfer);
 
         // Set net points
-        if (lowerHandicapGolfer.getNetScore() < higherHandicapGolfer.getNetScore()) {
+        if (lowerHandicapGolfer.getNetScore() < higherHandicapGolfer.getNetScore() || higherHandicapGolfer.getGolfer().getLastName().equals("Dummy")) {
             lowerHandicapGolfer.setNetPoints(2);
             higherHandicapGolfer.setNetPoints(0);
         } else if (lowerHandicapGolfer.getNetScores() == higherHandicapGolfer.getNetScores()) {
@@ -160,7 +176,7 @@ public class ScoreCardSummary {
         long higherHandicapGolferHoleWins = higherHandicapGolfer.getNetScores().stream()
                 .filter(Score::isWin).count();
 
-        if (lowerHandicapGolferHoleWins > higherHandicapGolferHoleWins) {
+        if (lowerHandicapGolferHoleWins > higherHandicapGolferHoleWins || higherHandicapGolfer.getGolfer().getLastName().equals("Dummy")) {
             lowerHandicapGolfer.setMatchPoints(2);
             higherHandicapGolfer.setMatchPoints(0);
         } else if (lowerHandicapGolferHoleWins == higherHandicapGolferHoleWins) {
