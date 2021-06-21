@@ -1,7 +1,12 @@
 package com.ejp.golf.league.view;
 
-import com.ejp.golf.league.component.*;
+import com.ejp.golf.league.component.GlGolfer;
+import com.ejp.golf.league.component.GlReport;
+import com.ejp.golf.league.component.GlRound;
+import com.ejp.golf.league.component.GlScore;
+import com.ejp.golf.league.domain.League;
 import com.ejp.golf.league.domain.Score;
+import com.ejp.golf.league.domain.Team;
 import com.ejp.golf.league.layout.MainLayout;
 import com.ejp.golf.league.model.ScoreCardSummary;
 import com.ejp.golf.league.service.ScoreCardService;
@@ -12,7 +17,6 @@ import com.vaadin.flow.router.Route;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * A sample Vaadin view class.
@@ -33,6 +37,9 @@ public class ScoreCardSummaryView extends VerticalLayout {
 
 
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    public final League league = new League().build(l -> l
+            .set(l::id, 1)
+            .set(l::name, "Territory Wednesday Mens League"));
 
     /**
      * Construct a new Vaadin view.
@@ -42,56 +49,8 @@ public class ScoreCardSummaryView extends VerticalLayout {
      */
     public ScoreCardSummaryView() throws ParseException {
         addClassName("centered-content");
-
-        List<ScoreCardSummary> scoreCardSummary = new ScoreCardService().getScoreCardSummary(sdf.parse("2021-05-12"), 1);
-
-        final GlReport glReport = new GlReport();
-        glReport.setFlight(6);
-        glReport.setNine("Back");
-        //TODO handle dates.
-//        glCard.setDate(new Date());
-
-        ScoreCardSummary scoreCardSummary1 = scoreCardSummary.get(0);
-        scoreCardSummary1.getAll().forEach(roundSummary -> {
-            GlGolfer golfer3 = new GlGolfer();
-            golfer3.setHandicap(roundSummary.getHandicap());
-            golfer3.setName(roundSummary.getGolfer().fullName());
-            golfer3.setSub(false);
-            golfer3.setTeam(3);
-            golfer3.setInline(true);
-
-            GlRound glRound = new GlRound();
-            glRound.setGrossScore(roundSummary.getGrossScore());
-            glRound.setNetScore(roundSummary.getNetScore());
-            glRound.setHandicap(roundSummary.getHandicap());
-            glRound.setNetPoints(roundSummary.getNetPoints());
-            glRound.setMatchPoints(roundSummary.getMatchPoints());
-            glRound.setTeamNet((int)roundSummary.getTeamNet());
-
-            roundSummary.getGrossScores().stream()
-                    .map(grossScore -> toComponent(grossScore, "grossScore"))
-                    .forEach(score -> glRound.getElement().appendChild(score.getElement()));
-            roundSummary.getNetScores().stream()
-                    .map(netScore -> toComponent(netScore, "netScore"))
-                    .forEach(score -> glRound.getElement().appendChild(score.getElement()));
-
-            golfer3.getElement().appendChild(glRound.getElement());
-            glReport.getElement().appendChild(golfer3.getElement());
-        });
-
+        final GlReport glReport =  new ScoreCardService().getScoreCardSummary(sdf.parse("2021-05-12"), 1);
         add(glReport);
-    }
-
-    private GlScore toComponent(Score score, String slot)
-    {
-        int num = score.getHole().getHoleNumber() > 9 ? 18 - score.getHole().getHoleNumber() : score.getHole().getHoleNumber();
-        final GlScore glScore = new GlScore();
-        glScore.setNumber(score.getHole().getHoleNumber());
-        glScore.setPar(score.getHole().getPar());
-        glScore.setHandicap(score.getRound().getHandicap());
-        glScore.setScore(score.getScore());
-        glScore.getElement().setAttribute("slot",slot+num);
-        return glScore;
     }
 
 }

@@ -1,11 +1,10 @@
 package com.ejp.golf.league.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity(name = "golfer")
 public class Golfer {
@@ -22,6 +21,7 @@ public class Golfer {
     private String notes;
     private Boolean active;
     private LocalDateTime dateAdded;
+    private List<Team> teams;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -151,6 +151,27 @@ public class Golfer {
 
     public void setDateAdded(LocalDateTime dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "team_member",
+            joinColumns = { @JoinColumn(name = "golfer_id") },
+            inverseJoinColumns = { @JoinColumn(name = "team_id")}
+    )
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
+
+    public Optional<Team> teamForLeague(League league)
+    {
+        return teams.stream()
+                .filter(team -> team.getLeagueId() == league.getId())
+                .findAny();
     }
 
     @Override

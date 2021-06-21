@@ -1,9 +1,7 @@
 package com.ejp.golf.league.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "team")
@@ -12,6 +10,7 @@ public class Team {
     private int leagueId;
     private String name;
     private String description;
+    private List<Golfer> golferList;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -51,6 +50,20 @@ public class Team {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "team_member",
+            joinColumns = { @JoinColumn(name = "team_id") },
+            inverseJoinColumns = { @JoinColumn(name = "golfer_id")}
+    )
+    public List<Golfer> getGolferList() {
+        return golferList;
+    }
+
+    public void setGolferList(List<Golfer> golferList) {
+        this.golferList = golferList;
     }
 
     @Override

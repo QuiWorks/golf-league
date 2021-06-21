@@ -4,9 +4,13 @@ import com.ejp.golf.league.legacy.DatabaseMigrator;
 import com.ejp.golf.league.legacy.domain.ScoreCard;
 import com.ejp.golf.league.legacy.domain.ScoreCardList;
 import com.ejp.golf.league.model.ScoreCardSummary;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -19,17 +23,24 @@ import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @Disabled
 class ScoreCardServiceTest {
 
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private EntityManagerFactory entityManagerFactory;
+
+    @BeforeEach
+    void setUp() {
+        entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
+    }
 
     @Test
     void name() throws ParseException {
         ScoreCardService scoreCardService = new ScoreCardService();
-//        List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary(sdf.parse("2021-05-12"));
-        List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary();
-
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        List<ScoreCardSummary> scoreCardSummary = scoreCardService.getScoreCardSummary(entityManager,sdf.parse("2021-05-12"));
+        entityManager.close();
         System.out.println(scoreCardSummary);
     }
 

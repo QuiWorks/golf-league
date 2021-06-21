@@ -1,5 +1,7 @@
 package com.ejp.golf.league.domain;
 
+import com.ejp.golf.league.Buildable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +9,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity(name = "league")
-public class League {
+public class League implements Buildable<League> {
     private int id;
     private String name;
 
@@ -21,6 +23,10 @@ public class League {
         this.id = id;
     }
 
+    public void id(int id) {
+        setId(id);
+    }
+
     @Basic
     @Column(name = "name", nullable = false, length = 256)
     public String getName() {
@@ -29,6 +35,10 @@ public class League {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void name(String name) {
+        setName(name);
     }
 
     @Override
@@ -42,5 +52,10 @@ public class League {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    @Override
+    public League instance() {
+        return this;
     }
 }
