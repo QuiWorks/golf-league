@@ -5,7 +5,7 @@
         <CourseId>2</CourseId>
         <NineName>Back</NineName>
         <HoleNo>10</HoleNo>
-        <Hdcp>6</Hdcp>
+        <Hdcp>10</Hdcp>
         <Par>5</Par>
         <Yardage>561</Yardage>
     </Holes>
@@ -13,7 +13,7 @@
         <CourseId>2</CourseId>
         <NineName>Back</NineName>
         <HoleNo>11</HoleNo>
-        <Hdcp>10</Hdcp>
+        <Hdcp>8</Hdcp>
         <Par>3</Par>
         <Yardage>184</Yardage>
     </Holes>
@@ -21,7 +21,7 @@
         <CourseId>2</CourseId>
         <NineName>Back</NineName>
         <HoleNo>12</HoleNo>
-        <Hdcp>12</Hdcp>
+        <Hdcp>6</Hdcp>
         <Par>4</Par>
         <Yardage>342</Yardage>
     </Holes>
@@ -45,7 +45,7 @@
         <CourseId>2</CourseId>
         <NineName>Back</NineName>
         <HoleNo>15</HoleNo>
-        <Hdcp>16</Hdcp>
+        <Hdcp>14</Hdcp>
         <Par>4</Par>
         <Yardage>318</Yardage>
     </Holes>
@@ -53,7 +53,7 @@
         <CourseId>2</CourseId>
         <NineName>Back</NineName>
         <HoleNo>16</HoleNo>
-        <Hdcp>8</Hdcp>
+        <Hdcp>12</Hdcp>
         <Par>4</Par>
         <Yardage>383</Yardage>
     </Holes>
@@ -61,7 +61,7 @@
         <CourseId>2</CourseId>
         <NineName>Back</NineName>
         <HoleNo>17</HoleNo>
-        <Hdcp>14</Hdcp>
+        <Hdcp>16</Hdcp>
         <Par>3</Par>
         <Yardage>139</Yardage>
     </Holes>
@@ -77,7 +77,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>1</HoleNo>
-        <Hdcp>11</Hdcp>
+        <Hdcp>7</Hdcp>
         <Par>4</Par>
         <Yardage>327</Yardage>
     </Holes>
@@ -85,7 +85,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>2</HoleNo>
-        <Hdcp>7</Hdcp>
+        <Hdcp>11</Hdcp>
         <Par>5</Par>
         <Yardage>477</Yardage>
     </Holes>
@@ -93,7 +93,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>3</HoleNo>
-        <Hdcp>5</Hdcp>
+        <Hdcp>1</Hdcp>
         <Par>4</Par>
         <Yardage>349</Yardage>
     </Holes>
@@ -101,7 +101,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>4</HoleNo>
-        <Hdcp>17</Hdcp>
+        <Hdcp>13</Hdcp>
         <Par>4</Par>
         <Yardage>370</Yardage>
     </Holes>
@@ -109,7 +109,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>5</HoleNo>
-        <Hdcp>15</Hdcp>
+        <Hdcp>9</Hdcp>
         <Par>4</Par>
         <Yardage>316</Yardage>
     </Holes>
@@ -117,7 +117,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>6</HoleNo>
-        <Hdcp>13</Hdcp>
+        <Hdcp>15</Hdcp>
         <Par>3</Par>
         <Yardage>137</Yardage>
     </Holes>
@@ -125,7 +125,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>7</HoleNo>
-        <Hdcp>1</Hdcp>
+        <Hdcp>5</Hdcp>
         <Par>4</Par>
         <Yardage>390</Yardage>
     </Holes>
@@ -141,7 +141,7 @@
         <CourseId>2</CourseId>
         <NineName>Front</NineName>
         <HoleNo>9</HoleNo>
-        <Hdcp>9</Hdcp>
+        <Hdcp>17</Hdcp>
         <Par>5</Par>
         <Yardage>474</Yardage>
     </Holes>
