@@ -32,6 +32,7 @@ public class DatabaseMigrator {
     private final League league;
     private final EventType eventType;
     private final int currentYear;
+    private final List<Event> events = new ArrayList<>();
 
     public DatabaseMigrator() {
         // Set field values.
@@ -127,6 +128,10 @@ public class DatabaseMigrator {
             case PLAYERS:
                 PlayersList playersList = getLegacyList(LegacyData.PLAYERS.getUrl(), PlayersList.class);
                 playersList.getPlayers().forEach(nine -> migrateToNewDomain(nine, entityManager));
+                if (shouldBreak) break;
+            case WEEK_DATES:
+                WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);
+                weekDatesList.getWeekDates().forEach(weekDate -> migrateToNewDomain(weekDate, entityManager));
                 if (shouldBreak) break;
             case SCORE_CARD:
                 ScoreCardList scoreCardList = getLegacyList(LegacyData.SCORE_CARD.getUrl(), ScoreCardList.class);
@@ -267,25 +272,21 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
     }
 
-    private void migrateToNewDomain(ScoreCardList scoreCardList, EntityManager entityManager) {
-        List<Event> events = scoreCardList.getScoreCard().stream()
-                .map(scoreCard -> {
-                    Event event = new Event();
-                    event.setWeek(scoreCard.getWeek());
-                    event.setEventType(eventType.getName());
-                    LocalDate day = convertLegacyDate(scoreCard.getGameDate()).toLocalDate();
-                    event.setDay(day);
-                    event.setSeasonId(day.getYear());
-                    return event;
-                })
-                .distinct() // using equals method to map unique constraint
-                .peek(event -> {
-                    entityManager.getTransaction().begin();
-                    entityManager.persist(event);
-                    entityManager.flush();
-                    entityManager.getTransaction().commit();
-                }).collect(Collectors.toList());
+    private void migrateToNewDomain(WeekDates legacyWeekDate, EntityManager entityManager) {
+        Event event = new Event();
+        event.setWeek(legacyWeekDate.getWeek());
+        event.setEventType("league");
+        LocalDateTime day = convertLegacyDate(legacyWeekDate.getWeekDate());
+        event.setDay(day.toLocalDate());
+        event.setSeasonId(day.getYear());
+        events.add(event);
 
+        entityManager.getTransaction().begin();
+        entityManager.persist(event);
+        entityManager.getTransaction().commit();
+    }
+
+    private void migrateToNewDomain(ScoreCardList scoreCardList, EntityManager entityManager) {
 
         List<EventMatch> matches = scoreCardList.getScoreCard().stream()
                 .map(scoreCard -> {
@@ -621,8 +622,8 @@ public class DatabaseMigrator {
         HOLES("src/test/resources/legacy/data/Holes.xml"),
         NINES("src/test/resources/legacy/data/Nines.xml"),
         PLAYERS("src/test/resources/legacy/data/Players.xml"),
-        SCORE_CARD("src/test/resources/legacy/data/ScoreCard.xml"),
-        TEE_TIMES("src/test/resources/legacy/data/TeeTimes.xml");
+        WEEK_DATES("src/test/resources/legacy/data/WeekDates.xml"),
+        SCORE_CARD("src/test/resources/legacy/data/ScoreCard.xml");
 
         private final String url;
 

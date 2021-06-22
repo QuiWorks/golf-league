@@ -64,7 +64,7 @@ CREATE TABLE flight
     start     timestamp not null,
     end       timestamp not null,
     primary key (id),
-    FOREIGN KEY (league_id) references league (id),
+    FOREIGN KEY (league_id) references league (id)
 );
 
 CREATE TABLE course
@@ -174,7 +174,7 @@ CREATE TABLE round
     date_played DATETIME not null DEFAULT NOW(),
     primary key (id),
     FOREIGN KEY (match_id) references event_match (id),
-    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot)
+    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot),
     FOREIGN KEY (golfer_id) REFERENCES golfer (id),
     UNIQUE (match_id, golfer_id)
 );

@@ -137,18 +137,14 @@ export class GlReport extends LitElement {
             <div class="report-container">
                 <div class="report-info-container">
                     <div class="report-info">
-                        <vaadin-number-field @change="${this._onFlightChanged}" name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
-                    </div>
-                    <div class="report-info">
-                        <vaadin-number-field @change="${this._onSlotChanged}" name="slot" label="slot" value="${this.slot}"></vaadin-number-field>
-                    </div>
-                    <div class="report-info">
                         <vaadin-date-picker class="small-width" label="date" name="date" @change="${this._updateDate}"
                                             value="${this.formattedDate()}"></vaadin-date-picker>
                     </div>
                     <div class="report-info">
-                        <vaadin-text-field class="small-width" label="nine" name="nine"
-                                           value="${this.nine}"></vaadin-text-field>
+                        <vaadin-number-field @change="${this._onFlightChanged}" name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
+                    </div>
+                    <div class="report-info">
+                        <vaadin-number-field @change="${this._onSlotChanged}" name="slot" label="slot" value="${this.slot}"></vaadin-number-field>
                     </div>
                     <div class="report-info search">
                         <vaadin-button @click="${this.search}">search</vaadin-button>
