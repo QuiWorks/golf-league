@@ -81,7 +81,6 @@ export class GlReport extends LitElement {
         super.firstUpdated(_changedProperties);
         this.shadowRoot.querySelector("#weeks").items = this.weeks;
         this.shadowRoot.querySelector("#flights").items = this.flights;
-        this.shadowRoot.querySelector("#slots").items = this.slots;
     }
 
     search() {
@@ -134,9 +133,6 @@ export class GlReport extends LitElement {
                     </div>
                     <div class="report-info">
                         <vaadin-combo-box id="flights" name="flight" label="flight" @change="${this._onFlightChanged}"></vaadin-combo-box>
-                    </div>
-                    <div class="report-info">
-                        <vaadin-combo-box id="slots" name="slot" label="slot" @change="${this._onSlotChanged}"></vaadin-combo-box>
                     </div>
                     <div class="report-info search">
                         <vaadin-button @click="${this.search}">search</vaadin-button>

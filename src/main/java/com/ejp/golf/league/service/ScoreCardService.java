@@ -40,21 +40,21 @@ public class ScoreCardService implements Serializable {
 
     public GlReport getScoreCardSummary() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummary(entityManager));
+        GlReport glReport = generateReport(getScoreCardSummaries(getRounds(entityManager)));
         entityManager.close();
         return glReport;
     }
 
     public GlReport getScoreCardSummary(int week) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummary(entityManager, week));
+        GlReport glReport = generateReport(getScoreCardSummaries(getRounds(entityManager, week)));
         entityManager.close();
         return glReport;
     }
 
     public GlReport getScoreCardSummary(int week, int flight) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummary(entityManager, week, flight));
+        GlReport glReport = generateReport(getScoreCardSummaries(getRounds(entityManager, week, flight)));
         entityManager.close();
         return glReport;
     }
@@ -66,9 +66,6 @@ public class ScoreCardService implements Serializable {
             glReport.setFlight(summary.getFlight());
             glReport.setSlot(summary.getSlot());
         });
-        //TODO use WEEKS.
-//        glCard.setDate(new Date());
-
         scoreCardSummaries.forEach(scoreCardSummary -> {
             Div matchContainer = new Div();
             matchContainer.getElement().getStyle().set("border-bottom", "1px solid green");
@@ -116,36 +113,35 @@ public class ScoreCardService implements Serializable {
         return glScore;
     }
 
-    List<ScoreCardSummary> getScoreCardSummary(EntityManager entityManager) {
+    private List<Round> getRounds(EntityManager entityManager) {
         //TODO need repo classes
-        TypedQuery<Event> eventsQuery = entityManager.createQuery(
-                "SELECT e FROM event e " +
-                        " JOIN season s on s.id = e.seasonId" +
-                        " WHERE s.leagueId = :leagueId",
-                Event.class);
-        eventsQuery.setParameter("leagueId", league.getId());
-        List<Event> events = eventsQuery.getResultList();
-        List<ScoreCardSummary> collect = events.stream()
-                .map(Event::getWeek)
-                .map(week -> getScoreCardSummary(entityManager, week))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
-        return collect;
+        TypedQuery<Round> query = entityManager.createQuery(
+                "SELECT r FROM round r " +
+                        "JOIN event_match em ON r.matchId = em.id " +
+                        "JOIN event e ON em.eventId = e.id " +
+                        "JOIN season s ON e.seasonId = s.id " +
+                        "WHERE s.leagueId = :leagueId",
+                Round.class);
+        query.setParameter("leagueId", league.getId());
+        return query.getResultList();
     }
 
-    List<ScoreCardSummary> getScoreCardSummary(EntityManager entityManager, int week) {
+    private List<Round> getRounds(EntityManager entityManager, int week) {
         //TODO need repo classes
-        List<Flight> flights = entityManager.createQuery(
-                        "SELECT f FROM flight f WHERE f.leagueId = " + league.getId(),
-                        Flight.class)
-                .getResultList();
-        return flights.stream()
-                .map(flight -> getScoreCardSummary(entityManager, week, flight.getId()))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+        TypedQuery<Round> query = entityManager.createQuery(
+                "SELECT r FROM round r " +
+                        "JOIN event_match em ON r.matchId = em.id " +
+                        "JOIN event e ON em.eventId = e.id " +
+                        "JOIN season s ON e.seasonId = s.id " +
+                        "WHERE s.leagueId = :leagueId" +
+                        " AND e.week = :week",
+                Round.class);
+        query.setParameter("leagueId", league.getId());
+        query.setParameter("week", week);
+        return query.getResultList();
     }
 
-    List<ScoreCardSummary> getScoreCardSummary(EntityManager entityManager, int week, int flight) {
+    private List<Round> getRounds(EntityManager entityManager, int week, int flight) {
         //TODO need repo classes
         TypedQuery<Round> query = entityManager.createQuery(
                 "SELECT r FROM round r " +
@@ -159,7 +155,10 @@ public class ScoreCardService implements Serializable {
         query.setParameter("leagueId", league.getId());
         query.setParameter("flightId", flight);
         query.setParameter("week", week);
-        List<Round> rounds = query.getResultList();
+        return query.getResultList();
+    }
+
+    private List<ScoreCardSummary> getScoreCardSummaries(List<Round> rounds) {
         return rounds.stream()
                 .map(RoundSummary::new)
                 .collect(Collectors.groupingBy(RoundSummary::getMatchId))
@@ -167,4 +166,6 @@ public class ScoreCardService implements Serializable {
                 .map(ScoreCardSummary::new)
                 .collect(Collectors.toList());
     }
+
+
 }
