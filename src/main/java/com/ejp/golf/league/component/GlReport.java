@@ -48,12 +48,8 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
         int getWeek();
         void setFlight(int flight);
         int getFlight();
-        void setSlot(int slot);
-        int getSlot();
-//        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
-        //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
-//        void setDate(Date date);
-//        Date getDate();
+        void setSlott(int slott);
+        int getSlott();
     }
 
     public GlReport() {
@@ -86,24 +82,14 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
         getModel().setFlight(flight);
     }
 
-    @Synchronize(value = "gl-report-slot-changed", property = "slot")
-    public int getSlot()
+    @Synchronize(value = "gl-report-slott-changed", property = "slott")
+    public int getSlott()
     {
-        return getModel().getFlight();
+        return getModel().getSlott();
     }
 
-    public void setSlot(int slot)
+    public void setSlott(int slott)
     {
-        getModel().setFlight(slot);
+        getModel().setSlott(slott);
     }
-
-    //    public Date getDate()
-//    {
-//        return getModel().getDate();
-//    }
-//
-//    public void setDate(Date date)
-//    {
-//        getModel().setDate(date);
-//    }
 }

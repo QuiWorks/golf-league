@@ -14,7 +14,7 @@ public class GlRequestSubmission extends ComponentEvent<GlReport> {
 
     public GlRequestSubmission(GlReport source, boolean fromClient,
                                @EventData("event.detail.flight") int flight,
-                               @EventData("event.detail.slot") int slot,
+                               @EventData("event.detail.slott") int slot,
                                @EventData("event.detail.week") int week) {
         super(source, fromClient);
         this.flight = flight;

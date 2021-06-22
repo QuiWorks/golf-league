@@ -44,7 +44,7 @@ public class ScoreCardSummaryView extends VerticalLayout {
      */
     public ScoreCardSummaryView() throws ParseException {
         addClassName("centered-content");
-        GlReport glReport =  new ScoreCardService().getScoreCardSummary(1, 1);
+        GlReport glReport =  new ScoreCardService().getScoreCardSummary(1, 1, 1);
         glReport.addRequestSubmissionListener(this::handleRequestSubmission);
         add(glReport);
     }
@@ -55,7 +55,7 @@ public class ScoreCardSummaryView extends VerticalLayout {
         int week = event.getWeek();
         int flight = event.getFlight();
         int slot = event.getSlot();
-        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(week, flight);
+        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(week, flight, slot);
         requestedReport.addRequestSubmissionListener(this::handleRequestSubmission);
         remove(report);
         add(requestedReport);

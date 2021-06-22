@@ -59,12 +59,19 @@ public class ScoreCardService implements Serializable {
         return glReport;
     }
 
+    public GlReport getScoreCardSummary(int week, int flight, int slot) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        GlReport glReport = generateReport(getScoreCardSummaries(getRounds(entityManager, week, flight, slot)));
+        entityManager.close();
+        return glReport;
+    }
+
     private GlReport generateReport(List<ScoreCardSummary> scoreCardSummaries) {
         final GlReport glReport = new GlReport();
         scoreCardSummaries.stream().findAny().ifPresent(summary -> {
             glReport.setWeek(summary.getWeek());
             glReport.setFlight(summary.getFlight());
-            glReport.setSlot(summary.getSlot());
+            glReport.setSlott(summary.getSlot());
         });
         scoreCardSummaries.forEach(scoreCardSummary -> {
             Div matchContainer = new Div();
@@ -156,6 +163,26 @@ public class ScoreCardService implements Serializable {
         query.setParameter("flightId", flight);
         query.setParameter("week", week);
         return query.getResultList();
+    }
+
+    private List<Round> getRounds(EntityManager entityManager, int week, int flight, int slot) {
+        //TODO need repo classes
+        TypedQuery<Round> query = entityManager.createQuery(
+                "SELECT r FROM round r " +
+                        "JOIN event_match em ON r.matchId = em.id " +
+                        "JOIN event e ON em.eventId = e.id " +
+                        "JOIN season s ON e.seasonId = s.id " +
+                        "WHERE s.leagueId = :leagueId" +
+                        " AND em.flightId = :flightId" +
+                        " AND e.week = :week" +
+                        " AND em.slot = :slot",
+                Round.class);
+        query.setParameter("leagueId", league.getId());
+        query.setParameter("flightId", flight);
+        query.setParameter("week", week);
+        query.setParameter("slot", slot);
+        List<Round> resultList = query.getResultList();
+        return resultList;
     }
 
     private List<ScoreCardSummary> getScoreCardSummaries(List<Round> rounds) {
