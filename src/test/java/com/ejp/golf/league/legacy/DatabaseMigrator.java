@@ -160,7 +160,7 @@ public class DatabaseMigrator {
         course.setName(legacyCourse.getCourseName());
         entityManager.persist(course);
 
-        if (course.getId() == 2) {
+        if (course.getId() == 1) {
             Season season = new Season();
             season.setCourseId(course.getId());
             season.setLeagueId(this.league.getId());
@@ -294,7 +294,7 @@ public class DatabaseMigrator {
                     eventMatch.setNine(scoreCard.isBack9() ? "back" : "front");
                     eventMatch.setSlot(scoreCard.getSlot());
                     eventMatch.setFlightId(scoreCard.getFlight());
-                    eventMatch.setCourseId(2); //hard coded.
+                    eventMatch.setCourseId(1); //hard coded.
                     return eventMatch;
                 })
                 .distinct() // using equals method to map unique constraint
