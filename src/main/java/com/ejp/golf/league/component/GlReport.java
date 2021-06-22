@@ -16,7 +16,9 @@
 package com.ejp.golf.league.component;
 
 import com.ejp.golf.league.event.GlCardSubmission;
+import com.ejp.golf.league.event.GlRequestSubmission;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.Synchronize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
@@ -57,11 +59,12 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
     public GlReport() {
     }
 
-    public Registration addCardSubmissionListener(ComponentEventListener<GlCardSubmission> listener)
+    public Registration addRequestSubmissionListener(ComponentEventListener<GlRequestSubmission> listener)
     {
-        return addListener(GlCardSubmission.class, listener);
+        return addListener(GlRequestSubmission.class, listener);
     }
 
+    @Synchronize(value = "gl-report-flight-changed", property = "flight")
     public int getFlight()
     {
         return getModel().getFlight();
@@ -72,6 +75,7 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
         getModel().setFlight(flight);
     }
 
+    @Synchronize(value = "gl-report-slot-changed", property = "slot")
     public int getSlot()
     {
         return getModel().getFlight();

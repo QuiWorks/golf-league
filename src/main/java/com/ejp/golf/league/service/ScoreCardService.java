@@ -61,9 +61,12 @@ public class ScoreCardService implements Serializable {
 
     private GlReport generateReport(List<ScoreCardSummary> scoreCardSummaries) {
         final GlReport glReport = new GlReport();
-        glReport.setFlight(6);
-        glReport.setNine("Back");
-        //TODO handle dates.
+        scoreCardSummaries.stream().findAny().ifPresent(summary -> {
+            glReport.setFlight(summary.getFlight());
+            glReport.setSlot(summary.getSlot());
+            glReport.setNine(summary.getNine());
+        });
+        //TODO use WEEKS.
 //        glCard.setDate(new Date());
 
         scoreCardSummaries.forEach(scoreCardSummary -> {
@@ -96,7 +99,6 @@ public class ScoreCardService implements Serializable {
 
                         glGolfer.getElement().appendChild(glRound.getElement());
                         matchContainer.getElement().appendChild(glGolfer.getElement());
-//                        glReport.getElement().appendChild(glGolfer.getElement());
                     });
             glReport.getElement().appendChild(matchContainer.getElement());
         });

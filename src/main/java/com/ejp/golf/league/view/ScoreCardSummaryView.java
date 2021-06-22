@@ -1,14 +1,9 @@
 package com.ejp.golf.league.view;
 
-import com.ejp.golf.league.component.GlGolfer;
-import com.ejp.golf.league.component.GlReport;
-import com.ejp.golf.league.component.GlRound;
-import com.ejp.golf.league.component.GlScore;
+import com.ejp.golf.league.component.*;
 import com.ejp.golf.league.domain.League;
-import com.ejp.golf.league.domain.Score;
-import com.ejp.golf.league.domain.Team;
+import com.ejp.golf.league.event.GlRequestSubmission;
 import com.ejp.golf.league.layout.MainLayout;
-import com.ejp.golf.league.model.ScoreCardSummary;
 import com.ejp.golf.league.service.ScoreCardService;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -16,7 +11,7 @@ import com.vaadin.flow.router.Route;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
+import java.util.Date;
 
 /**
  * A sample Vaadin view class.
@@ -37,6 +32,7 @@ public class ScoreCardSummaryView extends VerticalLayout {
 
 
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private final Date TEST_DATE = sdf.parse("2021-05-12");
     public final League league = new League().build(l -> l
             .set(l::id, 1)
             .set(l::name, "Territory Wednesday Mens League"));
@@ -49,8 +45,21 @@ public class ScoreCardSummaryView extends VerticalLayout {
      */
     public ScoreCardSummaryView() throws ParseException {
         addClassName("centered-content");
-        final GlReport glReport =  new ScoreCardService().getScoreCardSummary(sdf.parse("2021-05-12"), 1);
+        GlReport glReport =  new ScoreCardService().getScoreCardSummary(TEST_DATE, 1);
+        glReport.addRequestSubmissionListener(event -> handleRequestSubmission(TEST_DATE, event));
         add(glReport);
+    }
+
+    private void handleRequestSubmission(Date date, GlRequestSubmission event) {
+        event.unregisterListener();
+        GlReport report = event.getSource();
+        int week = event.getWeek();
+        int flight = event.getFlight();
+        int slot = event.getSlot();
+        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(date, flight);
+        requestedReport.addRequestSubmissionListener(e -> handleRequestSubmission(TEST_DATE, e));
+        remove(report);
+        add(requestedReport);
     }
 
 }

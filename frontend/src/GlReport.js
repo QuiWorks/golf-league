@@ -65,8 +65,8 @@ export class GlReport extends LitElement {
         return {
             nine: {type: String},
             name: {type: String},
-            flight: {type: Number},
-            slot: {type: Number},
+            flight: {type: Number, reflect: true},
+            slot: {type: Number, reflect: true},
             date: {type: Date}
         };
     }
@@ -99,7 +99,7 @@ export class GlReport extends LitElement {
 
     search() {
         // Dispatch an application event.
-        this.dispatchEvent(new CustomEvent("gl-report-request", {
+        this.dispatchEvent(new CustomEvent("gl-request-submission", {
             detail: this._getRequestData(), bubbles: true, composed: true
         }));
     }
@@ -114,15 +114,33 @@ export class GlReport extends LitElement {
         };
     }
 
+    _onFlightChanged(e)
+    {
+        this.flight = e.target.value;
+        this.dispatchEvent(new CustomEvent("gl-report-flight-changed", {
+            detail: {value: this.flight}, bubbles: true, composed: true
+        }));
+    }
+
+    _onSlotChanged(e)
+    {
+        this.slot = e.target.value;
+        this.dispatchEvent(new CustomEvent("gl-report-slot-changed", {
+            detail: {value: this.slot}, bubbles: true, composed: true
+        }));
+    }
+
+
+
     render() {
         return html`
             <div class="report-container">
                 <div class="report-info-container">
                     <div class="report-info">
-                        <vaadin-number-field name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
+                        <vaadin-number-field @change="${this._onFlightChanged}" name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
                     </div>
                     <div class="report-info">
-                        <vaadin-number-field name="slot" label="slot" value="${this.slot}"></vaadin-number-field>
+                        <vaadin-number-field @change="${this._onSlotChanged}" name="slot" label="slot" value="${this.slot}"></vaadin-number-field>
                     </div>
                     <div class="report-info">
                         <vaadin-date-picker class="small-width" label="date" name="date" @change="${this._updateDate}"
@@ -133,7 +151,7 @@ export class GlReport extends LitElement {
                                            value="${this.nine}"></vaadin-text-field>
                     </div>
                     <div class="report-info search">
-                        <vaadin-button @click="${this.search()}">search</vaadin-button>
+                        <vaadin-button @click="${this.search}">search</vaadin-button>
                     </div>
                 </div>
                 <slot></slot>

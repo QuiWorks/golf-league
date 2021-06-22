@@ -12,6 +12,9 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ScoreCardSummary {
+    private final int flight;
+    private final int slot;
+    private final String nine;
     private final RoundSummary lowHomeGolfer;
     private final RoundSummary highHomeGolfer;
     private final RoundSummary lowAwayGolfer;
@@ -43,6 +46,22 @@ public class ScoreCardSummary {
         setMatchPoints(lowHomeGolfer, lowAwayGolfer);
         setMatchPoints(highHomeGolfer, highAwayGolfer);
         setTeamNetPoints(lowHomeGolfer, lowAwayGolfer, highHomeGolfer, highAwayGolfer);
+
+        flight = lowHomeGolfer.getRound().getFlightId();
+        slot = lowHomeGolfer.getRound().getSlot();
+        nine = lowHomeGolfer.getRound().getNine();
+    }
+
+    public int getFlight() {
+        return flight;
+    }
+
+    public int getSlot() {
+        return slot;
+    }
+
+    public String getNine() {
+        return nine;
     }
 
     private void setTeamNetPoints(RoundSummary lowHomeGolfer, RoundSummary lowAwayGolfer, RoundSummary highHomeGolfer, RoundSummary highAwayGolfer) {
