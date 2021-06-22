@@ -165,6 +165,7 @@ CREATE TABLE round
 (
     id        int not null auto_increment,
     match_id  int not null,
+    week  int not null,
     flight_id  int not null,
     slot int not null,
     nine int not null,

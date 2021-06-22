@@ -15,6 +15,7 @@ public class Round {
     private Date date;
     private Golfer golfer = new Golfer();
     private List<Score> grossScores = new ArrayList<>();
+    private int week;
 
     @ManyToOne
     @JoinColumn(name = "golfer_id", referencedColumnName = "id", nullable = false)
@@ -55,6 +56,16 @@ public class Round {
 
     public void setMatchId(int eventId) {
         this.matchId = eventId;
+    }
+
+    @Basic
+    @Column(name = "week", nullable = false)
+    public int getWeek() {
+        return week;
+    }
+
+    public void setWeek(int week) {
+        this.week = week;
     }
 
     @Basic

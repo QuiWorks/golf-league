@@ -44,12 +44,12 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
      */
     public interface Model extends TemplateModel
 	{
+        void setWeek(int week);
+        int getWeek();
         void setFlight(int flight);
         int getFlight();
         void setSlot(int slot);
         int getSlot();
-        void setNine(String nine);
-        String getNine();
 //        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
         //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
 //        void setDate(Date date);
@@ -62,6 +62,17 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
     public Registration addRequestSubmissionListener(ComponentEventListener<GlRequestSubmission> listener)
     {
         return addListener(GlRequestSubmission.class, listener);
+    }
+
+    @Synchronize(value = "gl-report-week-changed", property = "week")
+    public int getWeek()
+    {
+        return getModel().getWeek();
+    }
+
+    public void setWeek(int week)
+    {
+        getModel().setWeek(week);
     }
 
     @Synchronize(value = "gl-report-flight-changed", property = "flight")
@@ -84,16 +95,6 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
     public void setSlot(int slot)
     {
         getModel().setFlight(slot);
-    }
-
-    public String getNine()
-    {
-        return getModel().getNine();
-    }
-
-    public void setNine(String nine)
-    {
-        getModel().setNine(nine);
     }
 
     //    public Date getDate()

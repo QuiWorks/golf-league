@@ -45,16 +45,16 @@ public class ScoreCardService implements Serializable {
         return glReport;
     }
 
-    public GlReport getScoreCardSummary(Date date) {
+    public GlReport getScoreCardSummary(int week) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummary(entityManager, date));
+        GlReport glReport = generateReport(getScoreCardSummary(entityManager, week));
         entityManager.close();
         return glReport;
     }
 
-    public GlReport getScoreCardSummary(Date date, int flight) {
+    public GlReport getScoreCardSummary(int week, int flight) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummary(entityManager, date, flight));
+        GlReport glReport = generateReport(getScoreCardSummary(entityManager, week, flight));
         entityManager.close();
         return glReport;
     }
@@ -62,9 +62,9 @@ public class ScoreCardService implements Serializable {
     private GlReport generateReport(List<ScoreCardSummary> scoreCardSummaries) {
         final GlReport glReport = new GlReport();
         scoreCardSummaries.stream().findAny().ifPresent(summary -> {
+            glReport.setWeek(summary.getWeek());
             glReport.setFlight(summary.getFlight());
             glReport.setSlot(summary.getSlot());
-            glReport.setNine(summary.getNine());
         });
         //TODO use WEEKS.
 //        glCard.setDate(new Date());
@@ -126,27 +126,26 @@ public class ScoreCardService implements Serializable {
         eventsQuery.setParameter("leagueId", league.getId());
         List<Event> events = eventsQuery.getResultList();
         List<ScoreCardSummary> collect = events.stream()
-                .map(Event::getDay)
-                .map(day -> Date.from(day.atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .map(date -> getScoreCardSummary(entityManager, date))
+                .map(Event::getWeek)
+                .map(week -> getScoreCardSummary(entityManager, week))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
         return collect;
     }
 
-    List<ScoreCardSummary> getScoreCardSummary(EntityManager entityManager, Date matchDate) {
+    List<ScoreCardSummary> getScoreCardSummary(EntityManager entityManager, int week) {
         //TODO need repo classes
         List<Flight> flights = entityManager.createQuery(
                         "SELECT f FROM flight f WHERE f.leagueId = " + league.getId(),
                         Flight.class)
                 .getResultList();
         return flights.stream()
-                .map(flight -> getScoreCardSummary(entityManager, matchDate, flight.getId()))
+                .map(flight -> getScoreCardSummary(entityManager, week, flight.getId()))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
     }
 
-    List<ScoreCardSummary> getScoreCardSummary(EntityManager entityManager, Date matchDate, int flight) {
+    List<ScoreCardSummary> getScoreCardSummary(EntityManager entityManager, int week, int flight) {
         //TODO need repo classes
         TypedQuery<Round> query = entityManager.createQuery(
                 "SELECT r FROM round r " +
@@ -155,11 +154,11 @@ public class ScoreCardService implements Serializable {
                         "JOIN season s ON e.seasonId = s.id " +
                         "WHERE s.leagueId = :leagueId" +
                         " AND em.flightId = :flightId" +
-                        " AND e.day = :matchDate",
+                        " AND e.week = :week",
                 Round.class);
         query.setParameter("leagueId", league.getId());
         query.setParameter("flightId", flight);
-        query.setParameter("matchDate", matchDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        query.setParameter("week", week);
         List<Round> rounds = query.getResultList();
         return rounds.stream()
                 .map(RoundSummary::new)

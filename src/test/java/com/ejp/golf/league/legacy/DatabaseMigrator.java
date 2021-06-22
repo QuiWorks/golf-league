@@ -315,6 +315,7 @@ public class DatabaseMigrator {
                     Round roundA = new Round();
                     roundA.setMatchId(matchId);
                     roundA.setFlightId(scoreCard.getFlight());
+                    roundA.setWeek(scoreCard.getWeek());
                     roundA.setSlot(scoreCard.getSlot());
                     roundA.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer1 = new Golfer();
@@ -381,6 +382,7 @@ public class DatabaseMigrator {
                     Round roundB = new Round();
                     roundB.setMatchId(matchId);
                     roundB.setFlightId(scoreCard.getFlight());
+                    roundB.setWeek(scoreCard.getWeek());
                     roundB.setSlot(scoreCard.getSlot());
                     roundB.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer2 = new Golfer();
@@ -448,6 +450,7 @@ public class DatabaseMigrator {
                     Round roundC = new Round();
                     roundC.setMatchId(matchId);
                     roundC.setFlightId(scoreCard.getFlight());
+                    roundC.setWeek(scoreCard.getWeek());
                     roundC.setSlot(scoreCard.getSlot());
                     roundC.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer3 = new Golfer();
@@ -514,6 +517,7 @@ public class DatabaseMigrator {
                     Round roundD = new Round();
                     roundD.setMatchId(matchId);
                     roundD.setFlightId(scoreCard.getFlight());
+                    roundD.setWeek(scoreCard.getWeek());
                     roundD.setSlot(scoreCard.getSlot());
                     roundD.setNine(scoreCard.isBack9() ? "back" : "front");
                     Golfer golfer4 = new Golfer();

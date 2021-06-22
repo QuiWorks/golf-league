@@ -32,7 +32,6 @@ public class ScoreCardSummaryView extends VerticalLayout {
 
 
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    private final Date TEST_DATE = sdf.parse("2021-05-12");
     public final League league = new League().build(l -> l
             .set(l::id, 1)
             .set(l::name, "Territory Wednesday Mens League"));
@@ -45,19 +44,19 @@ public class ScoreCardSummaryView extends VerticalLayout {
      */
     public ScoreCardSummaryView() throws ParseException {
         addClassName("centered-content");
-        GlReport glReport =  new ScoreCardService().getScoreCardSummary(TEST_DATE, 1);
-        glReport.addRequestSubmissionListener(event -> handleRequestSubmission(TEST_DATE, event));
+        GlReport glReport =  new ScoreCardService().getScoreCardSummary(1, 1);
+        glReport.addRequestSubmissionListener(this::handleRequestSubmission);
         add(glReport);
     }
 
-    private void handleRequestSubmission(Date date, GlRequestSubmission event) {
+    private void handleRequestSubmission(GlRequestSubmission event) {
         event.unregisterListener();
         GlReport report = event.getSource();
         int week = event.getWeek();
         int flight = event.getFlight();
         int slot = event.getSlot();
-        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(date, flight);
-        requestedReport.addRequestSubmissionListener(e -> handleRequestSubmission(TEST_DATE, e));
+        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(week, flight);
+        requestedReport.addRequestSubmissionListener(this::handleRequestSubmission);
         remove(report);
         add(requestedReport);
     }

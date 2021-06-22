@@ -3,6 +3,7 @@ import "@vaadin/vaadin-text-field/vaadin-text-field.js";
 import "@vaadin/vaadin-text-field/vaadin-number-field.js";
 import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
 import "@vaadin/vaadin-text-field/vaadin-text-area.js";
+import "@vaadin/vaadin-combo-box/vaadin-combo-box.js";
 import "@vaadin/vaadin-checkbox/vaadin-checkbox.js";
 
 export class GlReport extends LitElement {
@@ -41,10 +42,6 @@ export class GlReport extends LitElement {
           margin:5%;
         }
         
-        .report-info vaadin-text-field[name='nine'] {
-            max-width: 96px;
-        }
-        
         .search {
             margin-top:10px;
             margin-top: 35px;
@@ -63,11 +60,9 @@ export class GlReport extends LitElement {
 
     static get properties() {
         return {
-            nine: {type: String},
-            name: {type: String},
             flight: {type: Number, reflect: true},
             slot: {type: Number, reflect: true},
-            date: {type: Date}
+            week: {type: Number, reflect: true}
         };
     }
 
@@ -75,26 +70,17 @@ export class GlReport extends LitElement {
         super();
         this.flight = 0;
         this.slot = 0;
-        this.date = new Date();
-        this.nine = "";
-        this.name = "";
-        this.golferScores = [];
+        this.week = 0;
+        this.weeks = [1,2,3,4];
+        this.flights = [1,2,3,4];
+        this.slots = [1,2,3,4,5,6];
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-    }
-
-    formattedDate() {
-        try {
-            return this.date.toISOString().split("T")[0];
-        } catch (e) {
-            return this.date;
-        }
-    }
-
-    _updateDate() {
-        this.date = new Date(`${this.shadowRoot.querySelector("vaadin-date-picker").value}T12:00:00Z`);
+    firstUpdated(_changedProperties) {
+        super.firstUpdated(_changedProperties);
+        this.shadowRoot.querySelector("#weeks").items = this.weeks;
+        this.shadowRoot.querySelector("#flights").items = this.flights;
+        this.shadowRoot.querySelector("#slots").items = this.slots;
     }
 
     search() {
@@ -106,12 +92,18 @@ export class GlReport extends LitElement {
 
     _getRequestData() {
         return {
-            date: this.date,
-            nine: this.nine,
+            week: this.week,
             flight: this.flight,
-            slot: this.slot,
-            name: this.name,
+            slot: this.slot
         };
+    }
+
+    _onWeekChanged(e)
+    {
+        this.week = e.target.value;
+        this.dispatchEvent(new CustomEvent("gl-report-week-changed", {
+            detail: {value: this.week}, bubbles: true, composed: true
+        }));
     }
 
     _onFlightChanged(e)
@@ -137,14 +129,13 @@ export class GlReport extends LitElement {
             <div class="report-container">
                 <div class="report-info-container">
                     <div class="report-info">
-                        <vaadin-date-picker class="small-width" label="date" name="date" @change="${this._updateDate}"
-                                            value="${this.formattedDate()}"></vaadin-date-picker>
+                        <vaadin-combo-box id="weeks" name="week" label="week" @change="${this._onWeekChanged}"></vaadin-combo-box>
                     </div>
                     <div class="report-info">
-                        <vaadin-number-field @change="${this._onFlightChanged}" name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
+                        <vaadin-combo-box id="flights" name="flight" label="flight" @change="${this._onFlightChanged}"></vaadin-combo-box>
                     </div>
                     <div class="report-info">
-                        <vaadin-number-field @change="${this._onSlotChanged}" name="slot" label="slot" value="${this.slot}"></vaadin-number-field>
+                        <vaadin-combo-box id="slots" name="slot" label="slot" @change="${this._onSlotChanged}"></vaadin-combo-box>
                     </div>
                     <div class="report-info search">
                         <vaadin-button @click="${this.search}">search</vaadin-button>
