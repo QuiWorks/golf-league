@@ -68,7 +68,6 @@ public class ScoreCardSummary {
         }
 
         dummyCheck(lowHomeGolfer, lowAwayGolfer);
-
         dummyCheck(highHomeGolfer, highAwayGolfer);
     }
 
@@ -81,9 +80,6 @@ public class ScoreCardSummary {
         {
             golfer1.setTeamNet(0);
             golfer2.setTeamNet(1);
-        }else{
-            golfer1.setTeamNet(0);
-            golfer2.setTeamNet(0);
         }
     }
 
@@ -95,12 +91,6 @@ public class ScoreCardSummary {
     private RoundSummary getLowerHandicap(RoundSummary rs1, RoundSummary rs2) {
         List<RoundSummary> sortedPair = Stream.of(rs1, rs2).sorted(Comparator.comparing(RoundSummary::getHandicap)).collect(Collectors.toList());
         return sortedPair.get(0);
-//        return exists(sortedPair.get(0)) ? sortedPair.get(0) : new DummyRoundSummary(sortedPair.get(1));
-    }
-
-    private boolean exists(RoundSummary roundSummary) {
-        return roundSummary.getGrossScores().stream()
-                .noneMatch(score -> score.getScore() == 0);
     }
 
     private void setNetScores(RoundSummary homeTeamGolfer, RoundSummary awayTeamGolfer) {
