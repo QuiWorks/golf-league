@@ -6,6 +6,7 @@ import com.ejp.golf.league.event.GlRequestSubmission;
 import com.ejp.golf.league.layout.MainLayout;
 import com.ejp.golf.league.service.ScoreCardService;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
@@ -46,6 +47,9 @@ public class ScoreCardSummaryView extends VerticalLayout {
         addClassName("centered-content");
         GlReport glReport =  new ScoreCardService().getScoreCardSummary(1, 1, 1);
         glReport.addRequestSubmissionListener(this::handleRequestSubmission);
+        Label label = new Label("Find Match");
+        label.getElement().getClassList().add("title");
+        add(label);
         add(glReport);
     }
 
