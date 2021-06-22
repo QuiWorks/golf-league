@@ -12,6 +12,7 @@ export class GlReport extends LitElement {
         return css`
         :host {
           font-size: 12pt;
+          margin-top:25px;
         }
 
         .report-info-container {
