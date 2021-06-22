@@ -7,6 +7,7 @@ import com.ejp.golf.league.component.GlScore;
 import com.ejp.golf.league.domain.*;
 import com.ejp.golf.league.model.RoundSummary;
 import com.ejp.golf.league.model.ScoreCardSummary;
+import com.vaadin.flow.component.html.Div;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -37,77 +38,79 @@ public class ScoreCardService implements Serializable {
         entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
     }
 
-    public GlReport getScoreCardSummary()
-    {
+    public GlReport getScoreCardSummary() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         GlReport glReport = generateReport(getScoreCardSummary(entityManager));
         entityManager.close();
         return glReport;
     }
 
-    public GlReport getScoreCardSummary(Date date)
-    {
+    public GlReport getScoreCardSummary(Date date) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         GlReport glReport = generateReport(getScoreCardSummary(entityManager, date));
         entityManager.close();
         return glReport;
     }
 
-    public GlReport getScoreCardSummary(Date date, int flight)
-    {
+    public GlReport getScoreCardSummary(Date date, int flight) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         GlReport glReport = generateReport(getScoreCardSummary(entityManager, date, flight));
         entityManager.close();
         return glReport;
     }
 
-    private GlReport generateReport(List<ScoreCardSummary> scoreCardSummaries)
-    {
+    private GlReport generateReport(List<ScoreCardSummary> scoreCardSummaries) {
         final GlReport glReport = new GlReport();
         glReport.setFlight(6);
         glReport.setNine("Back");
         //TODO handle dates.
 //        glCard.setDate(new Date());
 
-        ScoreCardSummary scoreCardSummary = scoreCardSummaries.get(0);
-        scoreCardSummary.getAll().forEach(roundSummary -> {
-            GlGolfer glGolfer = new GlGolfer();
-            glGolfer.setHandicap(roundSummary.getHandicap());
-            glGolfer.setName(roundSummary.getGolfer().fullName());
-            glGolfer.setSub(false);
-            roundSummary.getGolfer().teamForLeague(league).map(Team::getId).ifPresent(glGolfer::setTeam);
-            glGolfer.setInline(true);
+        scoreCardSummaries.forEach(scoreCardSummary -> {
+            Div matchContainer = new Div();
+            matchContainer.getElement().getStyle().set("border-bottom", "1px solid black");
+            scoreCardSummary.getAll().stream()
+                    .filter(roundSummary -> !roundSummary.getGolfer().getLastName().equals("Dummy"))
+                    .forEach(roundSummary -> {
+                        GlGolfer glGolfer = new GlGolfer();
+                        glGolfer.setHandicap(roundSummary.getHandicap());
+                        glGolfer.setName(roundSummary.getGolfer().fullName());
+                        glGolfer.setSub(false);
+                        roundSummary.getGolfer().teamForLeague(league).map(Team::getId).ifPresent(glGolfer::setTeam);
+                        glGolfer.setInline(true);
 
-            GlRound glRound = new GlRound();
-            glRound.setGrossScore(roundSummary.getGrossScore());
-            glRound.setNetScore(roundSummary.getNetScore());
-            glRound.setHandicap(roundSummary.getHandicap());
-            glRound.setNetPoints(roundSummary.getNetPoints());
-            glRound.setMatchPoints(roundSummary.getMatchPoints());
-            glRound.setTeamNet((int)roundSummary.getTeamNet());
+                        GlRound glRound = new GlRound();
+                        glRound.setGrossScore(roundSummary.getGrossScore());
+                        glRound.setNetScore(roundSummary.getNetScore());
+                        glRound.setHandicap(roundSummary.getHandicap());
+                        glRound.setNetPoints(roundSummary.getNetPoints());
+                        glRound.setMatchPoints(roundSummary.getMatchPoints());
+                        glRound.setTeamNet((int) roundSummary.getTeamNet());
 
-            roundSummary.getGrossScores().stream()
-                    .map(grossScore -> toComponent(grossScore, "grossScore"))
-                    .forEach(score -> glRound.getElement().appendChild(score.getElement()));
-            roundSummary.getNetScores().stream()
-                    .map(netScore -> toComponent(netScore, "netScore"))
-                    .forEach(score -> glRound.getElement().appendChild(score.getElement()));
+                        roundSummary.getGrossScores().stream()
+                                .map(grossScore -> toComponent(grossScore, "grossScore"))
+                                .forEach(score -> glRound.getElement().appendChild(score.getElement()));
+                        roundSummary.getNetScores().stream()
+                                .map(netScore -> toComponent(netScore, "netScore"))
+                                .forEach(score -> glRound.getElement().appendChild(score.getElement()));
 
-            glGolfer.getElement().appendChild(glRound.getElement());
-            glReport.getElement().appendChild(glGolfer.getElement());
+                        glGolfer.getElement().appendChild(glRound.getElement());
+                        matchContainer.getElement().appendChild(glGolfer.getElement());
+//                        glReport.getElement().appendChild(glGolfer.getElement());
+                    });
+            glReport.getElement().appendChild(matchContainer.getElement());
         });
         return glReport;
     }
 
-    private GlScore toComponent(Score score, String slot)
-    {
+    private GlScore toComponent(Score score, String slot) {
         int num = score.getHole().getHoleNumber() > 9 ? 18 - score.getHole().getHoleNumber() : score.getHole().getHoleNumber();
         final GlScore glScore = new GlScore();
         glScore.setNumber(score.getHole().getHoleNumber());
         glScore.setPar(score.getHole().getPar());
         glScore.setHandicap(score.getRound().getHandicap());
         glScore.setScore(score.getScore());
-        glScore.getElement().setAttribute("slot",slot+num);
+        glScore.getElement().setAttribute("slot", slot + num);
         return glScore;
     }
 

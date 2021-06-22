@@ -13,20 +13,20 @@ export class GlReport extends LitElement {
           font-size: 12pt;
         }
 
-        .card-info-container {
+        .report-info-container {
           display:flex;
           flex-direction: row;
           flex-wrap:wrap;
           justify-content: start;
         }
         
-        .card-container {
+        .report-container {
           display:flex;
           flex-direction: column;
           align-content:center;
         }
 
-        .card-info {
+        .report-info {
           display:flex;
           margin: 2px;
           align-items: center;
@@ -41,7 +41,7 @@ export class GlReport extends LitElement {
           margin:5%;
         }
         
-        .card-info vaadin-text-field[name='nine'] {
+        .report-info vaadin-text-field[name='nine'] {
             max-width: 96px;
         }
         
@@ -64,6 +64,7 @@ export class GlReport extends LitElement {
     static get properties() {
         return {
             nine: {type: String},
+            name: {type: String},
             flight: {type: Number},
             slot: {type: Number},
             date: {type: Date}
@@ -76,24 +77,12 @@ export class GlReport extends LitElement {
         this.slot = 0;
         this.date = new Date();
         this.nine = "";
+        this.name = "";
         this.golferScores = [];
     }
 
     connectedCallback() {
         super.connectedCallback();
-        this.addEventListener("gl-golfer-score-change", this._onGolferScoreChange.bind(this));
-    }
-
-    _onGolferScoreChange(e) {
-        // See if golfer score already exists and update it
-        // if it doesn't exist add it.
-        let golferScore = this.golferScores.map(gs => gs.golfer)
-            .find(golfer => JSON.stringify(golfer) === JSON.stringify(e.detail.golfer));
-        if (typeof find !== "undefined") {
-            golferScore = e.detail;
-        } else {
-            this.golferScores.push(e.detail);
-        }
     }
 
     formattedDate() {
@@ -108,43 +97,43 @@ export class GlReport extends LitElement {
         this.date = new Date(`${this.shadowRoot.querySelector("vaadin-date-picker").value}T12:00:00Z`);
     }
 
-    _getCardData() {
-        return {
-            flight: this.flight,
-            nine: this.nine,
-            date: this.date,
-            comment: this.comment,
-            scores: this.golferScores
-        };
+    search() {
+        // Dispatch an application event.
+        this.dispatchEvent(new CustomEvent("gl-report-request", {
+            detail: this._getRequestData(), bubbles: true, composed: true
+        }));
     }
 
-    submit() {
-        // Dispatch an application event.
-        this.dispatchEvent(new CustomEvent("gl-card-submission", {
-            detail: this._getCardData(), bubbles: true, composed: true
-        }));
+    _getRequestData() {
+        return {
+            date: this.date,
+            nine: this.nine,
+            flight: this.flight,
+            slot: this.slot,
+            name: this.name,
+        };
     }
 
     render() {
         return html`
-            <div class="card-container">
-                <div class="card-info-container">
-                    <div class="card-info">
+            <div class="report-container">
+                <div class="report-info-container">
+                    <div class="report-info">
                         <vaadin-number-field name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
                     </div>
-                    <div class="card-info">
+                    <div class="report-info">
                         <vaadin-number-field name="slot" label="slot" value="${this.slot}"></vaadin-number-field>
                     </div>
-                    <div class="card-info">
+                    <div class="report-info">
                         <vaadin-date-picker class="small-width" label="date" name="date" @change="${this._updateDate}"
                                             value="${this.formattedDate()}"></vaadin-date-picker>
                     </div>
-                    <div class="card-info">
+                    <div class="report-info">
                         <vaadin-text-field class="small-width" label="nine" name="nine"
                                            value="${this.nine}"></vaadin-text-field>
                     </div>
-                    <div class="card-info search">
-                        <vaadin-button>search</vaadin-button>
+                    <div class="report-info search">
+                        <vaadin-button @click="${this.search()}">search</vaadin-button>
                     </div>
                 </div>
                 <slot></slot>

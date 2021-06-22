@@ -57,15 +57,12 @@ public class ScoreCardSummary {
         if (homeTeamNetScore < awayTeamNetScore) {
             lowHomeGolfer.setTeamNet(1f);
             highHomeGolfer.setTeamNet(1f);
-//            getHomeTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
         } else if (homeTeamNetScore.equals(awayTeamNetScore)) {
             lowHomeGolfer.setTeamNet(.5f);
             highHomeGolfer.setTeamNet(.5f);
             lowAwayGolfer.setTeamNet(.5f);
             highAwayGolfer.setTeamNet(.5f);
-//            getAll().forEach(roundSummary -> roundSummary.setTeamNet(0f));
         } else {
-//            getAwayTeam().forEach(roundSummary -> roundSummary.setTeamNet(1f));
             lowAwayGolfer.setTeamNet(1f);
             highAwayGolfer.setTeamNet(1f);
         }
@@ -153,7 +150,8 @@ public class ScoreCardSummary {
         RoundSummary higherHandicapGolfer = getHigherHandicap(homeTeamGolfer, awayTeamGolfer);
 
         // Set net points
-        if (lowerHandicapGolfer.getNetScore() < higherHandicapGolfer.getNetScore() || higherHandicapGolfer.getGolfer().getLastName().equals("Dummy")) {
+        if ((lowerHandicapGolfer.getNetScore() < higherHandicapGolfer.getNetScore() && !lowerHandicapGolfer.getGolfer().getLastName().equals("Dummy"))
+                || higherHandicapGolfer.getGolfer().getLastName().equals("Dummy")) {
             lowerHandicapGolfer.setNetPoints(2);
             higherHandicapGolfer.setNetPoints(0);
         } else if (lowerHandicapGolfer.getNetScores() == higherHandicapGolfer.getNetScores()) {
@@ -176,7 +174,8 @@ public class ScoreCardSummary {
         long higherHandicapGolferHoleWins = higherHandicapGolfer.getNetScores().stream()
                 .filter(Score::isWin).count();
 
-        if (lowerHandicapGolferHoleWins > higherHandicapGolferHoleWins || higherHandicapGolfer.getGolfer().getLastName().equals("Dummy")) {
+        if ((lowerHandicapGolferHoleWins > higherHandicapGolferHoleWins && !lowerHandicapGolfer.getGolfer().getLastName().equals("Dummy"))
+                || higherHandicapGolfer.getGolfer().getLastName().equals("Dummy")) {
             lowerHandicapGolfer.setMatchPoints(2);
             higherHandicapGolfer.setMatchPoints(0);
         } else if (lowerHandicapGolferHoleWins == higherHandicapGolferHoleWins) {
