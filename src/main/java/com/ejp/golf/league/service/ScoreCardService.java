@@ -52,17 +52,20 @@ public class ScoreCardService implements Serializable {
     public GlCard getScoreCard(int week, int flight, int slot)
     {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-//        TypedQuery<Round> query = entityManager.createQuery(
-//                "SELECT g FROM golfer g " +
-//                        "JOIN event_match em ON r.matchId = em.id " +
-//                        "JOIN event e ON em.eventId = e.id " +
-//                        "JOIN season s ON e.seasonId = s.id " +
-//                        "WHERE s.leagueId = :leagueId" +
-//                        " AND e.week = :week",
-//                Round.class);
-//        query.setParameter("leagueId", league.getId());
-//        query.setParameter("week", week);
-//        query.getResultList();
+        TypedQuery<EventMatch> query = entityManager.createQuery(
+                "SELECT em FROM event_match em " +
+                        "JOIN event e ON em.eventId = e.id " +
+                        "JOIN season s ON e.seasonId = s.id " +
+                        "WHERE s.leagueId = :leagueId" +
+                        " AND e.week = :week" +
+                        " AND em.flightId = :flight"+
+                        " AND em.slot = :slot",
+                EventMatch.class);
+        query.setParameter("leagueId", league.getId());
+        query.setParameter("week", week);
+        query.setParameter("flight", flight);
+        query.setParameter("slot", slot);
+        List<EventMatch> eventMatches = query.getResultList();
         entityManager.close();
         return null;
     }

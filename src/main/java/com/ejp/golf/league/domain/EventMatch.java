@@ -2,6 +2,7 @@ package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "event_match")
@@ -13,6 +14,7 @@ public class EventMatch {
     private int week;
     private int flightId;
     private int slot;
+    private List<Team> teamList;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -73,6 +75,21 @@ public class EventMatch {
 
     public void setSlot(int slot) {
         this.slot = slot;
+    }
+
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "team_match",
+            joinColumns = { @JoinColumn(name = "match_id") },
+            inverseJoinColumns = { @JoinColumn(name = "team_id")}
+    )
+    public List<Team> getTeamList() {
+        return teamList;
+    }
+
+    public void setTeamList(List<Team> teamList) {
+        this.teamList = teamList;
     }
 
     @Override

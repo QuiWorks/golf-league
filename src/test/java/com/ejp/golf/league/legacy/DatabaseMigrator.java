@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -129,7 +130,9 @@ public class DatabaseMigrator {
                 if (shouldBreak) break;
             case PLAYERS:
                 PlayersList playersList = getLegacyList(LegacyData.PLAYERS.getUrl(), PlayersList.class);
-                playersList.getPlayers().forEach(nine -> migrateToNewDomain(nine, entityManager));
+                playersList.getPlayers().stream()
+//                        .filter(Predicate.not(Players::isStatus))
+                        .forEach(nine -> migrateToNewDomain(nine, entityManager));
                 if (shouldBreak) break;
             case WEEK_DATES:
                 WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);

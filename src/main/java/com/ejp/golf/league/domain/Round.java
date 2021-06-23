@@ -27,7 +27,7 @@ public class Round {
         this.golfer = golfer;
     }
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
     @JoinColumn(name = "round_id")
     public List<Score> getGrossScores() {
         return grossScores;

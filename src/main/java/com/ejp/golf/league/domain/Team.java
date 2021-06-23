@@ -11,6 +11,7 @@ public class Team {
     private String name;
     private String description;
     private List<Golfer> golferList;
+    private List<EventMatch> matches;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -50,6 +51,20 @@ public class Team {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "team_match",
+            joinColumns = { @JoinColumn(name = "team_id") },
+            inverseJoinColumns = { @JoinColumn(name = "match_id")}
+    )
+    public List<EventMatch> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<EventMatch> matches) {
+        this.matches = matches;
     }
 
     @ManyToMany(cascade = { CascadeType.ALL })
