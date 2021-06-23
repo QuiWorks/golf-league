@@ -10,6 +10,7 @@ public class EventMatch {
     private int eventId;
     private int courseId;
     private String nine;
+    private int week;
     private int flightId;
     private int slot;
 

@@ -151,6 +151,16 @@ CREATE TABLE event_match
     UNIQUE (event_id, nine, flight_id, slot)
 );
 
+CREATE TABLE team_match
+(
+    match_id int not null,
+    team_id  int not null,
+    home BOOLEAN not null DEFAULT 0,
+    PRIMARY KEY (match_id, team_id),
+    FOREIGN KEY (match_id) REFERENCES event_match (id),
+    FOREIGN KEY (team_id) REFERENCES team (id)
+);
+
 CREATE TABLE golfer_handicap
 (
     id        INT auto_increment not null,

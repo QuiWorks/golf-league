@@ -33,6 +33,7 @@ public class DatabaseMigrator {
     private final EventType eventType;
     private final int currentYear;
     private final List<Event> events = new ArrayList<>();
+    private final List<EventMatch> matches = new ArrayList<>();
 
     public DatabaseMigrator() {
         // Set field values.
@@ -71,6 +72,7 @@ public class DatabaseMigrator {
                 "admin",
                 "score",
                 "round",
+                "team_match",
                 "event_match",
                 "tee_time",
                 "flight",
@@ -132,6 +134,10 @@ public class DatabaseMigrator {
             case WEEK_DATES:
                 WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);
                 weekDatesList.getWeekDates().forEach(weekDate -> migrateToNewDomain(weekDate, entityManager));
+                if (shouldBreak) break;
+            case SCHEDULE:
+                ScheduleList ScheduleList = getLegacyList(LegacyData.SCHEDULE.getUrl(), ScheduleList.class);
+                ScheduleList.getSchedule().forEach(event -> migrateToNewDomain(event, entityManager));
                 if (shouldBreak) break;
             case SCORE_CARD:
                 ScoreCardList scoreCardList = getLegacyList(LegacyData.SCORE_CARD.getUrl(), ScoreCardList.class);
@@ -286,26 +292,36 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
     }
 
+    private void migrateToNewDomain(Schedule legacyEvent, EntityManager entityManager) {
+
+        EventMatch eventMatch = new EventMatch();
+        eventMatch.setEventId(getEventId(events, legacyEvent.getWeek()));
+        eventMatch.setFlightId(legacyEvent.getFlight());
+        eventMatch.setSlot(legacyEvent.getSlot());
+        eventMatch.setNine(legacyEvent.isBack9() ? "back" : "front");
+        eventMatch.setCourseId(1);
+        entityManager.getTransaction().begin();
+        entityManager.persist(eventMatch);
+        entityManager.getTransaction().commit();
+        matches.add(eventMatch);
+
+        TeamMatch teamMatch1 = new TeamMatch();
+        teamMatch1.setMatchId(eventMatch.getId());
+        teamMatch1.setTeamId(legacyEvent.getTeam1());
+        teamMatch1.setHome(true);
+
+        TeamMatch teamMatch2 = new TeamMatch();
+        teamMatch2.setMatchId(eventMatch.getId());
+        teamMatch2.setTeamId(legacyEvent.getTeam2());
+        teamMatch2.setHome(false);
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(teamMatch1);
+        entityManager.persist(teamMatch2);
+        entityManager.getTransaction().commit();
+    }
+
     private void migrateToNewDomain(ScoreCardList scoreCardList, EntityManager entityManager) {
-
-        List<EventMatch> matches = scoreCardList.getScoreCard().stream()
-                .map(scoreCard -> {
-                    EventMatch eventMatch = new EventMatch();
-                    eventMatch.setEventId(getEventId(events, scoreCard));
-                    eventMatch.setNine(scoreCard.isBack9() ? "back" : "front");
-                    eventMatch.setSlot(scoreCard.getSlot());
-                    eventMatch.setFlightId(scoreCard.getFlight());
-                    eventMatch.setCourseId(1); //hard coded.
-                    return eventMatch;
-                })
-                .distinct() // using equals method to map unique constraint
-                .peek(eventMatch -> {
-                    entityManager.getTransaction().begin();
-                    entityManager.persist(eventMatch);
-                    entityManager.getTransaction().commit();
-                })
-                .collect(Collectors.toList());
-
         scoreCardList.getScoreCard().stream()
                 .filter(scoreCard -> scoreCard.getA1() != null)
                 .forEach(scoreCard -> {
@@ -597,6 +613,14 @@ public class DatabaseMigrator {
         return events.stream().filter(e -> e.getDay().equals(convertLegacyDate(scoreCard.getGameDate()).toLocalDate())).map(Event::getId).findAny().orElse(1);
     }
 
+    private Integer getEventId(List<Event> events, int week) {
+        return events.stream()
+                .filter(e -> e.getWeek() == week)
+                .map(Event::getId).
+                findAny()
+                .orElse(1);
+    }
+
     private <LEGACY_LIST> LEGACY_LIST getLegacyList(String url, Class<LEGACY_LIST> legacyListClass) {
         try {
             JAXBContext context = JAXBContext.newInstance(legacyListClass);
@@ -627,6 +651,7 @@ public class DatabaseMigrator {
         NINES("src/test/resources/legacy/data/Nines.xml"),
         PLAYERS("src/test/resources/legacy/data/Players.xml"),
         WEEK_DATES("src/test/resources/legacy/data/WeekDates.xml"),
+        SCHEDULE("src/test/resources/legacy/data/Schedule.xml"),
         SCORE_CARD("src/test/resources/legacy/data/ScoreCard.xml");
 
         private final String url;

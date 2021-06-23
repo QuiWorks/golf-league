@@ -217,7 +217,8 @@
 <!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/ScoreCard.xsd</source>-->
 <!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Tees.xsd</source>-->
 <!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/TeeTime.xsd</source>-->
-                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/WeekDates.xsd</source>
+<!--                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/WeekDates.xsd</source>-->
+                        <source>/home/eric/Projects/golf-league/golf-league/src/test/resources/legacy/schema/Schedule.xsd</source>
                     </sources>
                     <outputDirectory>${project.basedir}/src/test/java</outputDirectory>
                     <clearOutputDir>false</clearOutputDir>
