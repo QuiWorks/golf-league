@@ -1,9 +1,6 @@
 package com.ejp.golf.league.service;
 
-import com.ejp.golf.league.component.GlGolfer;
-import com.ejp.golf.league.component.GlReport;
-import com.ejp.golf.league.component.GlRound;
-import com.ejp.golf.league.component.GlScore;
+import com.ejp.golf.league.component.*;
 import com.ejp.golf.league.domain.*;
 import com.ejp.golf.league.model.RoundSummary;
 import com.ejp.golf.league.model.ScoreCardSummary;
@@ -36,6 +33,38 @@ public class ScoreCardService implements Serializable {
     public ScoreCardService() {
         //TODO create producer methods for this stuff so it can be injected:
         entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
+    }
+
+    public int getCurrentWeek()
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        TypedQuery<Integer> query = entityManager.createQuery(
+                "SELECT e.week FROM event e " +
+                        "JOIN season s ON s.id = e.seasonId " +
+                        "JOIN round r ON r.week = e.week " +
+                        "WHERE s.leagueId = :leagueId" +
+                        " AND r is null",
+                Integer.class);
+        query.setParameter("leagueId", league.getId());
+        return query.getResultList().stream().sorted().findFirst().orElse(1);
+    }
+
+    public GlCard getScoreCard(int week, int flight, int slot)
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        TypedQuery<Round> query = entityManager.createQuery(
+//                "SELECT g FROM golfer g " +
+//                        "JOIN event_match em ON r.matchId = em.id " +
+//                        "JOIN event e ON em.eventId = e.id " +
+//                        "JOIN season s ON e.seasonId = s.id " +
+//                        "WHERE s.leagueId = :leagueId" +
+//                        " AND e.week = :week",
+//                Round.class);
+//        query.setParameter("leagueId", league.getId());
+//        query.setParameter("week", week);
+//        query.getResultList();
+        entityManager.close();
+        return null;
     }
 
     public GlReport getScoreCardSummary() {

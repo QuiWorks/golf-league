@@ -32,11 +32,10 @@ public class MainLayout extends AppLayout
 	private Component getSideDrawerContent()
 	{
 		final Header index = new Header(new Label("Index"));
-		final Anchor leagueNotes = new Anchor("#", "League Notes");
-		final Anchor leagueInformation = new Anchor("#", "League Information");
-		final Anchor flightTeamHandicapList = new Anchor("#", "Flight Team Handicap List");
-		final Button settingToggle = new Button(new Icon(VaadinIcon.COG));
-		final Div container = new Div(index, leagueNotes, leagueInformation, flightTeamHandicapList, settingToggle);
+		final Anchor leagueNotes = new Anchor("/", "League Notes");
+		final Anchor scoreCard = new Anchor("/scorecard", "Score Card");
+		final Anchor summaries = new Anchor("/summary", "Score Card Summaries");
+		final Div container = new Div(index, leagueNotes, scoreCard, summaries);
 		container.setClassName("sideDrawerContainer");
 		return container;
 	}

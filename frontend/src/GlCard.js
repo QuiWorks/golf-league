@@ -71,7 +71,7 @@ export class GlCard extends LitElement {
         return {
             nine: {type: String},
             flight: {type: Number},
-            slot: {type: Number},
+            slott: {type: Number},
             date: {type: Date},
             comment: {type: String},
             noComment: {type: Boolean}
@@ -81,7 +81,7 @@ export class GlCard extends LitElement {
     constructor() {
         super();
         this.flight = 0;
-        this.slot = 0;
+        this.slott = 0;
         this.date = new Date();
         this.nine = "";
         this.comment = "";
@@ -118,10 +118,48 @@ export class GlCard extends LitElement {
         this.date = new Date(`${this.shadowRoot.querySelector("vaadin-date-picker").value}T12:00:00Z`);
     }
 
+
+    _onWeekChanged(e)
+    {
+        if(this.goodEvent(e)){
+            this.week = e.target.value;
+            this.dispatchEvent(new CustomEvent("gl-report-week-changed", {
+                detail: {value: this.week}, bubbles: true, composed: true
+            }));
+        }
+    }
+
+    _onFlightChanged(e)
+    {
+        if(this.goodEvent(e)){
+            this.flight = e.target.value;
+            this.dispatchEvent(new CustomEvent("gl-report-flight-changed", {
+                detail: {value: this.flight}, bubbles: true, composed: true
+            }));
+        }
+    }
+
+    _onSlottChanged(e)
+    {
+        if(this.goodEvent(e)){
+            this.slott = e.target.value;
+            this.dispatchEvent(new CustomEvent("gl-report-slott-changed", {
+                detail: {value: this.slott}, bubbles: true, composed: true
+            }));
+        }
+    }
+
+    search() {
+        // Dispatch an application event.
+        this.dispatchEvent(new CustomEvent("gl-card-request", {
+            detail: this._getCardData(), bubbles: true, composed: true
+        }));
+    }
+
     _getCardData() {
         return {
             flight: this.flight,
-            slot: this.slot,
+            slott: this.slott,
             nine: this.nine,
             date: this.date,
             comment: this.comment,
@@ -141,18 +179,16 @@ export class GlCard extends LitElement {
             <div class="card-container">
                 <div class="card-info-container">
                     <div class="card-info">
-                        <vaadin-number-field name="flight" label="flight" value="${this.flight}" class="flight-info"></vaadin-number-field>
+                        <vaadin-combo-box id="weeks" name="week" label="week" value="${this.week}" @change="${this._onWeekChanged}"></vaadin-combo-box>
                     </div>
                     <div class="card-info">
-                        <vaadin-number-field name="slot" label="slot" value="${this.slot}"></vaadin-number-field>
+                        <vaadin-combo-box id="flights" name="flight" label="flight" value="${this.flight}" @change="${this._onFlightChanged}"></vaadin-combo-box>
                     </div>
                     <div class="card-info">
-                        <vaadin-date-picker class="small-width" label="date" name="date" @change="${this._updateDate}"
-                                            value="${this.formattedDate()}"></vaadin-date-picker>
+                        <vaadin-combo-box id="slotts" name="slott" label="slot" value="${this.slott}" @change="${this._onSlottChanged}"></vaadin-combo-box>
                     </div>
-                    <div class="card-info">
-                        <vaadin-text-field class="small-width" label="nine" name="nine"
-                                           value="${this.nine}"></vaadin-text-field>
+                    <div class="card-info search">
+                        <vaadin-button @click="${this.search}">search</vaadin-button>
                     </div>
                 </div>
                 <slot></slot>

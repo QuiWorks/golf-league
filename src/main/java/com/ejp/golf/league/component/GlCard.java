@@ -18,6 +18,7 @@ package com.ejp.golf.league.component;
 import java.util.Date;
 
 import com.ejp.golf.league.component.GlCard.Model;
+import com.ejp.golf.league.event.GlCardRequest;
 import com.ejp.golf.league.event.GlCardSubmission;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Tag;
@@ -56,13 +57,14 @@ public class GlCard extends PolymerTemplate<Model>
         String getComment();
         void setNoComment(Boolean noComment);
         Boolean getNoComment();
-//        @Encode() todo encode this https://vaadin.com/docs/v10/flow/polymer-templates/tutorial-template-model-encoders
-        //  or this: https://vaadin.com/docs/v14/flow/binding-data/tutorial-flow-components-binder-validation
-//        void setDate(Date date);
-//        Date getDate();
     }
 
     public GlCard() {
+    }
+
+    public Registration addCardRequestListener(ComponentEventListener<GlCardRequest> listener)
+    {
+        return addListener(GlCardRequest.class, listener);
     }
 
     public Registration addCardSubmissionListener(ComponentEventListener<GlCardSubmission> listener)
@@ -119,14 +121,4 @@ public class GlCard extends PolymerTemplate<Model>
     public void setNoComment(Boolean noComment) {
         getModel().setNoComment(noComment);
     }
-
-    //    public Date getDate()
-//    {
-//        return getModel().getDate();
-//    }
-//
-//    public void setDate(Date date)
-//    {
-//        getModel().setDate(date);
-//    }
 }

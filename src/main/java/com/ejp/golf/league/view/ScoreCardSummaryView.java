@@ -1,6 +1,6 @@
 package com.ejp.golf.league.view;
 
-import com.ejp.golf.league.component.*;
+import com.ejp.golf.league.component.GlReport;
 import com.ejp.golf.league.domain.League;
 import com.ejp.golf.league.event.GlRequestSubmission;
 import com.ejp.golf.league.layout.MainLayout;
@@ -12,7 +12,6 @@ import com.vaadin.flow.router.Route;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * A sample Vaadin view class.
@@ -32,7 +31,6 @@ import java.util.Date;
 public class ScoreCardSummaryView extends VerticalLayout {
 
 
-    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     public final League league = new League().build(l -> l
             .set(l::id, 1)
             .set(l::name, "Territory Wednesday Mens League"));

@@ -72,7 +72,7 @@ export class GlReport extends LitElement {
         this.flight = 1;
         this.slott = 1;
         this.week = 1;
-        this.weeks = [1,2,3,4];
+        this.weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
         this.flights = [1,2,3,4];
         this.slotts = [1,2,3,4,5,6];
     }
