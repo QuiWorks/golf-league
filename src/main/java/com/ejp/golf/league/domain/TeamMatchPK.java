@@ -8,6 +8,8 @@ import java.util.Objects;
 public class TeamMatchPK implements Serializable {
     private int matchId;
     private int teamId;
+    private int leagueId;
+    private int flightId;
 
     public TeamMatchPK() {
     }
@@ -48,5 +50,25 @@ public class TeamMatchPK implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(matchId, teamId);
+    }
+
+    @Column(name = "league_id", nullable = false)
+    @Id
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
+    }
+
+    @Column(name = "flight_id", nullable = false)
+    @Id
+    public int getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
     }
 }

@@ -3,7 +3,8 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity(name = "event_type")
+@Entity
+@Table(name = "event_type", schema = "golf_league", catalog = "")
 public class EventType {
     private String name;
     private String description;

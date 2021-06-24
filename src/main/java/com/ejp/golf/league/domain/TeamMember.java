@@ -3,11 +3,14 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity(name = "team_member")
+@Entity
 @IdClass(TeamMemberPK.class)
+@Table(name = "team_member", schema = "golf_league", catalog = "")
 public class TeamMember {
     private int teamId;
     private int golferId;
+    private int leagueId;
+    private int flightId;
 
     @Id
     @Column(name = "team_id", nullable = false)
@@ -40,5 +43,25 @@ public class TeamMember {
     @Override
     public int hashCode() {
         return Objects.hash(teamId, golferId);
+    }
+
+    @Id
+    @Column(name = "league_id", nullable = false)
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
+    }
+
+    @Id
+    @Column(name = "flight_id", nullable = false)
+    public int getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
     }
 }

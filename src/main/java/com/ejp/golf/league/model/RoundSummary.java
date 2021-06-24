@@ -38,7 +38,7 @@ public class RoundSummary {
     }
 
     public boolean isHomeTeam() {
-        return round.isHome();
+        return round.home();
     }
 
     public List<Score> getGrossScores() {

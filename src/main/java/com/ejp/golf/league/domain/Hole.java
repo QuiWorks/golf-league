@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "hole")
+@Entity
 public class Hole {
     private int id;
     private int courseId;
@@ -17,7 +17,7 @@ public class Hole {
     private Timestamp created;
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -84,7 +84,7 @@ public class Hole {
     }
 
     @Basic
-    @Column(name = "created")
+    @Column(name = "created", nullable = false)
     public Timestamp getCreated() {
         return created;
     }

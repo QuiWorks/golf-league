@@ -3,13 +3,15 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity(name ="score")
+@Entity
 public class Score implements Cloneable{
     private int id;
     private Round round = new Round();
     private Hole hole = new Hole();
     private int score;
     private boolean win;
+    private int roundId;
+    private int holeId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -21,7 +23,6 @@ public class Score implements Cloneable{
     public void setId(int id) {
         this.id = id;
     }
-
 
     @ManyToOne
     @JoinColumn(name = "round_id", referencedColumnName = "id", nullable = false)
@@ -72,8 +73,6 @@ public class Score implements Cloneable{
         return id == score1.id && round.getId() == score1.round.getId() && hole.getId() == score1.getHole().getId() && score == score1.score;
     }
 
-
-
     @Override
     public int hashCode() {
         return Objects.hash(id, round.getId(), hole.getId(), score);
@@ -92,5 +91,25 @@ public class Score implements Cloneable{
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    @Basic
+    @Column(name = "round_id", nullable = false)
+    public int getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(int roundId) {
+        this.roundId = roundId;
+    }
+
+    @Basic
+    @Column(name = "hole_id", nullable = false)
+    public int getHoleId() {
+        return holeId;
+    }
+
+    public void setHoleId(int holeId) {
+        this.holeId = holeId;
     }
 }

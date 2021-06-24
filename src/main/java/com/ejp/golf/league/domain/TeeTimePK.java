@@ -8,6 +8,7 @@ import java.util.Objects;
 public class TeeTimePK implements Serializable {
     private int flightId;
     private int slot;
+    private int leagueId;
 
     @Column(name = "flight_id", nullable = false)
     @Id
@@ -40,5 +41,15 @@ public class TeeTimePK implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(flightId, slot);
+    }
+
+    @Column(name = "league_id", nullable = false)
+    @Id
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
     }
 }

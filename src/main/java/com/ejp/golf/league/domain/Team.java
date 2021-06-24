@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "team")
-@IdClass(TeamMatchPK.class)
+@Entity
+@IdClass(TeamPK.class)
 public class Team {
     private int id;
     private int leagueId;

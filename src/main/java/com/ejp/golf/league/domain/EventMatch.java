@@ -5,7 +5,8 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "event_match")
+@Entity
+@Table(name = "event_match", schema = "golf_league", catalog = "")
 public class EventMatch {
     private int id;
     private int eventId;
@@ -15,6 +16,7 @@ public class EventMatch {
     private int flightId;
     private int slot;
     private List<Team> teamList;
+    private int leagueId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -48,7 +50,7 @@ public class EventMatch {
     }
 
     @Basic
-    @Column(name = "nine", nullable = false)
+    @Column(name = "nine", nullable = false, length = 256)
     public String getNine() {
         return nine;
     }
@@ -77,7 +79,6 @@ public class EventMatch {
         this.slot = slot;
     }
 
-
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "team_match",
@@ -103,5 +104,15 @@ public class EventMatch {
     @Override
     public int hashCode() {
         return Objects.hash(id, eventId, courseId, nine, flightId, slot);
+    }
+
+    @Basic
+    @Column(name = "league_id", nullable = false)
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
     }
 }

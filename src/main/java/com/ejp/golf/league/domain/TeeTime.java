@@ -1,15 +1,18 @@
 package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity(name ="tee_time")
+@Entity
 @IdClass(TeeTimePK.class)
+@Table(name = "tee_time", schema = "golf_league", catalog = "")
 public class TeeTime {
     private int flightId;
     private int slot;
     private Date time;
+    private int leagueId;
 
     @Id
     @Column(name = "flight_id", nullable = false)
@@ -37,6 +40,10 @@ public class TeeTime {
         return time;
     }
 
+    public void setTime(Timestamp time) {
+        this.time = time;
+    }
+
     public void setTime(Date time) {
         this.time = time;
     }
@@ -52,5 +59,15 @@ public class TeeTime {
     @Override
     public int hashCode() {
         return Objects.hash(flightId, slot, time);
+    }
+
+    @Id
+    @Column(name = "league_id", nullable = false)
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
     }
 }

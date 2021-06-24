@@ -3,19 +3,18 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.*;
 
-@Entity(name = "round")
+@Entity
 public class Round {
     private int id;
     private int matchId;
-    private int flightId;
-    private int slot;
-    private String nine;
+    private EventMatch eventMatch;
+    private TeamMatch teamMatch;
     private int handicap;
-    private boolean home;
     private Date date;
     private Golfer golfer = new Golfer();
     private List<Score> grossScores = new ArrayList<>();
-    private int week;
+//    private int week;
+    private int golferId;
 
     @ManyToOne
     @JoinColumn(name = "golfer_id", referencedColumnName = "id", nullable = false)
@@ -25,6 +24,26 @@ public class Round {
 
     public void setGolfer(Golfer golfer) {
         this.golfer = golfer;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "match_id", referencedColumnName = "id", nullable = false)
+    public EventMatch getEventMatch() {
+        return eventMatch;
+    }
+
+    public void setEventMatch(EventMatch match) {
+        this.eventMatch = match;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "match_id", referencedColumnName = "match_id", nullable = false)
+    public TeamMatch getMatch() {
+        return teamMatch;
+    }
+
+    public void setMatch(TeamMatch match) {
+        this.teamMatch = match;
     }
 
     @OneToMany
@@ -58,45 +77,6 @@ public class Round {
         this.matchId = eventId;
     }
 
-    @Basic
-    @Column(name = "week", nullable = false)
-    public int getWeek() {
-        return week;
-    }
-
-    public void setWeek(int week) {
-        this.week = week;
-    }
-
-    @Basic
-    @Column(name = "flight_id", nullable = false)
-    public int getFlightId() {
-        return flightId;
-    }
-
-    public void setFlightId(int eventId) {
-        this.flightId = eventId;
-    }
-
-    @Basic
-    @Column(name = "slot", nullable = false)
-    public int getSlot() {
-        return slot;
-    }
-
-    public void setSlot(int slot) {
-        this.slot = slot;
-    }
-
-    @Basic
-    @Column(name = "nine", nullable = false)
-    public String getNine() {
-        return nine;
-    }
-
-    public void setNine(String nine) {
-        this.nine = nine;
-    }
 
     @Basic
     @Column(name = "handicap", nullable = false)
@@ -109,16 +89,6 @@ public class Round {
     }
 
     @Basic
-    @Column(name = "home", nullable = false)
-    public boolean isHome() {
-        return home;
-    }
-
-    public void setHome(boolean home) {
-        this.home = home;
-    }
-
-    @Basic
     @Column(name = "date_played", nullable = false)
     public Date getDatePlayed() {
         return date;
@@ -127,6 +97,47 @@ public class Round {
     public void setDatePlayed(Date date) {
         this.date = date;
     }
+
+
+    public int week() {
+//        return match.get
+    }
+
+//    public void setWeek(int week) {
+//        this.week = week;
+//    }
+
+    public int flight() {
+        return eventMatch.getFlightId();
+    }
+
+//    public void setFlightId(int eventId) {
+//        this.flightId = eventId;
+//    }
+
+    public int slot() {
+        return eventMatch.getSlot();
+    }
+
+//    public void setSlot(int slot) {
+//        this.slot = slot;
+//    }
+
+    public String nine() {
+        return eventMatch.getNine();
+    }
+
+    //    public void setNine(String nine) {
+//        this.nine = nine;
+//    }
+
+    public boolean home() {
+        return eventMatch.get;
+    }
+
+//    public void setHome(boolean home) {
+//        this.home = home;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -141,19 +152,13 @@ public class Round {
         return Objects.hash(id, matchId, golfer.getId());
     }
 
-    @Override
-    public String toString() {
-        return "Round{" +
-                "id=" + id +
-                ", matchId=" + matchId +
-                ", flightId=" + flightId +
-                ", slot=" + slot +
-                ", nine='" + nine + '\'' +
-                ", handicap=" + handicap +
-                ", home=" + home +
-                ", date=" + date +
-                ", golfer=" + golfer +
-                ", grossScores=" + grossScores +
-                '}';
+    @Basic
+    @Column(name = "golfer_id", nullable = false)
+    public int getGolferId() {
+        return golferId;
+    }
+
+    public void setGolferId(int golferId) {
+        this.golferId = golferId;
     }
 }

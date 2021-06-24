@@ -1,12 +1,13 @@
 package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-@Entity(name = "golfer")
+@Entity
 public class Golfer {
     private int id;
     private String firstName;

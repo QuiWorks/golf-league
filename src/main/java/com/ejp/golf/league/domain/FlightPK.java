@@ -2,17 +2,16 @@ package com.ejp.golf.league.domain;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-public class Course {
+public class FlightPK implements Serializable {
     private int id;
-    private String name;
+    private int leagueId;
 
-    @Id
     @Column(name = "id", nullable = false)
+    @Id
     public int getId() {
         return id;
     }
@@ -21,26 +20,27 @@ public class Course {
         this.id = id;
     }
 
+    @Column(name = "league_id", nullable = false)
     @Basic
-    @Column(name = "name", nullable = false, length = 256)
-    public String getName() {
-        return name;
+    @Id
+    public int getLeagueId() {
+        return leagueId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return id == course.id && Objects.equals(name, course.name);
+        FlightPK flightPK = (FlightPK) o;
+        return id == flightPK.id && leagueId == flightPK.leagueId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, leagueId);
     }
 }

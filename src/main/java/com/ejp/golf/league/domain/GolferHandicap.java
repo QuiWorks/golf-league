@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity(name = "golfer_handicap")
+@Entity
+@Table(name = "golfer_handicap", schema = "golf_league", catalog = "")
 public class GolferHandicap {
     private int id;
     private int golferId;

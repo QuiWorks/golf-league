@@ -3,7 +3,7 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity(name = "season")
+@Entity
 public class Season {
     private int id;
     private int year;

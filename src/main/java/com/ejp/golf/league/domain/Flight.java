@@ -1,13 +1,12 @@
 package com.ejp.golf.league.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity(name = "flight")
+@Entity
+@IdClass(FlightPK.class)
 public class Flight {
     private int id;
     private int leagueId;
@@ -24,6 +23,7 @@ public class Flight {
         this.id = id;
     }
 
+    @Id
     @Basic
     @Column(name = "league_id", nullable = false)
     public int getLeagueId() {
@@ -40,6 +40,10 @@ public class Flight {
         return start;
     }
 
+    public void setStart(Timestamp start) {
+        this.start = start;
+    }
+
     public void setStart(Date start) {
         this.start = start;
     }
@@ -48,6 +52,10 @@ public class Flight {
     @Column(name = "end", nullable = false)
     public Date getEnd() {
         return end;
+    }
+
+    public void setEnd(Timestamp end) {
+        this.end = end;
     }
 
     public void setEnd(Date end) {

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity(name = "admin")
+@Entity
 public class Admin {
     private String username;
     private String password;

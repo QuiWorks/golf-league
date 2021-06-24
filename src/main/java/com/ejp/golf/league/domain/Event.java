@@ -1,10 +1,11 @@
 package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Entity(name = "event")
+@Entity
 public class Event {
     private int id;
     private int seasonId;

@@ -20,12 +20,17 @@
 <!--        <class>com.ejp.golf.league.domain.TeamMatch</class>-->
         <class>com.ejp.golf.league.domain.TeamMember</class>
         <class>com.ejp.golf.league.domain.Admin</class>
+        <class>com.ejp.golf.league.domain.EventMatch</class>
+        <class>com.ejp.golf.league.domain.TeamMatch</class>
+        <class>com.ejp.golf.league.domain.TeeTime</class>
         <properties>
             <property name="javax.persistence.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="javax.persistence.jdbc.user" value="eric"/>
             <property name="javax.persistence.jdbc.password" value="password"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/golf_league"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/golf_league"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
         </properties>
     </persistence-unit>
 </persistence>

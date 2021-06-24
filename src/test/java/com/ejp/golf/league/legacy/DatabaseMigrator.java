@@ -278,6 +278,8 @@ public class DatabaseMigrator {
 
             teamMember.setGolferId(legacyPlayer.getGolfer());
             teamMember.setTeamId(legacyPlayer.getTeam());
+            teamMember.setFlightId(legacyPlayer.getFlight());
+            teamMember.setLeagueId(league.getId());
             entityManager.persist(teamMember);
         }
 

@@ -3,7 +3,6 @@ package com.ejp.golf.league.model;
 import com.ejp.golf.league.domain.Hole;
 import com.ejp.golf.league.domain.Score;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
@@ -47,9 +46,9 @@ public class ScoreCardSummary {
         setMatchPoints(highHomeGolfer, highAwayGolfer);
         setTeamNetPoints(lowHomeGolfer, lowAwayGolfer, highHomeGolfer, highAwayGolfer);
 
-        week = lowHomeGolfer.getRound().getWeek();
-        flight = lowHomeGolfer.getRound().getFlightId();
-        slot = lowHomeGolfer.getRound().getSlot();
+        week = lowHomeGolfer.getRound().week();
+        flight = lowHomeGolfer.getRound().flight();
+        slot = lowHomeGolfer.getRound().slot();
     }
 
     public int getFlight() {

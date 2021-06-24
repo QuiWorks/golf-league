@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import java.util.Objects;
 
-@Entity(name = "nine")
+@Entity
 @IdClass(NinePK.class)
 public class Nine {
     private int courseId;
