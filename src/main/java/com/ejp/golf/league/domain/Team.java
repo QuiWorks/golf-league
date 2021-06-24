@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "team")
+@IdClass(TeamMatchPK.class)
 public class Team {
     private int id;
     private int leagueId;
+    private int flightId;
     private String name;
     private String description;
     private List<Golfer> golferList;
@@ -23,7 +25,17 @@ public class Team {
         this.id = id;
     }
 
-    @Basic
+    @Id
+    @Column(name = "flight_id", nullable = false)
+    public int getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
+    }
+
+    @Id
     @Column(name = "league_id", nullable = false)
     public int getLeagueId() {
         return leagueId;
@@ -32,6 +44,7 @@ public class Team {
     public void setLeagueId(int leagueId) {
         this.leagueId = leagueId;
     }
+
 
     @Basic
     @Column(name = "name", nullable = true, length = 128)

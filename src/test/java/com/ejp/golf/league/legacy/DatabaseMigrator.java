@@ -130,9 +130,7 @@ public class DatabaseMigrator {
                 if (shouldBreak) break;
             case PLAYERS:
                 PlayersList playersList = getLegacyList(LegacyData.PLAYERS.getUrl(), PlayersList.class);
-                playersList.getPlayers().stream()
-//                        .filter(Predicate.not(Players::isStatus))
-                        .forEach(nine -> migrateToNewDomain(nine, entityManager));
+                playersList.getPlayers().forEach(nine -> migrateToNewDomain(nine, entityManager));
                 if (shouldBreak) break;
             case WEEK_DATES:
                 WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);
@@ -262,24 +260,27 @@ public class DatabaseMigrator {
         golferHandicap.setHandicap(legacyPlayer.getCurrentHdcp());
         golferHandicap.setCreated(created);
 
+        entityManager.persist(golfer);
+        entityManager.persist(golferHandicap);
 
-        Team team = entityManager.find(Team.class, (int) legacyPlayer.getTeam());
-        if (team == null) {
-            team = new Team();
-            team.setId(legacyPlayer.getTeam());
-            team.setLeagueId(league.getId());
-            entityManager.persist(team);
+        //TODO team is unique on team id and flight not just team id
+
+        if(!legacyPlayer.isSubstitute())
+        {
+            Team team = entityManager.find(Team.class, new TeamPK(legacyPlayer.getTeam(), league.getId(), legacyPlayer.getFlight()));
+            if (team == null) {
+                team = new Team();
+                team.setId(legacyPlayer.getTeam());
+                team.setFlightId(legacyPlayer.getFlight());
+                team.setLeagueId(league.getId());
+                entityManager.persist(team);
+            }
+
+            teamMember.setGolferId(legacyPlayer.getGolfer());
+            teamMember.setTeamId(legacyPlayer.getTeam());
+            entityManager.persist(teamMember);
         }
 
-        teamMember.setGolferId(legacyPlayer.getGolfer());
-        teamMember.setTeamId(legacyPlayer.getTeam());
-
-
-        entityManager.persist(golfer);
-        entityManager.getTransaction().commit();
-        entityManager.getTransaction().begin();
-        entityManager.persist(golferHandicap);
-        entityManager.persist(teamMember);
         entityManager.getTransaction().commit();
     }
 

@@ -1,5 +1,28 @@
-CREATE DATABASE golf_league;
+# This script will create the golf_league database and a dev user.
+
+CREATE DATABASE IF NOT EXISTS golf_league;
+CREATE USER IF NOT EXISTS 'eric'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON golf_league.* TO 'eric'@'localhost';
 use golf_league;
+
+DROP TABLE IF EXISTS admin;
+DROP TABLE IF EXISTS score;
+DROP TABLE IF EXISTS round;
+DROP TABLE IF EXISTS team_match;
+DROP TABLE IF EXISTS event_match;
+DROP TABLE IF EXISTS tee_time;
+DROP TABLE IF EXISTS hole;
+DROP TABLE IF EXISTS nine;
+DROP TABLE IF EXISTS golfer_handicap;
+DROP TABLE IF EXISTS event;
+DROP TABLE IF EXISTS season;
+DROP TABLE IF EXISTS course;
+DROP TABLE IF EXISTS event_type;
+DROP TABLE IF EXISTS team_member;
+DROP TABLE IF EXISTS team;
+DROP TABLE IF EXISTS flight;
+DROP TABLE IF EXISTS league;
+DROP TABLE IF EXISTS golfer;
 
 CREATE TABLE golfer
 (
@@ -19,6 +42,23 @@ CREATE TABLE golfer
     primary key (id)
 );
 
+CREATE TABLE golfer_handicap
+(
+    id        INT auto_increment not null,
+    golfer_id int      not null,
+    created   DATETIME NOT NULL default NOW(),
+    handicap  int      not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (golfer_id) references golfer (id)
+);
+
+CREATE TABLE league
+(
+    id   int auto_increment not null,
+    name varchar(256) not null,
+    primary key (id)
+);
+
 CREATE TABLE admin
 (
     username VARCHAR(128) not null,
@@ -31,40 +71,47 @@ CREATE TABLE admin
     primary key (username)
 );
 
-CREATE TABLE league
+CREATE TABLE flight
 (
-    id   int auto_increment not null,
-    name varchar(256) not null,
-    primary key (id)
+    id        int  not null,
+    league_id int  not null,
+    start     timestamp not null,
+    end       timestamp not null,
+    primary key (id, league_id),
+    FOREIGN KEY (league_id) references league (id)
+);
+
+CREATE TABLE tee_time
+(
+    league_id   int         not null,
+    flight_id   int         not null,
+    slot        int         not null,
+    time timestamp not null,
+    PRIMARY KEY (league_id, flight_id, slot),
+    FOREIGN KEY (league_id, flight_id) REFERENCES flight(id, league_id)
 );
 
 CREATE TABLE team
 (
-    id          int auto_increment not null,
+    id          int not null,
     league_id   int not null,
+    flight_id   int not null,
     name        varchar(128),
     description varchar(128),
-    primary key (id),
-    FOREIGN KEY (league_id) REFERENCES league (id)
+    primary key (id, flight_id, league_id),
+    FOREIGN KEY (league_id) REFERENCES league (id),
+    FOREIGN KEY (flight_id, league_id) REFERENCES flight (id, league_id)
 );
 
 CREATE TABLE team_member
 (
     team_id   int not null,
+    league_id   int not null,
+    flight_id   int not null,
     golfer_id int not null,
-    primary key (team_id, golfer_id),
-    FOREIGN KEY (team_id) REFERENCES team (id),
+    primary key (team_id, league_id, flight_id, golfer_id),
+    FOREIGN KEY (team_id, flight_id, league_id) REFERENCES team (id, flight_id, league_id),
     FOREIGN KEY (golfer_id) REFERENCES golfer (id)
-);
-
-CREATE TABLE flight
-(
-    id        int  not null auto_increment,
-    league_id int  not null,
-    start     timestamp not null,
-    end       timestamp not null,
-    primary key (id),
-    FOREIGN KEY (league_id) references league (id)
 );
 
 CREATE TABLE course
@@ -128,26 +175,19 @@ CREATE TABLE event
     FOREIGN KEY (event_type) REFERENCES event_type (name)
 );
 
-CREATE TABLE tee_time
-(
-    flight_id  int          not null,
-    slot        int         not null,
-    time timestamp not null,
-    PRIMARY KEY (flight_id, slot)
-);
-
 CREATE TABLE event_match
 (
     id int not null auto_increment,
     event_id int not null,
     course_id int not null,
     nine varchar(256) not null,
+    league_id int not null,
     flight_id int not null,
     slot int not null,
     PRIMARY KEY (id),
     FOREIGN KEY (event_id) REFERENCES event (id),
     FOREIGN KEY (course_id, nine) REFERENCES nine (course_id, name),
-    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot),
+    FOREIGN KEY (league_id, flight_id, slot) REFERENCES tee_time (league_id, flight_id, slot),
     UNIQUE (event_id, nine, flight_id, slot)
 );
 
@@ -155,37 +195,23 @@ CREATE TABLE team_match
 (
     match_id int not null,
     team_id  int not null,
+    league_id   int not null,
+    flight_id   int not null,
     home BOOLEAN not null DEFAULT 0,
-    PRIMARY KEY (match_id, team_id),
+    PRIMARY KEY (match_id, team_id, league_id, flight_id),
     FOREIGN KEY (match_id) REFERENCES event_match (id),
     FOREIGN KEY (team_id) REFERENCES team (id)
-);
-
-CREATE TABLE golfer_handicap
-(
-    id        INT auto_increment not null,
-    golfer_id int      not null,
-    created   DATETIME NOT NULL default NOW(),
-    handicap  int      not null,
-    PRIMARY KEY (id),
-    FOREIGN KEY (golfer_id) references golfer (id)
 );
 
 CREATE TABLE round
 (
     id        int not null auto_increment,
     match_id  int not null,
-    week  int not null,
-    flight_id  int not null,
-    slot int not null,
-    nine int not null,
     golfer_id int not null,
     handicap  int not null,
-    home BOOLEAN not null DEFAULT 0,
     date_played DATETIME not null DEFAULT NOW(),
     primary key (id),
     FOREIGN KEY (match_id) references event_match (id),
-    FOREIGN KEY (flight_id, slot) REFERENCES tee_time (flight_id, slot),
     FOREIGN KEY (golfer_id) REFERENCES golfer (id),
     UNIQUE (match_id, golfer_id)
 );
