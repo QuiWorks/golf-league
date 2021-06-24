@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "team")
 @IdClass(TeamPK.class)
 public class Team {
-    private int id;
+    private int teamId;
     private int leagueId;
     private int flightId;
     private String name;
@@ -16,13 +16,13 @@ public class Team {
     private List<EventMatch> matches;
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "team_id", nullable = false)
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTeamId(int id) {
+        this.teamId = id;
     }
 
     @Id
@@ -66,11 +66,13 @@ public class Team {
         this.description = description;
     }
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
-            name = "team_match",
-            joinColumns = { @JoinColumn(name = "team_id") },
-            inverseJoinColumns = { @JoinColumn(name = "match_id")}
+            name = "team_match", joinColumns = {
+                    @JoinColumn(name = "team_id"),
+                    @JoinColumn(name = "flight_id"),
+                    @JoinColumn(name = "league_id"),},
+            inverseJoinColumns = {@JoinColumn(name = "match_id")}
     )
     public List<EventMatch> getMatches() {
         return matches;
@@ -80,11 +82,11 @@ public class Team {
         this.matches = matches;
     }
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "team_member",
-            joinColumns = { @JoinColumn(name = "team_id") },
-            inverseJoinColumns = { @JoinColumn(name = "golfer_id")}
+            joinColumns = {@JoinColumn(name = "team_id")},
+            inverseJoinColumns = {@JoinColumn(name = "golfer_id")}
     )
     public List<Golfer> getGolferList() {
         return golferList;
@@ -99,11 +101,11 @@ public class Team {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
-        return id == team.id && leagueId == team.leagueId && Objects.equals(name, team.name) && Objects.equals(description, team.description);
+        return teamId == team.teamId && leagueId == team.leagueId && Objects.equals(name, team.name) && Objects.equals(description, team.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, leagueId, name, description);
+        return Objects.hash(teamId, leagueId, name, description);
     }
 }

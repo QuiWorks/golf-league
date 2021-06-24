@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "event")
 public class Event {
     private int id;
     private int seasonId;
@@ -34,6 +34,8 @@ public class Event {
     public void setSeasonId(int seasonId) {
         this.seasonId = seasonId;
     }
+
+
 
     @Basic
     @Column(name = "week", nullable = false)

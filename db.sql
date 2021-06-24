@@ -93,12 +93,12 @@ CREATE TABLE tee_time
 
 CREATE TABLE team
 (
-    id          int not null,
+    team_id          int not null,
     league_id   int not null,
     flight_id   int not null,
     name        varchar(128),
     description varchar(128),
-    primary key (id, flight_id, league_id),
+    primary key (team_id, flight_id, league_id),
     FOREIGN KEY (league_id) REFERENCES league (id),
     FOREIGN KEY (flight_id, league_id) REFERENCES flight (id, league_id)
 );
@@ -110,7 +110,7 @@ CREATE TABLE team_member
     flight_id   int not null,
     golfer_id int not null,
     primary key (team_id, league_id, flight_id, golfer_id),
-    FOREIGN KEY (team_id, flight_id, league_id) REFERENCES team (id, flight_id, league_id),
+    FOREIGN KEY (team_id, flight_id, league_id) REFERENCES team (team_id, flight_id, league_id),
     FOREIGN KEY (golfer_id) REFERENCES golfer (id)
 );
 
@@ -200,7 +200,7 @@ CREATE TABLE team_match
     home BOOLEAN not null DEFAULT 0,
     PRIMARY KEY (match_id, team_id, league_id, flight_id),
     FOREIGN KEY (match_id) REFERENCES event_match (id),
-    FOREIGN KEY (team_id) REFERENCES team (id)
+    FOREIGN KEY (team_id) REFERENCES team (team_id)
 );
 
 CREATE TABLE round
@@ -208,12 +208,15 @@ CREATE TABLE round
     id        int not null auto_increment,
     match_id  int not null,
     golfer_id int not null,
+    league_id int not null,
+    flight_id int not null,
+    team_id   int not null,
     handicap  int not null,
     date_played DATETIME not null DEFAULT NOW(),
     primary key (id),
     FOREIGN KEY (match_id) references event_match (id),
     FOREIGN KEY (golfer_id) REFERENCES golfer (id),
-    UNIQUE (match_id, golfer_id)
+    FOREIGN KEY (league_id, flight_id, team_id) REFERENCES team (team_id, flight_id, league_id)
 );
 
 CREATE TABLE score

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "flight")
 @IdClass(FlightPK.class)
 public class Flight {
     private int id;
@@ -40,10 +40,6 @@ public class Flight {
         return start;
     }
 
-    public void setStart(Timestamp start) {
-        this.start = start;
-    }
-
     public void setStart(Date start) {
         this.start = start;
     }
@@ -52,10 +48,6 @@ public class Flight {
     @Column(name = "end", nullable = false)
     public Date getEnd() {
         return end;
-    }
-
-    public void setEnd(Timestamp end) {
-        this.end = end;
     }
 
     public void setEnd(Date end) {

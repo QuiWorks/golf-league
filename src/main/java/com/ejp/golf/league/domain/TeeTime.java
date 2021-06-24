@@ -5,9 +5,8 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "tee_time")
 @IdClass(TeeTimePK.class)
-@Table(name = "tee_time", schema = "golf_league", catalog = "")
 public class TeeTime {
     private int flightId;
     private int slot;
@@ -38,10 +37,6 @@ public class TeeTime {
     @Column(name = "time", nullable = false)
     public Date getTime() {
         return time;
-    }
-
-    public void setTime(Timestamp time) {
-        this.time = time;
     }
 
     public void setTime(Date time) {

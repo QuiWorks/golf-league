@@ -3,15 +3,14 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "team_match")
 @IdClass(TeamMatchPK.class)
-@Table(name = "team_match", schema = "golf_league", catalog = "")
 public class TeamMatch {
     private int matchId;
     private int teamId;
-    private boolean home;
     private int leagueId;
     private int flightId;
+    private boolean home;
 
     @Id
     @Column(name = "match_id", nullable = false)

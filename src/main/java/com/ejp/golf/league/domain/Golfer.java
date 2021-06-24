@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-@Entity
+@Entity(name = "golfer")
 public class Golfer {
     private int id;
     private String firstName;

@@ -2,33 +2,32 @@ package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "team")
 @IdClass(TeamMatchPK.class)
 public class TeamPK implements Serializable {
-    private int id;
+    private int teamId;
     private int leagueId;
     private int flightId;
 
     public TeamPK() {
     }
 
-    public TeamPK(int id, int leagueId, int flightId) {
-        this.id = id;
+    public TeamPK(int teamId, int leagueId, int flightId) {
+        this.teamId = teamId;
         this.leagueId = leagueId;
         this.flightId = flightId;
     }
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "team_id", nullable = false)
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTeamId(int id) {
+        this.teamId = id;
     }
 
     @Id
@@ -56,11 +55,11 @@ public class TeamPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TeamPK teamPK = (TeamPK) o;
-        return id == teamPK.id && leagueId == teamPK.leagueId && flightId == teamPK.flightId;
+        return teamId == teamPK.teamId && leagueId == teamPK.leagueId && flightId == teamPK.flightId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, leagueId, flightId);
+        return Objects.hash(teamId, leagueId, flightId);
     }
 }

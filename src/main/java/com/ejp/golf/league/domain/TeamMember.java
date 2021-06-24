@@ -3,9 +3,8 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "team_member")
 @IdClass(TeamMemberPK.class)
-@Table(name = "team_member", schema = "golf_league", catalog = "")
 public class TeamMember {
     private int teamId;
     private int golferId;

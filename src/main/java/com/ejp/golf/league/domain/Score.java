@@ -3,7 +3,7 @@ package com.ejp.golf.league.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "score")
 public class Score implements Cloneable{
     private int id;
     private Round round = new Round();

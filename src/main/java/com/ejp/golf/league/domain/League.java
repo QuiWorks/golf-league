@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "league")
 public class League implements Buildable<League> {
     private int id;
     private String name;

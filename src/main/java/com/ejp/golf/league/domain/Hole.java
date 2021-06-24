@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+@Entity(name="hole")
 public class Hole {
     private int id;
     private int courseId;

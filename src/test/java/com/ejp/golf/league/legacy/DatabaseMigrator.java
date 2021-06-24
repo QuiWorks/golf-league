@@ -17,8 +17,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -265,12 +263,11 @@ public class DatabaseMigrator {
 
         //TODO team is unique on team id and flight not just team id
 
-        if(!legacyPlayer.isSubstitute())
-        {
+        if (!legacyPlayer.isSubstitute()) {
             Team team = entityManager.find(Team.class, new TeamPK(legacyPlayer.getTeam(), league.getId(), legacyPlayer.getFlight()));
             if (team == null) {
                 team = new Team();
-                team.setId(legacyPlayer.getTeam());
+                team.setTeamId(legacyPlayer.getTeam());
                 team.setFlightId(legacyPlayer.getFlight());
                 team.setLeagueId(league.getId());
                 entityManager.persist(team);
@@ -303,7 +300,7 @@ public class DatabaseMigrator {
     private void migrateToNewDomain(Schedule legacyEvent, EntityManager entityManager) {
 
         EventMatch eventMatch = new EventMatch();
-        eventMatch.setEventId(getEventId(events, legacyEvent.getWeek()));
+        eventMatch.setEvent(getEventId(events, legacyEvent.getWeek()));
         eventMatch.setFlightId(legacyEvent.getFlight());
         eventMatch.setSlot(legacyEvent.getSlot());
         eventMatch.setNine(legacyEvent.isBack9() ? "back" : "front");
@@ -330,19 +327,28 @@ public class DatabaseMigrator {
     }
 
     private void migrateToNewDomain(ScoreCard scoreCard, EntityManager entityManager) {
-        int matchId = getMatchId(matches, events, scoreCard);
+        EventMatch eventMatch = getMatchId(matches, events, scoreCard);
+
+        TeamMatch teamMatch1 = new TeamMatch();
+        teamMatch1.setMatchId(eventMatch.getId());
+        teamMatch1.setTeamId(scoreCard.getTeam1());
+        teamMatch1.setFlightId(eventMatch.getFlightId());
+        teamMatch1.setLeagueId(league.getId());
+        teamMatch1.setHome(true);
+
+        TeamMatch teamMatch2 = new TeamMatch();
+        teamMatch2.setMatchId(eventMatch.getId());
+        teamMatch2.setTeamId(scoreCard.getTeam2());
+        teamMatch2.setFlightId(eventMatch.getFlightId());
+        teamMatch2.setLeagueId(league.getId());
+        teamMatch2.setHome(true);
 
         Round roundA = new Round();
-        roundA.setMatchId(matchId);
-        roundA.setFlightId(scoreCard.getFlight());
-        roundA.setWeek(scoreCard.getWeek());
-        roundA.setSlot(scoreCard.getSlot());
-        roundA.setNine(scoreCard.isBack9() ? "back" : "front");
         Golfer golfer1 = new Golfer();
         golfer1.setId(scoreCard.getGolfer1());
         roundA.setGolfer(golfer1);
+        roundA.setTeamMatch(teamMatch1);
         roundA.setHandicap(scoreCard.getHdcp1());
-        roundA.setHome(true);
         roundA.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
         entityManager.getTransaction().begin();
@@ -400,16 +406,11 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
 
         Round roundB = new Round();
-        roundB.setMatchId(matchId);
-        roundB.setFlightId(scoreCard.getFlight());
-        roundB.setWeek(scoreCard.getWeek());
-        roundB.setSlot(scoreCard.getSlot());
-        roundB.setNine(scoreCard.isBack9() ? "back" : "front");
+        roundB.setTeamMatch(teamMatch2);
         Golfer golfer2 = new Golfer();
         golfer2.setId(scoreCard.getGolfer2());
         roundB.setGolfer(golfer2);
         roundB.setHandicap(scoreCard.getHdcp2());
-        roundB.setHome(true);
         roundB.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
         entityManager.getTransaction().begin();
@@ -468,16 +469,11 @@ public class DatabaseMigrator {
 
 
         Round roundC = new Round();
-        roundC.setMatchId(matchId);
-        roundC.setFlightId(scoreCard.getFlight());
-        roundC.setWeek(scoreCard.getWeek());
-        roundC.setSlot(scoreCard.getSlot());
-        roundC.setNine(scoreCard.isBack9() ? "back" : "front");
+        roundC.setTeamMatch(teamMatch1);
         Golfer golfer3 = new Golfer();
         golfer3.setId(scoreCard.getGolfer3());
         roundC.setGolfer(golfer3);
         roundC.setHandicap(scoreCard.getHdcp3());
-        roundC.setHome(false);
         roundC.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
         entityManager.getTransaction().begin();
@@ -535,16 +531,11 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
 
         Round roundD = new Round();
-        roundD.setMatchId(matchId);
-        roundD.setFlightId(scoreCard.getFlight());
-        roundD.setWeek(scoreCard.getWeek());
-        roundD.setSlot(scoreCard.getSlot());
-        roundD.setNine(scoreCard.isBack9() ? "back" : "front");
+        roundD.setTeamMatch(teamMatch2);
         Golfer golfer4 = new Golfer();
         golfer4.setId(scoreCard.getGolfer4());
         roundD.setGolfer(golfer4);
         roundD.setHandicap(scoreCard.getHdcp4());
-        roundD.setHome(false);
         roundD.setDatePlayed(Timestamp.valueOf(LocalDateTime.now()));
 
         entityManager.getTransaction().begin();
@@ -602,26 +593,24 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
     }
 
-    private Integer getMatchId(List<EventMatch> matches, List<Event> events, ScoreCard scoreCard) {
+    private EventMatch getMatchId(List<EventMatch> matches, List<Event> events, ScoreCard scoreCard) {
         return matches.stream()
                 .filter(match -> match.getFlightId() == scoreCard.getFlight() &&
-                        match.getEventId() == getEventId(events, scoreCard) &&
+                        match.getEvent().getId() == getEventId(events, scoreCard) &&
                         match.getNine().equals(scoreCard.isBack9() ? "back" : "front") &&
                         match.getSlot() == scoreCard.getSlot())
-                .map(EventMatch::getId)
-                .findAny().orElse(0);
+                .findAny().orElse(new EventMatch());
     }
 
     private Integer getEventId(List<Event> events, ScoreCard scoreCard) {
         return events.stream().filter(e -> e.getDay().equals(convertLegacyDate(scoreCard.getGameDate()).toLocalDate())).map(Event::getId).findAny().orElse(1);
     }
 
-    private Integer getEventId(List<Event> events, int week) {
+    private Event getEventId(List<Event> events, int week) {
         return events.stream()
                 .filter(e -> e.getWeek() == week)
-                .map(Event::getId).
-                findAny()
-                .orElse(1);
+                .findAny()
+                .orElse(new Event());
     }
 
     private <LEGACY_LIST> LEGACY_LIST getLegacyList(String url, Class<LEGACY_LIST> legacyListClass) {
