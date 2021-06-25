@@ -48,11 +48,12 @@ public class ScoreCardService implements Serializable {
         return query.getResultList().stream().sorted().findFirst().orElse(1);
     }
 
-    public GlCard getScoreCard(int week, int flight, int teamId) {
+    public GlCard getScoreCard(int week, int flight, int teamNumber) {
+        int teamId = 0;
         if (String.valueOf(teamId).length() == 1) {
-            teamId = Integer.parseInt(flight + "0" + teamId);
+            teamId = Integer.parseInt(flight + "0" + teamNumber);
         } else {
-            teamId = Integer.parseInt(String.valueOf(flight) + teamId);
+            teamId = Integer.parseInt(String.valueOf(flight) + teamNumber);
         }
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         TypedQuery<EventMatch> query = entityManager.createQuery(
@@ -102,7 +103,7 @@ public class ScoreCardService implements Serializable {
         }));
 
         GlCard glCard = new GlCard();
-        glCard.setTeam(teamId);
+        glCard.setTeam(teamNumber);
         glCard.setFlight(flight);
         glCard.setWeek(week);
         glCard.setNine(match.getNine());

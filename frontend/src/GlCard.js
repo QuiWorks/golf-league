@@ -48,7 +48,10 @@ export class GlCard extends LitElement {
         .flight-info {
           width: 64px;
         }
-        
+        .search {
+            margin-top:10px;
+            margin-top: 35px;
+        }
         .comments {
             margin:0;
             width:90%;
@@ -117,19 +120,6 @@ export class GlCard extends LitElement {
             this.golferScores.push(e.detail);
         }
     }
-
-    formattedDate() {
-        try {
-            return this.date.toISOString().split("T")[0];
-        } catch (e) {
-            return this.date;
-        }
-    }
-
-    _updateDate() {
-        this.date = new Date(`${this.shadowRoot.querySelector("vaadin-date-picker").value}T12:00:00Z`);
-    }
-
 
     _onWeekChanged(e)
     {
