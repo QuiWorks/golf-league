@@ -70,6 +70,9 @@ export class GlHole extends LitElement {
         this.dispatchEvent(new CustomEvent("gl-hole-score-change", {
             detail: this.getHoleData(), bubbles: true, composed: true
         }));
+        this.dispatchEvent(new CustomEvent("gl-hole-score-sync", {
+            detail: {value:this.score}, bubbles: true, composed: true
+        }));
     }
 
     firstUpdated(_changedProperties) {

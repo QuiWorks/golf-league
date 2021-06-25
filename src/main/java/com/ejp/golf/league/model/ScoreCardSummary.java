@@ -47,7 +47,7 @@ public class ScoreCardSummary {
         setMatchPoints(highHomeGolfer, highAwayGolfer);
         setTeamNetPoints(lowHomeGolfer, lowAwayGolfer, highHomeGolfer, highAwayGolfer);
 
-        week = lowHomeGolfer.getRound().getWeek();
+        week = lowHomeGolfer.getRound().week();
         flight = lowHomeGolfer.getRound().getFlightId();
         slot = lowHomeGolfer.getRound().getSlot();
     }

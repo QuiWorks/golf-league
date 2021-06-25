@@ -3,7 +3,10 @@ package com.ejp.golf.league.legacy;
 import com.ejp.golf.league.domain.*;
 import com.ejp.golf.league.legacy.domain.*;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -16,9 +19,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import java.util.stream.IntStream;
 
 /**
@@ -130,9 +134,7 @@ public class DatabaseMigrator {
                 if (shouldBreak) break;
             case PLAYERS:
                 PlayersList playersList = getLegacyList(LegacyData.PLAYERS.getUrl(), PlayersList.class);
-                playersList.getPlayers().stream()
-//                        .filter(Predicate.not(Players::isStatus))
-                        .forEach(nine -> migrateToNewDomain(nine, entityManager));
+                playersList.getPlayers().forEach(nine -> migrateToNewDomain(nine, entityManager));
                 if (shouldBreak) break;
             case WEEK_DATES:
                 WeekDatesList weekDatesList = getLegacyList(LegacyData.WEEK_DATES.getUrl(), WeekDatesList.class);
@@ -304,7 +306,9 @@ public class DatabaseMigrator {
     private void migrateToNewDomain(Schedule legacyEvent, EntityManager entityManager) {
 
         EventMatch eventMatch = new EventMatch();
-        eventMatch.setEventId(getEventId(events, legacyEvent.getWeek()));
+        Event event = new Event();
+        event.setId(getEventId(events, legacyEvent.getWeek()));
+        eventMatch.setEvent(event);
         eventMatch.setFlightId(legacyEvent.getFlight());
         eventMatch.setSlot(legacyEvent.getSlot());
         eventMatch.setNine(legacyEvent.isBack9() ? "back" : "front");
@@ -336,9 +340,10 @@ public class DatabaseMigrator {
         int matchId = getMatchId(matches, events, scoreCard);
 
         Round roundA = new Round();
-        roundA.setMatchId(matchId);
+        EventMatch eventMatch = new EventMatch();
+        eventMatch.setId(matchId);
+        roundA.setEventMatch(eventMatch);
         roundA.setFlightId(scoreCard.getFlight());
-        roundA.setWeek(scoreCard.getWeek());
         roundA.setSlot(scoreCard.getSlot());
         roundA.setNine(scoreCard.isBack9() ? "back" : "front");
         Golfer golfer1 = new Golfer();
@@ -403,9 +408,8 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
 
         Round roundB = new Round();
-        roundB.setMatchId(matchId);
+        roundB.setEventMatch(eventMatch);
         roundB.setFlightId(scoreCard.getFlight());
-        roundB.setWeek(scoreCard.getWeek());
         roundB.setSlot(scoreCard.getSlot());
         roundB.setNine(scoreCard.isBack9() ? "back" : "front");
         Golfer golfer2 = new Golfer();
@@ -471,9 +475,8 @@ public class DatabaseMigrator {
 
 
         Round roundC = new Round();
-        roundC.setMatchId(matchId);
+        roundC.setEventMatch(eventMatch);
         roundC.setFlightId(scoreCard.getFlight());
-        roundC.setWeek(scoreCard.getWeek());
         roundC.setSlot(scoreCard.getSlot());
         roundC.setNine(scoreCard.isBack9() ? "back" : "front");
         Golfer golfer3 = new Golfer();
@@ -538,9 +541,8 @@ public class DatabaseMigrator {
         entityManager.getTransaction().commit();
 
         Round roundD = new Round();
-        roundD.setMatchId(matchId);
+        roundD.setEventMatch(eventMatch);
         roundD.setFlightId(scoreCard.getFlight());
-        roundD.setWeek(scoreCard.getWeek());
         roundD.setSlot(scoreCard.getSlot());
         roundD.setNine(scoreCard.isBack9() ? "back" : "front");
         Golfer golfer4 = new Golfer();
@@ -608,7 +610,7 @@ public class DatabaseMigrator {
     private Integer getMatchId(List<EventMatch> matches, List<Event> events, ScoreCard scoreCard) {
         return matches.stream()
                 .filter(match -> match.getFlightId() == scoreCard.getFlight() &&
-                        match.getEventId() == getEventId(events, scoreCard) &&
+                        match.getEvent().getId() == getEventId(events, scoreCard) &&
                         match.getNine().equals(scoreCard.isBack9() ? "back" : "front") &&
                         match.getSlot() == scoreCard.getSlot())
                 .map(EventMatch::getId)

@@ -1,10 +1,7 @@
 package com.ejp.golf.league.view;
 
 import com.ejp.golf.league.component.*;
-import com.ejp.golf.league.domain.Golfer;
-import com.ejp.golf.league.domain.Hole;
-import com.ejp.golf.league.domain.Round;
-import com.ejp.golf.league.domain.Score;
+import com.ejp.golf.league.domain.*;
 import com.ejp.golf.league.event.GlCardRequest;
 import com.ejp.golf.league.event.GlCardSubmission;
 import com.ejp.golf.league.layout.MainLayout;
@@ -55,9 +52,6 @@ public class ScoreCardView extends VerticalLayout {
     }
 
     private void handleScoreCardSubmission(GlCardSubmission event) {
-        GlCard source = event.getSource();
-        int flight = event.getFlight();
-        System.out.println(flight);
         event.getScores().forEach((key, value) -> {
             Round round = new Round();
             Golfer golfer = new Golfer();
@@ -65,10 +59,13 @@ public class ScoreCardView extends VerticalLayout {
             round.setGolfer(golfer);
             round.setSlot(event.getSlot());
             round.setFlightId(event.getFlight());
-            round.setHandicap(2); //TODO Actually get handicap
+            round.setHandicap(scoreCardService.getHandicap(key));
             round.setNine(event.getNine());
             round.setDatePlayed(new Date());
-            round.setMatchId(event.getMatch());
+            round.setHome(scoreCardService.isHome(key, event.getMatch()));
+            EventMatch eventMatch = new EventMatch();
+            eventMatch.setId(event.getMatch());
+            round.setEventMatch(eventMatch);
 
             Round savedRound = scoreCardService.saveRound(round);
 
@@ -97,6 +94,7 @@ public class ScoreCardView extends VerticalLayout {
         int slot = event.getTeam();
         GlCard requestCard = scoreCardService.getScoreCard(week, flight, slot);
         requestCard.addCardRequestListener(this::handleScoreCardRequest);
+        requestCard.addCardSubmissionListener(this::handleScoreCardSubmission);
         remove(card);
         add(requestCard);
     }

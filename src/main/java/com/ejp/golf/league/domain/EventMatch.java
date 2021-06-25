@@ -8,10 +8,9 @@ import java.util.Objects;
 @Entity(name = "event_match")
 public class EventMatch {
     private int id;
-    private int eventId;
+    private Event event;
     private int courseId;
     private String nine;
-    private int week;
     private int flightId;
     private int slot;
     private List<Team> teamList;
@@ -27,14 +26,14 @@ public class EventMatch {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "event_id", nullable = false)
-    public int getEventId() {
-        return eventId;
+    @ManyToOne
+    @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false)
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEventId(int seasonId) {
-        this.eventId = seasonId;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     @Basic
@@ -97,11 +96,11 @@ public class EventMatch {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EventMatch that = (EventMatch) o;
-        return eventId == that.eventId && flightId == that.flightId && slot == that.slot && Objects.equals(nine, that.nine);
+        return getEvent().getId() == that.getEvent().getId() && flightId == that.flightId && slot == that.slot && Objects.equals(nine, that.nine);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, eventId, courseId, nine, flightId, slot);
+        return Objects.hash(id, getEvent().getId(), courseId, nine, flightId, slot);
     }
 }

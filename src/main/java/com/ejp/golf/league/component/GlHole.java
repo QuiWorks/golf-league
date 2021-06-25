@@ -99,7 +99,7 @@ public class GlHole extends PolymerTemplate<Model>
         getModel().setHandicap(handicap);
     }
 
-    @Synchronize(value = "gl-hole-score-change", property = "score")
+    @Synchronize(value = "gl-hole-score-sync", property = "score")
     public int getScore()
     {
         return getModel().getScore();

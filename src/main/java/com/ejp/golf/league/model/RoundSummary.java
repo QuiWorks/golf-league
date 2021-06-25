@@ -34,7 +34,7 @@ public class RoundSummary {
     }
 
     public int getMatchId() {
-        return round.getMatchId();
+        return round.getEventMatch().getId();
     }
 
     public boolean isHomeTeam() {

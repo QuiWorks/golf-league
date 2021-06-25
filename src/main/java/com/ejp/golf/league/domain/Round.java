@@ -6,7 +6,6 @@ import java.util.*;
 @Entity(name = "round")
 public class Round {
     private int id;
-    private int matchId;
     private int flightId;
     private int slot;
     private String nine;
@@ -15,7 +14,7 @@ public class Round {
     private Date date;
     private Golfer golfer = new Golfer();
     private List<Score> grossScores = new ArrayList<>();
-    private int week;
+    private EventMatch match;
 
     @ManyToOne
     @JoinColumn(name = "golfer_id", referencedColumnName = "id", nullable = false)
@@ -25,6 +24,16 @@ public class Round {
 
     public void setGolfer(Golfer golfer) {
         this.golfer = golfer;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "match_id", referencedColumnName = "id", nullable = false)
+    public EventMatch getEventMatch() {
+        return match;
+    }
+
+    public void setEventMatch(EventMatch match) {
+        this.match = match;
     }
 
     @OneToMany
@@ -48,24 +57,14 @@ public class Round {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "match_id", nullable = false)
-    public int getMatchId() {
-        return matchId;
+    public int matchId()
+    {
+        return match.getId();
     }
 
-    public void setMatchId(int eventId) {
-        this.matchId = eventId;
-    }
-
-    @Basic
-    @Column(name = "week", nullable = false)
-    public int getWeek() {
-        return week;
-    }
-
-    public void setWeek(int week) {
-        this.week = week;
+    public int week()
+    {
+        return match.getEvent().getId();
     }
 
     @Basic
@@ -133,19 +132,19 @@ public class Round {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Round round = (Round) o;
-        return id == round.id && matchId == round.matchId && golfer.getId() == round.getGolfer().getId();
+        return id == round.id && matchId() == round.matchId() && golfer.getId() == round.getGolfer().getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, matchId, golfer.getId());
+        return Objects.hash(id, matchId(), golfer.getId());
     }
 
     @Override
     public String toString() {
         return "Round{" +
                 "id=" + id +
-                ", matchId=" + matchId +
+                ", matchId=" + matchId() +
                 ", flightId=" + flightId +
                 ", slot=" + slot +
                 ", nine='" + nine + '\'' +
