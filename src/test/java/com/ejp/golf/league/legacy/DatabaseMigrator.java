@@ -265,7 +265,8 @@ public class DatabaseMigrator {
         entityManager.persist(golfer);
         entityManager.persist(golferHandicap);
 
-        int teamId = Integer.parseInt(legacyPlayer.getTeam().toString() + legacyPlayer.getFlight().toString());
+        String teamNumber = legacyPlayer.getTeam().toString();
+        int teamId = Integer.parseInt(legacyPlayer.getFlight().toString() + (teamNumber.length() == 1 ? "0" + teamNumber : teamNumber));
         Team team = entityManager.find(Team.class, teamId);
         if (team == null) {
             team = new Team();
@@ -315,12 +316,14 @@ public class DatabaseMigrator {
 
         TeamMatch teamMatch1 = new TeamMatch();
         teamMatch1.setMatchId(eventMatch.getId());
-        teamMatch1.setTeamId(Integer.parseInt(legacyEvent.getTeam1().toString() + legacyEvent.getFlight().toString()));
+        String team1Number = legacyEvent.getTeam1().toString();
+        teamMatch1.setTeamId(Integer.parseInt(legacyEvent.getFlight().toString() + (team1Number.length() == 1 ? "0" + team1Number : team1Number)));
         teamMatch1.setHome(true);
 
         TeamMatch teamMatch2 = new TeamMatch();
         teamMatch2.setMatchId(eventMatch.getId());
-        teamMatch2.setTeamId(Integer.parseInt(legacyEvent.getTeam2().toString() + legacyEvent.getFlight2().toString()));
+        String team2Number = legacyEvent.getTeam2().toString();
+        teamMatch2.setTeamId(Integer.parseInt(legacyEvent.getFlight2().toString() + (team2Number.length() == 1 ? "0" + team2Number : team2Number)));
         teamMatch2.setHome(false);
 
         entityManager.getTransaction().begin();
