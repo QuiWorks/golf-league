@@ -262,24 +262,27 @@ public class DatabaseMigrator {
         golferHandicap.setHandicap(legacyPlayer.getCurrentHdcp());
         golferHandicap.setCreated(created);
 
+        entityManager.persist(golfer);
+        entityManager.persist(golferHandicap);
 
-        Team team = entityManager.find(Team.class, (int) legacyPlayer.getTeam());
+        int teamId = Integer.parseInt(legacyPlayer.getTeam().toString() + legacyPlayer.getFlight().toString());
+        Team team = entityManager.find(Team.class, teamId);
         if (team == null) {
             team = new Team();
-            team.setId(legacyPlayer.getTeam());
+            team.setId(teamId);
+            team.setTeamId(legacyPlayer.getTeam());
             team.setLeagueId(league.getId());
+            team.setFlightId(legacyPlayer.getFlight());
             entityManager.persist(team);
         }
 
-        teamMember.setGolferId(legacyPlayer.getGolfer());
-        teamMember.setTeamId(legacyPlayer.getTeam());
+        if(!legacyPlayer.isSubstitute())
+        {
+            teamMember.setGolferId(legacyPlayer.getGolfer());
+            teamMember.setTeamId(teamId);
+            entityManager.persist(teamMember);
+        }
 
-
-        entityManager.persist(golfer);
-        entityManager.getTransaction().commit();
-        entityManager.getTransaction().begin();
-        entityManager.persist(golferHandicap);
-        entityManager.persist(teamMember);
         entityManager.getTransaction().commit();
     }
 
@@ -312,12 +315,12 @@ public class DatabaseMigrator {
 
         TeamMatch teamMatch1 = new TeamMatch();
         teamMatch1.setMatchId(eventMatch.getId());
-        teamMatch1.setTeamId(legacyEvent.getTeam1());
+        teamMatch1.setTeamId(Integer.parseInt(legacyEvent.getTeam1().toString() + legacyEvent.getFlight().toString()));
         teamMatch1.setHome(true);
 
         TeamMatch teamMatch2 = new TeamMatch();
         teamMatch2.setMatchId(eventMatch.getId());
-        teamMatch2.setTeamId(legacyEvent.getTeam2());
+        teamMatch2.setTeamId(Integer.parseInt(legacyEvent.getTeam2().toString() + legacyEvent.getFlight2().toString()));
         teamMatch2.setHome(false);
 
         entityManager.getTransaction().begin();

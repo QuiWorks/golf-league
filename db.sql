@@ -41,11 +41,14 @@ CREATE TABLE league
 CREATE TABLE team
 (
     id          int auto_increment not null,
+    team_id     int not null,
     league_id   int not null,
+    flight_id   int not null,
     name        varchar(128),
     description varchar(128),
     primary key (id),
-    FOREIGN KEY (league_id) REFERENCES league (id)
+    FOREIGN KEY (league_id) REFERENCES league (id),
+    UNIQUE (team_id, league_id, flight_id)
 );
 
 CREATE TABLE team_member

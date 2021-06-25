@@ -8,6 +8,8 @@ import java.util.Objects;
 public class Team {
     private int id;
     private int leagueId;
+    private int teamId;
+    private int flightId;
     private String name;
     private String description;
     private List<Golfer> golferList;
@@ -24,6 +26,16 @@ public class Team {
     }
 
     @Basic
+    @Column(name = "team_id", nullable = false)
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    @Basic
     @Column(name = "league_id", nullable = false)
     public int getLeagueId() {
         return leagueId;
@@ -31,6 +43,16 @@ public class Team {
 
     public void setLeagueId(int leagueId) {
         this.leagueId = leagueId;
+    }
+
+    @Basic
+    @Column(name = "flight_id", nullable = false)
+    public int getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
     }
 
     @Basic
