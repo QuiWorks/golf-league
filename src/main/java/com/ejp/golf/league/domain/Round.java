@@ -64,7 +64,7 @@ public class Round {
 
     public int week()
     {
-        return match.getEvent().getId();
+        return match.getEvent().getWeek();
     }
 
     @Basic
