@@ -72,9 +72,11 @@ export class GlCard extends LitElement {
 
     static get properties() {
         return {
+            match: {type: Number},
             week: {type: Number},
             nine: {type: String},
             flight: {type: Number},
+            slott: {type: Number},
             team: {type: Number},
             date: {type: Date},
             comment: {type: String},
@@ -84,8 +86,10 @@ export class GlCard extends LitElement {
 
     constructor() {
         super();
+        this.match = 0;
         this.week = 1;
         this.flight = 1;
+        this.slott = 1;
         this.team = 1;
         this.date = new Date();
         this.nine = "";
@@ -104,6 +108,7 @@ export class GlCard extends LitElement {
 
     firstUpdated(_changedProperties) {
         super.firstUpdated(_changedProperties);
+        this.querySelectorAll("gl-golfer").forEach(golfer => this.golferScores.push([golfer.golfer,0,0,0,0,0,0,0,0,0]))
         this.shadowRoot.querySelector("#weeks").items = this.weeks;
         this.shadowRoot.querySelector("#flights").items = this.flights;
         this.shadowRoot.querySelector("#teams").items = this.teams;
@@ -164,13 +169,15 @@ export class GlCard extends LitElement {
 
     _getCardData() {
         return {
+            match: this.match,
             week: this.week,
             flight: this.flight,
+            slott: this.slott,
             team: this.team,
             nine: this.nine,
             date: this.date,
             comment: this.comment,
-            scores: this.golferScores
+            scores: JSON.stringify(this.golferScores)
         };
     }
 

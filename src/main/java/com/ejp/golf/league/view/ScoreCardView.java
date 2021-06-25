@@ -1,13 +1,24 @@
 package com.ejp.golf.league.view;
 
 import com.ejp.golf.league.component.*;
+import com.ejp.golf.league.domain.Golfer;
+import com.ejp.golf.league.domain.Hole;
+import com.ejp.golf.league.domain.Round;
+import com.ejp.golf.league.domain.Score;
 import com.ejp.golf.league.event.GlCardRequest;
 import com.ejp.golf.league.event.GlCardSubmission;
 import com.ejp.golf.league.layout.MainLayout;
 import com.ejp.golf.league.service.ScoreCardService;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * A sample Vaadin view class.
@@ -32,7 +43,6 @@ public class ScoreCardView extends VerticalLayout {
      * Construct a new Vaadin view.
      * <p>
      * Build the initial UI state for the user accessing the application.
-     *
      */
     public ScoreCardView() {
         addClassName("centered-content");
@@ -48,6 +58,35 @@ public class ScoreCardView extends VerticalLayout {
         GlCard source = event.getSource();
         int flight = event.getFlight();
         System.out.println(flight);
+        event.getScores().forEach((key, value) -> {
+            Round round = new Round();
+            Golfer golfer = new Golfer();
+            golfer.setId(key);
+            round.setGolfer(golfer);
+            round.setSlot(event.getSlot());
+            round.setFlightId(event.getFlight());
+//            round.setHandicap();
+            round.setNine(event.getNine());
+            round.setDatePlayed(new Date());
+            round.setMatchId(event.getMatch());
+
+            Round savedRound = scoreCardService.saveRound(round);
+
+            int start = event.getNine().equals("front")? 1 : 10;
+            int end = event.getNine().equals("front")? 10 : 19;
+
+            IntStream.range(start, end)
+                    .mapToObj(holeNum -> {
+                        int index = event.getNine().equals("front") ? holeNum - 1 : holeNum - 10;
+                        Score score = new Score();
+                        score.setScore(value[index]);
+                        score.setRound(savedRound);
+                        Hole hole = new Hole();
+                        hole.setHoleNumber(holeNum);
+                        score.setHole(hole);
+                        return score;
+                    }).forEach(scoreCardService::saveScore);
+        });
     }
 
     private void handleScoreCardRequest(GlCardRequest event) {

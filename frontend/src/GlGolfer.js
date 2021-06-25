@@ -67,6 +67,7 @@ export class GlGolfer extends LitElement {
 
     static get properties() {
         return {
+            golfer: {type: Number},
             team: {type: Number},
             handicap: {type: Number},
             name: {type: String},
@@ -77,6 +78,7 @@ export class GlGolfer extends LitElement {
 
     constructor() {
         super();
+        this.golfer = 0;
         this.team = 0;
         this.handicap = 0;
         this.name = "";
@@ -92,8 +94,8 @@ export class GlGolfer extends LitElement {
 
     firstUpdated(_changedProperties) {
         super.firstUpdated(_changedProperties);
+        let parent = this.shadowRoot.querySelector("div");
         if(this.inline) {
-            let parent = this.shadowRoot.querySelector("div");
             parent.classList.remove("column");
             parent.classList.add("row");
         }else{
@@ -111,6 +113,7 @@ export class GlGolfer extends LitElement {
 
     _getGolferData() {
         return {
+            golfer: this.golfer,
             team: this.team,
             name: this.name,
             handicap: this.handicap,

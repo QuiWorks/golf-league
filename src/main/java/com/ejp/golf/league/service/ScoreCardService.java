@@ -35,6 +35,24 @@ public class ScoreCardService implements Serializable {
         entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
     }
 
+    public Round saveRound(Round round)
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(round);
+        entityManager.getTransaction().commit();
+        return round;
+    }
+
+    public Score saveScore(Score score)
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(score);
+        entityManager.getTransaction().commit();
+        return score;
+    }
+
     public int getCurrentWeek() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         TypedQuery<Integer> query = entityManager.createQuery(
@@ -86,6 +104,7 @@ public class ScoreCardService implements Serializable {
         List<GlGolfer> golferList = new ArrayList<>();
         teamList.forEach(team -> team.getGolferList().forEach(golfer -> {
             GlGolfer glGolfer = new GlGolfer();
+            glGolfer.setGolfer(golfer.getId());
             glGolfer.setName(golfer.fullName());
             glGolfer.setTeam(team.getTeamId());
             glGolfer.setHandicap(entityManager.createQuery(
@@ -103,6 +122,8 @@ public class ScoreCardService implements Serializable {
         }));
 
         GlCard glCard = new GlCard();
+        glCard.setMatch(match.getId());
+        glCard.setSlott(match.getSlot());
         glCard.setTeam(teamNumber);
         glCard.setFlight(flight);
         glCard.setWeek(week);

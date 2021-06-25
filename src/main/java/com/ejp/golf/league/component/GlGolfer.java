@@ -36,6 +36,8 @@ public class GlGolfer extends PolymerTemplate<Model>
 {
     public interface Model extends TemplateModel
 	{
+        void setGolfer(int golfer);
+        int getGolfer();
         void setTeam(int team);
         int getTeam();
         void setHandicap(int handicap);
@@ -49,6 +51,16 @@ public class GlGolfer extends PolymerTemplate<Model>
     }
 
     public GlGolfer() {
+    }
+
+    public int getGolfer()
+    {
+        return getModel().getGolfer();
+    }
+
+    public void setGolfer(int golfer)
+    {
+        getModel().setGolfer(golfer);
     }
 
     public int getTeam()
