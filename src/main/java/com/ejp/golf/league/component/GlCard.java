@@ -15,18 +15,16 @@
  */
 package com.ejp.golf.league.component;
 
-import java.util.Date;
-
 import com.ejp.golf.league.component.GlCard.Model;
 import com.ejp.golf.league.event.GlCardRequest;
 import com.ejp.golf.league.event.GlCardSubmission;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.Synchronize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.shared.Registration;
 import com.vaadin.flow.spring.annotation.SpringComponent;
-import com.vaadin.flow.templatemodel.Encode;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -47,10 +45,12 @@ public class GlCard extends PolymerTemplate<Model>
      */
     public interface Model extends TemplateModel
 	{
+        void setWeek(int week);
+        int getWeek();
         void setFlight(int flight);
         int getFlight();
-        void setSlot(int slot);
-        int getSlot();
+        void setTeam(int team);
+        int getTeam();
         void setNine(String nine);
         String getNine();
         void setComment(String nine);
@@ -72,6 +72,7 @@ public class GlCard extends PolymerTemplate<Model>
         return addListener(GlCardSubmission.class, listener);
     }
 
+    @Synchronize(value = "gl-card-week-changed", property = "week")
     public int getFlight()
     {
         return getModel().getFlight();
@@ -82,14 +83,26 @@ public class GlCard extends PolymerTemplate<Model>
         getModel().setFlight(flight);
     }
 
-    public int getSlot()
+    @Synchronize(value = "gl-card-flight-changed", property = "flight")
+    public int getWeek()
     {
-        return getModel().getSlot();
+        return getModel().getWeek();
     }
 
-    public void setSlot(int slot)
+    public void setWeek(int week)
     {
-        getModel().setSlot(slot);
+        getModel().setWeek(week);
+    }
+
+    @Synchronize(value = "gl-card-team-changed", property = "team")
+    public int getTeam()
+    {
+        return getModel().getTeam();
+    }
+
+    public void setTeam(int team)
+    {
+        getModel().setTeam(team);
     }
 
     public String getNine()

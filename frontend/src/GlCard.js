@@ -69,9 +69,10 @@ export class GlCard extends LitElement {
 
     static get properties() {
         return {
+            week: {type: Number},
             nine: {type: String},
             flight: {type: Number},
-            slott: {type: Number},
+            team: {type: Number},
             date: {type: Date},
             comment: {type: String},
             noComment: {type: Boolean}
@@ -80,18 +81,29 @@ export class GlCard extends LitElement {
 
     constructor() {
         super();
-        this.flight = 0;
-        this.slott = 0;
+        this.week = 1;
+        this.flight = 1;
+        this.team = 1;
         this.date = new Date();
         this.nine = "";
         this.comment = "";
         this.golferScores = [];
         this.noComment = false;
+        this.weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+        this.flights = [1,2,3,4];
+        this.teams = [1,2,3,4,5,6,7,8,9,10,11,12];
     }
 
     connectedCallback() {
         super.connectedCallback();
         this.addEventListener("gl-golfer-score-change", this._onGolferScoreChange.bind(this));
+    }
+
+    firstUpdated(_changedProperties) {
+        super.firstUpdated(_changedProperties);
+        this.shadowRoot.querySelector("#weeks").items = this.weeks;
+        this.shadowRoot.querySelector("#flights").items = this.flights;
+        this.shadowRoot.querySelector("#teams").items = this.teams;
     }
 
     _onGolferScoreChange(e) {
@@ -123,7 +135,7 @@ export class GlCard extends LitElement {
     {
         if(this.goodEvent(e)){
             this.week = e.target.value;
-            this.dispatchEvent(new CustomEvent("gl-report-week-changed", {
+            this.dispatchEvent(new CustomEvent("gl-card-week-changed", {
                 detail: {value: this.week}, bubbles: true, composed: true
             }));
         }
@@ -133,18 +145,18 @@ export class GlCard extends LitElement {
     {
         if(this.goodEvent(e)){
             this.flight = e.target.value;
-            this.dispatchEvent(new CustomEvent("gl-report-flight-changed", {
+            this.dispatchEvent(new CustomEvent("gl-card-flight-changed", {
                 detail: {value: this.flight}, bubbles: true, composed: true
             }));
         }
     }
 
-    _onSlottChanged(e)
+    _onTeamChanged(e)
     {
         if(this.goodEvent(e)){
-            this.slott = e.target.value;
-            this.dispatchEvent(new CustomEvent("gl-report-slott-changed", {
-                detail: {value: this.slott}, bubbles: true, composed: true
+            this.team = e.target.value;
+            this.dispatchEvent(new CustomEvent("gl-card-team-changed", {
+                detail: {value: this.team}, bubbles: true, composed: true
             }));
         }
     }
@@ -156,10 +168,15 @@ export class GlCard extends LitElement {
         }));
     }
 
+    goodEvent(e) {
+        return (e.target.value !== null) && (typeof e.target.value == "string");
+    }
+
     _getCardData() {
         return {
+            week: this.week,
             flight: this.flight,
-            slott: this.slott,
+            team: this.team,
             nine: this.nine,
             date: this.date,
             comment: this.comment,
@@ -185,7 +202,7 @@ export class GlCard extends LitElement {
                         <vaadin-combo-box id="flights" name="flight" label="flight" value="${this.flight}" @change="${this._onFlightChanged}"></vaadin-combo-box>
                     </div>
                     <div class="card-info">
-                        <vaadin-combo-box id="slotts" name="slott" label="slot" value="${this.slott}" @change="${this._onSlottChanged}"></vaadin-combo-box>
+                        <vaadin-combo-box id="teams" name="team" label="Team" value="${this.team}" @change="${this._onTeamChanged}"></vaadin-combo-box>
                     </div>
                     <div class="card-info search">
                         <vaadin-button @click="${this.search}">search</vaadin-button>

@@ -56,7 +56,8 @@ public class MainView extends VerticalLayout {
 
         final GlCard glCard = new GlCard();
         glCard.setFlight(6);
-        glCard.setSlot(1);
+        glCard.setTeam(9);
+//        glCard.setSlot(1);
         glCard.setNine("Back");
         //TODO handle dates.
 //        glCard.setDate(new Date());

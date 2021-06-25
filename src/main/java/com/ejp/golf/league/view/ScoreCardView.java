@@ -8,9 +8,6 @@ import com.ejp.golf.league.service.ScoreCardService;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
-
-import java.util.stream.IntStream;
 
 /**
  * A sample Vaadin view class.
@@ -58,7 +55,7 @@ public class ScoreCardView extends VerticalLayout {
         GlCard card = event.getSource();
         int week = event.getWeek();
         int flight = event.getFlight();
-        int slot = event.getSlot();
+        int slot = event.getTeam();
         GlCard requestCard = scoreCardService.getScoreCard(week, flight, slot);
         requestCard.addCardRequestListener(this::handleScoreCardRequest);
         remove(card);

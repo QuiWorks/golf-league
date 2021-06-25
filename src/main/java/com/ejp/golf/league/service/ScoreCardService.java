@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,6 @@ import java.util.stream.Collectors;
 @Service
 public class ScoreCardService implements Serializable {
 
-    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     private final EntityManagerFactory entityManagerFactory;
     //TODO remove hard coding.
     public final League league = new League().build(l -> l
@@ -35,8 +35,7 @@ public class ScoreCardService implements Serializable {
         entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
     }
 
-    public int getCurrentWeek()
-    {
+    public int getCurrentWeek() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         TypedQuery<Integer> query = entityManager.createQuery(
                 "SELECT e.week FROM event e " +
@@ -49,25 +48,70 @@ public class ScoreCardService implements Serializable {
         return query.getResultList().stream().sorted().findFirst().orElse(1);
     }
 
-    public GlCard getScoreCard(int week, int flight, int slot)
-    {
+    public GlCard getScoreCard(int week, int flight, int teamId) {
+        if (String.valueOf(teamId).length() == 1) {
+            teamId = Integer.parseInt(flight + "0" + teamId);
+        } else {
+            teamId = Integer.parseInt(String.valueOf(flight) + teamId);
+        }
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         TypedQuery<EventMatch> query = entityManager.createQuery(
                 "SELECT em FROM event_match em " +
                         "JOIN event e ON em.eventId = e.id " +
+                        "JOIN team_match tm ON em.id = tm.matchId " +
                         "JOIN season s ON e.seasonId = s.id " +
                         "WHERE s.leagueId = :leagueId" +
                         " AND e.week = :week" +
-                        " AND em.flightId = :flight"+
-                        " AND em.slot = :slot",
+                        " AND em.flightId = :flight" +
+                        " AND tm.teamId = :team",
                 EventMatch.class);
         query.setParameter("leagueId", league.getId());
         query.setParameter("week", week);
         query.setParameter("flight", flight);
-        query.setParameter("slot", slot);
+        query.setParameter("team", teamId);
         List<EventMatch> eventMatches = query.getResultList();
+        EventMatch match = eventMatches.get(0);
+
+        TypedQuery<Hole> holeQuery = entityManager.createQuery(
+                "SELECT h FROM hole h " +
+                        "WHERE h.courseId = :courseId" +
+                        " AND h.nineName = :nine",
+                Hole.class);
+        holeQuery.setParameter("courseId", match.getCourseId());
+        holeQuery.setParameter("nine", match.getNine());
+        List<Hole> holeResultList = holeQuery.getResultList();
+        List<Team> teamList = match.getTeamList();
+
+        List<GlGolfer> golferList = new ArrayList<>();
+        teamList.forEach(team -> team.getGolferList().forEach(golfer -> {
+            GlGolfer glGolfer = new GlGolfer();
+            glGolfer.setName(golfer.fullName());
+            glGolfer.setTeam(team.getTeamId());
+            glGolfer.setHandicap(entityManager.createQuery(
+                    "SELECT gh.handicap FROM golfer_handicap gh " +
+                            "WHERE gh.golferId = " + golfer.getId(),
+                    Integer.class).getResultList().get(0));
+            GlRound glRound = new GlRound();
+            holeResultList.forEach(hole -> {
+                GlHole glHole = new GlHole(hole.getHoleNumber(), hole.getPar(), hole.getYardage(), hole.getHandicap());
+                glHole.getElement().setAttribute("slot", "hole" + (hole.getHoleNumber() > 9 ? hole.getHoleNumber() - 9 : hole.getHoleNumber()));
+                glRound.getElement().appendChild(glHole.getElement());
+            });
+            glGolfer.getElement().appendChild(glRound.getElement());
+            golferList.add(glGolfer);
+        }));
+
+        GlCard glCard = new GlCard();
+        glCard.setTeam(teamId);
+        glCard.setFlight(flight);
+        glCard.setWeek(week);
+        glCard.setNine(match.getNine());
+
+        golferList.forEach(golfer -> glCard.getElement().appendChild(golfer.getElement()));
+
+
         entityManager.close();
-        return null;
+        return glCard;
     }
 
     public GlReport getScoreCardSummary() {

@@ -55,6 +55,14 @@ public class GlHole extends PolymerTemplate<Model>
     public GlHole() {
     }
 
+    public GlHole(int number, int par, int yardage, int handicap)
+    {
+        getModel().setNumber(number);
+        getModel().setPar(par);
+        getModel().setYardage(yardage);
+        getModel().setHandicap(handicap);
+    }
+
     public int getNumber()
     {
         return getModel().getNumber();
