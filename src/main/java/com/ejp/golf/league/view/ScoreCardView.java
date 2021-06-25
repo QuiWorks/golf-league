@@ -65,7 +65,7 @@ public class ScoreCardView extends VerticalLayout {
             round.setGolfer(golfer);
             round.setSlot(event.getSlot());
             round.setFlightId(event.getFlight());
-//            round.setHandicap();
+            round.setHandicap(2); //TODO Actually get handicap
             round.setNine(event.getNine());
             round.setDatePlayed(new Date());
             round.setMatchId(event.getMatch());
@@ -82,7 +82,7 @@ public class ScoreCardView extends VerticalLayout {
                         score.setScore(value[index]);
                         score.setRound(savedRound);
                         Hole hole = new Hole();
-                        hole.setHoleNumber(holeNum);
+                        hole.setId(holeNum);
                         score.setHole(hole);
                         return score;
                     }).forEach(scoreCardService::saveScore);

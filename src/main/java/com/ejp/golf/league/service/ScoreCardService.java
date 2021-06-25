@@ -67,8 +67,8 @@ public class ScoreCardService implements Serializable {
     }
 
     public GlCard getScoreCard(int week, int flight, int teamNumber) {
-        int teamId = 0;
-        if (String.valueOf(teamId).length() == 1) {
+        int teamId;
+        if (String.valueOf(teamNumber).length() == 1) {
             teamId = Integer.parseInt(flight + "0" + teamNumber);
         } else {
             teamId = Integer.parseInt(String.valueOf(flight) + teamNumber);
