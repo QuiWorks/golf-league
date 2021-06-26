@@ -11,6 +11,7 @@ export class GlGolfer extends LitElement {
         return css`
         :host {
           font-size: 12pt;
+          --lumo-disabled-text-color: var(--lumo-contrast-70pct);
         }
         
         .column {
@@ -95,10 +96,10 @@ export class GlGolfer extends LitElement {
     firstUpdated(_changedProperties) {
         super.firstUpdated(_changedProperties);
         let parent = this.shadowRoot.querySelector("div");
-        if(this.inline) {
+        if (this.inline) {
             parent.classList.remove("column");
             parent.classList.add("row");
-        }else{
+        } else {
             parent.classList.remove("row");
             parent.classList.add("column");
         }
@@ -126,13 +127,14 @@ export class GlGolfer extends LitElement {
             <div>
                 <div class="golfer-container">
                     <div class="golfer-info">
-                        <vaadin-number-field name="team" label="team #" value="${this.team}"></vaadin-number-field>
+                        <vaadin-number-field name="team" label="team #" value="${this.team}" disabled></vaadin-number-field>
                     </div>
                     <div class="golfer-info">
-                        <vaadin-text-field name="name" label="name" value="${this.name}"></vaadin-text-field>
+                        <vaadin-text-field name="name" label="name" value="${this.name}" disabled></vaadin-text-field>
                     </div>
                     <div class="golfer-info">
-                        <vaadin-number-field name="handicap" label="hdcp" value="${this.handicap}"></vaadin-number-field>
+                        <vaadin-number-field name="handicap" label="hdcp"
+                                             value="${this.handicap}" disabled></vaadin-number-field>
                     </div>
                 </div>
                 <div class="column">
