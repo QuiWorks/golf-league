@@ -12,12 +12,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -228,10 +224,11 @@ public class ScoreCardService implements Serializable {
                         glRound.setTeamNet((int) roundSummary.getTeamNet());
 
                         roundSummary.getGrossScores().stream()
-                                .map(grossScore -> toComponent(grossScore, "grossScore"))
+                                .sorted(Comparator.comparing(score -> score.getHole().getHoleNumber()))
+                                .map(grossScore -> toComponent(grossScore, "grossScore", false))
                                 .forEach(score -> glRound.getElement().appendChild(score.getElement()));
                         roundSummary.getNetScores().stream()
-                                .map(netScore -> toComponent(netScore, "netScore"))
+                                .map(netScore -> toComponent(netScore, "netScore", true))
                                 .forEach(score -> glRound.getElement().appendChild(score.getElement()));
 
                         glGolfer.getElement().appendChild(glRound.getElement());
@@ -242,13 +239,15 @@ public class ScoreCardService implements Serializable {
         return glReport;
     }
 
-    private GlScore toComponent(Score score, String slot) {
-        int num = score.getHole().getHoleNumber() > 9 ? 18 - score.getHole().getHoleNumber() : score.getHole().getHoleNumber();
+    private GlScore toComponent(Score score, String slot, boolean isNetScore) {
+        int num = score.getHole().getHoleNumber() > 9 ? score.getHole().getHoleNumber() - 9 : score.getHole().getHoleNumber();
         final GlScore glScore = new GlScore();
         glScore.setNumber(score.getHole().getHoleNumber());
         glScore.setPar(score.getHole().getPar());
         glScore.setHandicap(score.getRound().getHandicap());
         glScore.setScore(score.getScore());
+        glScore.setNet(isNetScore);
+        glScore.setWin(score.isWin());
         glScore.getElement().setAttribute("slot", slot + num);
         return glScore;
     }

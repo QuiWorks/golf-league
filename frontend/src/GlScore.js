@@ -27,7 +27,9 @@ export class GlScore extends LitElement {
             par: {type: Number},
             playerHandicap: {type: Number},
             holeHandicap: {type: Number},
-            score: {type: Number}
+            score: {type: Number},
+            win: {type: Boolean},
+            net: {type: Boolean}
         };
     }
 
@@ -38,6 +40,8 @@ export class GlScore extends LitElement {
         this.playerHandicap = 0;
         this.holeHandicap = 0;
         this.score = 0;
+        this.win = false;
+        this.net = false;
     }
 
     firstUpdated(_changedProperties) {
@@ -56,16 +60,25 @@ export class GlScore extends LitElement {
 
     setBackgroundColor(score, par) {
         const displayField = this.shadowRoot.querySelector(".display-field");
-        if (score === par - 2) {
-            displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-50pct)");
-        } else if (score === par - 1) {
-            displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-10pct)");
-        } else if (score === par) {
-            displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-10pct)");
-        } else if (score === par + 1) {
-            displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-30pct)");
-        } else {
-            displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-50pct)");
+        if(!this.net){
+            if (score <= par - 2) {
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-50pct)");
+            } else if (score === par - 1) {
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-10pct)");
+            } else if (score === par) {
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-10pct)");
+            } else if (score === par + 1) {
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-30pct)");
+            } else {
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-50pct)");
+            }
+        }else{
+            if(this.win)
+            {
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-50pct)");
+            }else{
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-shade-10pct)");
+            }
         }
     }
 }

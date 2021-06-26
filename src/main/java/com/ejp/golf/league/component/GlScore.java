@@ -47,6 +47,10 @@ public class GlScore extends PolymerTemplate<GlScore.Model>
         int getHandicap();
         void setScore(int score);
         int getScore();
+        void setWin(boolean win);
+        boolean isWin();
+        void setNet(boolean net);
+        boolean isNet();
     }
 
     public GlScore() {
@@ -90,5 +94,25 @@ public class GlScore extends PolymerTemplate<GlScore.Model>
     public void setScore(int score)
     {
         getModel().setScore(score);
+    }
+
+    public boolean isWin()
+    {
+        return getModel().isWin();
+    }
+
+    public void setWin(boolean win)
+    {
+        getModel().setWin(win);
+    }
+
+    public boolean isNet()
+    {
+        return getModel().isNet();
+    }
+
+    public void setNet(boolean net)
+    {
+        getModel().setNet(net);
     }
 }
