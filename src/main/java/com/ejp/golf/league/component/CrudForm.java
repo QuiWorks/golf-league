@@ -59,7 +59,7 @@ public abstract class CrudForm<E> extends FormLayout {
         return buttons;
     }
 
-    private void save() {
+    protected void save() {
         E entity = getBinder().getBean();
         if(newInstance){
             service.save(entity);
