@@ -20,6 +20,7 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  border-bottom: 1px solid green;
 }
 
 .sideDrawerContainer {
@@ -34,6 +35,11 @@
   color:green;
   font-weight: bold;
 }
+
+vaadin-app-layout::part(drawer) {
+  background-image: url("images/golfbackground.jpg");
+}
+
 
 :root {
   --lumo-primary-color:green;

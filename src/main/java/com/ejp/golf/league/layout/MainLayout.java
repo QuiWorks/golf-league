@@ -1,12 +1,9 @@
 package com.ejp.golf.league.layout;
 
-import com.ejp.golf.league.component.GlReport;
-import com.ejp.golf.league.event.GlRequestSubmission;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Header;
@@ -40,7 +37,7 @@ public class MainLayout extends AppLayout
 		final Anchor logout = new Anchor("/logout", "Log out");
 
 		final Div container;
-		if(SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_USER")))
+		if(isAdmin())
 		{
 			container = new Div(index, leagueNotes, scoreCard, summaries, eventCrud, golferCrud, holeCrud, logout);
 		}else{
@@ -50,39 +47,20 @@ public class MainLayout extends AppLayout
 		return container;
 	}
 
+	private boolean isAdmin() {
+		return SecurityContextHolder.getContext()
+				.getAuthentication().getAuthorities().stream()
+				.anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_USER"));
+	}
+
 	private Component getNavBarContent(String leagueName)
 	{
-		final Dialog applicationDialog = createApplicationDialog();
 		final Button sideDrawerToggleButton = createSideDrawerToggleButton();
 		final Component title = createTitle(leagueName);
 		title.getElement().getClassList().add("title");
-		final Button applicationMenuButton = createApplicationMenuButton(applicationDialog);
-		final Div container = new Div(sideDrawerToggleButton, title, applicationDialog,
-			applicationMenuButton);
+		final Div container = new Div(sideDrawerToggleButton, title, new Div());
 		container.setClassName("navBarContainer");
 		return container;
-	}
-
-	private Dialog createApplicationDialog()
-	{
-		final Div container = new Div();
-		container.setClassName("column");
-		container.add(createTitle("Find Match"));
-		GlReport glReport = new GlReport();
-		glReport.addRequestSubmissionListener(this::handleRequestSubmission);
-		container.add(glReport);
-		return new Dialog(container);
-	}
-
-	private void handleRequestSubmission(GlRequestSubmission glRequestSubmission) {
-
-	}
-
-	private Button createApplicationMenuButton(Dialog applicationDialog)
-	{
-		final Button appMenuButton = new Button(new Icon(VaadinIcon.GOLF));
-		appMenuButton.addClickListener(event -> applicationDialog.open());
-		return appMenuButton;
 	}
 
 	private Component createTitle(String title)
@@ -94,7 +72,7 @@ public class MainLayout extends AppLayout
 
 	private Button createSideDrawerToggleButton()
 	{
-		final Button drawerToggle = new Button(new Icon(VaadinIcon.CHART_GRID));
+		final Button drawerToggle = new Button(new Icon(VaadinIcon.GOLF));
 		drawerToggle.addClickListener(event -> setDrawerOpened(!isDrawerOpened()));
 		return drawerToggle;
 	}
