@@ -9,6 +9,11 @@
   margin: 0 auto;
 }
 
+body{
+  background-color: linen;
+}
+
+
 .column {
   display: flex;
   flex-direction: column;
