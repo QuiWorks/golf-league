@@ -1,9 +1,6 @@
 package com.ejp.golf.league.view;
 
-import com.ejp.golf.league.component.GlCard;
-import com.ejp.golf.league.component.GlGolfer;
-import com.ejp.golf.league.component.GlHole;
-import com.ejp.golf.league.component.GlRound;
+
 import com.ejp.golf.league.layout.MainLayout;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Anchor;
@@ -11,8 +8,6 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
-
-import java.util.stream.IntStream;
 
 /**
  * A sample Vaadin view class.
