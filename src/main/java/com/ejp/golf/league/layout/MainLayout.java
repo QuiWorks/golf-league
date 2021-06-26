@@ -35,7 +35,9 @@ public class MainLayout extends AppLayout
 		final Anchor leagueNotes = new Anchor("/", "League Notes");
 		final Anchor scoreCard = new Anchor("/scorecard", "Score Card");
 		final Anchor summaries = new Anchor("/summary", "Score Card Summaries");
-		final Div container = new Div(index, leagueNotes, scoreCard, summaries);
+		final Anchor login = new Anchor("login", "Log in");
+		final Anchor logout = new Anchor("logout", "Log out");
+		final Div container = new Div(index, leagueNotes, scoreCard, summaries, login, logout);
 		container.setClassName("sideDrawerContainer");
 		return container;
 	}
