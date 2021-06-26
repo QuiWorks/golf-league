@@ -28,6 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 .requestMatchers(SecurityUtils::isFrameworkInternalRequest).permitAll()
                 .antMatchers("/","/scorecard","/summary").anonymous()
+                .antMatchers("/","/scorecard","/summary").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin()
                 .loginPage(LOGIN_URL).permitAll()
