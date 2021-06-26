@@ -5,6 +5,11 @@ import java.util.Objects;
 
 @Entity(name = "event_type")
 public class EventType {
+
+    public enum Value {
+        LEAGUE, PLAYOFF
+    }
+
     private String name;
     private String description;
 
