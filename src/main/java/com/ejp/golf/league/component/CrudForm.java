@@ -52,10 +52,12 @@ public abstract class CrudForm<E> extends FormLayout {
     private HorizontalLayout getButtons() {
         Button save = new Button("Save");
         Button delete = new Button("Delete");
-        HorizontalLayout buttons = new HorizontalLayout(save, delete);
+        Button close = new Button("Close");
+        HorizontalLayout buttons = new HorizontalLayout(save, delete, close);
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         save.addClickListener(event -> save());
         delete.addClickListener(event -> delete());
+        close.addClickListener(event -> setVisible(false));
         return buttons;
     }
 
