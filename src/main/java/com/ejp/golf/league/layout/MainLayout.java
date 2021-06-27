@@ -24,7 +24,6 @@ public class MainLayout extends AppLayout
 
 	private Component getSideDrawerContent()
 	{
-		final Header index = new Header(new Label("Index"));
 		final Anchor leagueNotes = new Anchor("/", "League Notes");
 		final Anchor scoreCard = new Anchor("/scorecard", "Score Card");
 		final Anchor summaries = new Anchor("/summary", "Score Card Summaries");
@@ -39,9 +38,9 @@ public class MainLayout extends AppLayout
 		final Div container;
 		if(isAdmin())
 		{
-			container = new Div(index, leagueNotes, scoreCard, summaries, eventCrud, golferCrud, holeCrud, logout);
+			container = new Div(leagueNotes, scoreCard, summaries, eventCrud, golferCrud, holeCrud, logout);
 		}else{
-			container = new Div(index, leagueNotes, scoreCard, summaries, login);
+			container = new Div(leagueNotes, scoreCard, summaries, login);
 		}
 		container.setClassName("sideDrawerContainer");
 		return container;
