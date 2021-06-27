@@ -204,7 +204,7 @@ public class ScoreCardService implements Serializable {
         });
         scoreCardSummaries.forEach(scoreCardSummary -> {
             Div matchContainer = new Div();
-            matchContainer.getElement().getStyle().set("border-bottom", "1px solid green");
+            matchContainer.getElement().getStyle().set("border-bottom", "1px solid #335533");
             scoreCardSummary.getAll().stream()
                     .filter(roundSummary -> !roundSummary.getGolfer().getLastName().equals("Dummy"))
                     .forEach(roundSummary -> {

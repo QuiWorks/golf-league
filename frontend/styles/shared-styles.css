@@ -9,11 +9,6 @@
   margin: 0 auto;
 }
 
-body{
-  background-color: linen;
-}
-
-
 .column {
   display: flex;
   flex-direction: column;
@@ -25,7 +20,7 @@ body{
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  border-bottom: 1px solid green;
+  background-color: var(--lumo-primary-color);
 }
 
 .sideDrawerContainer {
@@ -36,8 +31,14 @@ body{
   margin: 1em;
 }
 
+.drawer-toggle {
+  color: white;
+  background-color: var(--lumo-primary-color-10pct);
+  border: 1px solid white;
+}
+
 .title {
-  color:green;
+  color: white;
   font-weight: bold;
 }
 
@@ -47,8 +48,11 @@ vaadin-app-layout::part(drawer) {
 
 
 :root {
-  --lumo-primary-color:green;
-  --lumo-primary-color-50pct:lightgreen;
-  --lumo-primary-color-100pct: var(--lumo-shade-10pct, lightgray);
+  --lumo-primary-color: #335533;
+  --lumo-primary-color-50pct: #507D50;
+  --lumo-primary-color-10pct: #729D72;
+  --lumo-error-color: #FF0000;
+  --lumo-error-color-50pct: #FF3939;
+  --lumo-error-color-10pct: #FF6464;
 }
 

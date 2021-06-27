@@ -73,6 +73,7 @@ public class MainLayout extends AppLayout
 	private Button createSideDrawerToggleButton()
 	{
 		final Button drawerToggle = new Button(new Icon(VaadinIcon.GOLF));
+		drawerToggle.getElement().getClassList().add("drawer-toggle");
 		drawerToggle.addClickListener(event -> setDrawerOpened(!isDrawerOpened()));
 		return drawerToggle;
 	}

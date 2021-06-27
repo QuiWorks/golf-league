@@ -15,7 +15,7 @@ export class GlRound extends LitElement {
         }
         
         .display-field::part(input-field) {
-            background-color: var(--lumo-primary-color-10pct);
+            background-color: var(--lumo-shade-10pct);
         }
         
         .round-container {

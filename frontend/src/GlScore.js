@@ -62,7 +62,7 @@ export class GlScore extends LitElement {
         const displayField = this.shadowRoot.querySelector(".display-field");
         if(!this.net){
             if (score <= par - 2) {
-                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-50pct)");
+                displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color)");
             } else if (score === par - 1) {
                 displayField.style.setProperty("--gl-score-background-color", "var(--lumo-error-color-10pct)");
             } else if (score === par) {
