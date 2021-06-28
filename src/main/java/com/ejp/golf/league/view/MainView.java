@@ -1,6 +1,7 @@
 package com.ejp.golf.league.view;
 
 
+import com.ejp.golf.league.component.GlFliter;
 import com.ejp.golf.league.layout.MainLayout;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Anchor;
@@ -32,6 +33,15 @@ public class MainView extends VerticalLayout {
     public MainView() {
         addClassName("centered-content");
 
+
+        GlFliter glFliter = new GlFliter();
+        glFliter.setWeek(1);
+        glFliter.setWeeks(19);
+        glFliter.setFlight(1);
+        glFliter.setFlights(4);
+        glFliter.setTeam(1);
+        glFliter.setTeams(19);
+        add(glFliter);
         add(new Label("A prototype for version 2 of the TerritoryGL.com"));
         add(new Anchor("http://www.territorygl.com", "Click here to visit the original site."));
     }

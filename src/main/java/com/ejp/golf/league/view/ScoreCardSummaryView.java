@@ -1,5 +1,6 @@
 package com.ejp.golf.league.view;
 
+import com.ejp.golf.league.component.GlFliter;
 import com.ejp.golf.league.component.GlReport;
 import com.ejp.golf.league.domain.League;
 import com.ejp.golf.league.event.GlRequestSubmission;
@@ -33,6 +34,7 @@ public class ScoreCardSummaryView extends VerticalLayout {
     public final League league = new League().build(l -> l
             .set(l::id, 1)
             .set(l::name, "Territory Wednesday Mens League"));
+    private GlReport glReport;
 
     /**
      * Construct a new Vaadin view.
@@ -42,23 +44,30 @@ public class ScoreCardSummaryView extends VerticalLayout {
      */
     public ScoreCardSummaryView() throws ParseException {
         addClassName("centered-content");
-        GlReport glReport =  new ScoreCardService().getScoreCardSummary(1, 1, 1);
-        glReport.addRequestSubmissionListener(this::handleRequestSubmission);
+        GlFliter glFliter = new GlFliter();
+        glFliter.setWeek(1);
+        glFliter.setWeeks(19);
+        glFliter.setFlight(1);
+        glFliter.setFlights(4);
+        glFliter.setTeam(1);
+        glFliter.setTeams(19);
+        glFliter.addRequestSubmissionListener(this::handleRequestSubmission);
+        glReport =  new ScoreCardService().getScoreCardSummary(1, 1, 1);
         Label label = new Label("Find Match");
         label.getElement().getClassList().add("title");
         add(label);
+        add(glFliter);
         add(glReport);
     }
 
     private void handleRequestSubmission(GlRequestSubmission event) {
-        event.unregisterListener();
-        GlReport report = event.getSource();
         int week = event.getWeek();
         int flight = event.getFlight();
         int team = event.getTeam();
         GlReport requestedReport = new ScoreCardService().getScoreCardSummary(week, flight, team);
         requestedReport.addRequestSubmissionListener(this::handleRequestSubmission);
-        remove(report);
+        remove(this.glReport);
+        this.glReport = requestedReport;
         add(requestedReport);
     }
 
