@@ -70,18 +70,18 @@ export class GlReport extends LitElement {
     constructor() {
         super();
         this.flight = 1;
-        this.slott = 1;
+        this.team = 1;
         this.week = 1;
         this.weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
         this.flights = [1,2,3,4];
-        this.slotts = [1,2,3,4,5,6];
+        this.teams = [1,2,3,4,5,6,7,8,9,10,11,12];
     }
 
     firstUpdated(_changedProperties) {
         super.firstUpdated(_changedProperties);
         this.shadowRoot.querySelector("#weeks").items = this.weeks;
         this.shadowRoot.querySelector("#flights").items = this.flights;
-        this.shadowRoot.querySelector("#slotts").items = this.slotts;
+        this.shadowRoot.querySelector("#teams").items = this.teams;
     }
 
     search() {
@@ -95,7 +95,7 @@ export class GlReport extends LitElement {
         return {
             week: this.week,
             flight: this.flight,
-            slott: this.slott
+            team: this.team
         };
     }
 
@@ -119,12 +119,12 @@ export class GlReport extends LitElement {
         }
     }
 
-    _onSlottChanged(e)
+    _onTeamChanged(e)
     {
         if(this.goodEvent(e)){
-            this.slott = e.target.value;
-            this.dispatchEvent(new CustomEvent("gl-report-slott-changed", {
-                detail: {value: this.slott}, bubbles: true, composed: true
+            this.team = e.target.value;
+            this.dispatchEvent(new CustomEvent("gl-report-team-changed", {
+                detail: {value: this.team}, bubbles: true, composed: true
             }));
         }
     }
@@ -144,7 +144,7 @@ export class GlReport extends LitElement {
                         <vaadin-combo-box id="flights" name="flight" label="flight" value="${this.flight}" @change="${this._onFlightChanged}"></vaadin-combo-box>
                     </div>
                     <div class="report-info">
-                        <vaadin-combo-box id="slotts" name="slott" label="slot" value="${this.slott}" @change="${this._onSlottChanged}"></vaadin-combo-box>
+                        <vaadin-combo-box id="teams" name="team" label="team" value="${this.team}" @change="${this._onTeamChanged}"></vaadin-combo-box>
                     </div>
                     <div class="report-info search">
                         <vaadin-button @click="${this.search}">search</vaadin-button>

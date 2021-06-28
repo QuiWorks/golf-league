@@ -8,16 +8,16 @@ import com.vaadin.flow.component.EventData;
 @DomEvent("gl-request-submission")
 public class GlRequestSubmission extends ComponentEvent<GlReport> {
     private final int flight;
-    private final int slot;
+    private final int team;
     private final int week;
 
     public GlRequestSubmission(GlReport source, boolean fromClient,
                                @EventData("event.detail.flight") int flight,
-                               @EventData("event.detail.slott") int slot,
+                               @EventData("event.detail.team") int team,
                                @EventData("event.detail.week") int week) {
         super(source, fromClient);
         this.flight = flight;
-        this.slot = slot;
+        this.team = team;
         this.week = week;
     }
 
@@ -25,8 +25,8 @@ public class GlRequestSubmission extends ComponentEvent<GlReport> {
         return flight;
     }
 
-    public int getSlot() {
-        return slot;
+    public int getTeam() {
+        return team;
     }
 
     public int getWeek() {

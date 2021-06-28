@@ -48,8 +48,8 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
         int getWeek();
         void setFlight(int flight);
         int getFlight();
-        void setSlott(int slott);
-        int getSlott();
+        void setTeam(int team);
+        int getTeam();
     }
 
     public GlReport() {
@@ -82,14 +82,14 @@ public class GlReport extends PolymerTemplate<GlReport.Model>
         getModel().setFlight(flight);
     }
 
-    @Synchronize(value = "gl-report-slott-changed", property = "slott")
-    public int getSlott()
+    @Synchronize(value = "gl-report-team-changed", property = "team")
+    public int getTeam()
     {
-        return getModel().getSlott();
+        return getModel().getTeam();
     }
 
-    public void setSlott(int slott)
+    public void setTeam(int team)
     {
-        getModel().setSlott(slott);
+        getModel().setTeam(team);
     }
 }

@@ -11,7 +11,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
  * A sample Vaadin view class.
@@ -56,8 +55,8 @@ public class ScoreCardSummaryView extends VerticalLayout {
         GlReport report = event.getSource();
         int week = event.getWeek();
         int flight = event.getFlight();
-        int slot = event.getSlot();
-        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(week, flight, slot);
+        int team = event.getTeam();
+        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(week, flight, team);
         requestedReport.addRequestSubmissionListener(this::handleRequestSubmission);
         remove(report);
         add(requestedReport);
