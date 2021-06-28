@@ -73,7 +73,8 @@ export class GlGolfer extends LitElement {
             handicap: {type: Number},
             name: {type: String},
             sub: {type: Boolean},
-            inline: {type: Boolean}
+            inline: {type: Boolean},
+            hideHdcp: {type: Boolean}
         };
     }
 
@@ -85,6 +86,7 @@ export class GlGolfer extends LitElement {
         this.name = "";
         this.sub = false;
         this.inline = false;
+        this.hideHdcp = false;
     }
 
     connectedCallback() {
@@ -132,10 +134,11 @@ export class GlGolfer extends LitElement {
                     <div class="golfer-info">
                         <vaadin-text-field name="name" label="name" value="${this.name}" disabled></vaadin-text-field>
                     </div>
+                    ${this.hideHdcp ? html``:html`
                     <div class="golfer-info">
                         <vaadin-number-field name="handicap" label="hdcp"
                                              value="${this.handicap}" disabled></vaadin-number-field>
-                    </div>
+                    </div>`}
                 </div>
                 <div class="column">
                     <slot></slot>

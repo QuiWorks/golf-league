@@ -195,6 +195,7 @@ public class ScoreCardService implements Serializable {
                         glGolfer.setSub(false);
                         roundSummary.getGolfer().teamForLeague(league).map(Team::getTeamId).ifPresent(glGolfer::setTeam);
                         glGolfer.setInline(true);
+                        glGolfer.setHideHdcp(true);
 
                         GlRound glRound = new GlRound();
                         glRound.setGrossScore(roundSummary.getGrossScore());

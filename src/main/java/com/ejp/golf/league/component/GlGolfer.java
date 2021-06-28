@@ -48,6 +48,8 @@ public class GlGolfer extends PolymerTemplate<Model>
         boolean isSub();
         void setInline(boolean inline);
         boolean isInline();
+        void setHideHdcp(boolean hide);
+        boolean isHideHdcp();
     }
 
     public GlGolfer() {
@@ -112,4 +114,8 @@ public class GlGolfer extends PolymerTemplate<Model>
     {
         getModel().setInline(inline);
     }
+
+    public boolean isHideHdcp() { return getModel().isHideHdcp();}
+
+    public void setHideHdcp(boolean hide){ getModel().setHideHdcp(hide);}
 }
