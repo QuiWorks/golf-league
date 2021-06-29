@@ -24,9 +24,9 @@ import com.vaadin.flow.server.PWA;
  * browser tab/window.
  */
 @Route(layout = MainLayout.class)
-@PWA(name = "Vaadin Application",
-        shortName = "Vaadin App",
-        description = "This is an example Vaadin application.",
+@PWA(name = "Golf League Application",
+        shortName = "Golf League",
+        description = "Prototype for version 2 of the TerritoryGL.com website.",
         enableInstallPrompt = false)
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
