@@ -47,12 +47,6 @@ public class GlCard extends PolymerTemplate<Model>
 	{
         void setMatch(int match);
         int getMatch();
-        void setWeek(int week);
-        int getWeek();
-        void setSlott(int slott);
-        int getSlott();
-        void setFlight(int flight);
-        int getFlight();
         void setTeam(int team);
         int getTeam();
         void setNine(String nine);
@@ -86,39 +80,6 @@ public class GlCard extends PolymerTemplate<Model>
         getModel().setMatch(match);
     }
 
-    public int getSlott()
-    {
-        return getModel().getSlott();
-    }
-
-    public void setSlott(int slott)
-    {
-        getModel().setSlott(slott);
-    }
-
-    @Synchronize(value = "gl-card-flight-changed", property = "flight")
-    public int getFlight()
-    {
-        return getModel().getFlight();
-    }
-
-    public void setFlight(int flight)
-    {
-        getModel().setFlight(flight);
-    }
-
-    @Synchronize(value = "gl-card-week-changed", property = "week")
-    public int getWeek()
-    {
-        return getModel().getWeek();
-    }
-
-    public void setWeek(int week)
-    {
-        getModel().setWeek(week);
-    }
-
-    @Synchronize(value = "gl-card-team-changed", property = "team")
     public int getTeam()
     {
         return getModel().getTeam();

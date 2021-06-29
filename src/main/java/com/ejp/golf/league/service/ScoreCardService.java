@@ -94,17 +94,17 @@ public class ScoreCardService implements Serializable {
                 glRound.getElement().appendChild(glHole.getElement());
             });
             glGolfer.getElement().appendChild(glRound.getElement());
+            glGolfer.getElement().setAttribute("slot","card");
             golferList.add(glGolfer);
         }));
 
+        GlFliter glFliter = getGlFliter(week, flight, teamNumber, entityManager);
+
         GlCard glCard = new GlCard();
         glCard.setMatch(match.getId());
-        glCard.setSlott(match.getSlot());
         glCard.setTeam(teamNumber);
-        glCard.setFlight(flight);
-        glCard.setWeek(week);
         glCard.setNine(match.getNine());
-
+        glCard.getElement().appendChild(glFliter.getElement());
         golferList.forEach(golfer -> glCard.getElement().appendChild(golfer.getElement()));
 
 
@@ -112,17 +112,22 @@ public class ScoreCardService implements Serializable {
         return glCard;
     }
 
-    public GlReport getScoreCardSummary(int week, int flight, int team) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummaries(roundRepository.getRounds(entityManager, league.getId(), week, flight, team)), team);
+    private GlFliter getGlFliter(int week, int flight, int teamNumber, EntityManager entityManager) {
         GlFliter glFliter = new GlFliter();
         glFliter.setWeek(week);
         glFliter.setFlight(flight);
-        glFliter.setTeam(team);
+        glFliter.setTeam(teamNumber);
         glFliter.setWeeks(19);
         glFliter.setFlights(4);
         glFliter.setTeams(eventMatchRepository.getTeamCount(entityManager, league.getId()));
-        glFliter.getElement().setAttribute("slot","filter");
+        glFliter.getElement().setAttribute("slot", "filter");
+        return glFliter;
+    }
+
+    public GlReport getScoreCardSummary(int week, int flight, int team) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        GlReport glReport = generateReport(getScoreCardSummaries(roundRepository.getRounds(entityManager, league.getId(), week, flight, team)), team);
+        GlFliter glFliter = getGlFliter(week, flight, team, entityManager);
         glReport.getElement().appendChild(glFliter.getElement());
         entityManager.close();
         return glReport;

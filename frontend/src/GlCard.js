@@ -12,13 +12,6 @@ export class GlCard extends LitElement {
         :host {
           font-size: 12pt;
         }
-
-        .card-info-container {
-          display:flex;
-          flex-direction: row;
-          flex-wrap:wrap;
-          justify-content: start;
-        }
         
         .card-container {
           display:flex;
@@ -32,25 +25,9 @@ export class GlCard extends LitElement {
           align-items: center;
         }
 
-        .small-width{
-          width: 130px;
-        }
-
         vaadin-text-area {
           width:90%;
           margin:5%;
-        }
-        
-        .card-info vaadin-text-field[name='nine'] {
-            max-width: 96px;
-        }
-
-        .flight-info {
-          width: 64px;
-        }
-        .search {
-            margin-top:10px;
-            margin-top: 35px;
         }
         .comments {
             margin:0;
@@ -73,10 +50,7 @@ export class GlCard extends LitElement {
     static get properties() {
         return {
             match: {type: Number},
-            week: {type: Number},
             nine: {type: String},
-            flight: {type: Number},
-            slott: {type: Number},
             team: {type: Number},
             date: {type: Date},
             comment: {type: String},
@@ -87,9 +61,6 @@ export class GlCard extends LitElement {
     constructor() {
         super();
         this.match = 0;
-        this.week = 1;
-        this.flight = 1;
-        this.slott = 1;
         this.team = 1;
         this.date = new Date();
         this.nine = "";
@@ -104,14 +75,19 @@ export class GlCard extends LitElement {
     connectedCallback() {
         super.connectedCallback();
         this.addEventListener("gl-golfer-score-change", this._onGolferScoreChange.bind(this));
+        this.addEventListener("gl-filter-submission", this._onFilterSubmission.bind(this));
     }
 
     firstUpdated(_changedProperties) {
         super.firstUpdated(_changedProperties);
         this.querySelectorAll("gl-golfer").forEach(golfer => this.golferScores.push([golfer.golfer,0,0,0,0,0,0,0,0,0]))
-        this.shadowRoot.querySelector("#weeks").items = this.weeks;
-        this.shadowRoot.querySelector("#flights").items = this.flights;
-        this.shadowRoot.querySelector("#teams").items = this.teams;
+    }
+
+    submit() {
+        // Dispatch an application event.
+        this.dispatchEvent(new CustomEvent("gl-card-submission", {
+            detail: this._getCardData(), bubbles: true, composed: true
+        }));
     }
 
     _onGolferScoreChange(e) {
@@ -125,54 +101,16 @@ export class GlCard extends LitElement {
             this.golferScores.push(e.detail);
         }
     }
-
-    _onWeekChanged(e)
+    _onFilterSubmission(e)
     {
-        if(this.goodEvent(e)){
-            this.week = e.target.value;
-            this.dispatchEvent(new CustomEvent("gl-card-week-changed", {
-                detail: {value: this.week}, bubbles: true, composed: true
-            }));
-        }
-    }
-
-    _onFlightChanged(e)
-    {
-        if(this.goodEvent(e)){
-            this.flight = e.target.value;
-            this.dispatchEvent(new CustomEvent("gl-card-flight-changed", {
-                detail: {value: this.flight}, bubbles: true, composed: true
-            }));
-        }
-    }
-
-    _onTeamChanged(e)
-    {
-        if(this.goodEvent(e)){
-            this.team = e.target.value;
-            this.dispatchEvent(new CustomEvent("gl-card-team-changed", {
-                detail: {value: this.team}, bubbles: true, composed: true
-            }));
-        }
-    }
-
-    search() {
-        // Dispatch an application event.
+        e.preventDefault();
         this.dispatchEvent(new CustomEvent("gl-card-request", {
-            detail: this._getCardData(), bubbles: true, composed: true
+            detail: e.detail, bubbles: true, composed: true
         }));
     }
-
-    goodEvent(e) {
-        return (e.target.value !== null) && (typeof e.target.value == "string");
-    }
-
     _getCardData() {
         return {
             match: this.match,
-            week: this.week,
-            flight: this.flight,
-            slott: this.slott,
             team: this.team,
             nine: this.nine,
             date: this.date,
@@ -181,31 +119,11 @@ export class GlCard extends LitElement {
         };
     }
 
-    submit() {
-        // Dispatch an application event.
-        this.dispatchEvent(new CustomEvent("gl-card-submission", {
-            detail: this._getCardData(), bubbles: true, composed: true
-        }));
-    }
-
     render() {
         return html`
             <div class="card-container">
-                <div class="card-info-container">
-                    <div class="card-info">
-                        <vaadin-combo-box id="weeks" name="week" label="week" value="${this.week}" @change="${this._onWeekChanged}"></vaadin-combo-box>
-                    </div>
-                    <div class="card-info">
-                        <vaadin-combo-box id="flights" name="flight" label="flight" value="${this.flight}" @change="${this._onFlightChanged}"></vaadin-combo-box>
-                    </div>
-                    <div class="card-info">
-                        <vaadin-combo-box id="teams" name="team" label="Team" value="${this.team}" @change="${this._onTeamChanged}"></vaadin-combo-box>
-                    </div>
-                    <div class="card-info search">
-                        <vaadin-button @click="${this.search}">search</vaadin-button>
-                    </div>
-                </div>
-                <slot></slot>
+                <slot name="filter"></slot>
+                <slot name="card"></slot>
             </div>
             ${this.noComment ? html`
                 <div>
