@@ -4,6 +4,10 @@ import com.ejp.golf.league.component.*;
 import com.ejp.golf.league.domain.*;
 import com.ejp.golf.league.model.RoundSummary;
 import com.ejp.golf.league.model.ScoreCardSummary;
+import com.ejp.golf.league.repository.EventMatchRepository;
+import com.ejp.golf.league.repository.GolferHandicapRepository;
+import com.ejp.golf.league.repository.HoleRepository;
+import com.ejp.golf.league.repository.RoundRepository;
 import com.vaadin.flow.component.html.Div;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +26,10 @@ import java.util.stream.Collectors;
 public class ScoreCardService implements Serializable {
 
     private final EntityManagerFactory entityManagerFactory;
+    private final RoundRepository roundRepository;
+    private final EventMatchRepository eventMatchRepository;
+    private final HoleRepository holeRepository;
+    private final GolferHandicapRepository golferHandicapRepository;
     //TODO remove hard coding.
     public final League league = new League().build(l -> l
             .set(l::id, 1)
@@ -30,6 +38,10 @@ public class ScoreCardService implements Serializable {
     public ScoreCardService() {
         //TODO create producer methods for this stuff so it can be injected:
         entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
+        roundRepository = new RoundRepository();
+        eventMatchRepository = new EventMatchRepository();
+        holeRepository = new HoleRepository();
+        golferHandicapRepository = new GolferHandicapRepository();
     }
 
     public Round saveRound(Round round) {
@@ -50,93 +62,33 @@ public class ScoreCardService implements Serializable {
 
     public boolean isHome(int golferId, int matchId) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        TypedQuery<Boolean> query = entityManager.createQuery(
-                "SELECT tm.home FROM team_match tm " +
-                        "JOIN team_member m ON m.teamId = tm.teamId " +
-                        "JOIN team t ON t.id = tm.teamId " +
-                        "WHERE t.leagueId = :leagueId" +
-                        " AND tm.matchId = :matchId" +
-                        " AND m.golferId = :golferId",
-                Boolean.class);
-        query.setParameter("leagueId", league.getId());
-        query.setParameter("golferId", golferId);
-        query.setParameter("matchId", matchId);
-        Boolean home = query.getResultList().stream().findFirst().orElse(false);
+        boolean home = eventMatchRepository.isHome(entityManager, league.getId(), golferId, matchId);
         entityManager.close();
         return home;
     }
 
     public int getHandicap(int golferId) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        TypedQuery<Integer> query = entityManager.createQuery(
-                "SELECT gh.handicap FROM golfer_handicap gh " +
-                        "WHERE gh.golferId = :golferId",
-                Integer.class);
-        query.setParameter("golferId", golferId);
-        Integer currentWeek = query.getResultList().stream().sorted().findFirst().orElse(1);
+        Integer handicap = golferHandicapRepository.getHandicap(entityManager, golferId);
         entityManager.close();
-        return currentWeek;
-    }
-
-    public int getCurrentWeek() {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        TypedQuery<Integer> query = entityManager.createQuery(
-                "SELECT e.week FROM event e " +
-                        "JOIN season s ON s.id = e.seasonId " +
-                        "JOIN event_match em ON em.event.id = e.id " +
-                        "JOIN round r ON r.eventMatch.id = em.id " +
-                        "WHERE s.leagueId = :leagueId" +
-                        " AND r is null",
-                Integer.class);
-        query.setParameter("leagueId", league.getId());
-        Integer currentWeek = query.getResultList().stream().sorted().findFirst().orElse(1);
-        entityManager.close();
-        return currentWeek;
+        return handicap;
     }
 
     public GlCard getScoreCard(int week, int flight, int teamNumber) {
-        int teamId = getTeamId(flight, teamNumber);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        TypedQuery<EventMatch> query = entityManager.createQuery(
-                "SELECT em FROM event_match em " +
-                        "JOIN event e ON em.event.id = e.id " +
-                        "JOIN team_match tm ON em.id = tm.matchId " +
-                        "JOIN season s ON e.seasonId = s.id " +
-                        "WHERE s.leagueId = :leagueId" +
-                        " AND e.week = :week" +
-                        " AND em.flightId = :flight" +
-                        " AND tm.teamId = :team",
-                EventMatch.class);
-        query.setParameter("leagueId", league.getId());
-        query.setParameter("week", week);
-        query.setParameter("flight", flight);
-        query.setParameter("team", teamId);
-        List<EventMatch> eventMatches = query.getResultList();
-        EventMatch match = eventMatches.get(0);
+        EventMatch match = eventMatchRepository.getMatch(entityManager, league.getId(), week, flight, teamNumber);
+        List<Hole> holes = holeRepository.getHoles(entityManager, match.getCourseId(), match.getNine());
 
-        TypedQuery<Hole> holeQuery = entityManager.createQuery(
-                "SELECT h FROM hole h " +
-                        "WHERE h.courseId = :courseId" +
-                        " AND h.nineName = :nine",
-                Hole.class);
-        holeQuery.setParameter("courseId", match.getCourseId());
-        holeQuery.setParameter("nine", match.getNine());
-        List<Hole> holeResultList = holeQuery.getResultList();
         List<Team> teamList = match.getTeamList();
-
         List<GlGolfer> golferList = new ArrayList<>();
         teamList.forEach(team -> team.getGolferList().forEach(golfer -> {
             GlGolfer glGolfer = new GlGolfer();
             glGolfer.setGolfer(golfer.getId());
             glGolfer.setName(golfer.fullName());
             glGolfer.setTeam(team.getTeamId());
-            Integer handicap = entityManager.createQuery(
-                    "SELECT gh.handicap FROM golfer_handicap gh " +
-                            "WHERE gh.golferId = " + golfer.getId(),
-                    Integer.class).getResultList().get(0);
-            glGolfer.setHandicap(handicap);
+            glGolfer.setHandicap(golferHandicapRepository.getHandicap(entityManager, golfer.getId()));
             GlRound glRound = new GlRound();
-            holeResultList.forEach(hole -> {
+            holes.forEach(hole -> {
                 GlHole glHole = new GlHole(hole.getHoleNumber(), hole.getPar(), hole.getYardage(), hole.getHandicap());
                 glHole.getElement().setAttribute("slot", "hole" + (hole.getHoleNumber() > 9 ? hole.getHoleNumber() - 9 : hole.getHoleNumber()));
                 glRound.getElement().appendChild(glHole.getElement());
@@ -160,19 +112,9 @@ public class ScoreCardService implements Serializable {
         return glCard;
     }
 
-    private int getTeamId(int flight, int teamNumber) {
-        int teamId;
-        if (String.valueOf(teamNumber).length() == 1) {
-            teamId = Integer.parseInt(flight + "0" + teamNumber);
-        } else {
-            teamId = Integer.parseInt(String.valueOf(flight) + teamNumber);
-        }
-        return teamId;
-    }
-
     public GlReport getScoreCardSummary(int week, int flight, int team) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummaries(getRounds(entityManager, week, flight, team)), team);
+        GlReport glReport = generateReport(getScoreCardSummaries(roundRepository.getRounds(entityManager, week, flight, team)), team);
         entityManager.close();
         return glReport;
     }
@@ -244,72 +186,6 @@ public class ScoreCardService implements Serializable {
         glScore.setWin(score.isWin());
         glScore.getElement().setAttribute("slot", slot + num);
         return glScore;
-    }
-
-    private List<Round> getRounds(EntityManager entityManager) {
-        //TODO need repo classes
-        TypedQuery<Round> query = entityManager.createQuery(
-                "SELECT r FROM round r " +
-                        "JOIN event_match em ON r.eventMatch.id = em.id " +
-                        "JOIN event e ON em.event.id = e.id " +
-                        "JOIN season s ON e.seasonId = s.id " +
-                        "WHERE s.leagueId = :leagueId",
-                Round.class);
-        query.setParameter("leagueId", league.getId());
-        return query.getResultList();
-    }
-
-    private List<Round> getRounds(EntityManager entityManager, int week) {
-        //TODO need repo classes
-        TypedQuery<Round> query = entityManager.createQuery(
-                "SELECT r FROM round r " +
-                        "JOIN event_match em ON r.eventMatch.id = em.id " +
-                        "JOIN event e ON em.event.id = e.id " +
-                        "JOIN season s ON e.seasonId = s.id " +
-                        "WHERE s.leagueId = :leagueId" +
-                        " AND e.week = :week",
-                Round.class);
-        query.setParameter("leagueId", league.getId());
-        query.setParameter("week", week);
-        return query.getResultList();
-    }
-
-    private List<Round> getRounds(EntityManager entityManager, int week, int flight) {
-        //TODO need repo classes
-        TypedQuery<Round> query = entityManager.createQuery(
-                "SELECT r FROM round r " +
-                        "JOIN event_match em ON r.eventMatch.id = em.id " +
-                        "JOIN event e ON em.event.id = e.id " +
-                        "JOIN season s ON e.seasonId = s.id " +
-                        "WHERE s.leagueId = :leagueId" +
-                        " AND em.flightId = :flightId" +
-                        " AND e.week = :week",
-                Round.class);
-        query.setParameter("leagueId", league.getId());
-        query.setParameter("flightId", flight);
-        query.setParameter("week", week);
-        return query.getResultList();
-    }
-
-    private List<Round> getRounds(EntityManager entityManager, int week, int flight, int team) {
-        int teamId = getTeamId(flight, team);
-        //TODO need repo classes
-        TypedQuery<Round> query = entityManager.createQuery(
-                "SELECT r FROM round r " +
-                        "JOIN event_match em ON r.eventMatch.id = em.id " +
-                        "JOIN team_match tm ON em.id = tm.matchId " +
-                        "JOIN event e ON em.event.id = e.id " +
-                        "JOIN season s ON e.seasonId = s.id " +
-                        "WHERE s.leagueId = :leagueId" +
-                        " AND em.flightId = :flightId" +
-                        " AND e.week = :week" +
-                        " AND tm.teamId = :teamId",
-                Round.class);
-        query.setParameter("leagueId", league.getId());
-        query.setParameter("flightId", flight);
-        query.setParameter("week", week);
-        query.setParameter("teamId", teamId);
-        return query.getResultList();
     }
 
     private List<ScoreCardSummary> getScoreCardSummaries(List<Round> rounds) {

@@ -44,8 +44,7 @@ public class ScoreCardView extends VerticalLayout {
     public ScoreCardView() {
         addClassName("centered-content");
         scoreCardService = new ScoreCardService();
-        int currentWeek = scoreCardService.getCurrentWeek();
-        GlCard glCard = scoreCardService.getScoreCard(currentWeek, 1, 1);
+        GlCard glCard = scoreCardService.getScoreCard(1, 1, 1);
         glCard.addCardRequestListener(this::handleScoreCardRequest);
         glCard.addCardSubmissionListener(this::handleScoreCardSubmission);
         add(glCard);
