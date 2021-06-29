@@ -1,5 +1,5 @@
 import {css, html, LitElement} from "lit-element";
-import "@vaadin/vaadin-text-field/vaadin-integer-field.js";
+import "@vaadin/vaadin-text-field/vaadin-number-field.js";
 
 export class GlScore extends LitElement {
 

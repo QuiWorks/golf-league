@@ -1,6 +1,4 @@
-import {css, html, LitElement} from "lit-element";
-import "@vaadin/vaadin-grid/vaadin-grid.js";
-import "./GlFilter.js";
+import {html, LitElement} from "lit-element";
 
 export class GlReport extends LitElement {
 

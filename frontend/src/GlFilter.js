@@ -1,5 +1,6 @@
 import {css, html, LitElement} from "lit-element";
-import "@vaadin/vaadin-checkbox/vaadin-checkbox.js";
+import "@vaadin/vaadin-combo-box/vaadin-combo-box.js";
+import "@vaadin/vaadin-button/vaadin-button.js";
 
 export class GlFilter extends LitElement {
 

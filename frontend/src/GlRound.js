@@ -1,9 +1,5 @@
 import {css, html, LitElement} from "lit-element";
-import "@vaadin/vaadin-text-field/vaadin-text-field.js";
 import "@vaadin/vaadin-text-field/vaadin-number-field.js";
-import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
-import "@vaadin/vaadin-text-field/vaadin-text-area.js";
-import "@vaadin/vaadin-checkbox/vaadin-checkbox.js";
 
 export class GlRound extends LitElement {
 
