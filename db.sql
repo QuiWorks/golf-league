@@ -14,7 +14,7 @@ CREATE TABLE golfer
     home_phone  varchar(128),
     work_phone  varchar(128),
     notes       varchar(256),
-    active      boolean               DEFAULT true,
+    substitute      boolean               DEFAULT true,
     date_added  DATETIME     not null default NOW(),
     primary key (id)
 );

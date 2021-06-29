@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -183,6 +184,7 @@ public class ScoreCardService implements Serializable {
             glReport.setFlight(summary.getFlight());
             glReport.setTeam(teamId);
         });
+
         scoreCardSummaries.forEach(scoreCardSummary -> {
             Div matchContainer = new Div();
             matchContainer.getElement().getStyle().set("border-bottom", "1px solid #335533");
@@ -192,8 +194,12 @@ public class ScoreCardService implements Serializable {
                         GlGolfer glGolfer = new GlGolfer();
                         glGolfer.setHandicap(roundSummary.getHandicap());
                         glGolfer.setName(roundSummary.getGolfer().fullName());
-                        glGolfer.setSub(false);
-                        roundSummary.getGolfer().teamForLeague(league).map(Team::getTeamId).ifPresent(glGolfer::setTeam);
+                        if(roundSummary.getGolfer().getSubstitute())
+                        {
+                            glGolfer.setTeam(getTeamForSubstitute(scoreCardSummary, roundSummary));
+                        }else{
+                            roundSummary.getGolfer().teamForLeague(league).map(Team::getTeamId).ifPresent(glGolfer::setTeam);
+                        }
                         glGolfer.setInline(true);
                         glGolfer.setHideHdcp(true);
 
@@ -219,6 +225,12 @@ public class ScoreCardService implements Serializable {
             glReport.getElement().appendChild(matchContainer.getElement());
         });
         return glReport;
+    }
+
+    private Integer getTeamForSubstitute(ScoreCardSummary scoreCardSummary, RoundSummary roundSummary) {
+        return roundSummary.isHomeTeam()
+                ? scoreCardSummary.getHomeTeam().stream().map(rs -> rs.getGolfer().teamForLeague(league)).filter(Optional::isPresent).map(Optional::get).map(Team::getTeamId).findAny().orElse(0)
+                : scoreCardSummary.getAwayTeam().stream().map(rs -> rs.getGolfer().teamForLeague(league)).filter(Optional::isPresent).map(Optional::get).map(Team::getTeamId).findAny().orElse(0);
     }
 
     private GlScore toComponent(Score score, String slot, boolean isNetScore) {

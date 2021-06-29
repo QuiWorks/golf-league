@@ -19,7 +19,7 @@ public class Golfer {
     private String homePhone;
     private String workPhone;
     private String notes;
-    private Boolean active;
+    private Boolean substitute;
     private LocalDateTime dateAdded;
     private List<Team> teams;
 
@@ -134,13 +134,13 @@ public class Golfer {
     }
 
     @Basic
-    @Column(name = "active", nullable = true)
-    public Boolean getActive() {
-        return active;
+    @Column(name = "substitute", nullable = true)
+    public Boolean getSubstitute() {
+        return substitute;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setSubstitute(Boolean active) {
+        this.substitute = active;
     }
 
     @Basic
@@ -179,12 +179,12 @@ public class Golfer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Golfer golfer = (Golfer) o;
-        return id == golfer.id && Objects.equals(firstName, golfer.firstName) && Objects.equals(lastName, golfer.lastName) && Objects.equals(middleName, golfer.middleName) && Objects.equals(email, golfer.email) && Objects.equals(city, golfer.city) && Objects.equals(state, golfer.state) && Objects.equals(zip, golfer.zip) && Objects.equals(homePhone, golfer.homePhone) && Objects.equals(workPhone, golfer.workPhone) && Objects.equals(notes, golfer.notes) && Objects.equals(active, golfer.active) && Objects.equals(dateAdded, golfer.dateAdded);
+        return id == golfer.id && Objects.equals(firstName, golfer.firstName) && Objects.equals(lastName, golfer.lastName) && Objects.equals(middleName, golfer.middleName) && Objects.equals(email, golfer.email) && Objects.equals(city, golfer.city) && Objects.equals(state, golfer.state) && Objects.equals(zip, golfer.zip) && Objects.equals(homePhone, golfer.homePhone) && Objects.equals(workPhone, golfer.workPhone) && Objects.equals(notes, golfer.notes) && Objects.equals(substitute, golfer.substitute) && Objects.equals(dateAdded, golfer.dateAdded);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, middleName, email, city, state, zip, homePhone, workPhone, notes, active, dateAdded);
+        return Objects.hash(id, firstName, lastName, middleName, email, city, state, zip, homePhone, workPhone, notes, substitute, dateAdded);
     }
 
     public String fullName() {

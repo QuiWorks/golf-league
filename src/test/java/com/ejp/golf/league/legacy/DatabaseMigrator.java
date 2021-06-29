@@ -256,7 +256,7 @@ public class DatabaseMigrator {
         golfer.setHomePhone(legacyPlayer.getHomePhone());
         golfer.setWorkPhone(legacyPlayer.getWorkPhone());
         golfer.setNotes(legacyPlayer.getNotes());
-        golfer.setActive(legacyPlayer.isActive());
+        golfer.setSubstitute(legacyPlayer.isSubstitute());
         golfer.setDateAdded(convertLegacyDate(legacyPlayer.getDateAdded()));
 
         Timestamp created = Timestamp.valueOf(LocalDateTime.now());
