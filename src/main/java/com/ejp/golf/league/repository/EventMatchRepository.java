@@ -41,4 +41,14 @@ public class EventMatchRepository extends AbstractRepository{
         query.setParameter("matchId", matchId);
         return query.getResultList().stream().findFirst().orElse(false);
     }
+
+    public int getTeamCount(EntityManager entityManager, int leagueId)
+    {
+        TypedQuery<Integer> query = entityManager.createQuery(
+                "SELECT t.id FROM team t " +
+                        "WHERE t.leagueId = :leagueId",
+                Integer.class);
+        query.setParameter("leagueId",leagueId);
+        return query.getResultList().size();
+    }
 }

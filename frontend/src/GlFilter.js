@@ -66,6 +66,10 @@ export class GlFilter extends LitElement {
         }
     }
 
+    goodEvent(e) {
+        return (e.target.value !== null) && (typeof e.target.value == "string");
+    }
+
     constructor() {
         super();
         this.week = 1;
@@ -94,7 +98,7 @@ export class GlFilter extends LitElement {
 
     search() {
         // Dispatch an application event.
-        this.dispatchEvent(new CustomEvent("gl-request-submission", {
+        this.dispatchEvent(new CustomEvent("gl-filter-submission", {
             detail: this._getRequestData(), bubbles: true, composed: true
         }));
     }

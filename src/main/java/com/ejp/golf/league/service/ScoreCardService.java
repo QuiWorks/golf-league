@@ -114,7 +114,16 @@ public class ScoreCardService implements Serializable {
 
     public GlReport getScoreCardSummary(int week, int flight, int team) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummaries(roundRepository.getRounds(entityManager, week, flight, team)), team);
+        GlReport glReport = generateReport(getScoreCardSummaries(roundRepository.getRounds(entityManager, league.getId(), week, flight, team)), team);
+        GlFliter glFliter = new GlFliter();
+        glFliter.setWeek(week);
+        glFliter.setFlight(flight);
+        glFliter.setTeam(team);
+        glFliter.setWeeks(19);
+        glFliter.setFlights(4);
+        glFliter.setTeams(eventMatchRepository.getTeamCount(entityManager, league.getId()));
+        glFliter.getElement().setAttribute("slot","filter");
+        glReport.getElement().appendChild(glFliter.getElement());
         entityManager.close();
         return glReport;
     }
@@ -164,6 +173,7 @@ public class ScoreCardService implements Serializable {
                         glGolfer.getElement().appendChild(glRound.getElement());
                         matchContainer.getElement().appendChild(glGolfer.getElement());
                     });
+            matchContainer.getElement().setAttribute("slot", "report");
             glReport.getElement().appendChild(matchContainer.getElement());
         });
         return glReport;
