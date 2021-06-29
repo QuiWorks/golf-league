@@ -5,6 +5,7 @@ import com.ejp.golf.league.component.GlFliter;
 import com.ejp.golf.league.layout.MainLayout;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -32,17 +33,18 @@ import com.vaadin.flow.server.PWA;
 public class MainView extends VerticalLayout {
     public MainView() {
         addClassName("centered-content");
-
-
-        GlFliter glFliter = new GlFliter();
-        glFliter.setWeek(1);
-        glFliter.setWeeks(19);
-        glFliter.setFlight(1);
-        glFliter.setFlights(4);
-        glFliter.setTeam(1);
-        glFliter.setTeams(19);
-        add(glFliter);
-        add(new Label("A prototype for version 2 of the TerritoryGL.com"));
+        Label label = new Label("Information about his application:");
+        label.getElement().getStyle().set("font-weight","bold");
+        label.getElement().getStyle().set("text-decoration","underline");
+        add(new Header(label));
+        add(new Label("You are currently viewing the prototype for version 2 of the TerritoryGL.com"));
         add(new Anchor("http://www.territorygl.com", "Click here to visit the original site."));
+        add(new Label("Use the golfer icon in the top left corner to open and close the navigation menu."));
+        add(new Label("The scorecard link in the navigation menu will direct you to the new web-based scorecard for the league."));
+        add(new Label("The scorecard summary link in the navigation menu will direct you to a report of match results."));
+        add(new Label("The login link in the navigation menu will direct you to a login form for accessing the administrator side of the application."));
+        add(new Label("The admin username is: 'admin' and the password is 'password'."));
+        add(new Label("When logged in other links will appear in the navigation to secure views for maintaining the data in the system."));
+        add(new Label("Please use the application and provide feedback to: wade0435@yahoo.com"));
     }
 }

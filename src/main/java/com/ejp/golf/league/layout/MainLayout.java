@@ -25,8 +25,8 @@ public class MainLayout extends AppLayout
 	private Component getSideDrawerContent()
 	{
 		final Anchor leagueNotes = new Anchor("/", "League Notes");
-		final Anchor scoreCard = new Anchor("/scorecard", "Score Card");
-		final Anchor summaries = new Anchor("/summary", "Score Card Summaries");
+		final Anchor scoreCard = new Anchor("/scorecard", "Scorecard");
+		final Anchor summaries = new Anchor("/summary", "Scorecard Summary");
 		final Anchor login = new Anchor("/login", "Log in");
 
 		//Authed only links
