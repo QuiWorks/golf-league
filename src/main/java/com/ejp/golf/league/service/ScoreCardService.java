@@ -118,7 +118,7 @@ public class ScoreCardService implements Serializable {
         glFliter.setWeek(week);
         glFliter.setFlight(flight);
         glFliter.setTeam(teamNumber);
-        glFliter.setWeeks(19);
+        glFliter.setWeeks(eventMatchRepository.getWeekCount(entityManager, league.getId()));
         glFliter.setFlights(4);
         glFliter.setTeams(eventMatchRepository.getTeamCount(entityManager, league.getId()));
         glFliter.getElement().setAttribute("slot", "filter");
