@@ -1,6 +1,7 @@
 package com.ejp.golf.league.domain;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 @Entity(name = "round")
@@ -11,7 +12,7 @@ public class Round {
     private String nine;
     private int handicap;
     private boolean home;
-    private Date date;
+    private Timestamp date;
     private Golfer golfer = new Golfer();
     private List<Score> grossScores = new ArrayList<>();
     private EventMatch match;
@@ -119,11 +120,11 @@ public class Round {
 
     @Basic
     @Column(name = "date_played", nullable = false)
-    public Date getDatePlayed() {
+    public Timestamp getDatePlayed() {
         return date;
     }
 
-    public void setDatePlayed(Date date) {
+    public void setDatePlayed(Timestamp date) {
         this.date = date;
     }
 

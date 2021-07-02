@@ -64,9 +64,6 @@ export class GlCard extends LitElement {
         this.comment = "";
         this.golferScores = [];
         this.noComment = false;
-        this.weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
-        this.flights = [1,2,3,4];
-        this.teams = [1,2,3,4,5,6,7,8,9,10,11,12];
     }
 
     connectedCallback() {
@@ -88,15 +85,10 @@ export class GlCard extends LitElement {
     }
 
     _onGolferScoreChange(e) {
-        // See if golfer score already exists and update it
-        // if it doesn't exist add it.
-        let golferScore = this.golferScores.map(gs => gs.golfer)
-            .find(golfer => JSON.stringify(golfer) === JSON.stringify(e.detail.golfer));
-        if (typeof find !== "undefined") {
-            golferScore = e.detail;
-        } else {
-            this.golferScores.push(e.detail);
-        }
+        const golferScore = this.golferScores.find(g => g[0] === e.detail.golfer.golfer);
+        e.detail.round
+            .map(r => typeof r.score !== 'undefined' ? r.score : 0)
+            .forEach((score, index) => golferScore[index + 1] = parseInt(score));
     }
     _onFilterSubmission(e)
     {

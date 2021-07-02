@@ -66,7 +66,8 @@ export class GlHole extends LitElement {
         this.label = false;
     }
 
-    _scoreChange() {
+    _scoreChange(e) {
+        this.score = e.target.value;
         this.dispatchEvent(new CustomEvent("gl-hole-score-change", {
             detail: this.getHoleData(), bubbles: true, composed: true
         }));

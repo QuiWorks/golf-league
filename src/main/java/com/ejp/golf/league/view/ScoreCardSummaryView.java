@@ -1,6 +1,5 @@
 package com.ejp.golf.league.view;
 
-import com.ejp.golf.league.component.GlFliter;
 import com.ejp.golf.league.component.GlReport;
 import com.ejp.golf.league.domain.League;
 import com.ejp.golf.league.event.GlRequestSubmission;

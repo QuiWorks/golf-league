@@ -11,6 +11,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +61,7 @@ public class ScoreCardView extends VerticalLayout {
             round.setFlightId(event.getFlight());
             round.setHandicap(scoreCardService.getHandicap(key));
             round.setNine(event.getNine());
-            round.setDatePlayed(new Date());
+            round.setDatePlayed(new Timestamp(System.currentTimeMillis()));
             round.setHome(scoreCardService.isHome(key, event.getMatch()));
             EventMatch eventMatch = new EventMatch();
             eventMatch.setId(event.getMatch());
