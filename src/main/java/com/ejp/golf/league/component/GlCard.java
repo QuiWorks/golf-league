@@ -47,6 +47,12 @@ public class GlCard extends PolymerTemplate<Model>
 	{
         void setMatch(int match);
         int getMatch();
+        void setWeek(int week);
+        int getWeek();
+        void setSlott(int slott);
+        int getSlott();
+        void setFlight(int flight);
+        int getFlight();
         void setTeam(int team);
         int getTeam();
         void setNine(String nine);
@@ -78,6 +84,36 @@ public class GlCard extends PolymerTemplate<Model>
     public void setMatch(int match)
     {
         getModel().setMatch(match);
+    }
+
+    public int getSlott()
+    {
+        return getModel().getSlott();
+    }
+
+    public void setSlott(int slott)
+    {
+        getModel().setSlott(slott);
+    }
+
+    public int getFlight()
+    {
+        return getModel().getFlight();
+    }
+
+    public void setFlight(int flight)
+    {
+        getModel().setFlight(flight);
+    }
+
+    public int getWeek()
+    {
+        return getModel().getWeek();
+    }
+
+    public void setWeek(int week)
+    {
+        getModel().setWeek(week);
     }
 
     public int getTeam()

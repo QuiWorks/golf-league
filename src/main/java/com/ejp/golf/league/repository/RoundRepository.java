@@ -98,7 +98,14 @@ public class RoundRepository extends AbstractRepository {
         query.setParameter("flightId", flight);
         query.setParameter("week", week);
         query.setParameter("teamId", teamId);
-//        query.setParameter("latestDate", latestDate);
-        return query.setMaxResults(4).getResultList();
+        List<Round> resultList = query.getResultList();
+        while(resultList.size() > 4)
+        {
+            resultList.stream()
+                    .filter(round -> round.getGolfer().getSubstitute())
+                    .findAny()
+                    .ifPresent(resultList::remove);
+        }
+        return resultList;
     }
 }

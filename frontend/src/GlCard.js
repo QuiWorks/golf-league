@@ -49,6 +49,9 @@ export class GlCard extends LitElement {
             match: {type: Number},
             nine: {type: String},
             team: {type: Number},
+            week: {type: Number},
+            flight: {type: Number},
+            slott: {type: Number},
             date: {type: Date},
             comment: {type: String},
             noComment: {type: Boolean}
@@ -58,6 +61,9 @@ export class GlCard extends LitElement {
     constructor() {
         super();
         this.match = 0;
+        this.week = 0;
+        this.flight = 0;
+        this.slott = 0;
         this.team = 1;
         this.date = new Date();
         this.nine = "";
@@ -102,6 +108,9 @@ export class GlCard extends LitElement {
             match: this.match,
             team: this.team,
             nine: this.nine,
+            week: this.week,
+            flight: this.flight,
+            slott: this.slott,
             date: this.date,
             comment: this.comment,
             scores: JSON.stringify(this.golferScores)

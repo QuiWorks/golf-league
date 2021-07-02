@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -98,10 +97,12 @@ public class ScoreCardService implements Serializable {
             golferList.add(glGolfer);
         }));
 
-        GlFliter glFliter = getGlFliter(week, flight, teamNumber, entityManager);
+        GlFliter glFliter = getGlFilter(week, flight, teamNumber, entityManager);
 
         GlCard glCard = new GlCard();
         glCard.setMatch(match.getId());
+        glCard.setWeek(week);
+        glCard.setFlight(flight);
         glCard.setTeam(teamNumber);
         glCard.setNine(match.getNine());
         glCard.getElement().appendChild(glFliter.getElement());
@@ -112,7 +113,7 @@ public class ScoreCardService implements Serializable {
         return glCard;
     }
 
-    private GlFliter getGlFliter(int week, int flight, int teamNumber, EntityManager entityManager) {
+    private GlFliter getGlFilter(int week, int flight, int teamNumber, EntityManager entityManager) {
         GlFliter glFliter = new GlFliter();
         glFliter.setWeek(week);
         glFliter.setFlight(flight);
@@ -127,7 +128,7 @@ public class ScoreCardService implements Serializable {
     public GlReport getScoreCardSummary(int week, int flight, int team) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         GlReport glReport = generateReport(getScoreCardSummaries(roundRepository.getRounds(entityManager, league.getId(), week, flight, team)), team);
-        GlFliter glFliter = getGlFliter(week, flight, team, entityManager);
+        GlFliter glFliter = getGlFilter(week, flight, team, entityManager);
         glReport.getElement().appendChild(glFliter.getElement());
         entityManager.close();
         return glReport;
@@ -145,7 +146,8 @@ public class ScoreCardService implements Serializable {
             Div matchContainer = new Div();
             matchContainer.getElement().getStyle().set("border-bottom", "1px solid #335533");
             scoreCardSummary.getAll().stream()
-                    .filter(roundSummary -> !roundSummary.getGolfer().getLastName().equals("Dummy"))
+                    .filter(roundSummary -> !roundSummary.getGolfer().getLastName().equals("Dummy")
+                            && !roundSummary.getGolfer().getLastName().equals("Bye"))
                     .forEach(roundSummary -> {
                         GlGolfer glGolfer = new GlGolfer();
                         glGolfer.setHandicap(roundSummary.getHandicap());

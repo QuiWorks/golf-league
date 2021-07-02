@@ -44,9 +44,6 @@ public class ScoreCardSummaryView extends VerticalLayout {
         addClassName("centered-content");
         GlReport glReport =  new ScoreCardService().getScoreCardSummary(1, 1, 1);
         glReport.addRequestSubmissionListener(this::handleRequestSubmission);
-        Label label = new Label("Find Match");
-        label.getElement().getClassList().add("title");
-        add(label);
         add(glReport);
     }
 
