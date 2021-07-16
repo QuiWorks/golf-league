@@ -12,6 +12,7 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @CssImport("./styles/shared-styles.css")
 public class MainLayout extends AppLayout
@@ -24,16 +25,16 @@ public class MainLayout extends AppLayout
 
 	private Component getSideDrawerContent()
 	{
-		final Anchor leagueNotes = new Anchor("/", "League Notes");
-		final Anchor scoreCard = new Anchor("/scorecard", "Scorecard");
-		final Anchor summaries = new Anchor("/summary", "Scorecard Summary");
-		final Anchor login = new Anchor("/login", "Log in");
+		final Anchor leagueNotes = new Anchor("./", "League Notes");
+		final Anchor scoreCard = new Anchor("./scorecard", "Scorecard");
+		final Anchor summaries = new Anchor("./summary", "Scorecard Summary");
+		final Anchor login = new Anchor("./login", "Log in");
 
 		//Authed only links
-		final Anchor eventCrud = new Anchor("/admin/event", "Event CRUD");
-		final Anchor golferCrud = new Anchor("/admin/golfer", "Golfer CRUD");
-		final Anchor holeCrud = new Anchor("/admin/hole", "Hole CRUD");
-		final Anchor logout = new Anchor("/logout", "Log out");
+		final Anchor eventCrud = new Anchor("./admin/event", "Event CRUD");
+		final Anchor golferCrud = new Anchor("./admin/golfer", "Golfer CRUD");
+		final Anchor holeCrud = new Anchor("/.admin/hole", "Hole CRUD");
+		final Anchor logout = new Anchor("./logout", "Log out");
 
 		final Div container;
 		if(isAdmin())
