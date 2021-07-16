@@ -33,7 +33,7 @@ import com.vaadin.flow.server.PWA;
 public class MainView extends VerticalLayout {
     public MainView() {
         addClassName("centered-content");
-        Label label = new Label("Information about his application:");
+        Label label = new Label("Information about this application:");
         label.getElement().getStyle().set("font-weight","bold");
         label.getElement().getStyle().set("text-decoration","underline");
         add(new Header(label));
