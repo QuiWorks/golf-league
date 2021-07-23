@@ -88,7 +88,7 @@ public class ScoreCardService implements Serializable {
             glGolfer.setHandicap(golferHandicapRepository.getHandicap(entityManager, golfer.getId()));
             GlRound glRound = new GlRound();
             holes.forEach(hole -> {
-                GlHole glHole = new GlHole(hole.getHoleNumber(), hole.getPar(), hole.getYardage(), hole.getHandicap());
+                GlHole glHole = new GlHole(hole.getHoleNumber(), hole.getPar(), hole.getYardage(), hole.getHandicap(), holeRepository.getHoleScore(entityManager, hole.getId(), golfer.getId(), week));
                 glHole.getElement().setAttribute("slot", "hole" + (hole.getHoleNumber() > 9 ? hole.getHoleNumber() - 9 : hole.getHoleNumber()));
                 glRound.getElement().appendChild(glHole.getElement());
             });
