@@ -4,9 +4,9 @@ package com.ejp.golf.league.view;
 import com.ejp.golf.league.component.GlFliter;
 import com.ejp.golf.league.layout.MainLayout;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.Anchor;
-import com.vaadin.flow.component.html.Header;
-import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
@@ -39,12 +39,18 @@ public class MainView extends VerticalLayout {
         add(new Header(label));
         add(new Label("You are currently viewing the prototype for version 2 of the TerritoryGL.com"));
         add(new Anchor("http://www.territorygl.com", "Click here to visit the original site."));
-        add(new Label("Use the golfer icon in the top left corner to open and close the navigation menu."));
-        add(new Label("The scorecard link in the navigation menu will direct you to the new web-based scorecard for the league."));
-        add(new Label("The scorecard summary link in the navigation menu will direct you to a report of match results."));
-        add(new Label("The login link in the navigation menu will direct you to a login form for accessing the administrator side of the application."));
-        add(new Label("The admin username is: 'admin' and the password is 'password'."));
-        add(new Label("When logged in other links will appear in the navigation to secure views for maintaining the data in the system."));
-        add(new Label("Please use the application and provide feedback to: wade0435@yahoo.com"));
+        UnorderedList unorderedList = new UnorderedList();
+
+        ListItem menuTip = new ListItem(new Icon(VaadinIcon.GOLF), new Label(" Use the golfer icon in the top left corner to open and close the navigation menu."));
+        ListItem scorecardTip = new ListItem(new Anchor("./scorecard", "The scorecard link"), new Label(" in the navigation menu will direct you to the new web-based scorecard for the league."));
+        ListItem summaryTip = new ListItem(new Anchor("./summary", "The scorecard summary link"), new Label(" in the navigation menu will direct you to a report of match results."));
+
+        unorderedList.add(menuTip);
+        unorderedList.add(scorecardTip);
+        unorderedList.add(summaryTip);
+        unorderedList.add(new ListItem("Please use the application and provide feedback to: wade0435@yahoo.com"));
+
+        add(unorderedList);
+
     }
 }
