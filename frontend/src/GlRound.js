@@ -77,7 +77,7 @@ export class GlRound extends LitElement {
     }
 
     _onHoleFirstUpdate(e) {
-        if(e.detail.hole === 9){
+        if(e.detail.hole === 9 || e.detail.hole === 18){
             // Calculate which holes are first in the row then call show label on those holes.
             const slots = [...this.shadowRoot.querySelector(".round-container").querySelectorAll("slot")];
             const holes = slots.map(slot => slot.assignedElements()[0]);

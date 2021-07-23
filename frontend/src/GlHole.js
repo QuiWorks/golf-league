@@ -18,6 +18,7 @@ export class GlHole extends LitElement {
           margin: 4px 0 4px 4px;
           max-width: 64px;
           justify-content: space-between;
+          font-size: 10pt;
         }
         
         .no-label {
@@ -30,14 +31,24 @@ export class GlHole extends LitElement {
           flex-direction:row;
           justify-content: space-between;
         }
+        .primary-color {
+            color: var(--lumo-color-primary, green);
+            font-weight:bold;
+        }
         .input {
             transform: rotate(-90deg);
         }
         .input::part(value) {
             transform: rotate(90deg);
+            font-weight:bold;
+            color: var(--lumo-color-primary, green);
         }
         .input::part(decrease-button) {
             transform: rotate(90deg);
+            color: var(--lumo-color-primary, green);
+        }
+        .input::part(increase-button) {
+            color: var(--lumo-color-primary, green);
         }
         .value {
             margin-left:2px;
@@ -122,6 +133,9 @@ export class GlHole extends LitElement {
           <div class="row">
             ${this.firstInFlexRow().map(() => html`<label>yrd:</label>`)}
             <span class="value">${this.yardage}</span>
+          </div>
+          <div class="row">
+              ${this.label ? html`<label class="primary-color">score:</label>` : html`<label>&nbsp;</label>`}
           </div>
           <div class="row">
             ${this.firstInFlexRow().map(() => html`<label>par:</label>`)}
