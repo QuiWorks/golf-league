@@ -124,6 +124,7 @@ export class GlGolfer extends LitElement {
         if(!this.hideTotal)
         {
             this.totalScoreField = this.shadowRoot.querySelector("vaadin-number-field[name=totalScore]");
+            this.netScoreField = this.shadowRoot.querySelector("vaadin-number-field[name=netScore]");
         }
     }
 
@@ -135,6 +136,7 @@ export class GlGolfer extends LitElement {
         this.totalScore = e.detail.round.map((hole) => parseInt(hole.score))
             .reduce((a, b) => a + b, 0);
         this.totalScoreField.value = this.totalScore;
+        this.netScoreField.value = this.totalScore - this.handicap;
     }
 
     _getGolferData() {
@@ -166,6 +168,8 @@ export class GlGolfer extends LitElement {
                     <div class="golfer-info">
                         <vaadin-number-field class="total-score" name="totalScore" label="Total"
                                              value="${this.totalScore}" disabled></vaadin-number-field>
+                        <vaadin-number-field class="total-score" name="netScore" label="Net"
+                                             value="${this.netScore}" disabled></vaadin-number-field>
                     </div>`}
                 </div>
                 <div class="column">
