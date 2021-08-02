@@ -50,6 +50,8 @@ public class GlGolfer extends PolymerTemplate<Model>
         boolean isInline();
         void setHideHdcp(boolean hide);
         boolean isHideHdcp();
+        void setHideTotal(boolean hide);
+        boolean isHideTotal();
     }
 
     public GlGolfer() {
@@ -118,4 +120,8 @@ public class GlGolfer extends PolymerTemplate<Model>
     public boolean isHideHdcp() { return getModel().isHideHdcp();}
 
     public void setHideHdcp(boolean hide){ getModel().setHideHdcp(hide);}
+
+    public boolean isHideTotal() { return getModel().isHideTotal();}
+
+    public void setHideTotal(boolean total){ getModel().setHideTotal(total);}
 }

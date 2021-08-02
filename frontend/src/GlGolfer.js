@@ -36,6 +36,22 @@ export class GlGolfer extends LitElement {
           align-items: center;
         }
         
+        .total-score {
+            --lumo-disabled-text-color: var(--lumo-color-primary, green);
+        }
+        
+        .total-score::part(value){
+            font-weight:bold;
+        }        
+        
+        .total-score::part(label){
+            font-weight:bold;
+        }       
+        
+        vaadin-text-field[name=name]::part(value){
+            font-weight:bold;
+        }
+        
         .check-box {
             padding-top:14px;
             display:flex;
@@ -71,7 +87,8 @@ export class GlGolfer extends LitElement {
             name: {type: String},
             sub: {type: Boolean},
             inline: {type: Boolean},
-            hideHdcp: {type: Boolean}
+            hideHdcp: {type: Boolean},
+            hideTotal: {type: Boolean}
         };
     }
 
@@ -80,10 +97,12 @@ export class GlGolfer extends LitElement {
         this.golfer = 0;
         this.team = 0;
         this.handicap = 0;
+        this.totalScore = 0;
         this.name = "";
         this.sub = false;
         this.inline = false;
         this.hideHdcp = false;
+        this.hideTotal = false;
     }
 
     connectedCallback() {
@@ -102,6 +121,10 @@ export class GlGolfer extends LitElement {
             parent.classList.remove("row");
             parent.classList.add("column");
         }
+        if(!this.hideTotal)
+        {
+            this.totalScoreField = this.shadowRoot.querySelector("vaadin-number-field[name=totalScore]");
+        }
     }
 
     _onRoundScoreChange(e) {
@@ -109,6 +132,9 @@ export class GlGolfer extends LitElement {
             detail: {golfer: this._getGolferData(), round: e.detail.round},
             bubbles: true, composed: true
         }));
+        this.totalScore = e.detail.round.map((hole) => parseInt(hole.score))
+            .reduce((a, b) => a + b, 0);
+        this.totalScoreField.value = this.totalScore;
     }
 
     _getGolferData() {
@@ -135,6 +161,11 @@ export class GlGolfer extends LitElement {
                     <div class="golfer-info">
                         <vaadin-number-field name="handicap" label="hdcp"
                                              value="${this.handicap}" disabled></vaadin-number-field>
+                    </div>`}
+                    ${this.hideTotal ? html``:html`
+                    <div class="golfer-info">
+                        <vaadin-number-field class="total-score" name="totalScore" label="Total"
+                                             value="${this.totalScore}" disabled></vaadin-number-field>
                     </div>`}
                 </div>
                 <div class="column">

@@ -67,7 +67,7 @@ export class GlRound extends LitElement {
         this.netPoints = null;
         this.matchPoints = null;
         this.teamNet = null;
-        this.round = [{},{},{},{},{},{},{},{},{}];
+        this.round = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
     }
 
     connectedCallback() {
@@ -77,19 +77,25 @@ export class GlRound extends LitElement {
     }
 
     _onHoleFirstUpdate(e) {
-        if(e.detail.hole === 9 || e.detail.hole === 18){
+        if (e.detail.hole === 9 || e.detail.hole === 18) {
             // Calculate which holes are first in the row then call show label on those holes.
             const slots = [...this.shadowRoot.querySelector(".round-container").querySelectorAll("slot")];
             const holes = slots.map(slot => slot.assignedElements()[0]);
-            const left = holes.sort((a,b) => { return a.getBoundingClientRect().left - b.getBoundingClientRect().left;})[0].getBoundingClientRect().left;
-            holes.forEach((hole) => {if(hole.getBoundingClientRect().left === left){hole.showLabel()}});
+            const left = holes.sort((a, b) => {
+                return a.getBoundingClientRect().left - b.getBoundingClientRect().left;
+            })[0].getBoundingClientRect().left;
+            holes.forEach((hole) => {
+                if (hole.getBoundingClientRect().left === left) {
+                    hole.showLabel()
+                }
+            });
         }
     }
 
     _onHoleScoreChange(e) {
         this.round[e.detail.hole - 1] = e.detail;
         this.dispatchEvent(new CustomEvent("gl-round-score-change", {
-            detail: {round:this.round}, bubbles: true, composed: true
+            detail: {round: this.round}, bubbles: true, composed: true
         }));
     }
 
@@ -117,9 +123,15 @@ export class GlRound extends LitElement {
                     <slot name="grossScore7"></slot>
                     <slot name="grossScore8"></slot>
                     <slot name="grossScore9"></slot>
-                    ${this.grossScore !== null ? [this.grossScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Gross" value="${score}" disabled></vaadin-number-field>`):``}
-                    ${this.handicap !== null ? [this.handicap].map(score => html`<vaadin-number-field class="display-field" name="score" label="Hdcp" value="${score}" disabled></vaadin-number-field>`):``}
-                    ${this.netScore !== null ? [this.netScore].map(score => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${score}" disabled></vaadin-number-field>`):``}
+                    ${this.grossScore !== null ? [this.grossScore].map(score => html`
+                        <vaadin-number-field class="display-field" name="score" label="Gross" value="${score}"
+                                             disabled></vaadin-number-field>`) : ``}
+                    ${this.handicap !== null ? [this.handicap].map(score => html`
+                        <vaadin-number-field class="display-field" name="score" label="Hdcp" value="${score}"
+                                             disabled></vaadin-number-field>`) : ``}
+                    ${this.netScore !== null ? [this.netScore].map(score => html`
+                        <vaadin-number-field class="display-field" name="score" label="Net" value="${score}"
+                                             disabled></vaadin-number-field>`) : ``}
                 </div>
                 <div class="report-container">
                     <slot name="netScore1"></slot>
@@ -131,9 +143,15 @@ export class GlRound extends LitElement {
                     <slot name="netScore7"></slot>
                     <slot name="netScore8"></slot>
                     <slot name="netScore9"></slot>
-                    ${this.netPoints !== null ? [this.netPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Net" value="${points}" disabled></vaadin-number-field>`):``}
-                    ${this.matchPoints !== null ? [this.matchPoints].map(points => html`<vaadin-number-field class="display-field" name="score" label="Match" value="${points}" disabled></vaadin-number-field>`):``}
-                    ${this.teamNet !== null ? [this.teamNet].map(points => html`<vaadin-number-field class="display-field" name="score" label="Team" value="${points}" disabled></vaadin-number-field>`):``}
+                    ${this.netPoints !== null ? [this.netPoints].map(points => html`
+                        <vaadin-number-field class="display-field" name="score" label="Net" value="${points}"
+                                             disabled></vaadin-number-field>`) : ``}
+                    ${this.matchPoints !== null ? [this.matchPoints].map(points => html`
+                        <vaadin-number-field class="display-field" name="score" label="Match" value="${points}"
+                                             disabled></vaadin-number-field>`) : ``}
+                    ${this.teamNet !== null ? [this.teamNet].map(points => html`
+                        <vaadin-number-field class="display-field" name="score" label="Team" value="${points}"
+                                             disabled></vaadin-number-field>`) : ``}
                 </div>
             </div>
         `;

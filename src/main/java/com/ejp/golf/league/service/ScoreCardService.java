@@ -160,6 +160,7 @@ public class ScoreCardService implements Serializable {
                         }
                         glGolfer.setInline(true);
                         glGolfer.setHideHdcp(true);
+                        glGolfer.setHideTotal(true);
 
                         GlRound glRound = new GlRound();
                         glRound.setGrossScore(roundSummary.getGrossScore());
