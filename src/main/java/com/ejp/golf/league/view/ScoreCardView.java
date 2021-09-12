@@ -10,6 +10,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
@@ -35,6 +36,7 @@ import java.util.stream.IntStream;
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
 public class ScoreCardView extends VerticalLayout {
 
+    private final League league;
     private final ScoreCardService scoreCardService;
 
     /**
@@ -42,10 +44,12 @@ public class ScoreCardView extends VerticalLayout {
      * <p>
      * Build the initial UI state for the user accessing the application.
      */
-    public ScoreCardView() {
+    @Autowired
+    public ScoreCardView(League league, ScoreCardService scoreCardService) {
+        this.league = league;
+        this.scoreCardService = scoreCardService;
         addClassName("centered-content");
-        scoreCardService = new ScoreCardService();
-        GlCard glCard = scoreCardService.getScoreCard(1, 1, 1);
+        GlCard glCard = scoreCardService.getScoreCard(this.league, 1, 1, 1);
         glCard.addCardRequestListener(this::handleScoreCardRequest);
         glCard.addCardSubmissionListener(this::handleScoreCardSubmission);
         add(glCard);
@@ -62,7 +66,7 @@ public class ScoreCardView extends VerticalLayout {
             round.setHandicap(scoreCardService.getHandicap(key));
             round.setNine(event.getNine());
             round.setDatePlayed(new Timestamp(System.currentTimeMillis()));
-            round.setHome(scoreCardService.isHome(key, event.getMatch()));
+            round.setHome(scoreCardService.isHome(league, key, event.getMatch()));
             EventMatch eventMatch = new EventMatch();
             eventMatch.setId(event.getMatch());
             round.setEventMatch(eventMatch);
@@ -92,7 +96,7 @@ public class ScoreCardView extends VerticalLayout {
         int week = event.getWeek();
         int flight = event.getFlight();
         int slot = event.getTeam();
-        GlCard requestCard = scoreCardService.getScoreCard(week, flight, slot);
+        GlCard requestCard = scoreCardService.getScoreCard(league, week, flight, slot);
         requestCard.addCardRequestListener(this::handleScoreCardRequest);
         requestCard.addCardSubmissionListener(this::handleScoreCardSubmission);
         remove(card);

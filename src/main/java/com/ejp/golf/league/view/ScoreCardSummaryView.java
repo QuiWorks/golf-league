@@ -9,6 +9,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.ParseException;
 
@@ -29,10 +30,8 @@ import java.text.ParseException;
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
 public class ScoreCardSummaryView extends VerticalLayout {
 
-
-    public final League league = new League().build(l -> l
-            .set(l::id, 1)
-            .set(l::name, "Territory Wednesday Mens League"));
+    private final League league;
+    private final ScoreCardService scoreCardService;
 
     /**
      * Construct a new Vaadin view.
@@ -40,9 +39,12 @@ public class ScoreCardSummaryView extends VerticalLayout {
      * Build the initial UI state for the user accessing the application.
      *
      */
-    public ScoreCardSummaryView() throws ParseException {
+    @Autowired
+    public ScoreCardSummaryView(League league, ScoreCardService scoreCardService) throws ParseException {
+        this.league = league;
+        this.scoreCardService = scoreCardService;
         addClassName("centered-content");
-        GlReport glReport =  new ScoreCardService().getScoreCardSummary(1, 1, 1);
+        GlReport glReport =  this.scoreCardService.getScoreCardSummary(league,1, 1, 1);
         glReport.addRequestSubmissionListener(this::handleRequestSubmission);
         add(glReport);
     }
@@ -52,7 +54,7 @@ public class ScoreCardSummaryView extends VerticalLayout {
         int week = event.getWeek();
         int flight = event.getFlight();
         int team = event.getTeam();
-        GlReport requestedReport = new ScoreCardService().getScoreCardSummary(week, flight, team);
+        GlReport requestedReport = scoreCardService.getScoreCardSummary(league, week, flight, team);
         requestedReport.addRequestSubmissionListener(this::handleRequestSubmission);
         remove(glReport);
         add(requestedReport);

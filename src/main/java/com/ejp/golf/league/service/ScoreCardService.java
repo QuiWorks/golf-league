@@ -29,18 +29,18 @@ public class ScoreCardService implements Serializable {
     private final EventMatchRepository eventMatchRepository;
     private final HoleRepository holeRepository;
     private final GolferHandicapRepository golferHandicapRepository;
-    //TODO remove hard coding.
-    public final League league = new League().build(l -> l
-            .set(l::id, 1)
-            .set(l::name, "Territory Wednesday Mens League"));
 
-    public ScoreCardService() {
-        //TODO create producer methods for this stuff so it can be injected:
-        entityManagerFactory = Persistence.createEntityManagerFactory("golf_league");
-        roundRepository = new RoundRepository();
-        eventMatchRepository = new EventMatchRepository();
-        holeRepository = new HoleRepository();
-        golferHandicapRepository = new GolferHandicapRepository();
+    public ScoreCardService(EntityManagerFactory entityManagerFactory,
+                            RoundRepository roundRepository,
+                            EventMatchRepository eventMatchRepository,
+                            HoleRepository holeRepository,
+                            GolferHandicapRepository golferHandicapRepository) {
+
+        this.entityManagerFactory = entityManagerFactory;
+        this.roundRepository = roundRepository;
+        this.eventMatchRepository = eventMatchRepository;
+        this.holeRepository = holeRepository;
+        this.golferHandicapRepository = golferHandicapRepository;
     }
 
     public Round saveRound(Round round) {
@@ -59,7 +59,7 @@ public class ScoreCardService implements Serializable {
         return score;
     }
 
-    public boolean isHome(int golferId, int matchId) {
+    public boolean isHome(League league, int golferId, int matchId) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         boolean home = eventMatchRepository.isHome(entityManager, league.getId(), golferId, matchId);
         entityManager.close();
@@ -73,7 +73,7 @@ public class ScoreCardService implements Serializable {
         return handicap;
     }
 
-    public GlCard getScoreCard(int week, int flight, int teamNumber) {
+    public GlCard getScoreCard(League league, int week, int flight, int teamNumber) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EventMatch match = eventMatchRepository.getMatch(entityManager, league.getId(), week, flight, teamNumber);
         List<Hole> holes = holeRepository.getHoles(entityManager, match.getCourseId(), match.getNine());
@@ -93,11 +93,11 @@ public class ScoreCardService implements Serializable {
                 glRound.getElement().appendChild(glHole.getElement());
             });
             glGolfer.getElement().appendChild(glRound.getElement());
-            glGolfer.getElement().setAttribute("slot","card");
+            glGolfer.getElement().setAttribute("slot", "card");
             golferList.add(glGolfer);
         }));
 
-        GlFliter glFliter = getGlFilter(week, flight, teamNumber, entityManager);
+        GlFliter glFliter = getGlFilter(league, week, flight, teamNumber, entityManager);
 
         GlCard glCard = new GlCard();
         glCard.setMatch(match.getId());
@@ -113,7 +113,7 @@ public class ScoreCardService implements Serializable {
         return glCard;
     }
 
-    private GlFliter getGlFilter(int week, int flight, int teamNumber, EntityManager entityManager) {
+    private GlFliter getGlFilter(League league, int week, int flight, int teamNumber, EntityManager entityManager) {
         GlFliter glFliter = new GlFliter();
         glFliter.setWeek(week);
         glFliter.setFlight(flight);
@@ -125,16 +125,16 @@ public class ScoreCardService implements Serializable {
         return glFliter;
     }
 
-    public GlReport getScoreCardSummary(int week, int flight, int team) {
+    public GlReport getScoreCardSummary(League league, int week, int flight, int team) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        GlReport glReport = generateReport(getScoreCardSummaries(roundRepository.getRounds(entityManager, league.getId(), week, flight, team)), team);
-        GlFliter glFliter = getGlFilter(week, flight, team, entityManager);
+        GlReport glReport = generateReport(league, getScoreCardSummaries(roundRepository.getRounds(entityManager, league.getId(), week, flight, team)), team);
+        GlFliter glFliter = getGlFilter(league, week, flight, team, entityManager);
         glReport.getElement().appendChild(glFliter.getElement());
         entityManager.close();
         return glReport;
     }
 
-    private GlReport generateReport(List<ScoreCardSummary> scoreCardSummaries, int teamId) {
+    private GlReport generateReport(League league, List<ScoreCardSummary> scoreCardSummaries, int teamId) {
         final GlReport glReport = new GlReport();
         scoreCardSummaries.stream().findAny().ifPresent(summary -> {
             glReport.setWeek(summary.getWeek());
@@ -152,10 +152,9 @@ public class ScoreCardService implements Serializable {
                         GlGolfer glGolfer = new GlGolfer();
                         glGolfer.setHandicap(roundSummary.getHandicap());
                         glGolfer.setName(roundSummary.getGolfer().fullName());
-                        if(roundSummary.getGolfer().getSubstitute())
-                        {
-                            glGolfer.setTeam(getTeamForSubstitute(scoreCardSummary, roundSummary));
-                        }else{
+                        if (roundSummary.getGolfer().getSubstitute()) {
+                            glGolfer.setTeam(getTeamForSubstitute(league, scoreCardSummary, roundSummary));
+                        } else {
                             roundSummary.getGolfer().teamForLeague(league).map(Team::getTeamId).ifPresent(glGolfer::setTeam);
                         }
                         glGolfer.setInline(true);
@@ -187,7 +186,7 @@ public class ScoreCardService implements Serializable {
         return glReport;
     }
 
-    private Integer getTeamForSubstitute(ScoreCardSummary scoreCardSummary, RoundSummary roundSummary) {
+    private Integer getTeamForSubstitute(League league, ScoreCardSummary scoreCardSummary, RoundSummary roundSummary) {
         return roundSummary.isHomeTeam()
                 ? scoreCardSummary.getHomeTeam().stream().map(rs -> rs.getGolfer().teamForLeague(league)).filter(Optional::isPresent).map(Optional::get).map(Team::getTeamId).findAny().orElse(0)
                 : scoreCardSummary.getAwayTeam().stream().map(rs -> rs.getGolfer().teamForLeague(league)).filter(Optional::isPresent).map(Optional::get).map(Team::getTeamId).findAny().orElse(0);
